@@ -30,17 +30,17 @@
     <c:if test="${not empty hrsUrls['Benefits Enrollment']}">
       <div class="dl-banner-link">
         You have a benefit enrollment opportunity. Please enroll online by clicking the
-        following link. <a target="_blank" href="${hrsUrls['Benefits Enrollment']}">Benefits Enrollment</a> 
+        following link. <a target="_blank" href="${hrsUrls['Benefits Enrollment']}">Benefits Enrollment</a>
       </div>
     </c:if>
     <div class="dl-help-link">
       <a href="${helpUrl}" target="_blank">Help</a>
     </div>
   </div>
-    
+
       <hrs:notification/>
   </div>
-  
+
   <div>
     <c:if test="${not empty hrsUrls['Year End Leave Balances']}">
         <div class="dl-link">
@@ -64,7 +64,7 @@
       </div>
     </sec:authorize>
   </div>
-  
+
   <div id="${n}dl-tabs" class="dl-tabs ui-tabs ui-widget ui-widget-content ui-corner-all inner-nav-container">
     <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all inner-nav">
       <c:set var="activeTabStyle" value="ui-tabs-selected ui-state-active"/>
@@ -88,25 +88,25 @@
             <table class="dl-table table">
               <thead>
                 <tr rsf:id="header:">
-                  <th class="flc-pager-sort-header" rsf:id="name"><a href="javascript:;">Name</a></th>
-                  <th class="flc-pager-sort-header" rsf:id="status"><a href="javascript:;">Status</a></th>
-                  <th class="flc-pager-sort-header" rsf:id="start"><a href="javascript:;">Start</a></th>
-                  <th class="flc-pager-sort-header" rsf:id="end"><a href="javascript:;">End</a></th>
-                  <th class="flc-pager-sort-header" rsf:id="total"><a href="javascript:;">Total</a></th>
+                  <th scope="col" class="flc-pager-sort-header" rsf:id="name"><a href="#">Name</a></th>
+                  <th scope="col" class="flc-pager-sort-header" rsf:id="status"><a href="#">Status</a></th>
+                  <th scope="col" class="flc-pager-sort-header" rsf:id="start"><a href="#">Start</a></th>
+                  <th scope="col" class="flc-pager-sort-header" rsf:id="end"><a href="#">End</a></th>
+                  <th scope="col" class="flc-pager-sort-header" rsf:id="total"><a href="#">Total</a></th>
                   <c:if test="${showJobTitle}">
-                    <th class="flc-pager-sort-header" rsf:id="title"><a href="javascript:;">Job Title</a></th>
+                    <th scope="col" class="flc-pager-sort-header" rsf:id="title"><a href="#">Job Title</a></th>
                   </c:if>
                 </tr>
               </thead>
               <tbody>
                   <tr rsf:id="row:">
-                    <td class="dl-data-text"><span rsf:id="name"></span></td>
-                    <td class="dl-data-text"><span rsf:id="status"></span></td>
-                    <td class="dl-data-date"><span rsf:id="start"></span></td>      
-                    <td class="dl-data-date"><span rsf:id="end"></span></td>      
-                    <td class="dl-data-number"><span rsf:id="total"></span></td>
+                    <td headers="name" class="dl-data-text"><span rsf:id="name"></span></td>
+                    <td headers="status" class="dl-data-text"><span rsf:id="status"></span></td>
+                    <td headers="start" class="dl-data-date"><span rsf:id="start"></span></td>
+                    <td headers="end" class="dl-data-date"><span rsf:id="end"></span></td>
+                    <td headers="total" class="dl-data-number"><span rsf:id="total"></span></td>
                     <c:if test="${showJobTitle}">
-                      <td class="dl-data-text"><span rsf:id="title"></span></td>
+                      <td headers="title" class="dl-data-text"><span rsf:id="title"></span></td>
                     </c:if>
                   </tr>
               </tbody>
@@ -123,22 +123,22 @@
       <div class="fl-pager">
         <hrs:pagerNavBar position="top" showSummary="${true}" />
         <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
-          <table class="dl-table table">
+          <table class="dl-table table" tabindex="0" aria-label="Leave balance detail table">
             <thead>
               <tr rsf:id="header:">
-                <th class="flc-pager-sort-header" rsf:id="entitlement"><a href="javascript:;">Entitlement</a></th>
-                <th class="flc-pager-sort-header" rsf:id="balance"><a href="javascript:;">Balance</a></th>
+                <th scope="col" class="flc-pager-sort-header" rsf:id="entitlement"><a href="#">Entitlement</a></th>
+                <th scope="col" class="flc-pager-sort-header" rsf:id="balance"><a href="#">Balance</a></th>
                 <c:if test="${showJobTitle}">
-                  <th class="flc-pager-sort-header" rsf:id="title"><a href="javascript:;">Job Title</a></th>
+                  <th scope="col" class="flc-pager-sort-header" rsf:id="title"><a href="#">Job Title</a></th>
                 </c:if>
               </tr>
             </thead>
             <tbody>
                 <tr rsf:id="row:">
-                  <td class="dl-data-text"><span rsf:id="entitlement"></span></td>
-                  <td class="dl-data-number"><span rsf:id="balance"></span></td>
+                  <td headers="entitlement" class="dl-data-text"><span rsf:id="entitlement"></span></td>
+                  <td headers="balance" class="dl-data-number"><span rsf:id="balance"></span></td>
                   <c:if test="${showJobTitle}">
-                    <td class="dl-data-text"><span rsf:id="title"></span></td>
+                    <td headers="title" class="dl-data-text"><span rsf:id="title"></span></td>
                   </c:if>
                 </tr>
             </tbody>
@@ -152,26 +152,26 @@
         <div class="fl-pager">
           <hrs:pagerNavBar position="top" showSummary="${true}" />
           <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
-            <table class="dl-table table">
+            <table class="dl-table table" tabindex="0" aria-label="Time Entry details table">
               <thead>
                 <tr rsf:id="header:">
-                  <th class="flc-pager-sort-header" rsf:id="date"><a href="javascript:;">Date</a></th>
-                  <th class="flc-pager-sort-header" rsf:id="status"><a href="javascript:;">Status</a></th>
-                  <th class="flc-pager-sort-header" rsf:id="total"><a href="javascript:;">Total</a></th>
-                  <th class="flc-pager-sort-header" rsf:id="type"><a href="javascript:;">Type</a></th>
+                  <th scope="col" class="flc-pager-sort-header" rsf:id="date"><a href="#">Date</a></th>
+                  <th scope="col" class="flc-pager-sort-header" rsf:id="status"><a href="#">Status</a></th>
+                  <th scope="col" class="flc-pager-sort-header" rsf:id="total"><a href="#">Total</a></th>
+                  <th scope="col" class="flc-pager-sort-header" rsf:id="type"><a href="#">Type</a></th>
                   <c:if test="${showJobTitle}">
-                    <th class="flc-pager-sort-header" rsf:id="title"><a href="javascript:;">Job Title</a></th>
+                    <th scope="col" class="flc-pager-sort-header" rsf:id="title"><a href="#">Job Title</a></th>
                   </c:if>
                 </tr>
               </thead>
               <tbody>
                   <tr rsf:id="row:">
-                    <td class="dl-data-date"><span rsf:id="date"></span></td>
-                    <td class="dl-data-text"><span rsf:id="status"></span></td>
-                    <td class="dl-data-number"><span rsf:id="total"></span></td>      
-                    <td class="dl-data-text"><span rsf:id="type"></span></td>
+                    <td headers="date" class="dl-data-date"><span rsf:id="date"></span></td>
+                    <td headers="status" class="dl-data-text"><span rsf:id="status"></span></td>
+                    <td headers="total" class="dl-data-number"><span rsf:id="total"></span></td>
+                    <td headers="type" class="dl-data-text"><span rsf:id="type"></span></td>
                     <c:if test="${showJobTitle}">
-                      <td class="dl-data-text"><span rsf:id="title"></span></td>
+                      <td headers="title" class="dl-data-text"><span rsf:id="title"></span></td>
                     </c:if>
                   </tr>
               </tbody>
@@ -204,16 +204,16 @@
             <table class="dl-table table">
               <thead>
                 <tr rsf:id="header:">
-                  <th class="flc-pager-sort-header" rsf:id="payPeriod"><a href="javascript:;">Pay Period</a></th>
-                  <th class="flc-pager-sort-header" rsf:id="leaveStatementLink"><a href="javascript:;">Leave Statement</a></th>
-                  <th class="flc-pager-sort-header" rsf:id="leaveFurloughReportLinks"><a href="javascript:;">Leave Report</a></th>
+                  <th scope="col" class="flc-pager-sort-header" rsf:id="payPeriod"><a href="#">Pay Period</a></th>
+                  <th scope="col" class="flc-pager-sort-header" rsf:id="leaveStatementLink"><a href="#">Leave Statement</a></th>
+                  <th scope="col" class="flc-pager-sort-header" rsf:id="leaveFurloughReportLinks"><a href="#">Leave Report</a></th>
                 </tr>
               </thead>
               <tbody>
                   <tr rsf:id="row:">
-                    <td class="dl-data-text" rsf:id="payPeriod"></td>
-                    <td class="dl-data-text" rsf:id="leaveStatementLink"></td>
-                    <td class="dl-data-text" rsf:id="leaveFurloughReportLinks"></td>
+                    <td headers="payPeriod" class="dl-data-text" rsf:id="payPeriod"></td>
+                    <td headers="leaveStatementLink" class="dl-data-text" rsf:id="leaveStatementLink"></td>
+                    <td headers="leaveFurloughReportLinks" class="dl-data-text" rsf:id="leaveFurloughReportLinks"></td>
                   </tr>
               </tbody>
             </table>
@@ -229,8 +229,8 @@
             <table class="dl-table table">
               <thead>
                 <tr rsf:id="header:">
-                  <th class="flc-pager-sort-header" rsf:id="year"><a href="javascript:;">Year</a></th>
-                  <th class="flc-pager-sort-header" rsf:id="fullTitle"><a href="javascript:;">Statement</a></th>
+                  <th class="flc-pager-sort-header" rsf:id="year"><a href="#">Year</a></th>
+                  <th class="flc-pager-sort-header" rsf:id="fullTitle"><a href="#">Statement</a></th>
                 </tr>
               </thead>
               <tbody>

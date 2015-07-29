@@ -59,17 +59,17 @@
       <div class="fl-pager">
         <hrs:pagerNavBar position="top" showSummary="${true}" />
         <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
-          <table class="dl-table table">
+          <table class="dl-table table" tabindex="0" aria-label="Benefit Information Summary table">
             <thead>
               <tr rsf:id="header:">
-                <th class="flc-pager-sort-header" rsf:id="name"><a href="javascript:;">Benefit</a></th>
-                <th class="flc-pager-sort-header" rsf:id="coverage"><a href="javascript:;">Coverage</a></th>
+                <th scope="col" class="flc-pager-sort-header" rsf:id="name"><a href="#">Benefit</a></th>
+                <th scope="col" class="flc-pager-sort-header" rsf:id="coverage"><a href="#">Coverage</a></th>
               </tr>
             </thead>
             <tbody>
                 <tr rsf:id="row:">
-                  <td class="dl-data-text"><span rsf:id="name"></span></td>
-                  <td class="dl-data-text"><span rsf:id="coverage"></span></td>
+                  <td headers="name" class="dl-data-text"><span rsf:id="name"></span></td>
+                  <td headers="coverage" class="dl-data-text"><span rsf:id="coverage"></span></td>
                 </tr>
             </tbody>
           </table>
@@ -89,17 +89,17 @@
       <div class="fl-pager">
         <hrs:pagerNavBar position="top" showSummary="${true}" />
         <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
-          <table class="dl-table table">
+          <table class="dl-table table" tabindex="0" aria-label="Benefit Information Statement table">
             <thead>
               <tr rsf:id="header:">
-                <th class="flc-pager-sort-header dl-col-5p" rsf:id="year"><a href="javascript:;">Year</a></th>
-                <th class="flc-pager-sort-header" rsf:id="name"><a href="javascript:;">Statement</a></th>
+                <th scope="col" class="flc-pager-sort-header dl-col-5p" rsf:id="year"><a href="#">Year</a></th>
+                <th scope="col" class="flc-pager-sort-header" rsf:id="name"><a href="#">Statement</a></th>
               </tr>
             </thead>
             <tbody>
                 <tr rsf:id="row:" class="dl-clickable">
-                  <td class="dl-data-text"><a href="#" target="_blank" rsf:id="year"></td>
-                  <td class="dl-data-text"><a href="#" target="_blank" rsf:id="name"></td>
+                  <td headers="year" class="dl-data-text"><a href="#" target="_blank" rsf:id="year"></td>
+                  <td headers="name" class="dl-data-text"><a href="#" target="_blank" rsf:id="name"></td>
                 </tr>
             </tbody>
           </table>
@@ -128,14 +128,14 @@
           <table class="dl-table">
             <thead>
               <tr rsf:id="header:">
-                <th class="flc-pager-sort-header" rsf:id="name"><a href="javascript:;">Name</a></th>
-                <th class="flc-pager-sort-header" rsf:id="relationship"><a href="javascript:;">Relationship</a></th>
+                <th scope="col" class="flc-pager-sort-header" rsf:id="name"><a href="#">Name</a></th>
+                <th scope="col" class="flc-pager-sort-header" rsf:id="relationship"><a href="#">Relationship</a></th>
               </tr>
             </thead>
             <tbody>
                 <tr rsf:id="row:" class="dl-clickable">
-                  <td class="dl-data-text"><span rsf:id="name"></span></td>
-                  <td class="dl-data-text"><span rsf:id="relationship"></span></td>
+                  <td headers="name" class="dl-data-text"><span rsf:id="name"></span></td>
+                  <td headers="relationship" class="dl-data-text"><span rsf:id="relationship"></span></td>
                 </tr>
             </tbody>
           </table>

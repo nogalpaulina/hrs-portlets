@@ -52,19 +52,19 @@
       <div class="fl-pager">
         <hrs:pagerNavBar position="top" showSummary="${true}"/>
         <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
-          <table class="dl-table table">
+          <table class="dl-table table" tabindex="0" aria-label="Earning Statements detail table">
             <thead>
               <tr rsf:id="header:">
-                <th class="flc-pager-sort-header dl-col-25p" rsf:id="paid"><a href="javascript:;">Paid</a></th>
-                <th class="flc-pager-sort-header dl-col-50p" rsf:id="earned"><a href="javascript:;">Earned</a></th>
-                <th class="flc-pager-sort-header dl-col-25p" rsf:id="amount"><a href="javascript:;">Amount</a></th>
+                <th scope="col" class="flc-pager-sort-header dl-col-25p" rsf:id="paid"><a href="#">Paid</a></th>
+                <th scope="col" class="flc-pager-sort-header dl-col-50p" rsf:id="earned"><a href="#">Earned</a></th>
+                <th scope="col" class="flc-pager-sort-header dl-col-25p" rsf:id="amount"><a href="#">Amount</a></th>
               </tr>
             </thead>
             <tbody>
                 <tr rsf:id="row:" class="dl-clickable">
-                  <td class="dl-data-text"><a href="#" target="_blank" rsf:id="paid"></a></td>
-                  <td class="dl-data-text"><a ref="#" target="_blank" rsf:id="earned"></a></td>
-                  <td class="dl-data-number"><a class="dl-earning-amount" href="#" target="_blank" rsf:id="amount"></a></td>      
+                  <td headers="paid" class="dl-data-text"><a href="#" target="_blank" rsf:id="paid"></a></td>
+                  <td headers="earned" class="dl-data-text"><a href="#" target="_blank" rsf:id="earned"></a></td>
+                  <td headers="amount" class="dl-data-number"><a class="dl-earning-amount" href="#" target="_blank" rsf:id="amount"></a></td>
                 </tr>
             </tbody>
           </table>
@@ -84,17 +84,17 @@
       <div class="fl-pager">
         <hrs:pagerNavBar position="top" showSummary="${true}" />
         <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
-          <table class="dl-table table">
+          <table class="dl-table table" tabindex="0" aria-label="Tax Statement table">
             <thead>
               <tr rsf:id="header:">
-                <th class="flc-pager-sort-header dl-col-5p" rsf:id="year"><a href="javascript:;">Year</a></th>
-                <th class="flc-pager-sort-header" rsf:id="name"><a href="javascript:;">Statement</a></th>
+                <th scope="col" class="flc-pager-sort-header dl-col-5p" rsf:id="year"><a href="#">Year</a></th>
+                <th scope="col" class="flc-pager-sort-header" rsf:id="name"><a href="#">Statement</a></th>
               </tr>
             </thead>
             <tbody>
                 <tr rsf:id="row:" class="dl-clickable">
-                  <td class="hrs-data-text dl-col-5p"><a href="#" target="_blank" rsf:id="year"></a></td>
-                  <td class="dl-data-text"><a href="#" target="_blank" rsf:id="name"></a></td>
+                  <td headers="year" class="hrs-data-text dl-col-5p"><a href="#" target="_blank" rsf:id="year"></a></td>
+                  <td headers="name" class="dl-data-text"><a href="#" target="_blank" rsf:id="name"></a></td>
                 </tr>
             </tbody>
           </table>
