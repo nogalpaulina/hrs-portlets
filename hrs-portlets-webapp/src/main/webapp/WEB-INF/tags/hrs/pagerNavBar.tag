@@ -17,7 +17,7 @@
         <li class="flc-pager-pageLink"><a href="javascript:;" class="btn btn-default">2</a></li>
       </ul>
     </li>
-    <li class="flc-pager-next dl-pager-next"><a href="#" title="Next Page" class="btn btn-default">Next</a></li>
+    <li class="flc-pager-next dl-pager-next"><a href="javascript:;" title="Next Page" class="btn btn-default">Next</a></li>
     <%-- <c:if test="${showSummary == true}">
       <li class="flc-pager-summary hrs-pager-summary"></li>
     </c:if> --%>
