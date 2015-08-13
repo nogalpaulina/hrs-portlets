@@ -55,9 +55,9 @@
           <table class="dl-table table" tabindex="0" aria-label="Earning Statements detail table">
             <thead>
               <tr rsf:id="header:">
-                <th scope="col" class="flc-pager-sort-header dl-col-25p" rsf:id="paid"><a href="#">Paid</a></th>
-                <th scope="col" class="flc-pager-sort-header dl-col-50p" rsf:id="earned"><a href="#">Earned</a></th>
-                <th scope="col" class="flc-pager-sort-header dl-col-25p" rsf:id="amount"><a href="#">Amount</a></th>
+                <th scope="col" class="flc-pager-sort-header dl-col-25p" rsf:id="paid"><a href="javascript:;">Paid</a></th>
+                <th scope="col" class="flc-pager-sort-header dl-col-50p" rsf:id="earned"><a href="javascript:;">Earned</a></th>
+                <th scope="col" class="flc-pager-sort-header dl-col-25p" rsf:id="amount"><a href="javascript:;">Amount</a></th>
               </tr>
             </thead>
             <tbody>
@@ -87,8 +87,8 @@
           <table class="dl-table table" tabindex="0" aria-label="Tax Statement table">
             <thead>
               <tr rsf:id="header:">
-                <th scope="col" class="flc-pager-sort-header dl-col-5p" rsf:id="year"><a href="#">Year</a></th>
-                <th scope="col" class="flc-pager-sort-header" rsf:id="name"><a href="#">Statement</a></th>
+                <th scope="col" class="flc-pager-sort-header dl-col-5p" rsf:id="year"><a href="javascript:;">Year</a></th>
+                <th scope="col" class="flc-pager-sort-header" rsf:id="name"><a href="javascript:;">Statement</a></th>
               </tr>
             </thead>
             <tbody>
