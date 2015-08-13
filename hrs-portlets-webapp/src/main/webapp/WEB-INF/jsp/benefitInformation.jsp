@@ -62,8 +62,8 @@
           <table class="dl-table table" tabindex="0" aria-label="Benefit Information Summary table">
             <thead>
               <tr rsf:id="header:">
-                <th scope="col" class="flc-pager-sort-header" rsf:id="name"><a href="#">Benefit</a></th>
-                <th scope="col" class="flc-pager-sort-header" rsf:id="coverage"><a href="#">Coverage</a></th>
+                <th scope="col" class="flc-pager-sort-header" rsf:id="name"><a href="javascript:;">Benefit</a></th>
+                <th scope="col" class="flc-pager-sort-header" rsf:id="coverage"><a href="javascript:;">Coverage</a></th>
               </tr>
             </thead>
             <tbody>
@@ -92,8 +92,8 @@
           <table class="dl-table table" tabindex="0" aria-label="Benefit Information Statement table">
             <thead>
               <tr rsf:id="header:">
-                <th scope="col" class="flc-pager-sort-header dl-col-5p" rsf:id="year"><a href="#">Year</a></th>
-                <th scope="col" class="flc-pager-sort-header" rsf:id="name"><a href="#">Statement</a></th>
+                <th scope="col" class="flc-pager-sort-header dl-col-5p" rsf:id="year"><a href="javascript:;">Year</a></th>
+                <th scope="col" class="flc-pager-sort-header" rsf:id="name"><a href="javascript:;">Statement</a></th>
               </tr>
             </thead>
             <tbody>
@@ -128,8 +128,8 @@
           <table class="dl-table">
             <thead>
               <tr rsf:id="header:">
-                <th scope="col" class="flc-pager-sort-header" rsf:id="name"><a href="#">Name</a></th>
-                <th scope="col" class="flc-pager-sort-header" rsf:id="relationship"><a href="#">Relationship</a></th>
+                <th scope="col" class="flc-pager-sort-header" rsf:id="name"><a href="javascript:;">Name</a></th>
+                <th scope="col" class="flc-pager-sort-header" rsf:id="relationship"><a href="javascript:;">Relationship</a></th>
               </tr>
             </thead>
             <tbody>
