@@ -213,7 +213,22 @@
           }
         });
         
-        dl.tabs("#${n}dl-tabs");
+        var opt = 0;
+        
+        if("statements" === "${tab}") {
+            opt = 1;
+        } else if ("dependents" === "${tab}") {
+            opt = 2;
+        }
+        
+        $("#${n}dl-tabs").tabs({
+            show: function(event, ui) {
+                $.log("Showing tab: " + ui.index);
+                dl.pager.show(ui.panel);
+            }
+        });
+        
+        $("#${n}dl-tabs").tabs("select",opt);
         
         dl.util.clickableContainer("#${n}dl-benefit-summary");
     });    
