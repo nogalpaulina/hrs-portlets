@@ -28,7 +28,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import edu.wisc.hr.dao.bnsumm.BenefitSummaryDao;
 import edu.wisc.hr.dm.bnsumm.BenefitSummary;
+
 import org.jasig.springframework.security.portlet.authentication.PrimaryAttributeUtils;
+
 import edu.wisc.portlet.hrs.web.HrsControllerBase;
 
 /**
@@ -46,11 +48,17 @@ public class BenefitInformationController extends HrsControllerBase {
     }
 
     @RequestMapping
-    public String viewContactInfo(ModelMap model, PortletRequest request) {
+    public String viewBenefitInfo(ModelMap model, PortletRequest request) {
         final String emplId = PrimaryAttributeUtils.getPrimaryId();
+        final String[] tabArray = request.getParameterMap().get("tab");
+        String tab = "";
+        if(tabArray!=null && tabArray.length == 1) {
+          tab = tabArray[0];
+        }
 
         final BenefitSummary benefitSummary = this.benefitSummaryDao.getBenefitSummary(emplId);
         model.addAttribute("enrollmentFlag", benefitSummary.getEnrollmentFlag());
+        model.addAttribute("tab", tab);
         
         return "benefitInformation";
     }
