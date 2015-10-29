@@ -189,11 +189,6 @@
       </div>
     </sec:authorize>
     <div id="${n}dl-absence-statements" class="dl-absence-statements ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
-      <div class="data-table-description-header">
-        <div class="data-table-description">
-          Leave balance information is now available on your earnings statement in the Payroll Information portlet
-        </div>
-      </div>
       <div id="${n}dl-leave-statements">
       	<p class="padded-paragraph">
       		<a href="#" id="${n}oustandingMissingLeaveReports" target="_blank" style="display: none;">Outstanding Missing Leave Reports</a>
