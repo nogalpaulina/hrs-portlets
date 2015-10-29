@@ -72,7 +72,7 @@
         <li class="ui-state-default ui-corner-top ${activeTabStyle}"><a href="#${n}dl-absence">Absence</a></li>
         <c:set var="activeTabStyle" value=""/>
       </sec:authorize>
-      <li class="ui-state-default ui-corner-top ${activeTabStyle}"><a href="#${n}dl-leave-balance">Leave Balance</a></li>
+      <li class="ui-state-default ui-corner-top ${activeTabStyle}"><a href="#${n}dl-leave-balance">Leave Balances</a></li>
       <sec:authorize ifAnyGranted="ROLE_VIEW_WEB_CLOCK,ROLE_VIEW_TIME_CLOCK,ROLE_VIEW_TIME_SHEET">
         <li class="ui-state-default ui-corner-top"><a href="#${n}dl-time-entry">Time Entry</a></li>
       </sec:authorize>
