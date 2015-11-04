@@ -78,10 +78,10 @@ public class HrsControllerBase {
      * Populate the ModelMap with the notification message
      */
     @ModelAttribute("notification")
-    public final String getNotification(PortletRequest request) {
+    public final String[] getNotification(PortletRequest request) {
         final PortletPreferences preferences = request.getPreferences();
         
-        return preferences.getValue(this.notificationPreferences, null);
+        return preferences.getValues(this.notificationPreferences, null);
     }
     
     /**
