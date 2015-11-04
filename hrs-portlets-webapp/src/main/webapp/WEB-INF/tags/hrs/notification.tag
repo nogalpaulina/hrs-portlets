@@ -3,7 +3,7 @@
 <%@ tag dynamic-attributes="attributes" isELIgnored="false" %>
 
 <c:if test="${not empty notification}">
-  <c:forEach var='note' items="notification">
+  <c:forEach var='note' items="${notification}">
    <div class="fl-widget hrs-notification-wrapper alert alert-info">
        <div class="hrs-notification-content">${note}</div>
    </div>
