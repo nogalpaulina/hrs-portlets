@@ -101,7 +101,7 @@
                                 <span class='label'>Last*</span>
                                 <br/>
                                 <span>
-                                  a  <form:input aria-label="edit last name box" path="lastName" class="uportal-input-text ${n}last-name" maxlength="30" />
+                                  <form:input aria-label="edit last name box" path="lastName" class="uportal-input-text ${n}last-name" maxlength="30" />
                                 </span>
                                 </div>
                               </div>
