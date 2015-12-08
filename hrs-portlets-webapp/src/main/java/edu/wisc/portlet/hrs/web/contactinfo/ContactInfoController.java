@@ -116,36 +116,41 @@ public class ContactInfoController extends HrsControllerBase {
     	@SuppressWarnings("unchecked")
 		Map<String, String> userInfo = (Map <String, String>) request.getAttribute(PortletRequest.USER_INFO);
     	
-		PreferredName preferredName = preferredNameService.getPreferredName(getPvi(request));
-		
-		String currentFirstName = userInfo.get("wiscedupreferredfirstname");
-		String currentMiddleName = userInfo.get("wiscedupreferredmiddlename");
-		String currentLastName = userInfo.get("wiscedupreferredlastname");
-		
-		if(preferredName != null) {
-			modelMap.addAttribute("firstName", preferredName.getFirstName());
-			modelMap.addAttribute("middleName", preferredName.getMiddleName());
-			modelMap.addAttribute("lastName", preferredName.getLastName());
-		}
-		
-		modelMap.addAttribute("pendingStatus",preferredNameService.getStatus(new PreferredName(currentFirstName, currentMiddleName,currentLastName,getPvi(request)),preferredNameService.getPreferredName(getPvi(request))));
-		modelMap.addAttribute("sirName",userInfo.get("sn"));
-		modelMap.addAttribute("displayName",userInfo.get("displayName"));//for system
-		modelMap.addAttribute("legalName",userInfo.get("wiscEduSORName")); // for uw-madison
-		
-		//edit setup
-		if(!modelMap.containsKey("preferredName")) {
-		
-			if(preferredName != null) {
-				modelMap.addAttribute("preferredName", preferredName);
-			} else {
-				modelMap.addAttribute("preferredName", new PreferredName());
-			}
-		}
-		
-		if(request.getParameter("therewasanerror") != null) {
-			modelMap.addAttribute("therewasanerror","true");
-		}
+    	modelMap.addAttribute("displayName",userInfo.get("displayName"));//for system
+        modelMap.addAttribute("legalName",userInfo.get("wiscEduSORName")); // for uw-madison
+        boolean isPreferredNameEnabled = !StringUtils.isBlank(userInfo.get("wiscEduSORName"));
+        modelMap.addAttribute("isPreferredNameEnabled", isPreferredNameEnabled);
+        
+        if(isPreferredNameEnabled) {
+    		PreferredName preferredName = preferredNameService.getPreferredName(getPvi(request));
+    		
+    		String currentFirstName = userInfo.get("wiscedupreferredfirstname");
+    		String currentMiddleName = userInfo.get("wiscedupreferredmiddlename");
+    		String currentLastName = userInfo.get("wiscedupreferredlastname");
+    		
+    		if(preferredName != null) {
+    			modelMap.addAttribute("firstName", preferredName.getFirstName());
+    			modelMap.addAttribute("middleName", preferredName.getMiddleName());
+    			modelMap.addAttribute("lastName", preferredName.getLastName());
+    		}
+    		
+    		modelMap.addAttribute("pendingStatus",preferredNameService.getStatus(new PreferredName(currentFirstName, currentMiddleName,currentLastName,getPvi(request)),preferredNameService.getPreferredName(getPvi(request))));
+    		modelMap.addAttribute("sirName",userInfo.get("sn"));
+    		
+    		//edit setup
+    		if(!modelMap.containsKey("preferredName")) {
+    		
+    			if(preferredName != null) {
+    				modelMap.addAttribute("preferredName", preferredName);
+    			} else {
+    				modelMap.addAttribute("preferredName", new PreferredName());
+    			}
+    		}
+    		
+    		if(request.getParameter("therewasanerror") != null) {
+    			modelMap.addAttribute("therewasanerror","true");
+    		}
+        }
 	}
 
     //TODO switch to spring-sec role check?
