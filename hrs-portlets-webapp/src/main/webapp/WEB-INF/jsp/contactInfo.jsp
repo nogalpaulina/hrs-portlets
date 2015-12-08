@@ -41,7 +41,7 @@
   <hrs:notification/>
   <div class="c-info-name">
     <c:choose>
-        <c:when test="${showBusinessEmail}">
+        <c:when test="${isPreferredNameEnabled}">
             <div class="contact-info-official-name">
                 <span aria-label="Primary or legal name"  tabindex="0" class="uportal-channel-strong" class="uportal-channel-strong"><spring:message code="label.official.name"/>:</span>
                 <span>${legalName}</span>
