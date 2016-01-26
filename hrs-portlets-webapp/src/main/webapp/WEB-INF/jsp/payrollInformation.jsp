@@ -114,6 +114,11 @@
       <a href="https://uwservice.wisc.edu/docs/publications/tax-w2-explanation.pdf" target="_blank" class="btn btn-default">W-2 Explanation</a>
       <span class='hidden-xs visible-xs'>|</span>
       <a href="https://uwservice.wisc.edu/docs/publications/itx-1042s-explanation.pdf" target="_blank" class="btn btn-default">1042-S Explanation</a>
+      <%-- Affordable Care Act links --%>
+      <span class='hidden-xs visible-xs'>|</span>
+      <a href="https://uwservice.wisc.edu/docs/publications/tax-1095c-explanation.pdf" target="_blank" class="btn btn-default">1095-C Explanation</a>
+      <span class='hidden-xs visible-xs'>|</span>
+      <a href="https://www.wisconsin.edu/ohrwd/aca/" target="_blank" class="btn btn-default">ACA Information</a>
     </div>
     <c:if test="${personalDataError or personalData.onVisa}">
       <div class="dl-link">
