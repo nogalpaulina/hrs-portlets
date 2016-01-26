@@ -119,8 +119,6 @@
       <a href="https://uwservice.wisc.edu/docs/publications/tax-1095c-explanation.pdf" target="_blank" class="btn btn-default">1095-C Explanation</a>
       <span class='hidden-xs visible-xs'>|</span>
       <a href="https://www.wisconsin.edu/ohrwd/aca/" target="_blank" class="btn btn-default">ACA Information</a>
-      <span class='hidden-xs visible-xs'>|</span>
-      <a href="https://uwservice.wisconsin.edu/news/post/266" target="_blank" class="btn btn-default">New IRS Form 1095-C</a>
     </div>
     <c:if test="${personalDataError or personalData.onVisa}">
       <div class="dl-link">
