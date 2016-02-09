@@ -126,7 +126,7 @@
       </div>
       <c:if test="${personalDataError or personalData.madisonEmpl}">
         <div class="dl-link">
-          <a href="https://www.cintax.us/gateway.asp?iid=P2642KCJ" target="_blank" class="btn btn-default">CINTAX Nonresident Tax Preparation</a>
+          <a href=" https://uwservice.wisc.edu/docs/publications/tax-nonresident-alien-resources.pdf" target="_blank" class="btn btn-default">About Nonresident Tax Preparation</a>
         </div>
       </c:if>
     </c:if>
