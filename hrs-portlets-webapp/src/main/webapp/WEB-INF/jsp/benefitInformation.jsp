@@ -35,7 +35,8 @@
       <div class="dl-banner-link">
         You have a benefit enrollment opportunity. Please enroll online by clicking the following link.
         <a target="_blank" href="${hrsUrls['Open Enrollment/Hire Event']}">Benefits Enrollment</a>. A Benefit Enrollment
-        Deadlines worksheet is available in the Statements tab which details your enrollment deadlines by plan.
+        Deadlines worksheet is available in the Statements tab which details your enrollment deadlines by plan. 
+        Learn more in the <a href="https://ohr.wisc.edu/ebenefits" target="blank">Madison eBenefits Guide</a>.
       </div>
     </c:when>
     </c:choose>
