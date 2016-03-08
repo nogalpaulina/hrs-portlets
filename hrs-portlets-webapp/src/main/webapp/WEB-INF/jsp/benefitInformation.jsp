@@ -29,6 +29,7 @@
       <div class="dl-banner-link">
         <spring:message code="benefit.summary.enrollment.O.message" text="You have a benefit enrollment opportunity. Please enroll online by clicking the following link: "/>
         <a target="_blank" href="${hrsUrls['Open Enrollment/Hire Event']}"><spring:message code="open.enrollment" text="Open Enrollment" /></a>
+        <c:if test="${isMadisonUser}">Learn more in the <a href="https://ohr.wisc.edu/ebenefits" target="blank">Madison eBenefits Guide</a>.</c:if>
       </div>
     </c:when>
     <c:when test="${enrollmentFlag == 'H'}">
@@ -36,7 +37,7 @@
         You have a benefit enrollment opportunity. Please enroll online by clicking the following link.
         <a target="_blank" href="${hrsUrls['Open Enrollment/Hire Event']}">Benefits Enrollment</a>. A Benefit Enrollment
         Deadlines worksheet is available in the Statements tab which details your enrollment deadlines by plan. 
-        Learn more in the <a href="https://ohr.wisc.edu/ebenefits" target="blank">Madison eBenefits Guide</a>.
+        <c:if test="${isMadisonUser}">Learn more in the <a href="https://ohr.wisc.edu/ebenefits" target="blank">Madison eBenefits Guide</a>.</c:if>
       </div>
     </c:when>
     </c:choose>
