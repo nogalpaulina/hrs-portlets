@@ -19,6 +19,8 @@
 
 package edu.wisc.portlet.hrs.web.benefits;
 
+import java.util.Map;
+
 import javax.portlet.PortletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import edu.wisc.hr.dao.bnsumm.BenefitSummaryDao;
 import edu.wisc.hr.dm.bnsumm.BenefitSummary;
 
+import org.apache.commons.lang.StringUtils;
 import org.jasig.springframework.security.portlet.authentication.PrimaryAttributeUtils;
 
 import edu.wisc.portlet.hrs.web.HrsControllerBase;
@@ -49,18 +52,23 @@ public class BenefitInformationController extends HrsControllerBase {
 
     @RequestMapping
     public String viewBenefitInfo(ModelMap model, PortletRequest request) {
-        final String emplId = PrimaryAttributeUtils.getPrimaryId();
-        final String[] tabArray = request.getParameterMap().get("tab");
-        String tab = "";
-        if(tabArray!=null && tabArray.length == 1) {
-          tab = tabArray[0];
-        }
+      @SuppressWarnings("unchecked")
+      Map<String, String> userInfo = (Map <String, String>) request.getAttribute(PortletRequest.USER_INFO);
+      final String emplId = PrimaryAttributeUtils.getPrimaryId();
+      
+      final String[] tabArray = request.getParameterMap().get("tab");
+      String tab = "";
+      if(tabArray!=null && tabArray.length == 1) {
+        tab = tabArray[0];
+      }
 
-        final BenefitSummary benefitSummary = this.benefitSummaryDao.getBenefitSummary(emplId);
-        model.addAttribute("enrollmentFlag", benefitSummary.getEnrollmentFlag());
-        model.addAttribute("tab", tab);
-        
-        return "benefitInformation";
+      final BenefitSummary benefitSummary = this.benefitSummaryDao.getBenefitSummary(emplId);
+      model.addAttribute("enrollmentFlag", benefitSummary.getEnrollmentFlag());
+      model.addAttribute("tab", tab);
+      boolean isMadisonUser = !StringUtils.isBlank(userInfo.get("wiscEduSORName"));
+      model.addAttribute("isMadisonUser", isMadisonUser);
+      
+      return "benefitInformation";
     }
     
     
