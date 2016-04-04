@@ -174,3 +174,7 @@
   .hrs .dl-payroll-links {
     padding-left : 15px;
   }
+  
+  .ui-tabs .ui-tabs-hide {
+    display: none!important;
+  }
