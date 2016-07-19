@@ -1,20 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    
+
     <parent>
         <groupId>edu.wisc.my.portlet.hrs</groupId>
         <artifactId>hrs-portlets-parent</artifactId>
         <version>1.0.0.37-SNAPSHOT</version>
     </parent>
-    
+
     <modelVersion>4.0.0</modelVersion>
-    
+
     <artifactId>hrs-portlets-ps-impl</artifactId>
-    
+
     <name>HR System Portlets PeopleSoft Impl</name>
     <description>Implementation for HRS portlets that pulls data from PeopleSoft</description>
 
     <dependencies>
-    <!-- 
+    <!--
         <dependency>
             <groupId>commons-httpclient</groupId>
             <artifactId>commons-httpclient</artifactId>
@@ -75,8 +75,8 @@
             <groupId>org.springframework.ws</groupId>
             <artifactId>spring-ws-core</artifactId>
         </dependency>
-        
-        
+
+
         <!-- ===== Runtime Dependencies ====================================== -->
         <dependency>
             <groupId>org.springframework.ws</groupId>
@@ -84,7 +84,7 @@
             <scope>runtime</scope>
         </dependency>
 
-        
+
         <!-- ===== Test Dependencies ====================================== -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -107,13 +107,13 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    
-    
-    
+
+
+
     <build>
         <plugins>
 
-            <!-- Generates JAXB binding classes -->            
+            <!-- Generates JAXB binding classes -->
             <plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb2-plugin</artifactId>

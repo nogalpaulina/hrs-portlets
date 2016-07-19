@@ -1,18 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    
+
     <parent>
         <groupId>edu.wisc.my.portlet.hrs</groupId>
         <artifactId>hrs-portlets-parent</artifactId>
         <version>1.0.0.37-SNAPSHOT</version>
     </parent>
-    
+
     <modelVersion>4.0.0</modelVersion>
-    
+
     <artifactId>hrs-portlets-bnsemail-impl</artifactId>
-    
+
     <name>HR System Portlets Business Email Impl</name>
     <description>Implementation for HR portlets that updates business email addresses</description>
-    
+
     <dependencies>
         <!-- ===== Compile Time Dependencies ============================== -->
         <dependency>
@@ -20,12 +20,12 @@
             <artifactId>hrs-portlets-api</artifactId>
             <version>${project.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>com.googlecode.ehcache-spring-annotations</groupId>
             <artifactId>ehcache-spring-annotations</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
@@ -81,9 +81,9 @@
 
 
         <!-- ===== Runtime Dependencies ================================== -->
-        
+
         <!-- ===== Provided Dependencies ================================== -->
-        
+
         <!-- ===== Test Dependencies ====================================== -->
         <dependency>
             <groupId>ch.qos.logback</groupId>

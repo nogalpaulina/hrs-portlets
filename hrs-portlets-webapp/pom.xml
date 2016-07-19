@@ -1,16 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    
+
     <parent>
         <groupId>edu.wisc.my.portlet.hrs</groupId>
         <artifactId>hrs-portlets-parent</artifactId>
         <version>1.0.0.37-SNAPSHOT</version>
     </parent>
-    
+
     <modelVersion>4.0.0</modelVersion>
-    
+
     <artifactId>hrs-portlets-webapp</artifactId>
     <packaging>war</packaging>
-    
+
     <name>HR System Portlets</name>
     <description>Portlets to display HRS related data.</description>
 
@@ -35,7 +35,7 @@
             <artifactId>hrs-portlets-bnsemail-impl</artifactId>
             <version>${project.version}</version>
         </dependency>
-    
+
         <!-- ===== Compile Time Dependencies ============================== -->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -52,7 +52,7 @@
         <dependency>
           <groupId>com.fasterxml.jackson.datatype</groupId>
           <artifactId>jackson-datatype-joda</artifactId>
-        </dependency>  
+        </dependency>
         <dependency>
             <groupId>com.googlecode.ehcache-spring-annotations</groupId>
             <artifactId>ehcache-spring-annotations</artifactId>
@@ -197,12 +197,12 @@
             <artifactId>pluto-taglib</artifactId>
             <scope>provided</scope>
         </dependency>
-        
+
 
         <!-- ===== Test Dependencies ====================================== -->
-        
+
     </dependencies>
-    
+
     <build>
         <finalName>HRSPortlets</finalName>
         <plugins>

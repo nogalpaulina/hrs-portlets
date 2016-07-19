@@ -28,7 +28,7 @@
         <connection>scm:git:git://github.com/UW-Madison-DoIT/hrs-portlets.git</connection>
         <developerConnection>scm:git:git@github.com:UW-Madison-DoIT/hrs-portlets.git</developerConnection>
         <url>https://github.com/UW-Madison-DoIT/hrs-portlets</url>
-      <tag>HEAD</tag>
+      <tag>hrs-1.0.0.36</tag>
   </scm>
 
     <!-- Dependency Version Properties -->

@@ -1,18 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    
+
     <parent>
         <groupId>edu.wisc.my.portlet.hrs</groupId>
         <artifactId>hrs-portlets-parent</artifactId>
         <version>1.0.0.37-SNAPSHOT</version>
     </parent>
-    
+
     <modelVersion>4.0.0</modelVersion>
-    
+
     <artifactId>hrs-portlets-api</artifactId>
-    
+
     <name>HR System Portlets API</name>
     <description>API used to provide data to the HRS Portlets.</description>
-    
+
     <dependencies>
         <!-- ===== Compile Time Dependencies ============================== -->
         <dependency>
@@ -35,13 +35,13 @@
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
         </dependency>
-        
+
     </dependencies>
-    
+
     <build>
         <plugins>
 
-            <!-- Generates JAXB binding classes -->            
+            <!-- Generates JAXB binding classes -->
             <plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb2-plugin</artifactId>
