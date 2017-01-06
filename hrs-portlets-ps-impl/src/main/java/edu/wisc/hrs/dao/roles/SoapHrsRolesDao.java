@@ -88,6 +88,7 @@ public class SoapHrsRolesDao extends BaseHrsSoapDao implements HrsRolesDao {
 
     protected Set<String> convertRoles(final GetCompIntfcUWPORTAL1ROLESResponse response) {
         if (response == null) {
+            logger.warn("Converted null roles web service SOAP response to empty role set.");
             return Collections.emptySet();
         }
         
