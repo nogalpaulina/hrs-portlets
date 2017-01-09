@@ -66,28 +66,28 @@ public class SoapHrsRolesDao extends BaseHrsSoapDao implements HrsRolesDao {
     protected WebServiceOperations getWebServiceOperations() {
         return this.webServiceOperations;
     }
-	
-	@Override
-	@Cacheable(cacheName="hrsRoles", decoratedCacheType=DecoratedCacheType.SELF_POPULATING_CACHE, selfPopulatingTimeout=20000, exceptionCacheName="hrsUnknownExceptionCache")
+    @Override
+    @Cacheable(cacheName="hrsRoles", decoratedCacheType=DecoratedCacheType.SELF_POPULATING_CACHE, selfPopulatingTimeout=20000, exceptionCacheName="hrsUnknownExceptionCache")
     public Set<String> getHrsRoles(String emplId) {
-	    final GetCompIntfcUWPORTAL1ROLES request = this.createRequest(emplId);
-	    
-	    final GetCompIntfcUWPORTAL1ROLESResponse response = this.internalInvoke(request);
-	    
-	    return this.convertRoles(response);
+        final GetCompIntfcUWPORTAL1ROLES request = this.createRequest(emplId);
+
+        final GetCompIntfcUWPORTAL1ROLESResponse response = this.internalInvoke(request);
+
+        return this.convertRoles(response);
     }
 
     protected GetCompIntfcUWPORTAL1ROLES createRequest(String emplId) {
         EmplidTypeShape value = HrsUtils.createValue(EmplidTypeShape.class, emplId);
-	    
-	    final GetCompIntfcUWPORTAL1ROLES request = new GetCompIntfcUWPORTAL1ROLES();
-	    request.setEmplid(value);
 
-	    return request;
+        final GetCompIntfcUWPORTAL1ROLES request = new GetCompIntfcUWPORTAL1ROLES();
+        request.setEmplid(value);
+
+        return request;
     }
 
     protected Set<String> convertRoles(final GetCompIntfcUWPORTAL1ROLESResponse response) {
         if (response == null) {
+            logger.warn("Converted null roles web service SOAP response to empty role set.");
             return Collections.emptySet();
         }
         
@@ -102,7 +102,7 @@ public class SoapHrsRolesDao extends BaseHrsSoapDao implements HrsRolesDao {
                 roles.addAll(mappedRoleNames);
             }
         }
-	    
+
         return roles;
     }
 }
