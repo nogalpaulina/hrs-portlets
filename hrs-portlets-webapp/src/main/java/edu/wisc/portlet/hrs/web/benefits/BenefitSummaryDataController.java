@@ -52,7 +52,7 @@ public class BenefitSummaryDataController {
         modelMap.addAttribute("benefits", benefitSummary.getBenefits());
         modelMap.addAttribute("dependents", benefitSummary.getDependents());
         modelMap.addAttribute(
-          "enrollmentFlag", benefitSummary.getEnrollmentFlag())
+          "enrollmentFlag", benefitSummary.getEnrollmentFlag());
 
         return "jsonView";
     }
