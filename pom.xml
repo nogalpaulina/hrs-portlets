@@ -36,6 +36,8 @@
         <project.build.sourceVersion>1.6</project.build.sourceVersion>
         <project.build.targetVersion>1.6</project.build.targetVersion>
 
+        <maven.javadoc.skip>true</maven.javadoc.skip>
+
         <aspectj.version>1.7.1</aspectj.version>
         <bouncycastle.version>1.47</bouncycastle.version>
         <cglib.version>2.2.2</cglib.version>
