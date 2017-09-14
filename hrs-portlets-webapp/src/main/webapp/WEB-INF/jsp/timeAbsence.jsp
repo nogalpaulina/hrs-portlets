@@ -267,6 +267,9 @@
       <a href="${prefs['UnclassifiedLeaveReportForSummerUrl'][0]}" target="_blank"  class='btn btn-default'>Unclassified Summer Session/Service Leave Report</a></c:if>
     </div>
   </div>
+
+  <%@ include file="/WEB-INF/jsp/footer.jsp"%>
+
 </div>
 
 <portlet:resourceURL var="absenceHistoriesUrl" id="absenceHistories" escapeXml="false"/>

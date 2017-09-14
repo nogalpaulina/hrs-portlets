@@ -131,6 +131,9 @@
       </c:if>
     </c:if>
   </div>
+
+  <%@ include file="/WEB-INF/jsp/footer.jsp"%>
+
 </div>
 
 <portlet:resourceURL var="earningStatementsUrl" id="earningStatements" escapeXml="false"/>
