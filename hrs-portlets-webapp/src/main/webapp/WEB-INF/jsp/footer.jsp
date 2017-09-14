@@ -20,5 +20,5 @@
 --%>
 <div>
   <strong>Service notice:</strong>
-  This app may be offline on Sundays, 6-10 AM for routine maintenance.
+  This app may be offline on Sundays, 6-10 a.m. for routine maintenance.
 </div>
