@@ -281,6 +281,9 @@
       </fieldset>
     </form>
   </div>
+
+  <%@ include file="/WEB-INF/jsp/footer.jsp"%>
+
 </div>
 
 <c:if test="${showBusinessEmail}">

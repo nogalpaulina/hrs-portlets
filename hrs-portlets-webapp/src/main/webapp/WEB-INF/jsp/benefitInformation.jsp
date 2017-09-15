@@ -152,6 +152,9 @@
       </div>
     </div>
   </div>
+
+  <%@ include file="/WEB-INF/jsp/footer.jsp"%>
+
 </div>
 
 <portlet:resourceURL var="benefitSummaryUrl" id="benefitSummary" escapeXml="false"/>

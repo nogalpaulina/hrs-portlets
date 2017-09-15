@@ -119,6 +119,9 @@
   <sec:authorize ifNotGranted="ROLE_VIEW_MANAGED_ABSENCES,ROLE_VIEW_MANAGED_TIMES">
     <div class="center">This module is for managers. If you believe you are a manager and should see content, please contact HR.</div>
   </sec:authorize>
+
+  <%@ include file="/WEB-INF/jsp/footer.jsp"%>
+
 </div>
 
 <portlet:resourceURL var="managedAbsencesUrl" id="managedAbsences" escapeXml="false"/>

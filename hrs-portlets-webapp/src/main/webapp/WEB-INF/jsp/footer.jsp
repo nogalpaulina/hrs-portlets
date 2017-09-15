@@ -18,15 +18,7 @@
     under the License.
 
 --%>
-<%@ include file="/WEB-INF/jsp/include.jsp"%>
-
-<portlet:renderURL var="refreshUrl" />
 <div>
-    <div>
-      <span><spring:message code="noEmplId" /> </span>
-      <a href="${refreshUrl}"><spring:message code="refresh" /></a>
-    </div>
-
-    <%@ include file="/WEB-INF/jsp/footer.jsp"%>
-
+  <strong>Service notice:</strong>
+  This app may be offline on Sundays, 6-10 a.m. for routine maintenance.
 </div>
