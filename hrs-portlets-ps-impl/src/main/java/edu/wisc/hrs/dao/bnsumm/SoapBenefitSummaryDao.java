@@ -121,7 +121,10 @@ public class SoapBenefitSummaryDao extends BaseHrsSoapDao implements BenefitSumm
             
             final String relationship = HrsUtils.getValue(uwBnBnSmryVwTypeShape.getXlatLongName1());
             dependent.setRelationship(relationship);
-            
+
+            logger.trace("Noted dependent [" + name 
+              + "] with relationship [" + relationship + "]");
+
             dependents.add(dependent);
         }
     }
