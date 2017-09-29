@@ -64,12 +64,12 @@ public class BenefitSummaryDataController {
       final BenefitSummary benefitSummary = 
         this.benefitSummaryDao.getBenefitSummary(emplid);
       
-      Map<String, String> enrollmentFlagMap = new HashMap<>();
+      Map<String, String> enrollmentFlagMap = new HashMap<String, String>();
       
       enrollmentFlagMap.put(
         "enrollmentFlag", benefitSummary.getEnrollmentFlag());
       
-      List<Map<String, String>> report = new ArrayList<>();
+      List<Map<String, String>> report = new ArrayList<Map<String, String>>();
       report.add(enrollmentFlagMap);
       
       modelMap.addAttribute("report", report);
