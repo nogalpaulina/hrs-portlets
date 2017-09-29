@@ -56,4 +56,26 @@ public class BenefitSummaryDataController {
 
         return "jsonView";
     }
+    
+    @ResourceMapping("enrollmentFlag")
+    public String getEnrollmentFlag(ModelMap modelMap) {
+      final String emplid = PrimaryAttributeUtils.getPrimaryId();
+      
+      final BenefitSummary benefitSummary = 
+        this.benefitSummaryDao.getBenefitSummary(emplid);
+      
+      Map<String, String> enrollmentFlagMap = new HashMap<>();
+      
+      enrollmentFlagMap.put(
+        "enrollmentFlag", benefitSummary.getEnrollmentFlag());
+      
+      List<Map<String, String>> report = new ArrayList<>();
+      report.add(enrollmentFlagMap);
+      
+      modelMap.addAttribute("report", report);
+      
+      return "jsonView";
+    }
+    
+    
 }
