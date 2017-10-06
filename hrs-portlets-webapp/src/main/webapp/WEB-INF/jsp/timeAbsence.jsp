@@ -50,8 +50,9 @@
     </c:if>
     <sec:authorize ifAnyGranted="ROLE_VIEW_ABSENCE_HISTORIES">
       <div class="dl-link">
-        <a class="btn btn-primary" href="${hrsUrls['Request Absence']}" target="_blank">Enter Absence</a><br/>
+        <a class="btn btn-primary" href="${hrsUrls['Request Absence']}" target="_blank">Enter Absence</a>
       </div>
+      <br/>
     </sec:authorize>
     <sec:authorize ifAnyGranted="ROLE_VIEW_TIME_SHEET,ROLE_VIEW_WEB_CLOCK,ROLE_VIEW_TIME_CLOCK">
       <div class="dl-link">
