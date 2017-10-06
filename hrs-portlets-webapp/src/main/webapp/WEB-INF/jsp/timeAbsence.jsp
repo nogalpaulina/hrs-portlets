@@ -52,6 +52,18 @@
       <div class="dl-link">
         <a class="btn btn-primary" href="${hrsUrls['Request Absence']}" target="_blank">Enter Absence</a>
       </div>
+
+      <c:if test="${not empty prefs['editCancelAbsenceUrl']
+        && not empty prefs['editCancelAbsenceUrl'][0]}">
+        <div class="dl-link">
+          <a class="btn btn-primary" 
+            href="${prefs['editCancelAbsenceUrl'][0]}" 
+            target="_blank" rel="noopener noreferer">
+            Edit/Cancel Absence
+          </a>
+        </div>
+      </c:if>
+
       <br/>
     </sec:authorize>
     <sec:authorize ifAnyGranted="ROLE_VIEW_TIME_SHEET,ROLE_VIEW_WEB_CLOCK,ROLE_VIEW_TIME_CLOCK">
