@@ -220,7 +220,7 @@
             linked HRS self-service UI. -->
       
       <div class="dl-contact-info-update">
-        <a href="prefs['updateMyPersonalInfoUrl'][0]" 
+        <a href="${prefs['updateMyPersonalInfoUrl'][0]}" 
           target="_blank" rel="noopener noreferer">
           <spring:message code="updateInfoLink"/>
         </a>
@@ -228,7 +228,7 @@
         <div>
           <p class="padded-paragraph">
             You can 
-            <a href="prefs['updateMyPersonalInfoUrl'][0]" 
+            <a href="${prefs['updateMyPersonalInfoUrl'][0]}" 
               target="_blank" rel="noopener noreferer">update personal information in the Human Resources System (HRS)</a> including:
 addresses (home &amp; mail), contact details (phone &amp; email), emergency contacts, home information release, marital status, coordination of benefits, Medicare information, ethnic groups, veteran status, and disability status.
           </p>
