@@ -64,7 +64,6 @@
         </div>
       </c:if>
 
-      <br/>
     </sec:authorize>
     <sec:authorize ifAnyGranted="ROLE_VIEW_TIME_SHEET,ROLE_VIEW_WEB_CLOCK,ROLE_VIEW_TIME_CLOCK">
       <div class="dl-link">
