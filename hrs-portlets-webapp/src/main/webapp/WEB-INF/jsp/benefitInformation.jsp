@@ -83,9 +83,9 @@
         <hrs:pagerNavBar position="bottom" />
       </div>
       <div class="container-fluid row">
-        <!-- when URL available from portlet pref, use that -->
-        <!-- else use URL from URLs web service if available -->
-        <!-- implied otherwise: simply drop the button -->
+        <%-- when URL available from portlet pref, use that --%>
+        <%-- else use URL from URLs web service if available --%>
+        <%-- implied otherwise: simply drop the button --%>
         <c:choose>
           <c:when test="${not empty prefs['benefitsSummaryUrl']
             && not empty prefs['benefitsSummaryUrl'][0]}">
