@@ -83,8 +83,10 @@
         <hrs:pagerNavBar position="bottom" />
       </div>
       <div class="container-fluid row">
+        <!-- when URL available from portlet pref, use that -->
+        <!-- else use URL from URLs web service if available -->
+        <!-- implied otherwise: simply drop the button -->
         <c:choose>
-          <!-- when URL available from portlet pref, use that -->
           <c:when test="${not empty prefs['benefitsSummaryUrl']
             && not empty prefs['benefitsSummaryUrl'][0]}">
             <div class='col-xs-4 col-xs-offset-2'>
@@ -95,7 +97,6 @@
               </a>
             </div>
           </c:when>
-          <!-- else use URL from URLs web service if available -->
           <c:when test="${not empty hrsUrls['Benefits Summary']}">
             <div class='col-xs-4 col-xs-offset-2'>
               <a href="${hrsUrls['Benefits Summary']}" 
@@ -105,7 +106,6 @@
               </a>
             </div>
           </c:when>
-          <!-- implied otherwise: simply drop the button -->
         </c:choose>
         <div class='col-xs-3'>
             <a href="${hrsUrls['Update TSA Deductions']}" target="_blank" class="btn btn-default">Update TSA Deductions</a>
