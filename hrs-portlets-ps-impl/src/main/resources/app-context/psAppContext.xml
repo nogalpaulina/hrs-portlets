@@ -71,6 +71,11 @@
                 <value>ROLE_VIEW_MANAGED_TIMES</value>
             </set>
         </entry>
+        <entry key="UW_DYN_PY_DIRDEP_SS">
+          <set>
+              <value>ROLE_VIEW_DIRECT_DEPOSIT</value>
+          </set>
+        </entry>
     </util:map>
     
     <bean id="absenceBalanceDestinationProvider" class="org.jasig.springframework.ws.client.support.destination.FailSafeWsdl11DestinationProvider" />
