@@ -111,14 +111,25 @@
       <!-- show the self-service direct deposit link if authorized-->
       <sec:authorize ifAnyGranted="ROLE_VIEW_DIRECT_DEPOSIT">
         <!-- Only show the self-service direct deposit link if configured. -->
-        <c:if test="${not empty prefs['directDepositSelfServiceUrl']
-          && not empty prefs['directDepositSelfServiceUrl'][0]}">
-          <a 
-            href="${prefs['directDepositSelfServiceUrl']}" 
-            target="_blank" 
-            class="btn btn-default">
-            Update your Direct Deposit</a>
-        </c:if>
+        <c:choose>
+          <c:when test="${not empty prefs['directDepositSelfServiceUrl']
+            && not empty prefs['directDepositSelfServiceUrl'][0]}">
+            <a 
+              href="${prefs['directDepositSelfServiceUrl']}" 
+              target="_blank" 
+              class="btn btn-default">
+              Update your Direct Deposit</a>
+          </c:when>
+          <c:otherwise>
+            <!-- even if authorized for self-service, if that URL is not set
+              fall back on the PDF form. -->
+            <a 
+              href="https://uwservice.wisc.edu/docs/forms/pay-direct-deposit.pdf" 
+              target="_blank" 
+              class="btn btn-default">
+              Update your Direct Deposit</a>
+          </c:otherwise>
+        </c:choose>
       </sec:authorize>
       <sec:authorize ifNotGranted="ROLE_VIEW_DIRECT_DEPOSIT">
         <!-- show the link to the PDF form 
