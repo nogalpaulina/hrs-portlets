@@ -108,7 +108,27 @@
     <div class="dl-link">
       <a href="https://uwservice.wisc.edu/docs/forms/pay-employee-withholding.pdf" target="_blank" class="btn btn-default">Update your W4</a>
       <span class='hidden-xs visible-xs'>|</span>
-      <a href="https://uwservice.wisc.edu/docs/forms/pay-direct-deposit.pdf" target="_blank" class="btn btn-default">Update your Direct Deposit</a>
+      <!-- show the self-service direct deposit link if authorized-->
+      <sec:authorize ifAnyGranted="ROLE_VIEW_DIRECT_DEPOSIT">
+        <!-- Only show the self-service direct deposit link if configured. -->
+        <c:if test="${not empty prefs['directDepositSelfServiceUrl']
+          && not empty prefs['directDepositSelfServiceUrl'][0]}">
+          <a 
+            href="${prefs['directDepositSelfServiceUrl']}" 
+            target="_blank" 
+            class="btn btn-default">
+            Update your Direct Deposit</a>
+        </c:if>
+      </sec:authorize>
+      <sec:authorize ifNotGranted="ROLE_VIEW_DIRECT_DEPOSIT">
+        <!-- show the link to the PDF form 
+        if not authorized for self-service -->
+        <a 
+          href="https://uwservice.wisc.edu/docs/forms/pay-direct-deposit.pdf" 
+          target="_blank" 
+          class="btn btn-default">
+          Update your Direct Deposit</a>
+      </sec:authorize>
     </div>
     <div class="dl-link">
       <a href="https://uwservice.wisc.edu/docs/publications/tax-w2-explanation.pdf" target="_blank" class="btn btn-default">W-2 Explanation</a>
