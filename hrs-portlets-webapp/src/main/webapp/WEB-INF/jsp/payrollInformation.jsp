@@ -116,7 +116,7 @@
             && not empty prefs['directDepositSelfServiceUrl'][0]}">
             <a 
               href="${prefs['directDepositSelfServiceUrl']}" 
-              target="_blank" 
+              target="_blank"
               class="btn btn-default">
               Update your Direct Deposit</a>
           </c:when>
@@ -124,8 +124,8 @@
             <!-- even if authorized for self-service, if that URL is not set
               fall back on the PDF form. -->
             <a 
-              href="https://uwservice.wisc.edu/docs/forms/pay-direct-deposit.pdf" 
-              target="_blank" 
+              href="https://uwservice.wisc.edu/docs/forms/pay-direct-deposit.pdf"
+              target="_blank"
               class="btn btn-default">
               Update your Direct Deposit</a>
           </c:otherwise>
