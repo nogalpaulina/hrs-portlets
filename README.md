@@ -1,6 +1,6 @@
-## ReadMe
+# hrs-portlets README
 
-### Local Setup Instructions
+## Local Setup Instructions
 
 Several property files need to be configured for your local environment before the Portlet will run in your local uPortal server.
 
