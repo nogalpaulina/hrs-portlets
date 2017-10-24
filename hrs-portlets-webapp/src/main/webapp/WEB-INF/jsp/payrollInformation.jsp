@@ -115,7 +115,7 @@
           <c:when test="${not empty prefs['directDepositSelfServiceUrl']
             && not empty prefs['directDepositSelfServiceUrl'][0]}">
             <a 
-              href="${prefs['directDepositSelfServiceUrl'][0]}}" 
+              href="${prefs['directDepositSelfServiceUrl'][0]}" 
               target="_blank" rel="noopener noreferrer"
               class="btn btn-default">
               Update your Direct Deposit</a>
