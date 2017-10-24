@@ -1,5 +1,11 @@
 # hrs-portlets README
 
+## Roles
+
+hrs-portlets maps roles reported from a SOAP web service from HRS to role names local to hrs-portlets. This is to normalize roles and make them look like roles one might expect to use with Spring Security.
+
+Role mapping happens in `hrs-portlets-ps-impl/src/main/resources/app-context/psAppContext.xml`. That configuration is the authoritative documentation of what HRS roles map to what portlet roles, since that configuration is doing the mapping.
+
 ## Local Setup Instructions
 
 Several property files need to be configured for your local environment before the Portlet will run in your local uPortal server.
