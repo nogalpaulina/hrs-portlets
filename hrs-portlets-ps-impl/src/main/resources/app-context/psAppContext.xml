@@ -43,37 +43,90 @@
         <entry key="UW_DYN_AM_EMPLOYEE">
             <set>
                 <value>ROLE_VIEW_ABSENCE_HISTORIES</value>
+                <!-- effects
+                  In Time and Absence
+                    Allows rendering absenceHistories.json
+                    Show the Absence tab
+                    Show the Enter Absence link
+                    Show the Edit Cancel Absence link, if link is configured
+                -->
             </set>
         </entry>
         <entry key="UW_DYN_TL_WEB_CLOCK">
             <set>
                 <value>ROLE_VIEW_WEB_CLOCK</value>
+                <!-- effects (superset of 
+                  ROLE_VIEW_TIME_CLOCK or ROLE_VIEW_TIME_SHEET)
+                  In Time and Absence
+                    Allows rendering timeSheets.json
+                    Show the Time Entry tab
+                    Show the Timesheet link
+                    Show the Web Clock link (this is the difference from
+                      ROLE_VIEW_TIME_CLOCK and ROLE_VIEW_TIME_SHEET)
+                -->
             </set>
         </entry>
         <entry key="UW_DYN_TL_EMPLOYEE_TIMECLOCK">
             <set>
                 <value>ROLE_VIEW_TIME_CLOCK</value>
+                <!-- effects (same as ROLE_VIEW_TIME_SHEET,
+                  subset of ROLE_VIEW_WEB_CLOCK)
+                  Allows rendering timeSheets.json
+                  In Time and Absence
+                    Show the Time Entry tab
+                    Show the Timesheet link
+                -->
             </set>
         </entry>
         <entry key="UW_DYN_TL_CL_EMPL_TIMESHEET">
             <set>
                 <value>ROLE_VIEW_TIME_SHEET</value>
+                <!-- effects (same as ROLE_VIEW_TIME_CLOCK,
+                  subset of ROLE_VIEW_WEB_CLOCK)
+                  Allows rendering timeSheets.json
+                  In Time and Absence
+                    Show the Time Entry tab
+                    Show the Timesheet link
+                -->
             </set>
         </entry>
         <entry key="UW_UNV_TL Supervisor">
             <set>
                 <value>ROLE_VIEW_MANAGED_ABSENCES</value>
+                <!-- effects
+                  Allows rendering managedAbsences.json
+                  In Manager Time Approval
+                    Show the Absence tab
+                    Show the Manager Self Service - Time Management link
+                    Show the Approve Absence link
+                    Show the Approve Payable Time link
+                -->
                 <value>ROLE_VIEW_MANAGED_TIMES</value>
+                <!-- effects
+                  Allows rendering managedTimes.json
+                  In Manager Time Approval
+                    Show the Time tab
+                    Show the Manager Self Service - Time Management link
+                    Show the Approve Absence link
+                    Show the Approve Payable Time link
+                -->
             </set>
         </entry>
         <entry key="UW_UNV_TL Non Supervisor">
             <set>
                 <value>ROLE_VIEW_MANAGED_TIMES</value>
+                <!-- same role as above -->  
             </set>
         </entry>
         <entry key="UW_DYN_PY_DIRDEP_SS">
           <set>
               <value>ROLE_VIEW_DIRECT_DEPOSIT</value>
+              <!-- effects
+                In Payroll Information
+                  Changes the href of the Update your Direct Deposit link
+                  to the value of the directDepositSelfServiceUrl
+                  portlet-preference, if set.
+              -->
           </set>
         </entry>
     </util:map>
