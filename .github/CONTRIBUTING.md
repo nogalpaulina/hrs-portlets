@@ -37,3 +37,12 @@ If your change
 be sure to update 
 `hrs-portlets-ps-impl/src/main/resources/app-context/psAppContext.xml` 
 to reflect.
+
+## Portlet preferences
+
+If your change
+
++ Changes the set of `portlet-preference`s
++ Changes the effect of `portlet-preference`s
+
+be sure to update `README.md` to reflect.
