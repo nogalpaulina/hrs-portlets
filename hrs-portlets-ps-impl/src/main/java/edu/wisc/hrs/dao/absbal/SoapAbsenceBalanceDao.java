@@ -78,11 +78,11 @@ public class SoapAbsenceBalanceDao extends BaseHrsSoapDao implements AbsenceBala
     }
 
     @Override
-	@Cacheable(cacheName="absenceBalance", exceptionCacheName="hrsUnknownExceptionCache")
+    @Cacheable(cacheName="absenceBalance", exceptionCacheName="hrsUnknownExceptionCache")
     public List<AbsenceBalance> getAbsenceBalance(String emplId) {
-	    final GetCompIntfcUWPORTAL1ABSBAL request = this.createRequest(emplId);
-	    
-	    final GetCompIntfcUWPORTAL1ABSBALResponse response = this.internalInvoke(request);
+        final GetCompIntfcUWPORTAL1ABSBAL request = this.createRequest(emplId);
+
+        final GetCompIntfcUWPORTAL1ABSBALResponse response = this.internalInvoke(request);
         
         final PersonInformation personalData = this.contactInfoDao.getPersonalData(emplId);
         final Map<Integer, Job> jobMap;
@@ -92,17 +92,17 @@ public class SoapAbsenceBalanceDao extends BaseHrsSoapDao implements AbsenceBala
         else {
             jobMap = personalData.getJobMap();
         }
-	    
-	    return this.convertAbsenceBalance(response, jobMap);
+
+        return this.convertAbsenceBalance(response, jobMap);
     }
 
     protected GetCompIntfcUWPORTAL1ABSBAL createRequest(String emplId) {
         EmplidTypeShape value = HrsUtils.createValue(EmplidTypeShape.class, emplId);
-	    
-	    final GetCompIntfcUWPORTAL1ABSBAL request = new GetCompIntfcUWPORTAL1ABSBAL();
-	    request.setEmplid(value);
 
-	    return request;
+        final GetCompIntfcUWPORTAL1ABSBAL request = new GetCompIntfcUWPORTAL1ABSBAL();
+        request.setEmplid(value);
+
+        return request;
     }
 
     protected List<AbsenceBalance> convertAbsenceBalance(GetCompIntfcUWPORTAL1ABSBALResponse response, Map<Integer, Job> jobs) {
