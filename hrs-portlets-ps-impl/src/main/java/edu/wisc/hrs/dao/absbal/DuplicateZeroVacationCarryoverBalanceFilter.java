@@ -46,22 +46,25 @@ public final class DuplicateZeroVacationCarryoverBalanceFilter {
 
         for (final AbsenceBalance entitlement : input) {
 
-            if (zeroVacationCarryoverBalancePredicate.apply(entitlement)) {
-                // if it's the first zero-balance vacation carryover balance entitlement
-                // for its job
-                // include it in output (don't filter it out).
+            final Job job = entitlement.getJob();
 
-                final Job job = entitlement.getJob();
+            if ( zeroVacationCarryoverBalancePredicate.apply(entitlement)
+                    && !jobsWithAlreadyIncludedZeroBalanceVacationBalances.contains(job) ) {
+                    // if it's the first zero-balance vacation carryover balance entitlement
+                    // for its job
+                    // include it in output (don't filter it out).
 
-                if (!jobsWithAlreadyIncludedZeroBalanceVacationBalances.contains(job)) {
-                    output.add(entitlement);
-                }
+                output.add(entitlement);
 
-                // but if it's not the first, it's reduplicative noise, don't retain it.
-
-                // either way, definitely have now included at least one zero balance vacation carryover balance
+                // have now included a one zero balance vacation carryover balance
                 // for this job
                 jobsWithAlreadyIncludedZeroBalanceVacationBalances.add(job);
+
+            } else if (zeroVacationCarryoverBalancePredicate.apply(entitlement)) {
+
+                // if it's an additional zero vacation carryover for a job, it's reduplicative noise, don't retain it.
+
+                // intentionally do nothing
 
             } else  {
                 // it's not a zero-balance vacation carryover, retain it.
