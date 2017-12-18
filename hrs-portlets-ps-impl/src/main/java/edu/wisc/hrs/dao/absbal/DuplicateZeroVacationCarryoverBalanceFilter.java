@@ -20,7 +20,7 @@ public final class DuplicateZeroVacationCarryoverBalanceFilter {
     /**
      * Predicate that's true for zero-balance "Vacation Carryover Balance" absence balances.
      */
-    private final Predicate<AbsenceBalance> zeroVacationCarryoverBalancePredicate =
+    private final Predicate<AbsenceBalance> zeroVacationCarryoverPredicate =
             Predicates.and(
                     new VacationCarryoverBalancePredicate(),
                     new ZeroBalancePredicate()
@@ -41,14 +41,14 @@ public final class DuplicateZeroVacationCarryoverBalanceFilter {
 
         final List<AbsenceBalance> output = new ArrayList<AbsenceBalance>();
 
-        final Set<Job> jobsWithAlreadyIncludedZeroBalanceVacationBalances = new HashSet<Job>();
+        final Set<Job> zeroVacationBalanceJobs = new HashSet<Job>();
 
         for (final AbsenceBalance entitlement : input) {
 
             final Job job = entitlement.getJob();
 
-            if ( zeroVacationCarryoverBalancePredicate.apply(entitlement)
-                    && !jobsWithAlreadyIncludedZeroBalanceVacationBalances.contains(job) ) {
+            if ( zeroVacationCarryoverPredicate.apply(entitlement)
+                    && !zeroVacationBalanceJobs.contains(job) ) {
                     // if it's the first zero-balance vacation carryover balance entitlement
                     // for its job
                     // include it in output (don't filter it out).
@@ -57,9 +57,9 @@ public final class DuplicateZeroVacationCarryoverBalanceFilter {
 
                 // have now included a zero balance vacation carryover balance
                 // for this job
-                jobsWithAlreadyIncludedZeroBalanceVacationBalances.add(job);
+                zeroVacationBalanceJobs.add(job);
 
-            } else if (zeroVacationCarryoverBalancePredicate.apply(entitlement)) {
+            } else if (zeroVacationCarryoverPredicate.apply(entitlement)) {
 
                 // if it's an additional zero vacation carryover for a job, it's reduplicative noise, don't retain it.
 
