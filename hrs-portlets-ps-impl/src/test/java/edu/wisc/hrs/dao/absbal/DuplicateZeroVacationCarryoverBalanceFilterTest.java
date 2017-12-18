@@ -51,7 +51,6 @@ public class DuplicateZeroVacationCarryoverBalanceFilterTest {
 
     }
 
-
     /**
      * Test that removes extra zero balance vacation carryover, retaining just one,
      * for each of two jobs,
@@ -146,6 +145,5 @@ public class DuplicateZeroVacationCarryoverBalanceFilterTest {
     public void throwsIllegalArgumentExceptionOnNullInput() {
         filter.filter(null);
     }
-
 
 }
