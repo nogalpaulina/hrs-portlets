@@ -61,6 +61,9 @@ public class SoapAbsenceBalanceDao extends BaseHrsSoapDao implements AbsenceBala
      */
     protected final Predicate degenerateFurloughPredicate =
         Predicates.and(new ClassifiedFurloughAllocatedPredicate(), new ZeroBalancePredicate());
+
+    protected final DuplicateZeroVacationCarryoverBalanceFilter duplicateZeroVacationCarryoverBalanceFilter =
+            new DuplicateZeroVacationCarryoverBalanceFilter();
     
     @Autowired
     public void setWebServiceOperations(@Qualifier("absenceBalanceWebServiceTemplate") WebServiceOperations webServiceOperations) {
@@ -131,7 +134,10 @@ public class SoapAbsenceBalanceDao extends BaseHrsSoapDao implements AbsenceBala
                 logger.trace("Filtered out classified furlough " + absenceBalance + " .");
             }
         }
-        
-        return absenceBalances;
+
+        // filter out duplicate zero-balance Vacation Carryover Balance entries.
+
+        return duplicateZeroVacationCarryoverBalanceFilter.filter(absenceBalances);
+
     }
 }
