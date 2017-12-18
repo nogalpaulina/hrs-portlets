@@ -142,9 +142,6 @@ public class DuplicateZeroVacationCarryoverBalanceFilterTest {
 
     }
 
-
-
-
     @Test(expected = IllegalArgumentException.class)
     public void throwsIllegalArgumentExceptionOnNullInput() {
         filter.filter(null);

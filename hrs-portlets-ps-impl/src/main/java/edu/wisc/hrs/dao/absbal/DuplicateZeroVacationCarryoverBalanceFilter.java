@@ -25,8 +25,7 @@ public final class DuplicateZeroVacationCarryoverBalanceFilter {
                     new VacationCarryoverBalancePredicate(),
                     new ZeroBalancePredicate()
             );
-
-
+    
     /**
      * Given a List of AbsenceBalances, return a List of AbsenceBalances with the same content as the input list except
      * containing no zero-balance "Vacation Carryover Balance" entitlements other than first such zero-balance
