@@ -55,7 +55,7 @@ public final class DuplicateZeroVacationCarryoverBalanceFilter {
 
                 output.add(entitlement);
 
-                // have now included a one zero balance vacation carryover balance
+                // have now included a zero balance vacation carryover balance
                 // for this job
                 jobsWithAlreadyIncludedZeroBalanceVacationBalances.add(job);
 
