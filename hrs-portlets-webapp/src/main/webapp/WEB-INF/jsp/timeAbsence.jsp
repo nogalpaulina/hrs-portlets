@@ -210,7 +210,8 @@
       <div id="${n}dl-leave-statements">
       	<p class="padded-paragraph">
       		<a href="#" id="${n}oustandingMissingLeaveReports" target="_blank" style="display: none;">
-      		You have missing Leave Reports. Submit them.</a>
+      		You have unfinished Monthly Leave Reports.</a>
+            Please download and print blank Monthly Leave Reports below.
       	</p>
         <div class="fl-pager">
           <hrs:pagerNavBar position="top" showSummary="${true}" />
