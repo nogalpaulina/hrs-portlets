@@ -210,7 +210,7 @@
       <div id="${n}dl-leave-statements">
       	<p class="padded-paragraph">
       		<a href="#" id="${n}oustandingMissingLeaveReports" target="_blank" style="display: none;">
-      		Outstanding Missing Leave Reports</a>
+      		You have missing Leave Reports. Submit them.</a>
       	</p>
         <div class="fl-pager">
           <hrs:pagerNavBar position="top" showSummary="${true}" />
