@@ -209,8 +209,9 @@
     <div id="${n}dl-absence-statements" class="dl-absence-statements ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
       <div id="${n}dl-leave-statements">
       	<p class="padded-paragraph">
-      		<a href="#" id="${n}oustandingMissingLeaveReports" target="_blank" style="display: none;">
-      		You have unfinished Monthly Leave Reports.</a>
+      		<a href="#" id="${n}oustandingMissingLeaveReports" target="_blank"
+      		  style="display: none; text-decoration: underline;">
+      		  You have unfinished Monthly Leave Reports.</a>
             Please download and print blank Monthly Leave Reports below.
       	</p>
         <div class="fl-pager">
