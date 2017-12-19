@@ -164,7 +164,33 @@
         </div>
         <hrs:pagerNavBar position="bottom" />
       </div>
+
+      <div id="${n}dl-sabbatical-reports">
+        <div class="fl-pager">
+          <hrs:pagerNavBar position="top" showSummary="${true}" />
+          <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
+            <table class="dl-table table">
+              <thead>
+                <tr rsf:id="header:">
+                  <th class="flc-pager-sort-header" rsf:id="year"><a href="javascript:;">Year</a></th>
+                  <th class="flc-pager-sort-header" rsf:id="fullTitle"><a href="javascript:;">Statement</a></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="dl-clickable" rsf:id="row:">
+                  <td class="dl-data-text"><a href="#" target="_blank" rsf:id="year"></a></td>
+                  <td class="dl-data-text"><a href="#" target="_blank" rsf:id="fullTitle"></a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <hrs:pagerNavBar position="bottom" />
+        </div>
+      </div>
     </div>
+
+
+
     <sec:authorize ifAnyGranted="ROLE_VIEW_WEB_CLOCK,ROLE_VIEW_TIME_CLOCK,ROLE_VIEW_TIME_SHEET">
       <div id="${n}dl-time-entry" class="dl-time-entry ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
         <div class="fl-pager">
@@ -211,6 +237,9 @@
       	<p class="padded-paragraph">
       		<a href="#" id="${n}oustandingMissingLeaveReports" target="_blank" style="display: none;">Outstanding Missing Leave Reports</a>
       	</p>
+      	<div class="balance-header">
+          <span>Banked Leave Statements if available now appear at the bottom of the Leave Balances tab.</span>
+        </div>
         <div class="fl-pager">
           <hrs:pagerNavBar position="top" showSummary="${true}" />
           <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
@@ -227,29 +256,6 @@
                     <td headers="payPeriod" class="dl-data-text" rsf:id="payPeriod"></td>
                     <td headers="leaveStatementLink" class="dl-data-text" rsf:id="leaveStatementLink"></td>
                     <td headers="leaveFurloughReportLinks" class="dl-data-text" rsf:id="leaveFurloughReportLinks"></td>
-                  </tr>
-              </tbody>
-            </table>
-          </div>
-          <hrs:pagerNavBar position="bottom" />
-        </div>
-      </div>
-
-      <div id="${n}dl-sabbatical-reports">
-        <div class="fl-pager">
-          <hrs:pagerNavBar position="top" showSummary="${true}" />
-          <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
-            <table class="dl-table table">
-              <thead>
-                <tr rsf:id="header:">
-                  <th class="flc-pager-sort-header" rsf:id="year"><a href="javascript:;">Year</a></th>
-                  <th class="flc-pager-sort-header" rsf:id="fullTitle"><a href="javascript:;">Statement</a></th>
-                </tr>
-              </thead>
-              <tbody>
-                  <tr class="dl-clickable" rsf:id="row:">
-                    <td class="dl-data-text"><a href="#" target="_blank" rsf:id="year"></a></td>
-                    <td class="dl-data-text"><a href="#" target="_blank" rsf:id="fullTitle"></a></td>
                   </tr>
               </tbody>
             </table>
@@ -470,12 +476,7 @@
                     //Hide the leave reports block
                     $("#${n}dl-leave-statements").hide();
 
-                    //Increment the show count on the no statements block, if result is 2 show the no statements block
-                    var showStatus = noStatementsDiv.data("showStatus");
-                    showStatus.statements = false;
-                    if (!showStatus.sabbatical && !showStatus.statements) {
-                        noStatementsDiv.show();
-                    }
+                    noStatementsDiv.show();
                 }
                 else {
                     //Hide no statements block and decrement the show count
@@ -549,17 +550,7 @@
             		//Hide the sabbatical reports block
             		$("#${n}dl-sabbatical-reports").hide();
 
-            		//Increment the show count on the no statements block, if result is 2 show the no statements block
-            		var showStatus = noStatementsDiv.data("showStatus");
-            		showStatus.sabbatical = false;
-            		if (!showStatus.sabbatical && !showStatus.statements) {
-            			noStatementsDiv.show();
-            		}
-            	}
-            	else {
-            		//Hide no statements block and decrement the show count
-            		noStatementsDiv.hide();
-            		noStatementsDiv.data("showStatus").sabbatical = true;
+            	} else {
 
             		$("#${n}dl-sabbatical-reports").show();
             	}
