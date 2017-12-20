@@ -235,10 +235,7 @@
     <div id="${n}dl-absence-statements" class="dl-absence-statements ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
       <div id="${n}dl-leave-statements">
       	<p class="padded-paragraph">
-      		<a href="#" id="${n}oustandingMissingLeaveReports" target="_blank"
-      		  style="display: none; text-decoration: underline;">
-      		  You have unfinished Monthly Leave Reports.</a>
-            Please download and print blank Monthly Leave Reports below.
+      		<a href="#" id="${n}oustandingMissingLeaveReports" target="_blank" style="display: none;">Outstanding Missing Leave Reports</a>
       	</p>
       	<div class="balance-header">
           <span>Banked Leave Statements if available now appear at the bottom of the Leave Balances tab.</span>
@@ -283,9 +280,9 @@
     </div>
      --%>
     <div class="dl-link">
-      <a href="${prefs['UnclassifiedLeaveReportUrl'][0]}" target="_blank" class='btn btn-default'>Blank Monthly Leave Report</a><c:if test="${not empty prefs['UnclassifiedLeaveReportForSummerUrl'][0]}">
+      <a href="${prefs['UnclassifiedLeaveReportUrl'][0]}" target="_blank" class='btn btn-default'>Unclassified Leave Report</a><c:if test="${not empty prefs['UnclassifiedLeaveReportForSummerUrl'][0]}">
       <span class="hidden-xs visible-xs">|</span>
-      <a href="${prefs['UnclassifiedLeaveReportForSummerUrl'][0]}" target="_blank"  class='btn btn-default'>Blank Summer Leave Report</a></c:if>
+      <a href="${prefs['UnclassifiedLeaveReportForSummerUrl'][0]}" target="_blank"  class='btn btn-default'>Unclassified Summer Session/Service Leave Report</a></c:if>
     </div>
   </div>
 
