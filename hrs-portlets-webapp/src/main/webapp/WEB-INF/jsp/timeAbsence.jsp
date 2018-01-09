@@ -94,7 +94,7 @@
       <sec:authorize ifAnyGranted="ROLE_VIEW_WEB_CLOCK,ROLE_VIEW_TIME_CLOCK,ROLE_VIEW_TIME_SHEET">
         <li class="ui-state-default ui-corner-top"><a href="#${n}dl-time-entry">Time Entry</a></li>
       </sec:authorize>
-      <li class="ui-state-default ui-corner-top"><a href="#${n}dl-absence-statements">Monthly Leave Reports</a></li>
+      <li class="ui-state-default ui-corner-top"><a href="#${n}dl-absence-statements">Leave Reports</a></li>
     </ul>
     <c:set var="hiddenTabStyle" value=""/>
     <sec:authorize ifAllGranted="ROLE_VIEW_ABSENCE_HISTORIES">
@@ -164,33 +164,7 @@
         </div>
         <hrs:pagerNavBar position="bottom" />
       </div>
-
-      <div id="${n}dl-sabbatical-reports">
-        <div class="fl-pager">
-          <hrs:pagerNavBar position="top" showSummary="${true}" />
-          <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
-            <table class="dl-table table">
-              <thead>
-                <tr rsf:id="header:">
-                  <th class="flc-pager-sort-header" rsf:id="year"><a href="javascript:;">Year</a></th>
-                  <th class="flc-pager-sort-header" rsf:id="fullTitle"><a href="javascript:;">Statement</a></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="dl-clickable" rsf:id="row:">
-                  <td class="dl-data-text"><a href="#" target="_blank" rsf:id="year"></a></td>
-                  <td class="dl-data-text"><a href="#" target="_blank" rsf:id="fullTitle"></a></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <hrs:pagerNavBar position="bottom" />
-        </div>
-      </div>
     </div>
-
-
-
     <sec:authorize ifAnyGranted="ROLE_VIEW_WEB_CLOCK,ROLE_VIEW_TIME_CLOCK,ROLE_VIEW_TIME_SHEET">
       <div id="${n}dl-time-entry" class="dl-time-entry ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
         <div class="fl-pager">
@@ -235,14 +209,8 @@
     <div id="${n}dl-absence-statements" class="dl-absence-statements ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
       <div id="${n}dl-leave-statements">
       	<p class="padded-paragraph">
-      		<a href="#" id="${n}oustandingMissingLeaveReports" target="_blank"
-      		  style="display: none; text-decoration: underline;">
-      		  You have unfinished Monthly Leave Reports.</a>
-            Please download and print blank Monthly Leave Reports below.
+      		<a href="#" id="${n}oustandingMissingLeaveReports" target="_blank" style="display: none;">Outstanding Missing Leave Reports</a>
       	</p>
-      	<div class="balance-header">
-          <span>Banked Leave Statements if available now appear at the bottom of the Leave Balances tab.</span>
-        </div>
         <div class="fl-pager">
           <hrs:pagerNavBar position="top" showSummary="${true}" />
           <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
@@ -267,6 +235,29 @@
         </div>
       </div>
 
+      <div id="${n}dl-sabbatical-reports">
+        <div class="fl-pager">
+          <hrs:pagerNavBar position="top" showSummary="${true}" />
+          <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
+            <table class="dl-table table">
+              <thead>
+                <tr rsf:id="header:">
+                  <th class="flc-pager-sort-header" rsf:id="year"><a href="javascript:;">Year</a></th>
+                  <th class="flc-pager-sort-header" rsf:id="fullTitle"><a href="javascript:;">Statement</a></th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr class="dl-clickable" rsf:id="row:">
+                    <td class="dl-data-text"><a href="#" target="_blank" rsf:id="year"></a></td>
+                    <td class="dl-data-text"><a href="#" target="_blank" rsf:id="fullTitle"></a></td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+          <hrs:pagerNavBar position="bottom" />
+        </div>
+      </div>
+
       <div id="${n}no-statements">
         <spring:message code="noLeaveOrSabbaticalStatements" />
       </div>
@@ -283,9 +274,9 @@
     </div>
      --%>
     <div class="dl-link">
-      <a href="${prefs['UnclassifiedLeaveReportUrl'][0]}" target="_blank" class='btn btn-default'>Blank Monthly Leave Report</a><c:if test="${not empty prefs['UnclassifiedLeaveReportForSummerUrl'][0]}">
+      <a href="${prefs['UnclassifiedLeaveReportUrl'][0]}" target="_blank" class='btn btn-default'>Unclassified Leave Report</a><c:if test="${not empty prefs['UnclassifiedLeaveReportForSummerUrl'][0]}">
       <span class="hidden-xs visible-xs">|</span>
-      <a href="${prefs['UnclassifiedLeaveReportForSummerUrl'][0]}" target="_blank"  class='btn btn-default'>Blank Summer Leave Report</a></c:if>
+      <a href="${prefs['UnclassifiedLeaveReportForSummerUrl'][0]}" target="_blank"  class='btn btn-default'>Unclassified Summer Session/Service Leave Report</a></c:if>
     </div>
   </div>
 
@@ -479,7 +470,12 @@
                     //Hide the leave reports block
                     $("#${n}dl-leave-statements").hide();
 
-                    noStatementsDiv.show();
+                    //Increment the show count on the no statements block, if result is 2 show the no statements block
+                    var showStatus = noStatementsDiv.data("showStatus");
+                    showStatus.statements = false;
+                    if (!showStatus.sabbatical && !showStatus.statements) {
+                        noStatementsDiv.show();
+                    }
                 }
                 else {
                     //Hide no statements block and decrement the show count
@@ -553,7 +549,17 @@
             		//Hide the sabbatical reports block
             		$("#${n}dl-sabbatical-reports").hide();
 
-            	} else {
+            		//Increment the show count on the no statements block, if result is 2 show the no statements block
+            		var showStatus = noStatementsDiv.data("showStatus");
+            		showStatus.sabbatical = false;
+            		if (!showStatus.sabbatical && !showStatus.statements) {
+            			noStatementsDiv.show();
+            		}
+            	}
+            	else {
+            		//Hide no statements block and decrement the show count
+            		noStatementsDiv.hide();
+            		noStatementsDiv.data("showStatus").sabbatical = true;
 
             		$("#${n}dl-sabbatical-reports").show();
             	}
