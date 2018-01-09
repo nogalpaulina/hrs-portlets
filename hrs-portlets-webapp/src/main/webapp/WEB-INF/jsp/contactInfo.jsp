@@ -241,7 +241,7 @@
           </p>
           <p>
             <strong>
-              <spring:message code="bottomNotePart2" text="To update your Business/Office Address, contact your Payroll Office."/>
+              <spring:message code="bottomNotePart2" text="To update your Business/Office Address, contact your human resources office."/>
             </strong>
           </p>
         </div>
