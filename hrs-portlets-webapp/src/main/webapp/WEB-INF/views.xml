@@ -40,6 +40,13 @@
         <property name="objectMapper" ref="objectMapper" />
         <property name="modelKey" value="quantity" />
     </bean>
+
+    <bean id="linksAttrJsonView"
+      class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+      <property name="objectMapper" ref="objectMapper" />
+      <property name="modelKey" value="links" />
+      <property name="extractValueFromSingleKeyModel" value="true"/>
+    </bean>
     
     <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper" />
     

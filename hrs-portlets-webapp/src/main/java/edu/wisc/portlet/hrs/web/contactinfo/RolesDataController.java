@@ -2,8 +2,11 @@ package edu.wisc.portlet.hrs.web.contactinfo;
 
 import edu.wisc.hr.dao.roles.HrsRolesDao;
 import edu.wisc.portlet.hrs.web.HrsControllerBase;
+import edu.wisc.portlet.hrs.web.listoflinks.Link;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import javax.portlet.PortletRequest;
 import javax.portlet.ResourceRequest;
@@ -11,6 +14,7 @@ import javax.portlet.ResourceResponse;
 import org.jasig.springframework.security.portlet.authentication.PrimaryAttributeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.portlet.bind.annotation.ResourceMapping;
@@ -35,24 +39,22 @@ public class RolesDataController
   }
 
   @ResourceMapping("roles")
-  public void rolesResource(ResourceResponse response) throws IOException {
+  public String rolesAsListOfLinksResource(ModelMap modelMap) throws IOException {
     final String emplId = PrimaryAttributeUtils.getPrimaryId();
     final Set<String> roles = this.rolesDao.getHrsRoles(emplId);
 
-    response.setContentType("application/json;charset=UTF-8");
-    final PrintWriter writer = response.getWriter();
+    final List<Link> linkList = new ArrayList<Link>();
 
-    writer.append("[");
-
-    for (String role : roles) {
-      writer.append("{"
-          + "'title':'" + role + "',"
-          + "'href':'https://wiki.doit.wisc.edu/confluence/display/MUM/HRS+Roles+and+MyUW',"
-          + "'icon':'fa-user-circle',"
-          + "'target':'_blank'"
-          + "} ");
+    for (final String role : roles) {
+      final Link link = new Link();
+      link.setTitle(role);
+      link.setHref("https://wiki.doit.wisc.edu/confluence/display/MUM/HRS+Roles+and+MyUW");
+      link.setTarget("_blank");
+      link.setIcon("fa-user-circle");
+      linkList.add(link);
     }
 
-    writer.append("]");
+    modelMap.put("links", linkList.toArray());
+    return "linksAttrJsonView";
   }
 }
