@@ -6,7 +6,9 @@ import edu.wisc.portlet.hrs.web.listoflinks.Link;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import javax.portlet.PortletRequest;
 import javax.portlet.ResourceRequest;
@@ -38,6 +40,14 @@ public class RolesDataController
     this.rolesDao = rolesDao;
   }
 
+  /**
+   * Model is "content" --> "links" --> Link[],
+   * suitable for (in JSON representation) use as the remote source for dynamic list-of-links
+   * widget in uPortal-app-framework.
+   * @param modelMap
+   * @return String representing view
+   * @throws IOException
+   */
   @ResourceMapping("roles")
   public String rolesAsListOfLinksResource(ModelMap modelMap) throws IOException {
     final String emplId = PrimaryAttributeUtils.getPrimaryId();
@@ -54,7 +64,11 @@ public class RolesDataController
       linkList.add(link);
     }
 
-    modelMap.put("links", linkList.toArray());
-    return "linksAttrJsonView";
+    Map<String, Object[]> content = new HashMap<String, Object[]>();
+    content.put("links", linkList.toArray());
+
+    modelMap.put("content", content);
+
+    return "contentAttrJsonView";
   }
 }
