@@ -129,6 +129,11 @@
               -->
           </set>
         </entry>
+        <entry key="UW_DYN_TIME_ABS_DASH_USER">
+          <set>
+            <value>ROLE_VIEW_TIME_ABS_DASHBOARD</value>
+          </set>
+        </entry>
     </util:map>
     
     <bean id="absenceBalanceDestinationProvider" class="org.jasig.springframework.ws.client.support.destination.FailSafeWsdl11DestinationProvider" />
