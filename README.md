@@ -42,6 +42,13 @@ This is intended as a solution for
 + When not set, Benefit Information uses the URL from the HRS URLs SOAP web service as the href of the "View Benefits Summary Detail" link.
 + If the URL is available from neither source, Benefit Information drops this link from the UI.
 
+### Specific to Manager Time and Approval
+
+#### `approvalsDashboardUrl` portlet preference (optional)
+
++ When set, Manager Time and Approval uses this URL as the href for a list-of-links link shown to
+  to employees with a particular role.
+
 ### Specific to Payroll Information
 
 #### `directDepositSelfServiceUrl` portlet preference (optional)
