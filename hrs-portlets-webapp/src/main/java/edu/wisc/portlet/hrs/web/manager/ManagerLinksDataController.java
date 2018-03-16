@@ -103,7 +103,7 @@ public class ManagerLinksDataController
       if (StringUtils.isNotBlank(approveTimeUrl)) {
         final Link approveTime = new Link();
         approveTime.setTitle("Approve time");
-        approveTime.setIcon();
+        approveTime.setIcon("access_time");
       } else {
         logger.error("HRS URL [Approve Payable Time] expected but not found "
             + "and so could not be offered to emplid " + emplId);
