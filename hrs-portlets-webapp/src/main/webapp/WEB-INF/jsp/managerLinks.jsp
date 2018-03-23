@@ -76,7 +76,7 @@
   <tr>
     <td>${hrsUrl.key}</td><td>${hrsUrl.value}</c></td>
   </tr>
-</c>
+</c:forEach>
 </table>
 
   <%@ include file="/WEB-INF/jsp/footer.jsp"%>
