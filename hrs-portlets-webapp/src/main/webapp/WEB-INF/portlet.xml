@@ -235,7 +235,7 @@
 
 
     <portlet>
-        <portlet-name>Approvals</portlet-name>
+        <portlet-name>ManagerLinks</portlet-name>
         <portlet-class>org.jasig.springframework.web.portlet.context.ContribDispatcherPortlet</portlet-class>
         <init-param>
             <name>contextConfigLocation</name>
