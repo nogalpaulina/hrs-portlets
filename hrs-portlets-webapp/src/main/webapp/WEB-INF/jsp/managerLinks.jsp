@@ -71,6 +71,14 @@
 
 </p>
 
+<table>
+<c:forEach var="hrsUrl" items="${hrsUrls}">
+  <tr>
+    <td>${hrsUrl.key}</td><td>${hrsUrl.value}</c></td>
+  </tr>
+</c>
+</table>
+
   <%@ include file="/WEB-INF/jsp/footer.jsp"%>
 
 </div>
