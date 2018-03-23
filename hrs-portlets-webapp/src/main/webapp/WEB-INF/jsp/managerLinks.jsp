@@ -29,7 +29,7 @@
   <sec:authorize
     ifNotGranted="ROLE_VIEW_MANAGED_ABSENCES,ROLE_VIEW_MANAGED_TIMES,ROLE_VIEW_TIME_ABS_DASHBOARD">
     You do not appear to have any manager roles.
-  </sec>
+  </sec:authorize>
 
   <ul>
 
@@ -40,7 +40,7 @@
           Approve time
         </a>
       </li>
-    </sec>
+    </sec:authorize>
 
     <sec:authorize ifAnyGranted="ROLE_VIEW_MANAGED_ABSENCES">
       <li>
@@ -49,7 +49,7 @@
           Approve absence
         </a>
       </li>
-    </sec>
+    </sec:authorize>
 
     <sec:authorize ifAnyGranted="ROLE_VIEW_TIME_ABS_DASHBOARD">
       <li>
@@ -58,7 +58,7 @@
           Approvals dashboard
         </a>
       </li>
-    </sec>
+    </sec:authorize>
 
     <li>
       <a href="${helpUrl}"
