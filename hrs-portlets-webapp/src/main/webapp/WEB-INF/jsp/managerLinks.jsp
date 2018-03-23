@@ -35,7 +35,7 @@
 
     <sec:authorize ifAnyGranted="ROLE_VIEW_MANAGED_TIMES">
       <li>
-        <a href="https://www.hrs.wisconsin.edu/psp/hrs-fd/EMPLOYEE/HRMS/c/ROLE_MANAGER.TL_SRCH_APPRV_GRP.GBL"
+        <a href="${hrsUrls['Approve Payable time']}"
           target="_blank" rel="noopener noreferrer">
           Approve time
         </a>
@@ -44,7 +44,7 @@
 
     <sec:authorize ifAnyGranted="ROLE_VIEW_MANAGED_ABSENCES">
       <li>
-        <a href="https://www.hrs.wisconsin.edu/psp/hrs-fd/EMPLOYEE/HRMS/c/ROLE_MANAGER.GP_SS_ABS_APPR_L.GBL"
+        <a href="${hrsUrls['Approve Absence']}"
           target="_blank" rel="noopener noreferrer">
           Approve absence
         </a>
