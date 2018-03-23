@@ -1,4 +1,4 @@
-package edu.wisc.portlet.hrs.web.manager;
+package edu.wisc.portlet.hrs.web.managerlinks;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
@@ -29,7 +29,7 @@ import org.springframework.web.portlet.bind.annotation.ResourceMapping;
  */
 @Controller
 @RequestMapping("VIEW")
-public class ManagerLinksDataController
+public class ManagerLinksController
   extends HrsControllerBase {
 
   private static Set<String> ROLES_THAT_MANAGE_TIME_OR_ABSENCES;
@@ -145,6 +145,21 @@ public class ManagerLinksDataController
     modelMap.put("content", content);
 
     return "contentAttrJsonView";
+  }
+
+
+  @RequestMapping
+  public String viewLinks( ModelMap modelMap, PortletRequest request){
+
+    final String emplId = PrimaryAttributeUtils.getPrimaryId();
+
+    final PortletPreferences preferences = request.getPreferences();
+    final String approvalsDashboardUrl =
+        preferences.getValue("approvalsDashboardUrl", null);
+
+    modelMap.put("approvalsDashboardUrl", approvalsDashboardUrl);
+
+    return "managerLinks";
   }
 
 }
