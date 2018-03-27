@@ -104,6 +104,8 @@ public class ManagerLinksController
         final Link approveTime = new Link();
         approveTime.setTitle("Approve time");
         approveTime.setIcon("access_time");
+        approveTime.setTarget("_blank");
+        linkList.add(approveTime);
       } else {
         logger.error("HRS URL [" + HrsUrlDao.APPROVE_PAYABLE_TIME_KEY + "] expected but not found "
             + "and so could not be offered to emplid " + emplId);
