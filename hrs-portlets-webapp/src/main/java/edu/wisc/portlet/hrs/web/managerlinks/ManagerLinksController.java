@@ -99,13 +99,13 @@ public class ManagerLinksController
     }
 
     if (roles.contains("ROLE_VIEW_MANAGED_TIMES")) {
-      final String approveTimeUrl = getHrsUrls().get("Approve Payable time");
+      final String approveTimeUrl = getHrsUrls().get(HrsUrlDao.APPROVE_PAYABLE_TIME_KEY);
       if (StringUtils.isNotBlank(approveTimeUrl)) {
         final Link approveTime = new Link();
         approveTime.setTitle("Approve time");
         approveTime.setIcon("access_time");
       } else {
-        logger.error("HRS URL [Approve Payable time] expected but not found "
+        logger.error("HRS URL [" + HrsUrlDao.APPROVE_PAYABLE_TIME_KEY + "] expected but not found "
             + "and so could not be offered to emplid " + emplId);
       }
     }
