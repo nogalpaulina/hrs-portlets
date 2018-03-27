@@ -24,7 +24,7 @@
 
 <div id="${n}dl-time-absence" class="fl-widget portlet dl-time-absence hrs">
 
-<p>Your emplid is ${emplid}.</p>
+<!-- <p>Your emplid is ${emplid}.</p> -->
 
 <p>
 
