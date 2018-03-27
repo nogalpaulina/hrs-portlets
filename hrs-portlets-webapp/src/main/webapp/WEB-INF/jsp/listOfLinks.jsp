@@ -26,13 +26,13 @@
 
 <p>Your emplid is ${emplid}.</p>
 
-<table>
+<ul>
 <c:forEach var="link" items="${links}">
-  <tr>
-    <td>${link.title}</td><td>${link.href}</c></td>
-  </tr>
+  <li>
+    <a href="${link.href}">${link.title}</a>
+  </li>
 </c:forEach>
-</table>
+</ul>
 
   <%@ include file="/WEB-INF/jsp/footer.jsp"%>
 
