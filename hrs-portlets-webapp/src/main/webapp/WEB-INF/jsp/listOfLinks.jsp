@@ -29,7 +29,7 @@
 <table>
 <c:forEach var="link" items="${links}">
   <tr>
-    <td>${link.title}</td><td>${link.url}</c></td>
+    <td>${link.title}</td><td>${link.href}</c></td>
   </tr>
 </c:forEach>
 </table>
