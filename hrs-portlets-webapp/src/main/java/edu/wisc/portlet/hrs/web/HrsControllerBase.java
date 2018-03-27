@@ -24,6 +24,7 @@ import java.util.Map;
 import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
 
+import org.jasig.springframework.security.portlet.authentication.PrimaryAttributeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,6 +93,11 @@ public class HrsControllerBase {
     @ModelAttribute("hrsUrls")
     public final Map<String, String> getHrsUrls() {
         return this.hrsUrlDao.getHrsUrls();
+    }
+
+    @ModelAttribute("emplid")
+    public final String emplidFromPortletRequest(PortletRequest request) {
+        return PrimaryAttributeUtils.getPrimaryId();
     }
 
     @ResourceMapping("getHrsUrlsJson")
