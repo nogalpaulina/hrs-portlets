@@ -107,6 +107,25 @@ this hour limiting policy applies to them.)
 + Configures the href of the "Unclassified Leave Report" link.
 + If not set, this link will still appear but will be broken.
 
+## JSON resource URLs
+
+(Not a comprehensive listing.)
+
+### Manager Links
+
++ `managerListOfLinks` : JSON suitable for driving a `list-of-links` widget representing links 
+  appropriate to the employee's roles for approving others' time and absences.
+
+### Roles
+
++ `rolesAsListOfLinks` : JSON suitable for driving a `list-of-links` widget representing the user's 
+  HRS roles. Useful for troubleshooting.
+
+### Urls
+
++ `hrsUrlsAsListOfLinks` : JSON suitable for driving a `list-of-links` widget representing the HRS 
+  URLs. Useful for troubleshooting.
+
 ## Local Setup Instructions
 
 Several property files need to be configured for your local environment before the Portlet will run in your local uPortal server.
