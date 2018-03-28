@@ -98,6 +98,20 @@ public class ManagerLinksController
       }
     }
 
+    if (roles.contains("ROLE_VIEW_TIME_ABS_DASHBOARD")) {
+      if (StringUtils.isNotBlank(approvalsDashboardUrl)) {
+        final Link approvalsDashboard = new Link();
+        approvalsDashboard.setTitle("Approvals Dashboard");
+        approvalsDashboard.setIcon("check_circle");
+        approvalsDashboard.setHref(approvalsDashboardUrl);
+        approvalsDashboard.setTarget("_blank");
+        linkList.add(approvalsDashboard);
+      } else {
+        logger.error("Portlet preference [approvalsDashboardUrl] expected but not found "
+            + "and so could not be offered to " + emplId);
+      }
+    }
+
     if (roles.contains("ROLE_VIEW_MANAGED_TIMES")) {
       final String approveTimeUrl = getHrsUrls().get(HrsUrlDao.APPROVE_PAYABLE_TIME_KEY);
       if (StringUtils.isNotBlank(approveTimeUrl)) {
@@ -124,20 +138,6 @@ public class ManagerLinksController
       } else {
         logger.error("HRS URL [Approve Absence] expected but not found "
             + "and so could not be offered to emplid " + emplId);
-      }
-    }
-
-    if (roles.contains("ROLE_VIEW_TIME_ABS_DASHBOARD")) {
-      if (StringUtils.isNotBlank(approvalsDashboardUrl)) {
-        final Link approvalsDashboard = new Link();
-        approvalsDashboard.setTitle("Approvals Dashboard");
-        approvalsDashboard.setIcon("check_circle");
-        approvalsDashboard.setHref(approvalsDashboardUrl);
-        approvalsDashboard.setTarget("_blank");
-        linkList.add(approvalsDashboard);
-      } else {
-        logger.error("Portlet preference [approvalsDashboardUrl] expected but not found "
-            + "and so could not be offered to " + emplId);
       }
     }
 
