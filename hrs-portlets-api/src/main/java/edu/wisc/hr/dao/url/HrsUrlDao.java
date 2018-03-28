@@ -29,4 +29,10 @@ import java.util.Map;
  */
 public interface HrsUrlDao {
     public Map<String, String> getHrsUrls();
+
+    /**
+     * The name of the key the value of which is the deep link into HRS to approve payable time.
+     * NB: Approve and Payable are capitalized; time isn't
+     */
+    public static String APPROVE_PAYABLE_TIME_KEY = "Approve Payable time";
 }

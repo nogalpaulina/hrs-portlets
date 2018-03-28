@@ -1,4 +1,4 @@
-package edu.wisc.portlet.hrs.web.manager;
+package edu.wisc.portlet.hrs.web.managerlinks;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
@@ -29,7 +29,7 @@ import org.springframework.web.portlet.bind.annotation.ResourceMapping;
  */
 @Controller
 @RequestMapping("VIEW")
-public class ManagerLinksDataController
+public class ManagerLinksController
   extends HrsControllerBase {
 
   private static Set<String> ROLES_THAT_MANAGE_TIME_OR_ABSENCES;
@@ -99,13 +99,15 @@ public class ManagerLinksDataController
     }
 
     if (roles.contains("ROLE_VIEW_MANAGED_TIMES")) {
-      final String approveTimeUrl = getHrsUrls().get("Approve Payable Time");
+      final String approveTimeUrl = getHrsUrls().get(HrsUrlDao.APPROVE_PAYABLE_TIME_KEY);
       if (StringUtils.isNotBlank(approveTimeUrl)) {
         final Link approveTime = new Link();
         approveTime.setTitle("Approve time");
         approveTime.setIcon("access_time");
+        approveTime.setTarget("_blank");
+        linkList.add(approveTime);
       } else {
-        logger.error("HRS URL [Approve Payable Time] expected but not found "
+        logger.error("HRS URL [" + HrsUrlDao.APPROVE_PAYABLE_TIME_KEY + "] expected but not found "
             + "and so could not be offered to emplid " + emplId);
       }
     }
@@ -145,6 +147,21 @@ public class ManagerLinksDataController
     modelMap.put("content", content);
 
     return "contentAttrJsonView";
+  }
+
+
+  @RequestMapping
+  public String viewLinks( ModelMap modelMap, PortletRequest request){
+
+    final String emplId = PrimaryAttributeUtils.getPrimaryId();
+
+    final PortletPreferences preferences = request.getPreferences();
+    final String approvalsDashboardUrl =
+        preferences.getValue("approvalsDashboardUrl", null);
+
+    modelMap.put("approvalsDashboardUrl", approvalsDashboardUrl);
+
+    return "managerLinks";
   }
 
 }

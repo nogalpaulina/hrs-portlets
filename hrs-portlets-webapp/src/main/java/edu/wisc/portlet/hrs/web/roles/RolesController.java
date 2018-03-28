@@ -1,23 +1,20 @@
-package edu.wisc.portlet.hrs.web.contactinfo;
+package edu.wisc.portlet.hrs.web.roles;
 
 import edu.wisc.hr.dao.roles.HrsRolesDao;
 import edu.wisc.portlet.hrs.web.HrsControllerBase;
 import edu.wisc.portlet.hrs.web.listoflinks.Link;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
-import javax.portlet.ResourceRequest;
-import javax.portlet.ResourceResponse;
 import org.jasig.springframework.security.portlet.authentication.PrimaryAttributeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.portlet.bind.annotation.ResourceMapping;
 
@@ -26,7 +23,7 @@ import org.springframework.web.portlet.bind.annotation.ResourceMapping;
  */
 @Controller
 @RequestMapping("VIEW")
-public class RolesDataController
+public class RolesController
   extends HrsControllerBase {
 
   private HrsRolesDao rolesDao;
@@ -48,11 +45,34 @@ public class RolesDataController
    * @return String representing view
    * @throws IOException
    */
-  @ResourceMapping("roles")
+  @ResourceMapping("rolesAsListOfLinks")
   public String rolesAsListOfLinksResource(ModelMap modelMap) throws IOException {
     final String emplId = PrimaryAttributeUtils.getPrimaryId();
     final Set<String> roles = this.rolesDao.getHrsRoles(emplId);
 
+    final List<Link> linkList = rolesAsLinks(roles);
+
+    Map<String, Object[]> content = new HashMap<String, Object[]>();
+    content.put("links", linkList.toArray());
+
+    modelMap.put("content", content);
+
+    return "contentAttrJsonView";
+  }
+
+  @RequestMapping
+  public String viewRoles( ModelMap modelMap, PortletRequest request){
+
+    final String emplId = PrimaryAttributeUtils.getPrimaryId();
+    final Set<String> roles = this.rolesDao.getHrsRoles(emplId);
+
+    final List<Link> linkList = rolesAsLinks(roles);
+
+    modelMap.put("links", linkList);
+    return "listOfLinks";
+  }
+
+  protected List<Link> rolesAsLinks(Set<String> roles) {
     final List<Link> linkList = new ArrayList<Link>();
 
     for (final String role : roles) {
@@ -63,12 +83,6 @@ public class RolesDataController
       link.setIcon("fa-user-circle");
       linkList.add(link);
     }
-
-    Map<String, Object[]> content = new HashMap<String, Object[]>();
-    content.put("links", linkList.toArray());
-
-    modelMap.put("content", content);
-
-    return "contentAttrJsonView";
+    return linkList;
   }
 }
