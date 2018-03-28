@@ -101,7 +101,7 @@ public class ManagerLinksController
     if (roles.contains("ROLE_VIEW_TIME_ABS_DASHBOARD")) {
       if (StringUtils.isNotBlank(approvalsDashboardUrl)) {
         final Link approvalsDashboard = new Link();
-        approvalsDashboard.setTitle("Approvals Dashboard");
+        approvalsDashboard.setTitle("Time &amp; Absence MSS Dashboard");
         approvalsDashboard.setIcon("check_circle");
         approvalsDashboard.setHref(approvalsDashboardUrl);
         approvalsDashboard.setTarget("_blank");
