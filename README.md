@@ -50,6 +50,7 @@ This is intended as a solution for
 
 + When set, Manager Time and Approval uses this URL as the href for a list-of-links link shown to
   to employees with a particular role.
++ When not set, this link is not shown.
 
 ### Specific to Payroll Information
 
