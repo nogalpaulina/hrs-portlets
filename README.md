@@ -46,6 +46,12 @@ This is intended as a solution for
 
 (Published as "Manager Time and Approval" in MyUW.)
 
+#### `approvalsDashboardLabel` portlet preference (optional)
+
++ Sets the label for the approvals dashboard hyperlink.
++ When not set, the label defaults to "Time & Absence MSS Dashboard" (as defined in 
+  `ManagerLinksController.DEFAULT_DASHBOARD_LABEL`).
+
 #### `approvalsDashboardUrl` portlet preference (optional)
 
 + When set, Manager Time and Approval uses this URL as the href for a list-of-links link shown to

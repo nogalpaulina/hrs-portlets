@@ -39,7 +39,7 @@
       <li>
         <a href="${approvalsDashboardUrl}"
           target="_blank" rel="noopener noreferrer">
-          Time &amp; Absence MSS Dashboard
+          ${approvalsDashboardLabel}
         </a>
       </li>
     </sec:authorize>
