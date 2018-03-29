@@ -32,6 +32,11 @@ import org.springframework.web.portlet.bind.annotation.ResourceMapping;
 public class ManagerLinksController
   extends HrsControllerBase {
 
+  /**
+   * Default user-facing label for the approvals dashboard link.
+   */
+  public static String DEFAULT_DASHBOARD_LABEL = "Time & Absence MSS Dashboard";
+
   private static Set<String> ROLES_THAT_MANAGE_TIME_OR_ABSENCES;
 
   static {
@@ -71,6 +76,8 @@ public class ManagerLinksController
     final PortletPreferences preferences = request.getPreferences();
     final String approvalsDashboardUrl =
         preferences.getValue("approvalsDashboardUrl", null);
+    final String approvalsDashboardLabel =
+        preferences.getValue("approvalsDashboardLabel", DEFAULT_DASHBOARD_LABEL);
     final String helpUrl = preferences.getValue("helpUrl", null);
 
 
@@ -101,7 +108,7 @@ public class ManagerLinksController
     if (roles.contains("ROLE_VIEW_TIME_ABS_DASHBOARD")) {
       if (StringUtils.isNotBlank(approvalsDashboardUrl)) {
         final Link approvalsDashboard = new Link();
-        approvalsDashboard.setTitle("Time & Absence MSS Dashboard");
+        approvalsDashboard.setTitle(approvalsDashboardLabel);
         approvalsDashboard.setIcon("check_circle");
         approvalsDashboard.setHref(approvalsDashboardUrl);
         approvalsDashboard.setTarget("_blank");
@@ -158,8 +165,11 @@ public class ManagerLinksController
     final PortletPreferences preferences = request.getPreferences();
     final String approvalsDashboardUrl =
         preferences.getValue("approvalsDashboardUrl", null);
+    final String approvalsDashboardLabel =
+        preferences.getValue("approvalsDashboardLabel", DEFAULT_DASHBOARD_LABEL);
 
     modelMap.put("approvalsDashboardUrl", approvalsDashboardUrl);
+    modelMap.put("approvalsDashboardLabel", approvalsDashboardLabel);
 
     return "managerLinks";
   }
