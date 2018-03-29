@@ -35,6 +35,15 @@
 
   <ul>
 
+    <sec:authorize ifAnyGranted="ROLE_VIEW_TIME_ABS_DASHBOARD">
+      <li>
+        <a href="${approvalsDashboardUrl}"
+          target="_blank" rel="noopener noreferrer">
+          Time &amp; Absence MSS Dashboard
+        </a>
+      </li>
+    </sec:authorize>
+
     <sec:authorize ifAnyGranted="ROLE_VIEW_MANAGED_TIMES">
       <li>
         <a href="${hrsUrls['Approve Payable time']}"
@@ -49,15 +58,6 @@
         <a href="${hrsUrls['Approve Absence']}"
           target="_blank" rel="noopener noreferrer">
           Approve absence
-        </a>
-      </li>
-    </sec:authorize>
-
-    <sec:authorize ifAnyGranted="ROLE_VIEW_TIME_ABS_DASHBOARD">
-      <li>
-        <a href="${approvalsDashboardUrl}"
-          target="_blank" rel="noopener noreferrer">
-          Approvals dashboard
         </a>
       </li>
     </sec:authorize>
