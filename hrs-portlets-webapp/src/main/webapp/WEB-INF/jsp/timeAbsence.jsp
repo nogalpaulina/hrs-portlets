@@ -209,7 +209,7 @@
     <div id="${n}dl-absence-statements" class="dl-absence-statements ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
       <div id="${n}dl-leave-statements">
       	<p class="padded-paragraph">
-      		<a href="#" id="${n}oustandingMissingLeaveReports" target="_blank" style="display: none;">Outstanding Missing Leave Reports</a>
+          <a id="${n}oustandingMissingLeaveReports" style="display: none;" target="_blank" ng-href="#" class="btn btn-default">My Unsubmitted Reports</a>
       	</p>
         <div class="fl-pager">
           <hrs:pagerNavBar position="top" showSummary="${true}" />
