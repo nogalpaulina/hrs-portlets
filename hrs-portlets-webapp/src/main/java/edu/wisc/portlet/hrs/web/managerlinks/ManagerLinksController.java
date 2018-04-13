@@ -119,21 +119,6 @@ public class ManagerLinksController
       }
     }
 
-    if (roles.contains("ROLE_VIEW_MANAGED_TIMES")) {
-      final String approveTimeUrl = getHrsUrls().get(HrsUrlDao.APPROVE_PAYABLE_TIME_KEY);
-      if (StringUtils.isNotBlank(approveTimeUrl)) {
-        final Link approveTime = new Link();
-        approveTime.setTitle("Approve time");
-        approveTime.setIcon("access_time");
-        approveTime.setHref(approveTimeUrl);
-        approveTime.setTarget("_blank");
-        linkList.add(approveTime);
-      } else {
-        logger.error("HRS URL [" + HrsUrlDao.APPROVE_PAYABLE_TIME_KEY + "] expected but not found "
-            + "and so could not be offered to emplid " + emplId);
-      }
-    }
-
     if (roles.contains("ROLE_VIEW_MANAGED_ABSENCES")) {
       final String approveAbsenceUrl = getHrsUrls().get("Approve Absence");
       if (StringUtils.isNotBlank(approveAbsenceUrl)) {
@@ -145,6 +130,21 @@ public class ManagerLinksController
         linkList.add(approveAbsence);
       } else {
         logger.error("HRS URL [Approve Absence] expected but not found "
+            + "and so could not be offered to emplid " + emplId);
+      }
+    }
+
+    if (roles.contains("ROLE_VIEW_MANAGED_TIMES")) {
+      final String approveTimeUrl = getHrsUrls().get(HrsUrlDao.APPROVE_PAYABLE_TIME_KEY);
+      if (StringUtils.isNotBlank(approveTimeUrl)) {
+        final Link approveTime = new Link();
+        approveTime.setTitle("Approve time");
+        approveTime.setIcon("access_time");
+        approveTime.setHref(approveTimeUrl);
+        approveTime.setTarget("_blank");
+        linkList.add(approveTime);
+      } else {
+        logger.error("HRS URL [" + HrsUrlDao.APPROVE_PAYABLE_TIME_KEY + "] expected but not found "
             + "and so could not be offered to emplid " + emplId);
       }
     }
