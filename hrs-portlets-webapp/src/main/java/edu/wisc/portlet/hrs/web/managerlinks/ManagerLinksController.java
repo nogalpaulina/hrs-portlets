@@ -125,6 +125,7 @@ public class ManagerLinksController
         final Link approveTime = new Link();
         approveTime.setTitle("Approve time");
         approveTime.setIcon("access_time");
+        approveTime.setHref(approveTimeUrl);
         approveTime.setTarget("_blank");
         linkList.add(approveTime);
       } else {
