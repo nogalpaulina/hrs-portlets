@@ -44,20 +44,20 @@
       </li>
     </sec:authorize>
 
-    <sec:authorize ifAnyGranted="ROLE_VIEW_MANAGED_TIMES">
-      <li>
-        <a href="${hrsUrls['Approve Payable time']}"
-          target="_blank" rel="noopener noreferrer">
-          Approve time
-        </a>
-      </li>
-    </sec:authorize>
-
     <sec:authorize ifAnyGranted="ROLE_VIEW_MANAGED_ABSENCES">
       <li>
         <a href="${hrsUrls['Approve Absence']}"
           target="_blank" rel="noopener noreferrer">
           Approve absence
+        </a>
+      </li>
+    </sec:authorize>
+
+    <sec:authorize ifAnyGranted="ROLE_VIEW_MANAGED_TIMES">
+      <li>
+        <a href="${hrsUrls['Approve Payable time']}"
+          target="_blank" rel="noopener noreferrer">
+          Approve time
         </a>
       </li>
     </sec:authorize>
