@@ -35,7 +35,7 @@ public class ManagerLinksController
   /**
    * Default user-facing label for the approvals dashboard link.
    */
-  public static String DEFAULT_DASHBOARD_LABEL = "Time & Absence MSS Dashboard";
+  public static String DEFAULT_DASHBOARD_LABEL = "Time & Absence Dashboard";
 
   private static Set<String> ROLES_THAT_MANAGE_TIME_OR_ABSENCES;
 
