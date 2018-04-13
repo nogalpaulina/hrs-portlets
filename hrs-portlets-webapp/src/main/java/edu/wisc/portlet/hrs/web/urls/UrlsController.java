@@ -48,7 +48,7 @@ public class UrlsController
     for (String urlName : hrsUrls.keySet()) {
       final Link link = new Link();
       link.setTitle(urlName);
-      link.setHref(hrsUrls.get("link"));
+      link.setHref(hrsUrls.get(urlName));
       link.setIcon("link");
       linkList.add(link);
     }
