@@ -48,7 +48,7 @@
       <li>
         <a href="${hrsUrls['Approve Absence']}"
           target="_blank" rel="noopener noreferrer">
-          Approve absence
+          ${approveAbsenceLabel}
         </a>
       </li>
     </sec:authorize>
@@ -57,7 +57,7 @@
       <li>
         <a href="${hrsUrls['Approve Payable time']}"
           target="_blank" rel="noopener noreferrer">
-          Approve time
+          ${approveTimeLabel}
         </a>
       </li>
     </sec:authorize>

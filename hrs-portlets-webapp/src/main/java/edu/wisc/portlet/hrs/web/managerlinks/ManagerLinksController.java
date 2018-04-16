@@ -37,6 +37,18 @@ public class ManagerLinksController
    */
   public static String DEFAULT_DASHBOARD_LABEL = "Time & Absence Dashboard";
 
+  /**
+   * A strict reading of the MyUW style guidance wrt list-of-links apps would have this sentence
+   * case, but title case is as requested.
+   */
+  public static String DEFAULT_APPROVE_ABSENCE_LABEL = "Approve Absence";
+
+  /**
+   * A strict reading of the MyUW style guidance wrt list-of-links apps would have this sentence
+   * case, but title case is as requested.
+   */
+  public static String DEFAULT_APPROVE_TIME_LABEL = "Approve Time";
+
   private static Set<String> ROLES_THAT_MANAGE_TIME_OR_ABSENCES;
 
   static {
@@ -78,6 +90,10 @@ public class ManagerLinksController
         preferences.getValue("approvalsDashboardUrl", null);
     final String approvalsDashboardLabel =
         preferences.getValue("approvalsDashboardLabel", DEFAULT_DASHBOARD_LABEL);
+    final String approveAbsenceLabel =
+        preferences.getValue("approveAbsenceLabel", DEFAULT_APPROVE_ABSENCE_LABEL);
+    final String approveTimeLabel =
+        preferences.getValue("approveTimeLabel", DEFAULT_APPROVE_TIME_LABEL);
     final String helpUrl = preferences.getValue("helpUrl", null);
 
 
@@ -123,7 +139,7 @@ public class ManagerLinksController
       final String approveAbsenceUrl = getHrsUrls().get("Approve Absence");
       if (StringUtils.isNotBlank(approveAbsenceUrl)) {
         final Link approveAbsence = new Link();
-        approveAbsence.setTitle("Approve absence");
+        approveAbsence.setTitle(approveAbsenceLabel);
         approveAbsence.setIcon("perm_contact_calendar");
         approveAbsence.setHref(approveAbsenceUrl);
         approveAbsence.setTarget("_blank");
@@ -138,7 +154,7 @@ public class ManagerLinksController
       final String approveTimeUrl = getHrsUrls().get(HrsUrlDao.APPROVE_PAYABLE_TIME_KEY);
       if (StringUtils.isNotBlank(approveTimeUrl)) {
         final Link approveTime = new Link();
-        approveTime.setTitle("Approve time");
+        approveTime.setTitle(approveTimeLabel);
         approveTime.setIcon("access_time");
         approveTime.setHref(approveTimeUrl);
         approveTime.setTarget("_blank");
@@ -168,9 +184,15 @@ public class ManagerLinksController
         preferences.getValue("approvalsDashboardUrl", null);
     final String approvalsDashboardLabel =
         preferences.getValue("approvalsDashboardLabel", DEFAULT_DASHBOARD_LABEL);
+    final String approveAbsenceLabel =
+        preferences.getValue("approveAbsenceLabel", DEFAULT_APPROVE_ABSENCE_LABEL);
+    final String approveTimeLabel =
+        preferences.getValue("approveTimeLabel", DEFAULT_APPROVE_TIME_LABEL);
 
     modelMap.put("approvalsDashboardUrl", approvalsDashboardUrl);
     modelMap.put("approvalsDashboardLabel", approvalsDashboardLabel);
+    modelMap.put("approveAbsenceLabel", approveAbsenceLabel);
+    modelMap.put("approveTimeLabel", approveTimeLabel);
 
     return "managerLinks";
   }
