@@ -46,10 +46,22 @@ This is intended as a solution for
 
 (Published as "Manager Time and Approval" in MyUW.)
 
+#### `approveAbsenceLabel` portlet preference (optional)
+
++ Sets the label for the approve absence hyperlink.
++ When not set, the label defaults to "Approve Absence" (as defined in 
+  `ManagerLinksController.DEFAULT_APPROVE_ABSENCE_LABEL`).
+
+#### `approveTimeLabel` portlet preference (optional)
+
++ Sets the label for the approve time hyperlink.
++ When not set, the label defaults to "Approve Time" (as defined in 
+  `ManagerLinksController.DEFAULT_APPROVE_TIME_LABEL`).
+
 #### `approvalsDashboardLabel` portlet preference (optional)
 
 + Sets the label for the approvals dashboard hyperlink.
-+ When not set, the label defaults to "Time & Absence MSS Dashboard" (as defined in 
++ When not set, the label defaults to "Time & Absence Dashboard" (as defined in 
   `ManagerLinksController.DEFAULT_DASHBOARD_LABEL`).
 
 #### `approvalsDashboardUrl` portlet preference (optional)
