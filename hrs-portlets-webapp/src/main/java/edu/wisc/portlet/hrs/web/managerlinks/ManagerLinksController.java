@@ -35,7 +35,7 @@ public class ManagerLinksController
   /**
    * Default user-facing label for the approvals dashboard link.
    */
-  public static String DEFAULT_DASHBOARD_LABEL = "Time & Absence Dashboard";
+  public static String DEFAULT_DASHBOARD_LABEL = "Time/Absence Dashboard";
 
   /**
    * A strict reading of the MyUW style guidance wrt list-of-links apps would have this sentence
