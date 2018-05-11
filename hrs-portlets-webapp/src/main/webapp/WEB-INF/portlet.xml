@@ -291,6 +291,34 @@
     </portlet>
 
     <portlet>
+        <portlet-name>Troubleshooting</portlet-name>
+        <portlet-class>org.jasig.springframework.web.portlet.context.ContribDispatcherPortlet</portlet-class>
+        <init-param>
+            <name>contextConfigLocation</name>
+            <value>/WEB-INF/context/portlet/troubleshooting.xml</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+        </supports>
+        <portlet-info>
+            <title>HRS Integration Troubleshooting Tool</title>
+            <short-title>HRS Troubleshooter</short-title>
+        </portlet-info>
+        <portlet-preferences>
+            <preference>
+                <name>emplidUserAttributes</name>
+                <value>eduWisconsinHRSEmplID</value>
+                <value>eduWisconsinHRPersonID</value>
+                <value>wiscEduHRSEmplid</value>
+                <value>wisceduhrpersonid</value>
+                <value>legacywisceduhrpersonid</value>
+            </preference>
+        </portlet-preferences>
+    </portlet>
+
+    <portlet>
         <portlet-name>Urls</portlet-name>
         <portlet-class>org.jasig.springframework.web.portlet.context.ContribDispatcherPortlet</portlet-class>
         <init-param>
