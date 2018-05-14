@@ -22,10 +22,7 @@ package edu.wisc.hr.dao.roles;
 import java.util.Set;
 
 /**
- * Gets a set of deep-links into the HRS system
- * 
- * @author Eric Dalquist
- * @version $Revision: 1.1 $
+ * Gets the employee's roles as understood by this application.
  */
 public interface HrsRolesDao {
 
