@@ -18,23 +18,8 @@
  */
 package edu.wisc.hrs.dao.roles;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import javax.annotation.Resource;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Repository;
-import org.springframework.ws.client.core.WebServiceOperations;
-
 import com.googlecode.ehcache.annotations.Cacheable;
 import com.googlecode.ehcache.annotations.DecoratedCacheType;
-
 import edu.wisc.hr.dao.roles.HrsRolesDao;
 import edu.wisc.hrs.dao.BaseHrsSoapDao;
 import edu.wisc.hrs.dao.HrsUtils;
@@ -42,6 +27,17 @@ import edu.wisc.hrs.xdm.roles.req.EmplidTypeShape;
 import edu.wisc.hrs.xdm.roles.req.GetCompIntfcUWPORTAL1ROLES;
 import edu.wisc.hrs.xdm.roles.res.GetCompIntfcUWPORTAL1ROLESResponse;
 import edu.wisc.hrs.xdm.roles.res.UwHrRolUsrVwTypeShape;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
+import org.springframework.ws.client.core.WebServiceOperations;
 
 /**
  * Spring {@link WebServiceOperations} backed implementation of {@link BaseHrsSoapDao}.
