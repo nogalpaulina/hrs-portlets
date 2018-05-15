@@ -53,5 +53,4 @@ public class HrsRoleMappingRule {
   private boolean pluralPortletRoles;
 
 
-
 }
