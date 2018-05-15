@@ -21,7 +21,7 @@ public class HrsRoleMappingRuleTest {
   }
 
   @Test
-  public void testMapsHrsRoleToMultiplePortletRoles() {
+  public void testMapsHrsRoleToTwoPortletRoles() {
 
     Set<String> portletRoles = new HashSet<String>();
     portletRoles.add("SOME_PORTLET_ROLE");
@@ -33,10 +33,32 @@ public class HrsRoleMappingRuleTest {
     assertEquals("HRS_ROLE", rule.getHrsRole());
 
     // alphabetical order
-    assertEquals("SOME_OTHER_PORTLET_ROLE, SOME_PORTLET_ROLE", rule.getPortletRolePhrase());
+    assertEquals("SOME_OTHER_PORTLET_ROLE and SOME_PORTLET_ROLE", rule.getPortletRolePhrase());
 
 
   }
+
+  @Test
+  public void testMapsHrsRoleToThreePortletRoles() {
+
+    Set<String> portletRoles = new HashSet<String>();
+    portletRoles.add("SOME_PORTLET_ROLE");
+    portletRoles.add("SOME_OTHER_PORTLET_ROLE");
+    portletRoles.add("YET_ANOTHER_PORTLET_ROLE");
+    HrsRoleMappingRule rule = new HrsRoleMappingRule("HRS_ROLE", portletRoles);
+
+    assertTrue(rule.isMultiplePortletRoles());
+
+    assertEquals("HRS_ROLE", rule.getHrsRole());
+
+    // alphabetical order
+    assertEquals(
+        "SOME_OTHER_PORTLET_ROLE, SOME_PORTLET_ROLE, and YET_ANOTHER_PORTLET_ROLE",
+        rule.getPortletRolePhrase());
+
+
+  }
+
 
 
   @Test

@@ -63,6 +63,10 @@ public class HrsRoleMappingRule {
       return "(none)";
     }
 
+    if (1 == this.portletRoles.size()) {
+      return this.portletRoles.iterator().next();
+    }
+
     List<String> portletRolesList = new ArrayList(this.portletRoles);
 
     Collections.sort(portletRolesList);
@@ -71,10 +75,23 @@ public class HrsRoleMappingRule {
 
     String portletRolePhrase = alphabeticalPortletRoles.next();
 
-    while(alphabeticalPortletRoles.hasNext()) {
+    if (2 == this.portletRoles.size()) {
+
+      return portletRolePhrase + " and " + alphabeticalPortletRoles.next();
+
+    }
+
+    // there are three or more portlet roles.
+    // one of these is already read into portletRolePhrase from the iterator
+    // read all but one in with comma separation
+
+    for (int i = 2; i < portletRolesList.size(); i++) {
 
       portletRolePhrase = portletRolePhrase + ", " + alphabeticalPortletRoles.next();
     }
+
+    // read in the last role, separating with an Oxford comma and an and.
+    portletRolePhrase = portletRolePhrase + ", and " + alphabeticalPortletRoles.next();
 
     return portletRolePhrase;
   }
