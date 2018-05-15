@@ -48,37 +48,13 @@ public class TroubleshootingController
 
       Set<String> portletRoles = hrsRoleMappings.get(hrsRole);
 
-      HrsRoleMappingRule rule = new HrsRoleMappingRule();
-      rule.setHrsRole(hrsRole);
+      HrsRoleMappingRule rule = new HrsRoleMappingRule(hrsRole, portletRoles);
 
-      if (portletRoles.size() == 0) {
-
-        logger.warn("HRS role {} mapped to no portlet roles. Bad mapping rule config?", hrsRole);
-        rule.setPluralPortletRoles(false);
-        rule.setPortletRolePhrase("(none)");
-
-      } else if (portletRoles.size() == 1) {
-
-        rule.setPluralPortletRoles(false);
-
-        String portletRole = portletRoles.iterator().next();
-        rule.setPortletRolePhrase(portletRole);
-
-      } else {
-
-        rule.setPluralPortletRoles(true);
-        String portletRolePhrase = "";
-
-        for (String portletRole : portletRoles) {
-          portletRolePhrase = portletRolePhrase + ", " + portletRole;
-        }
-
-        rule.setPortletRolePhrase(portletRolePhrase);
-      }
-
-      modelMap.put("rules", rules);
+      rules.add(rule);
 
     }
+
+    modelMap.put("rules", rules);
 
     return "troubleshooting";
   }

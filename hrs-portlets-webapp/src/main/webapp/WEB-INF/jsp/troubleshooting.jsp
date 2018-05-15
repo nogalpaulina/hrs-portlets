@@ -69,7 +69,7 @@
   <ul>
     <c:forEach var="mappingRule" items="${rules}">
       <c:choose>
-        <c:when test="${mappingRule.pluralPortletRoles}">
+        <c:when test="${mappingRule.multiplePortletRoles}">
           <li>
             HRS role ${mappingRule.hrsRole} grants Portlet roles ${mappingRule.portletRolePhrase}.
           </li>
