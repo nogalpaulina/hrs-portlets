@@ -41,94 +41,97 @@ import org.springframework.ws.client.core.WebServiceOperations;
 
 /**
  * Spring {@link WebServiceOperations} backed implementation of {@link BaseHrsSoapDao}.
- * 
+ *
  * @version $Id: SoapHrsRolesDao.java,v 1.3 2012/04/20 17:08:50 dalquist Exp $
  */
 @Repository("soapHrsRolesDao")
 public class SoapHrsRolesDao extends BaseHrsSoapDao implements HrsRolesDao {
-    private WebServiceOperations webServiceOperations;
-    private Map<String, Set<String>> hrsRolesMappings = Collections.emptyMap();
-    
-    @Autowired
-    public void setWebServiceOperations(@Qualifier("rolesWebServiceTemplate") WebServiceOperations webServiceOperations) {
-        this.webServiceOperations = webServiceOperations;
-    }
-    
-    @Resource(name="hrsRolesMapping")
-    public void setHrsRoleMappings(Map<String, Set<String>> hrsRolesMappings) {
-        this.hrsRolesMappings = hrsRolesMappings;
-    }
 
-    @Override
-    public Map<String, Set<String>> getHrsRoleMappings() {
-        return this.hrsRolesMappings;
-    }
+  private WebServiceOperations webServiceOperations;
+  private Map<String, Set<String>> hrsRolesMappings = Collections.emptyMap();
 
-    @Override
-    protected WebServiceOperations getWebServiceOperations() {
-        return this.webServiceOperations;
-    }
-    @Override
-    @Cacheable(cacheName="hrsRoles", decoratedCacheType=DecoratedCacheType.SELF_POPULATING_CACHE, selfPopulatingTimeout=20000, exceptionCacheName="hrsUnknownExceptionCache")
-    public Set<String> getHrsRoles(String emplId) {
-        final GetCompIntfcUWPORTAL1ROLES request = this.createRequest(emplId);
+  @Autowired
+  public void setWebServiceOperations(
+      @Qualifier("rolesWebServiceTemplate") WebServiceOperations webServiceOperations) {
+    this.webServiceOperations = webServiceOperations;
+  }
 
-        final GetCompIntfcUWPORTAL1ROLESResponse response = this.internalInvoke(request);
+  @Resource(name = "hrsRolesMapping")
+  public void setHrsRoleMappings(Map<String, Set<String>> hrsRolesMappings) {
+    this.hrsRolesMappings = hrsRolesMappings;
+  }
 
-        return this.convertRoles(response);
-    }
+  @Override
+  public Map<String, Set<String>> getHrsRoleMappings() {
+    return this.hrsRolesMappings;
+  }
 
-    @Override
-    public Set<String> rawHrsRolesForEmplid(String emplId) {
+  @Override
+  protected WebServiceOperations getWebServiceOperations() {
+    return this.webServiceOperations;
+  }
 
-        final GetCompIntfcUWPORTAL1ROLES request = this.createRequest(emplId);
+  @Override
+  @Cacheable(cacheName = "hrsRoles", decoratedCacheType = DecoratedCacheType.SELF_POPULATING_CACHE, selfPopulatingTimeout = 20000, exceptionCacheName = "hrsUnknownExceptionCache")
+  public Set<String> getHrsRoles(String emplId) {
+    final GetCompIntfcUWPORTAL1ROLES request = this.createRequest(emplId);
 
-        final GetCompIntfcUWPORTAL1ROLESResponse response = this.internalInvoke(request);
+    final GetCompIntfcUWPORTAL1ROLESResponse response = this.internalInvoke(request);
 
-        if (response == null) {
-            logger.warn("Converted null roles web service SOAP response to empty role set.");
-            return Collections.emptySet();
-        }
+    return this.convertRoles(response);
+  }
 
-        final List<UwHrRolUsrVwTypeShape> uwHrRolUsrVws = response.getUwHrRolUsrVws();
+  @Override
+  public Set<String> rawHrsRolesForEmplid(String emplId) {
 
-        final Set<String> roles = new HashSet<String>(uwHrRolUsrVws.size());
+    final GetCompIntfcUWPORTAL1ROLES request = this.createRequest(emplId);
 
-        for (final UwHrRolUsrVwTypeShape uwHrRolUsrVwTypeShape : uwHrRolUsrVws) {
-            final String hrsRoleName = (String)HrsUtils.getValue(uwHrRolUsrVwTypeShape.getRoleName());
-            roles.add(hrsRoleName);
-        }
+    final GetCompIntfcUWPORTAL1ROLESResponse response = this.internalInvoke(request);
 
-        return roles;
+    if (response == null) {
+      logger.warn("Converted null roles web service SOAP response to empty role set.");
+      return Collections.emptySet();
     }
 
-    protected GetCompIntfcUWPORTAL1ROLES createRequest(String emplId) {
-        EmplidTypeShape value = HrsUtils.createValue(EmplidTypeShape.class, emplId);
+    final List<UwHrRolUsrVwTypeShape> uwHrRolUsrVws = response.getUwHrRolUsrVws();
 
-        final GetCompIntfcUWPORTAL1ROLES request = new GetCompIntfcUWPORTAL1ROLES();
-        request.setEmplid(value);
+    final Set<String> roles = new HashSet<String>(uwHrRolUsrVws.size());
 
-        return request;
+    for (final UwHrRolUsrVwTypeShape uwHrRolUsrVwTypeShape : uwHrRolUsrVws) {
+      final String hrsRoleName = (String) HrsUtils.getValue(uwHrRolUsrVwTypeShape.getRoleName());
+      roles.add(hrsRoleName);
     }
 
-    protected Set<String> convertRoles(final GetCompIntfcUWPORTAL1ROLESResponse response) {
-        if (response == null) {
-            logger.warn("Converted null roles web service SOAP response to empty role set.");
-            return Collections.emptySet();
-        }
-        
-        final List<UwHrRolUsrVwTypeShape> uwHrRolUsrVws = response.getUwHrRolUsrVws();
-        
-        final Set<String> roles = new LinkedHashSet<String>(uwHrRolUsrVws.size());
+    return roles;
+  }
 
-        for (final UwHrRolUsrVwTypeShape uwHrRolUsrVwTypeShape : uwHrRolUsrVws) {
-            final String hrsRoleName = (String)HrsUtils.getValue(uwHrRolUsrVwTypeShape.getRoleName());
-            final Set<String> mappedRoleNames = this.hrsRolesMappings.get(hrsRoleName);
-            if (mappedRoleNames != null) {
-                roles.addAll(mappedRoleNames);
-            }
-        }
+  protected GetCompIntfcUWPORTAL1ROLES createRequest(String emplId) {
+    EmplidTypeShape value = HrsUtils.createValue(EmplidTypeShape.class, emplId);
 
-        return roles;
+    final GetCompIntfcUWPORTAL1ROLES request = new GetCompIntfcUWPORTAL1ROLES();
+    request.setEmplid(value);
+
+    return request;
+  }
+
+  protected Set<String> convertRoles(final GetCompIntfcUWPORTAL1ROLESResponse response) {
+    if (response == null) {
+      logger.warn("Converted null roles web service SOAP response to empty role set.");
+      return Collections.emptySet();
     }
+
+    final List<UwHrRolUsrVwTypeShape> uwHrRolUsrVws = response.getUwHrRolUsrVws();
+
+    final Set<String> roles = new LinkedHashSet<String>(uwHrRolUsrVws.size());
+
+    for (final UwHrRolUsrVwTypeShape uwHrRolUsrVwTypeShape : uwHrRolUsrVws) {
+      final String hrsRoleName = (String) HrsUtils.getValue(uwHrRolUsrVwTypeShape.getRoleName());
+      final Set<String> mappedRoleNames = this.hrsRolesMappings.get(hrsRoleName);
+      if (mappedRoleNames != null) {
+        roles.addAll(mappedRoleNames);
+      }
+    }
+
+    return roles;
+  }
 }
