@@ -30,7 +30,7 @@ public class TroubleshootingController
   }
 
   @RequestMapping
-  public String viewRoles( ModelMap modelMap, @RequestParam(required = false) String queriedEmplId){
+  public String viewRoles(ModelMap modelMap, @RequestParam(required = false) String queriedEmplId) {
 
     if (null != queriedEmplId) {
       modelMap.put("queriedEmplId", queriedEmplId);
