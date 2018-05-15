@@ -2,11 +2,9 @@ package edu.wisc.portlet.hrs.web.troubleshoot;
 
 import edu.wisc.hr.dao.roles.HrsRolesDao;
 import edu.wisc.portlet.hrs.web.HrsControllerBase;
-import edu.wisc.portlet.hrs.web.listoflinks.Link;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
-import javax.portlet.PortletRequest;
-import org.jasig.springframework.security.portlet.authentication.PrimaryAttributeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -37,6 +35,49 @@ public class TroubleshootingController
 
       final Set<String> roles = this.rolesDao.getHrsRoles(queriedEmplId);
       modelMap.put("roles", roles);
+
+      final Set<String> rawRoles = this.rolesDao.rawHrsRolesForEmplid(queriedEmplId);
+      modelMap.put("rawRoles", rawRoles);
+
+    }
+
+    final Map<String, Set<String>> hrsRoleMappings = this.rolesDao.getHrsRoleMappings();
+    final Set<HrsRoleMappingRule> rules = new HashSet<HrsRoleMappingRule>();
+
+    for (final String hrsRole : hrsRoleMappings.keySet()) {
+
+      Set<String> portletRoles = hrsRoleMappings.get(hrsRole);
+
+      HrsRoleMappingRule rule = new HrsRoleMappingRule();
+      rule.setHrsRole(hrsRole);
+
+      if (portletRoles.size() == 0) {
+
+        logger.warn("HRS role {} mapped to no portlet roles. Bad mapping rule config?", hrsRole);
+        rule.setPluralPortletRoles(false);
+        rule.setPortletRolePhrase("(none)");
+
+      } else if (portletRoles.size() == 1) {
+
+        rule.setPluralPortletRoles(false);
+
+        String portletRole = portletRoles.iterator().next();
+        rule.setPortletRolePhrase(portletRole);
+
+      } else {
+
+        rule.setPluralPortletRoles(true);
+        String portletRolePhrase = "";
+
+        for (String portletRole : portletRoles) {
+          portletRolePhrase = portletRolePhrase + ", " + portletRole;
+        }
+
+        rule.setPortletRolePhrase(portletRolePhrase);
+      }
+
+      modelMap.put("rules", rules);
+
     }
 
     return "troubleshooting";
