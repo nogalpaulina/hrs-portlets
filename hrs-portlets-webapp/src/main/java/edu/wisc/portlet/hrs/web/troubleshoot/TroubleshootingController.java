@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("VIEW")
 public class TroubleshootingController
-  extends HrsControllerBase {
+    extends HrsControllerBase {
 
   private HrsRolesDao rolesDao;
 
