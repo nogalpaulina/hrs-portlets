@@ -35,7 +35,7 @@
   </form>
 
 <c:if test="${not empty queriedEmplId}">
-<p>empId ${queriedEmplId} has these roles:</p>
+<p>emlpId ${queriedEmplId} has these HRS Portlets (MyUW app) roles:</p>
 <ul>
 <c:forEach var="role" items="${roles}">
   <li>${role}</li>
