@@ -67,7 +67,7 @@
      according to these rules:</p>
 
   <ul>
-    <c:forEach var="mappingRule" items="{$rules}">
+    <c:forEach var="mappingRule" items="${rules}">
       <c:choose>
         <c:when test="${mappingRule.pluralPortletRoles}">
           <li>
