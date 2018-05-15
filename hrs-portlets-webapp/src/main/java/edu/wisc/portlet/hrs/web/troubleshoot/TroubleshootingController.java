@@ -34,6 +34,7 @@ public class TroubleshootingController
 
     if (null != queriedEmplId) {
       modelMap.put("queriedEmplId", queriedEmplId);
+
       final Set<String> roles = this.rolesDao.getHrsRoles(queriedEmplId);
       modelMap.put("roles", roles);
     }
