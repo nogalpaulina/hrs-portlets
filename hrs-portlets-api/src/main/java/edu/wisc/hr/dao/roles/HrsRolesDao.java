@@ -19,7 +19,9 @@
 
 package edu.wisc.hr.dao.roles;
 
+import java.util.Map;
 import java.util.Set;
+import javax.annotation.Resource;
 
 /**
  * Gets the employee's roles as understood by this application.
@@ -27,4 +29,21 @@ import java.util.Set;
 public interface HrsRolesDao {
 
     public Set<String> getHrsRoles(String emplId);
+
+    /**
+     * Get the raw roles as delivered by HRS, before any within-app mapping.
+     * @param emplId
+     * @return potentially empty non-null Set of Strings representing HRS roles
+     * @since 2.0
+     */
+    public Set<String> rawHrsRolesForEmplid(String emplId);
+
+
+    /**
+     * Get the general (not-empl-specific) mapping from raw HRS role to porlet role(s).
+     * @return non-null Map of non-null Strings representing raw HRS roles to non-null non-empty
+     * Sets of Strings representing portlet roles.
+     * @since 2.0
+     */
+    public Map<String, Set<String>> getHrsRoleMappings();
 }

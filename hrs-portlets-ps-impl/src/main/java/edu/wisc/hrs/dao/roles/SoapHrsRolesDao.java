@@ -19,6 +19,7 @@
 package edu.wisc.hrs.dao.roles;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -61,7 +62,12 @@ public class SoapHrsRolesDao extends BaseHrsSoapDao implements HrsRolesDao {
     public void setHrsRoleMappings(Map<String, Set<String>> hrsRolesMappings) {
         this.hrsRolesMappings = hrsRolesMappings;
     }
-    
+
+    @Override
+    public Map<String, Set<String>> getHrsRoleMappings() {
+        return this.hrsRolesMappings;
+    }
+
     @Override
     protected WebServiceOperations getWebServiceOperations() {
         return this.webServiceOperations;
@@ -74,6 +80,30 @@ public class SoapHrsRolesDao extends BaseHrsSoapDao implements HrsRolesDao {
         final GetCompIntfcUWPORTAL1ROLESResponse response = this.internalInvoke(request);
 
         return this.convertRoles(response);
+    }
+
+    @Override
+    public Set<String> rawHrsRolesForEmplid(String emplId) {
+
+        final GetCompIntfcUWPORTAL1ROLES request = this.createRequest(emplId);
+
+        final GetCompIntfcUWPORTAL1ROLESResponse response = this.internalInvoke(request);
+
+        if (response == null) {
+            logger.warn("Converted null roles web service SOAP response to empty role set.");
+            return Collections.emptySet();
+        }
+
+        final List<UwHrRolUsrVwTypeShape> uwHrRolUsrVws = response.getUwHrRolUsrVws();
+
+        final Set<String> roles = new HashSet<String>(uwHrRolUsrVws.size());
+
+        for (final UwHrRolUsrVwTypeShape uwHrRolUsrVwTypeShape : uwHrRolUsrVws) {
+            final String hrsRoleName = (String)HrsUtils.getValue(uwHrRolUsrVwTypeShape.getRoleName());
+            roles.add(hrsRoleName);
+        }
+
+        return roles;
     }
 
     protected GetCompIntfcUWPORTAL1ROLES createRequest(String emplId) {
