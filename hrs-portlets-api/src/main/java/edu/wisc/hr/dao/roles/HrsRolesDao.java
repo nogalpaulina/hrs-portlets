@@ -21,7 +21,6 @@ package edu.wisc.hr.dao.roles;
 
 import java.util.Map;
 import java.util.Set;
-import javax.annotation.Resource;
 
 /**
  * Gets the employee's roles as understood by this application.

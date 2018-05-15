@@ -1,7 +1,5 @@
 package edu.wisc.portlet.hrs.web.troubleshoot;
 
-import java.util.Set;
-
 /**
  * JavaBean for representing HRS role mapping rules for convenient use in a JSP articulating the
  * rules. Model object especially suited for presentation in view.
