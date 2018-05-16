@@ -34,17 +34,60 @@
     </fieldset>
   </form>
 
-<c:if test="${not empty queriedEmplId}">
-<p>empId ${queriedEmplId} has these roles:</p>
-<ul>
-<c:forEach var="role" items="${roles}">
-  <li>${role}</li>
-</c:forEach>
-<c:if test="${empty roles}">
-  <li>(none)</li>
-</c:if>
-</ul>
-</c:if>
+  <c:if test="${not empty queriedEmplId}">
+    <p>emlpId ${queriedEmplId} has these HRS Portlets (MyUW app) roles:</p>
+      <ul>
+
+        <c:forEach var="role" items="${roles}">
+          <li>${role}</li>
+        </c:forEach>
+
+        <c:if test="${empty roles}">
+          <li>(none)</li>
+        </c:if>
+      </ul>
+
+    <p>HRS Portlets are aware of these raw HRS roles for emplId ${queriedEmplId}:</p>
+
+    <ul>
+
+      <c:forEach var="rawRole" items="${rawRoles}">
+        <li>${rawRole}</li>
+      </c:forEach>
+
+      <c:if test="${empty rawRoles}">
+        <li>(none)</li>
+      </c:if>
+
+    </ul>
+
+  </c:if>
+
+  <p>In general, the HRS Portlets (MyUW app) map from raw HRS roles to MyUW HRS portlet app roles
+     according to these rules:</p>
+
+  <ul>
+    <c:forEach var="mappingRule" items="${rules}">
+      <c:choose>
+        <c:when test="${mappingRule.multiplePortletRoles}">
+          <li>
+            HRS role ${mappingRule.hrsRole} grants Portlet roles ${mappingRule.portletRolePhrase}.
+          </li>
+        </c:when>
+        <c:otherwise>
+          <li>
+            HRS role ${mappingRule.hrsRole} grants Portlet role ${mappingRule.portletRolePhrase}.
+          </li>
+        </c:otherwise>
+      </c:choose>
+    </c:forEach>
+  </ul>
+
+  <p>See also
+    <a href="https://github.com/UW-Madison-DoIT/hrs-portlets/blob/uw-master/hrs-portlets-ps-impl/src/main/resources/app-context/psAppContext.xml">
+      Documentation about the effects of HRS Portlet roles.
+    </a>
+  </p>
 
   <%@ include file="/WEB-INF/jsp/footer.jsp"%>
 
