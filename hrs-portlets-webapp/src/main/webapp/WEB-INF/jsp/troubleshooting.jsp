@@ -71,12 +71,14 @@
       <c:choose>
         <c:when test="${mappingRule.multiplePortletRoles}">
           <li>
-            HRS role ${mappingRule.hrsRole} grants Portlet roles ${mappingRule.portletRolePhrase}.
+            HRS role <em>${mappingRule.hrsRole}</em> grants
+            Portlet roles ${mappingRule.portletRolePhrase}.
           </li>
         </c:when>
         <c:otherwise>
           <li>
-            HRS role ${mappingRule.hrsRole} grants Portlet role ${mappingRule.portletRolePhrase}.
+            HRS role <em>${mappingRule.hrsRole}</em> grants
+            Portlet role ${mappingRule.portletRolePhrase}.
           </li>
         </c:otherwise>
       </c:choose>
