@@ -1,9 +1,11 @@
 # MyUW hrs-portlets change log
 
 
-### Unreleased (2.1.0 ?)
+### Unreleased
 
-? Date TBD
+### 2.1.0
+
+2018-06-04
 
 New features
 
