@@ -1,6 +1,6 @@
 # MyUW hrs-portlets change log
 
-### Unreleased (3?)
+### 3.0.0: split `ROLE_VIEW_ABSENCE_HISTORIES`
 
 BREAKING CHANGE:
 
