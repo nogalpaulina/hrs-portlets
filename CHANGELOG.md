@@ -2,6 +2,22 @@
 
 ### Next release
 
+New features:
+
++ In Time and Absence, a new optional `portlet-preference`
+  `dynPunchTimesheetNotification` drives a new in-HRS-app message (presented
+  just like `notification`) to employees with the new
+  `ROLE_UW_DYN_AM_PUNCH_TIME` role. ([HRSPLT-346][], [#123][])
++ In Time and Absence, a new optional `portlet-preference`
+  `nonDynPunchTimesheetNotification` drives a new in-HRS-app message (presented
+  just like `notification`) to employees who see the Timesheet button but who
+  do not have the new `ROLE_UW_DYN_AM_PUNCH_TIME` role. ([HRSPLT-346][],
+  [#123][])
++ In Time and Absence, a new optional `portlet-preference`
+  `dynPunchTimesheetNotice` drives a new message near the Timesheet button
+  (presented similarly to `timesheetNotice`) to employees with the new
+  `ROLE_UW_DYN_AM_PUNCH_TIME` role. ([HRSPLT-346][], [#123][])
+
 Changes:
 
 + In Time and Absence, the `leaveReportingNotice` when present is now ordered
@@ -333,5 +349,7 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [releases in the GitHub repo]: https://github.com/UW-Madison-DoIT/hrs-portlets/releases
 
 [#122]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/122
+[#123]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/123
 
+[HRSPLT-346]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-346
 [HRSPLT-348]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-348
