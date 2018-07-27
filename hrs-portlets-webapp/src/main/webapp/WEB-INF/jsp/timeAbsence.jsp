@@ -72,7 +72,7 @@
     <sec:authorize
       ifAllGranted="ROLE_UW_DYN_AM_PUNCH_TIME">
       <div id="${n}dynPunchTimesheetNotification">
-        <c:if test="${not empty dynPunchTimesheetNotification">
+        <c:if test="${not empty dynPunchTimesheetNotification}">
           <div class="fl-widget hrs-notification-wrapper alert alert-info">
             <div class="hrs-notification-content">
               ${dynPunchTimesheetNotification}
