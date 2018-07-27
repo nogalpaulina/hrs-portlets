@@ -2,6 +2,8 @@
 
 ### Next release
 
+### 3.1.0: targeted notifications and notices for PHIT
+
 New features:
 
 + In Time and Absence, a new optional `portlet-preference`
