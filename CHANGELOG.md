@@ -1,6 +1,41 @@
 # MyUW hrs-portlets change log
 
-### Next release
+### Next release (4.0.0)
+
+**Breaking changes**
+
+This release refactors roles in "Time and Absence", inventing in-hrs-portlets
+roles more explicitly mapping to UI controls and functions in hrs-portlets.
+([#125][])
+
+This is a breaking change in the sense that some previous roles disappear or
+or change meaning, and new roles appear.
+
+This is a non-breaking change, indeed a
+no-discernible-impact-to-HRS-or-to-employees change in the sense that the
+mapping from PeopleSoft roles to portlet roles is carefully ported forward such
+that the same PeopleSoft roles result in the same privileges and experiences in
+hrs-portlets.
+
+Invents:
+
++ `ROLE_TIMESHEET_BUTTON`, gating display of the Timesheet button
++ `ROLE_VIEW_TIME_ENTRY_HISTORY`, gating access to Time Entry history data and
+  display of this tab in Time and Absence
+
+Removes:
+
++ `ROLE_VIEW_TIME_SHEET`
++ `ROLE_VIEW_TIME_CLOCK`
+
+both of which had previously granted both access to the Timesheet button and
+access to time entry history.
+
+Changes the meaning of:
+
++ `ROLE_VIEW_WEB_CLOCK`, which now only grants the "Web Clock" link, but
+  previously had also granted access to the Timesheet button and time entry
+  history.
 
 ### 3.1.0: targeted notifications and notices for PHIT
 
@@ -352,6 +387,7 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 
 [#122]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/122
 [#123]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/123
+[#125]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/125
 
 [HRSPLT-346]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-346
 [HRSPLT-348]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-348

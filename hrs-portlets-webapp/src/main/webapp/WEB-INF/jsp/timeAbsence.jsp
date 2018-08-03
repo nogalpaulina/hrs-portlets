@@ -52,8 +52,7 @@
     <hrs:notification/>
 
     <sec:authorize
-      ifAnyGranted=
-        "ROLE_VIEW_TIME_SHEET,ROLE_VIEW_WEB_CLOCK,ROLE_VIEW_TIME_CLOCK"
+      ifAnyGranted="ROLE_TIMESHEET_BUTTON"
       ifNotGranted="ROLE_UW_DYN_AM_PUNCH_TIME">
       <%-- sec:authorize attributes are ANDed, as in user must fulfill all of
         them. So this targets users who see the timesheet button but who do not
@@ -108,7 +107,7 @@
       </c:if>
 
     </sec:authorize>
-    <sec:authorize ifAnyGranted="ROLE_VIEW_TIME_SHEET,ROLE_VIEW_WEB_CLOCK,ROLE_VIEW_TIME_CLOCK">
+    <sec:authorize ifAnyGranted="ROLE_TIMESHEET_BUTTON">
       <div class="dl-link">
         <div style='display: inline-block;'>
           <a class="btn btn-primary" href="${hrsUrls['Timesheet']}" target="_blank">Timesheet</a>
@@ -145,7 +144,7 @@
         <c:set var="activeTabStyle" value=""/>
       </sec:authorize>
       <li class="ui-state-default ui-corner-top ${activeTabStyle}"><a href="#${n}dl-leave-balance">Leave Balances</a></li>
-      <sec:authorize ifAnyGranted="ROLE_VIEW_WEB_CLOCK,ROLE_VIEW_TIME_CLOCK,ROLE_VIEW_TIME_SHEET">
+      <sec:authorize ifAnyGranted="ROLE_VIEW_TIME_ENTRY_HISTORY">
         <li class="ui-state-default ui-corner-top"><a href="#${n}dl-time-entry">Time Entry</a></li>
       </sec:authorize>
       <li class="ui-state-default ui-corner-top"><a href="#${n}dl-absence-statements">Leave Reports</a></li>
@@ -219,7 +218,7 @@
         <hrs:pagerNavBar position="bottom" />
       </div>
     </div>
-    <sec:authorize ifAnyGranted="ROLE_VIEW_WEB_CLOCK,ROLE_VIEW_TIME_CLOCK,ROLE_VIEW_TIME_SHEET">
+    <sec:authorize ifAnyGranted="ROLE_VIEW_TIME_ENTRY_HISTORY">
       <div id="${n}dl-time-entry" class="dl-time-entry ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
         <div class="fl-pager">
           <hrs:pagerNavBar position="top" showSummary="${true}" />
@@ -478,7 +477,7 @@
             }
           });
 
-        <sec:authorize ifAnyGranted="ROLE_VIEW_WEB_CLOCK,ROLE_VIEW_TIME_CLOCK,ROLE_VIEW_TIME_SHEET">
+        <sec:authorize ifAnyGranted="ROLE_VIEW_TIME_ENTRY_HISTORY">
           dl.pager.init("#${n}dl-time-entry", {
             model: {
                 sortKey: "date",
