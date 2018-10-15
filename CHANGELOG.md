@@ -5,7 +5,13 @@
 The HRS Portlets 4 major version was occasioned by the breaking change of
 changing the meaning of `ROLE_VIEW_WEB_CLOCK`.
 
-### 4.1.0 (Unreleased)
+### Unreleased
+
+(No changes yet.)
+
+### 4.1.0 Payroll Information deep links to tabs and links into HRS
+
+2018-10-15
 
 #### New features in 4.1.0
 
