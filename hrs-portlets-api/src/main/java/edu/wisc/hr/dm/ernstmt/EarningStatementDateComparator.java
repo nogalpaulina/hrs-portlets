@@ -18,7 +18,8 @@ public class EarningStatementDateComparator
   private SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yy", Locale.ENGLISH);
 
   @Override
-  public int compare(final EarningStatement earningStatement1, final EarningStatement earningStatement2) {
+  public int compare(
+      final EarningStatement earningStatement1, final EarningStatement earningStatement2) {
     if (null == earningStatement1 || null == earningStatement2) {
       throw new NullPointerException("Cannot compare null EarningStatement objects.");
     }
