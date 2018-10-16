@@ -28,13 +28,12 @@ public class EarningStatementDateComparator
       // extract dates
       Date earningStatement1Date = parsePaidDate(earningStatement1);
       Date earningStatement2Date = parsePaidDate(earningStatement2);
+
+      return earningStatement1Date.compareTo(earningStatement2Date);
     } catch (ParseException exception) {
       throw new RuntimeException(
           "Cannot compare earning statement dates when date parsing fails", exception);
     }
-
-
-    return earningStatement1Date.compareTo(earningStatement2Date);
   }
 
   @Override
