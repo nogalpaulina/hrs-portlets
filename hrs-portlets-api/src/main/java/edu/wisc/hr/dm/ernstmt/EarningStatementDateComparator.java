@@ -1,5 +1,6 @@
 package edu.wisc.hr.dm.ernstmt;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Comparator;
 import java.util.Date;
@@ -22,9 +23,15 @@ public class EarningStatementDateComparator
       throw new NullPointerException("Cannot compare null EarningStatement objects.");
     }
 
-    // extract dates
-    Date earningStatement1Date = parsePaidDate(earningStatement1);
-    Date earningStatement2Date = parsePaidDate(earningStatement2);
+    try {
+      // extract dates
+      Date earningStatement1Date = parsePaidDate(earningStatement1);
+      Date earningStatement2Date = parsePaidDate(earningStatement2);
+    } catch (ParseException exception) {
+      throw new RuntimeException(
+          "Cannot compare earning statement dates when date parsing fails", exception);
+    }
+
 
     return earningStatement1Date.compareTo(earningStatement2Date);
   }
@@ -34,7 +41,8 @@ public class EarningStatementDateComparator
     return obj instanceof EarningStatementDateComparator;
   }
 
-  private Date parsePaidDate(EarningStatement statement) {
+  private Date parsePaidDate(EarningStatement statement)
+    throws ParseException {
 
     if (null == statement) {
       throw new NullPointerException("Cannot parse paid date from null statement");
