@@ -1,6 +1,7 @@
 package edu.wisc.hr.dm.ernstmt;
 
 import java.text.SimpleDateFormat;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Locale;
 
@@ -16,7 +17,7 @@ public class EarningStatementDateComparator
   private SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yy", Locale.ENGLISH);
 
   @Override
-  int compare(final EarningStatement earningStatement1, final EarningStatement earningStatement2) {
+  public int compare(final EarningStatement earningStatement1, final EarningStatement earningStatement2) {
     if (null == earningStatement1 || null == earningStatement2) {
       throw new NullPointerException("Cannot compare null EarningStatement objects.");
     }
@@ -28,6 +29,10 @@ public class EarningStatementDateComparator
     return earningStatement1Date.compareTo(earningStatement2Date);
   }
 
+  @Override
+  public boolean equals(Object obj) {
+    return obj instanceof EarningStatementDateComparator;
+  }
 
   private Date parsePaidDate(EarningStatement statement) {
 
