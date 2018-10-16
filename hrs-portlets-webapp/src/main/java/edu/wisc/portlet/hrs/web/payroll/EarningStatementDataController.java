@@ -20,6 +20,7 @@
 package edu.wisc.portlet.hrs.web.payroll;
 
 import edu.wisc.hr.dm.ernstmt.EarningStatementDateComparator;
+import java.math.BigInteger;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
@@ -104,11 +105,11 @@ public class EarningStatementDataController {
             Collections.reverse(statements);
 
             EarningStatement latestStatement = statements.get(0);
-            String docId = latestStatement.getDocId();
+            BigInteger docIdBigInt = latestStatement.getDocId();
 
             HrsDownloadControllerUtils.setResponseHeaderForDownload(response,
                 "latest_earnings_statement", "PDF");
-            this.earningStatementDao.getEarningStatement(emplid, docId,
+            this.earningStatementDao.getEarningStatement(emplid, docIdBigInt.toString(),
                 new PortletResourceProxyResponse(response, ignoredProxyHeaders));
         }
     }
