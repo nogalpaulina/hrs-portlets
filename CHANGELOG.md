@@ -12,6 +12,12 @@ just no longer has any effect.)
 
 (No changes yet.)
 
+### 5.1.1 - fix benefitInformation.jsp syntax error
+
+2018-10-18
+
++ Fix syntax error in `benefitInformation.jsp`
+
 ### 5.1.0 - add View/Update Dependent Information link
 
 2018-10-18
