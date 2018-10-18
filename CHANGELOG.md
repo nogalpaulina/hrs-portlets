@@ -1,28 +1,38 @@
 # MyUW hrs-portlets change log
 
-## HRS Portlets 4 series
+## HRS Portlets 5 series
 
-The HRS Portlets 4 major version was occasioned by the breaking change of
-changing the meaning of `ROLE_VIEW_WEB_CLOCK`.
+The HRS Portlets 5 major version was occasioned by the breaking change of
+removing access to the direct deposit and W4 update forms, and with these the
+`ROLE_VIEW_DIRECT_DEPOSIT` role and the `directDepositSelfServiceUrl`
+portlet-preference. (There's no harm in continuing to set this preference; it
+just no longer has any effect.)
 
-### Unreleased (4.2.0)
+### Unreleased (5.0.0)
 
-#### New features in 4.2.0
+#### New features in 5.0.0
 
 + Adds Payroll Information resource URL for an employee to download their latest earnings statement.
   ( [#142][], [HRSPLT-368][] )
 
-#### Fixes in 4.2.0
+#### Fixes in 5.0.0
 
 + Fix Payroll Information table of tax statements to stop offering a sort UI
   control to sort on the name of the statement. Sorting by name is more
   confusing than it is helpful. Retains sort by statement year. ( [#141][],
   [HRSPLT-365][] )
 
-#### Removed features
+#### Removed features in 5.0.0
 
 + "Update your Direct Deposit" link removed from Payroll Information (
   [#143][], [HRSPLT-370][])
++ "Update your W4" link removed from Payroll Information ( [#144][],
+  [HRSPLT-371][])
+
+## HRS Portlets 4 series
+
+The HRS Portlets 4 major version was occasioned by the breaking change of
+changing the meaning of `ROLE_VIEW_WEB_CLOCK`.
 
 ### 4.1.1
 
@@ -504,6 +514,7 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [#141]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/141
 [#142]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/142
 [#143]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/143
+[#144]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/144
 
 [HRSPLT-346]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-346
 [HRSPLT-348]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-348
@@ -512,3 +523,4 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [HRSPLT-365]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-363
 [HRSPLT-368]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-368
 [HRSPLT-370]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-370
+[HRSPLT-371]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-371
