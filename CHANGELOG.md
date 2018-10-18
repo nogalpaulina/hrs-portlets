@@ -8,9 +8,15 @@ removing access to the direct deposit and W4 update forms, and with these the
 portlet-preference. (There's no harm in continuing to set this preference; it
 just no longer has any effect.)
 
-### Unreleased (5.1.0)
+### Unreleased
 
-#### New features in 5.1.0
+(No changes yet.)
+
+### 5.1.0 - add View/Update Dependent Information link
+
+2018-10-18
+
+#### New feature in 5.1.0
 
 + Adds "View/Update Dependent Information" link in Benefit Information, as the
   preferred link that when present replaces the legacy "View Dependent Details"
