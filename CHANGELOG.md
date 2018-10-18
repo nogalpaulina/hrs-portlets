@@ -8,7 +8,13 @@ removing access to the direct deposit and W4 update forms, and with these the
 portlet-preference. (There's no harm in continuing to set this preference; it
 just no longer has any effect.)
 
-### Unreleased (5.0.0)
+### Unreleased
+
+(No changes yet.)
+
+### 5.0.0 - remove Direct Deposit and W4 links
+
+2018-10-18
 
 #### New features in 5.0.0
 
