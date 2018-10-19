@@ -12,9 +12,17 @@ just no longer has any effect.)
 
 (No changes yet.)
 
+### 5.1.2 - overcome artifact publication glitch
+
+2018-10-19
+
+It's 5.1.1 except actually published to artifact repositories.
+
 ### 5.1.1 - fix benefitInformation.jsp syntax error
 
 2018-10-18
+
+Bugged release: not actually published to artifact repositories.
 
 + Fix syntax error in `benefitInformation.jsp`
 
