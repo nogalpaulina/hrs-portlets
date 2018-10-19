@@ -227,3 +227,8 @@ Several property files need to be configured for your local environment before t
 * /hrs-portlets-ps-impl/src/mail/resources/
   * Copy EXAMPLE_ps-placeholder.properties to **ps-placeholder.properties**
   * Do Not add ps-placeholder.properties to source control (should be automatically ignored via local .gitignore)
+
+## Releasing
+
+NB: You probably need to be VPNed for `mvn release:perform` to successfully push
+artifacts.
