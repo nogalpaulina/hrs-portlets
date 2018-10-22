@@ -12,7 +12,10 @@ However, in HRS Portlets 5.2 the links to the W4 update form and the direct
 deposit intructions form were restored to service, with support for
 `ROLE_VIEW_DIRECT_DEPOSIT` and the `Direct Deposit` URL from the HRS URLs
 DAO. (Each of these links (tax withholdings, direct deposit) only appears on a
-single tab within Payroll Information as of 5.2.)
+single tab within Payroll Information as of 5.2.) Support for
+`directDepositSelfServiceUrl` `portlet-preference` was *not* restored; the
+direct deposit button either uses its hard coded URL linking to the PDF form or
+it sources its URL from the HRS URLs web service.
 
 ### (Unreleased)
 
