@@ -14,7 +14,9 @@ deposit intructions form were restored to service, with support for
 DAO. (Each of these links (tax withholdings, direct deposit) only appears on a
 single tab within Payroll Information as of 5.2.)
 
-### Unreleased (5.2.0)
+### 5.2.0 - Re-add Direct Deposit and W4 links
+
+2018-10-22
 
 + "Update your Direct Deposit" link added to MyUW Payroll Information, on the
   "Earnings Statements" tab, since this is the form for adjusting where those
