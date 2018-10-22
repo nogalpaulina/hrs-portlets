@@ -21,7 +21,7 @@ single tab within Payroll Information as of 5.2.)
   earnings are deposited and so employees might expect to find it in an earnings
   statements context. When the user has `ROLE_VIEW_DIRECT_DEPOSIT` and the HRS
   URL `Direct Deposit` is present, links to that URL, otherwise links to static
-  PDF form. ( [HRSPLT-376][] )
+  PDF form. ( [#147][], [HRSPLT-376][] )
 + "Update your W4" link added to MyUW Payroll Information, on the "Tax
   Statements" tab since W4 is the form for adjusting tax witholdings and so
   employees might expect to find it in a tax context. ( [#146][],
@@ -564,6 +564,7 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [#144]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/144
 [#145]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/145
 [#146]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/146
+[#147]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/147
 
 [HRSPLT-346]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-346
 [HRSPLT-348]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-348
