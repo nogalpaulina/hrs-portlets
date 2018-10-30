@@ -17,9 +17,16 @@ single tab within Payroll Information as of 5.2.) Support for
 direct deposit button either uses its hard coded URL linking to the PDF form or
 it sources its URL from the HRS URLs web service.
 
-### (Unreleased)
+### (Unreleased) (5.3.0?)
 
-(No changes yet.)
++ Add new `Garnishments/Wage Assignments` link in Payroll Information -->
+  Earnings Statements tab, to new HRS URL `Fluid Garnishments`, conditioned on
+  that `Fluid Garnishments` URL being set and the viewing employee having
+  `ROLE_VIEW_OWN_GARNISHMENTS` ( [HRSPLT-378][] , )
++ Map new `UW_DYN_PY_ESS_GARNISHMENTS` HRS role to new
+  `ROLE_VIEW_OWN_GARNISHMENTS` hrs-portlets role ( [HRSPLT-379][] , )
++ Document new `Fluid Garnishments` HRS URL as
+  `HrsUrlDao.SELF_SERVICE_VIEW_GARNISHMENTS_KEY` ( [HRSPLT-378][] , )
 
 ### 5.2.0 - Re-add Direct Deposit and W4 links
 
@@ -585,3 +592,5 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [HRSPLT-371]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-371
 [HRSPLT-375]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-375
 [HRSPLT-376]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-376
+[HRSPLT-378]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-378
+[HRSPLT-379]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-379
