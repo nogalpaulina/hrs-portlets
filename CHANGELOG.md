@@ -17,7 +17,11 @@ single tab within Payroll Information as of 5.2.) Support for
 direct deposit button either uses its hard coded URL linking to the PDF form or
 it sources its URL from the HRS URLs web service.
 
-### (Unreleased) (5.3.0?)
+### (Unreleased)
+
+### 5.3.0 - leave balances and garnishments links
+
+2018-10-30
 
 + Prefer to link new HRS URL `Classic ESS Abs Bal` rather than display leave
   balances directly on "Leave Balances" tab in "Time and Absence" (
