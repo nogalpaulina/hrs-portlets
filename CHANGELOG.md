@@ -17,7 +17,13 @@ single tab within Payroll Information as of 5.2.) Support for
 direct deposit button either uses its hard coded URL linking to the PDF form or
 it sources its URL from the HRS URLs web service.
 
-### (Unreleased) (5.4.0)
+### (Unreleased)
+
+(No changes yet)
+
+### 5.4.0 - redirect UW_DYN_AM_ESS_FLU_MONTHLY to Fluid Time
+
+2018-11-02
 
 + Redirect employees with the new `ROLE_REDIRECT_TO_HRS_FLUID_TIME` MyUW
   hrs-portlets role from MyUW Time and Absence to the new HRS self-service
