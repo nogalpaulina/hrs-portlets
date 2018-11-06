@@ -27,7 +27,7 @@ it sources its URL from the HRS URLs web service.
   view leave balances, since leave balances will no longer be available on
   earnings statements starting in 2019. If the optional `portlet-preference`
   `timeAndAbsenceFName` is set, this supporting text includes a hyperlink easing
-  employee navigation to Time and Absence. ( [HRSPLT-386][] )
+  employee navigation to Time and Absence. ( [HRSPLT-386][], [#153][] )
 + Predicate the preference for the link to `Classic ESS Abs Bal` introduced in
   hrs-portlets 5.3.0 upon the employee holding a newly invented hrs-portlets
   role `ROLE_LINK_TO_CLASSIC_ESS_ABS_BAL`. If the employee does not hold this
@@ -651,6 +651,7 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [#149]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/149
 [#150]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/150
 [#152]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/152
+[#153]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/153
 
 [HRSPLT-346]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-346
 [HRSPLT-348]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-348
