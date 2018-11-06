@@ -21,6 +21,10 @@ it sources its URL from the HRS URLs web service.
 
 (No changes yet)
 
+### 5.5.0 - ROLE_LINK_TO_CLASSIC_ESS_ABS_BAL, timeAndAbsenceFName
+
+2018-11-06
+
 #### New features in 5.5.0
 
 + Add supporting text in Payroll Information cueing visiting Time and Absence to
