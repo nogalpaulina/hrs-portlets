@@ -61,7 +61,23 @@
     <div id="${n}dl-earning-statements" class="dl-earning-statements ui-tabs-panel ui-widget-content ui-corner-bottom">
       <div class="data-table-description-header">
         <div class="data-table-description">
-          Your Net Pay Check amount is reflected on each individual Earnings Statement
+          Your Net Pay Check amount is reflected on each individual Earnings Statement.
+        </div>
+        <div class="data-table-description"
+          style="color:black;">
+          2019 and after Earnings Statements will no longer have leave balances.
+          <c:choose>
+            <c:when test="${not empty prefs['timeAndAbsenceFName']
+              && not empty prefs['timeAndAbsenceFName'][0]}">
+              <a href="/web/exclusive/${prefs['timeAndAbsenceFName'][0]}"
+                style="color:blue; text-decoration:underline;">
+                Navigate to Time and Absence</a>
+                to view leave balances.
+            </c:when>
+            <c:otherwise>
+              Navigate to Time and Absence to view leave balances.
+            </c:otherwise>
+          </c:choose>
         </div>
         <div class="data-table-details">
           <form action="#">
