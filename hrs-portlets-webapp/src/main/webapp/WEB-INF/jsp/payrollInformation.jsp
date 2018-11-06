@@ -63,6 +63,7 @@
         <div class="data-table-description">
           Your Net Pay Check amount is reflected on each individual Earnings Statement.
         </div>
+        <br/>
         <div class="data-table-description"
           style="color:black;">
           2019 and after Earnings Statements will no longer have leave balances.
