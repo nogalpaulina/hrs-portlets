@@ -117,7 +117,19 @@
       <div class="dl-link">
         <a class="btn btn-primary" href="${hrsUrls['Request Absence']}" target="_blank">Enter Absence</a>
       </div>
+    </sec:authorize>
 
+    <sec:authorize ifAnyGranted="ROLE_LINK_TO_CLASSIC_ESS_ABS_BAL">
+      <c:if test="${not empty hrsUrls['Classic ESS Abs Bal']}">
+        <div class="dl-link">
+          <a class="btn btn-primary" href="${hrsUrls['Classic ESS Abs Bal']}"
+            target="_blank" rel="noopener noreferrer">
+            View Leave Balances</a>
+        </div>
+      </c:if>
+    </sec:authorize>
+
+    <sec:authorize ifAnyGranted="ROLE_ENTER_EDIT_CANCEL_OWN_ABSENCES">
       <c:if test="${not empty prefs['editCancelAbsenceUrl']
         && not empty prefs['editCancelAbsenceUrl'][0]}">
         <div class="dl-link">
@@ -166,15 +178,29 @@
         <li class="ui-state-default ui-corner-top ${activeTabStyle}"><a href="#${n}dl-absence">Absence</a></li>
         <c:set var="activeTabStyle" value=""/>
       </sec:authorize>
-      <li class="ui-state-default ui-corner-top ${activeTabStyle}"><a href="#${n}dl-leave-balance">Leave Balances</a></li>
+
+      <c:if test="${empty hrsUrls['Classic ESS Abs Bal']
+      || empty employeeRoles['ROLE_LINK_TO_CLASSIC_ESS_ABS_BAL']}">
+        <li class="ui-state-default ui-corner-top ${activeTabStyle}">
+          <a href="#${n}dl-leave-balance">Leave Balances</a></li>
+          <c:set var="activeTabStyle" value=""/>
+      </c:if>
+
       <sec:authorize ifAnyGranted="ROLE_VIEW_TIME_ENTRY_HISTORY">
-        <li class="ui-state-default ui-corner-top"><a href="#${n}dl-time-entry">Time Entry</a></li>
+        <li class="ui-state-default ui-corner-top ${activeTabStyle}"><a href="#${n}dl-time-entry">Time Entry</a></li>
+        <c:set var="activeTabStyle" value=""/>
       </sec:authorize>
-      <li class="ui-state-default ui-corner-top"><a href="#${n}dl-absence-statements">Leave Reports</a></li>
+      <li class="ui-state-default ui-corner-top ${activeTabStyle}"><a href="#${n}dl-absence-statements">Leave Reports</a></li>
+      <c:set var="activeTabStyle" value=""/>
     </ul>
+
     <c:set var="hiddenTabStyle" value=""/>
     <sec:authorize ifAllGranted="ROLE_VIEW_ABSENCE_HISTORIES">
+
+      <!-- style subsequent panels as hidden
+        because this was the default active tab-->
       <c:set var="hiddenTabStyle" value="ui-tabs-hide"/>
+
       <div id="${n}dl-absence" class="dl-absence ui-tabs-panel ui-widget-content ui-corner-bottom">
         <div class="fl-pager">
           <hrs:pagerNavBar position="top" showSummary="${true}" />
@@ -210,63 +236,77 @@
         </div>
       </div>
     </sec:authorize>
+
+
+    <%-- There are two reasons the Leave Balances tab will be included in an
+      employee experience of Time and Absence. Either reason will do.
+      1. The HRS URL `Classic ESS Abs Bal` is not defined, and so Time and Absence would not know how to link the employee to the new implementation of leave balances anyway. OR
+      2. The employee lacks ROLE_LINK_TO_CLASSIC_ESS_ABS_BAL
+
+      This is the identical logic (`test`) of that above for deciding whether to
+      include the Leave Balances tab label among the tab label list items.
+
+      This is the opposite logic of that above to decide whether to include the
+      `View Leave Balances` button.
+    --%>
+    <c:if test="${empty hrsUrls['Classic ESS Abs Bal']
+      || empty employeeRoles['ROLE_LINK_TO_CLASSIC_ESS_ABS_BAL']}">
     <div id="${n}dl-leave-balance" class="dl-leave-balance ui-tabs-panel ui-widget-content ui-corner-bottom ${hiddenTabStyle}">
-       <c:choose>
-         <c:when test="${not empty hrsUrls['Classic ESS Abs Bal']}">
-          <div>
-            <a href="${hrsUrls['Classic ESS Abs Bal']}"
-              class="btn btn-primary"
-              target="_blank" rel="noopener noreferrer">
-              View leave balances
-            </a>
-          </div>
-          <p>
-            Leave balances are now at hrs.wisconsin.edu.  New in HRS: view
-            balances as of your most recent earnings statement and anticipated
-            balances that are not yet reflected in your earnings statement,
-            called dynamic leave balances.
-            <c:if
-              test="${not empty prefs['dynamicLeaveBalancesLearnMoreUrl'] && not empty prefs['dynamicLeaveBalancesLearnMoreUrl'][0]}">
-              <a href="prefs['dynamicLeaveBalancesLearnMoreUrl'][0]">
-                  Learn more about dynamic leave balances</a>.
-            </c:if>
-          </p>
-         </c:when>
-         <c:otherwise>
-            <div class="balance-header">
-                <span>Leave balances are also available on your current Earnings Statement.</span>
-              </div>
-              <div class="fl-pager">
-                <hrs:pagerNavBar position="top" showSummary="${true}" />
-                <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
-                  <table class="dl-table table" tabindex="0" aria-label="Leave balance detail table">
-                    <thead>
-                      <tr rsf:id="header:">
-                        <th scope="col" class="flc-pager-sort-header" rsf:id="entitlement"><a href="javascript:;">Entitlement</a></th>
-                        <th scope="col" class="flc-pager-sort-header" rsf:id="balance"><a href="javascript:;">Balance</a></th>
-                        <c:if test="${showJobTitle}">
-                          <th scope="col" class="flc-pager-sort-header" rsf:id="title"><a href="javascript:;">Job Title</a></th>
-                        </c:if>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        <tr rsf:id="row:">
-                          <td headers="entitlement" class="dl-data-text"><span rsf:id="entitlement"></span></td>
-                          <td headers="balance" class="dl-data-number"><span rsf:id="balance"></span></td>
-                          <c:if test="${showJobTitle}">
-                            <td headers="title" class="dl-data-text"><span rsf:id="title"></span></td>
-                          </c:if>
-                        </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <hrs:pagerNavBar position="bottom" />
-              </div>
-         </c:otherwise>
-       </c:choose>
+
+      <!-- style subsequent panels as hidden
+        if this was the default active tab-->
+      <c:set var="hiddenTabStyle" value="ui-tabs-hide"/>
+
+      <div class="balance-header">
+        <c:choose>
+          <c:when test="${not empty prefs['payrollInformationFName']
+            && not empty prefs['payrollInformationFName'][0]}">
+            <span>These leave balances are as of your most recent Earnings Statement in
+              <a href="/web/exclusive/${prefs['payrollInformationFName'][0]}">
+                Payroll Information</a>.</span>
+          </c:when>
+          <c:otherwise>
+            <span>These leave balances are as of your most recent Earnings Statement.</span>
+          </c:otherwise>
+        </c:choose>
+
+      </div>
+      <div class="fl-pager">
+        <hrs:pagerNavBar position="top" showSummary="${true}" />
+        <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
+          <table class="dl-table table" tabindex="0" aria-label="Leave balance detail table">
+            <thead>
+              <tr rsf:id="header:">
+                <th scope="col" class="flc-pager-sort-header" rsf:id="entitlement"><a href="javascript:;">Entitlement</a></th>
+                <th scope="col" class="flc-pager-sort-header" rsf:id="balance"><a href="javascript:;">Balance</a></th>
+                <c:if test="${showJobTitle}">
+                  <th scope="col" class="flc-pager-sort-header" rsf:id="title"><a href="javascript:;">Job Title</a></th>
+                </c:if>
+              </tr>
+            </thead>
+            <tbody>
+              <tr rsf:id="row:">
+                <td headers="entitlement" class="dl-data-text"><span rsf:id="entitlement"></span></td>
+                <td headers="balance" class="dl-data-number"><span rsf:id="balance"></span></td>
+                <c:if test="${showJobTitle}">
+                  <td headers="title" class="dl-data-text"><span rsf:id="title"></span></td>
+                </c:if>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <hrs:pagerNavBar position="bottom" />
+      </div>
     </div>
+    </c:if>
+
     <sec:authorize ifAnyGranted="ROLE_VIEW_TIME_ENTRY_HISTORY">
-      <div id="${n}dl-time-entry" class="dl-time-entry ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
+      <div id="${n}dl-time-entry" class="dl-time-entry ui-tabs-panel ui-widget-content ui-corner-bottom ${hiddenTabStyle}">
+
+      <!-- style subsequent panels as hidden
+        if this was the default active tab-->
+        <c:set var="hiddenTabStyle" value="ui-tabs-hide"/>
+
         <div class="fl-pager">
           <hrs:pagerNavBar position="top" showSummary="${true}" />
           <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
@@ -306,7 +346,13 @@
         </div>
       </div>
     </sec:authorize>
-    <div id="${n}dl-absence-statements" class="dl-absence-statements ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
+
+    <div id="${n}dl-absence-statements" class="dl-absence-statements ui-tabs-panel ui-widget-content ui-corner-bottom ${hiddenTabStyle}">
+
+      <!-- style subsequent panels as hidden
+        if this was the default active tab -->
+        <c:set var="hiddenTabStyle" value="ui-tabs-hide"/>
+
       <div id="${n}dl-leave-statements">
       	<p class="padded-paragraph">
           <a id="${n}oustandingMissingLeaveReports" style="display: none;" target="_blank" ng-href="#" class="btn btn-default">My Unsubmitted Reports</a>

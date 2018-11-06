@@ -168,10 +168,12 @@ this hour limiting policy applies to them.)
 + Configures the href of the "Unclassified Leave Report" link.
 + If not set, this link will still appear but will be broken.
 
-#### `dynamicLeaveBalancesLearnMoreUrl` portlet preference (optional)
+#### `payrollInformationFName` (optional)
 
-+ Configures the href of the "Learn more about dynamic leave balances" link.
-+ If not set, this link will be hidden.
++ If set, Time and Absence links to the relevant Payroll Information to ease
+  employee navigation to take a look at what earnings statement the leave
+  balances is as of.
++ If not set, Time and Absence suppresses this hyperlink, no worries.
 
 ## JSON resource URLs
 
