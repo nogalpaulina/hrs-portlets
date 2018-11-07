@@ -2,7 +2,10 @@ package edu.wisc.portlet.hrs.web.troubleshoot;
 
 import edu.wisc.hr.dao.roles.HrsRolesDao;
 import edu.wisc.portlet.hrs.web.HrsControllerBase;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,17 +37,33 @@ public class TroubleshootingController
       modelMap.put("queriedEmplId", queriedEmplId);
 
       final Set<String> roles = this.rolesDao.getHrsRoles(queriedEmplId);
-      modelMap.put("roles", roles);
 
-      final Set<String> rawRoles = this.rolesDao.rawHrsRolesForEmplid(queriedEmplId);
-      modelMap.put("rawRoles", rawRoles);
+      List<String> sortedRoles = new ArrayList<String>(roles);
+      Collections.sort(sortedRoles);
+
+      modelMap.put("roles", sortedRoles);
+
+      final Set<String> rawRoles =
+          this.rolesDao.rawHrsRolesForEmplid(queriedEmplId);
+
+      List<String> sortedRawRoles = new ArrayList<String>(rawRoles);
+      Collections.sort(sortedRawRoles);
+
+      modelMap.put("rawRoles", sortedRawRoles);
 
     }
 
-    final Map<String, Set<String>> hrsRoleMappings = this.rolesDao.getHrsRoleMappings();
-    final Set<HrsRoleMappingRule> rules = new HashSet<HrsRoleMappingRule>();
+    final Map<String, Set<String>> hrsRoleMappings =
+        this.rolesDao.getHrsRoleMappings();
+    
+    final List<HrsRoleMappingRule> rules =
+        new ArrayList<HrsRoleMappingRule>();
 
-    for (final String hrsRole : hrsRoleMappings.keySet()) {
+    List<String> ruleKeysAlphabetically =
+        new ArrayList<String>(hrsRoleMappings.keySet());
+    Collections.sort(ruleKeysAlphabetically);
+
+    for (final String hrsRole : ruleKeysAlphabetically) {
 
       Set<String> portletRoles = hrsRoleMappings.get(hrsRole);
 
