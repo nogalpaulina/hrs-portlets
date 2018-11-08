@@ -23,6 +23,7 @@ Fixes:
 
 + Consistently refer to earnings statements as "earnings" statements, not
   "earning" statements. ( [HRSPLT-391][] )
++ Sort roles in troubleshooter ( [HRSPLT-390][] )
 
 ### 5.5.0 - ROLE_LINK_TO_CLASSIC_ESS_ABS_BAL, timeAndAbsenceFName
 
@@ -676,4 +677,5 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [HRSPLT-382]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-382
 [HRSPLT-384]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-384
 [HRSPLT-386]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-386
+[HRSPLT-390]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-390
 [HRSPLT-391]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-391
