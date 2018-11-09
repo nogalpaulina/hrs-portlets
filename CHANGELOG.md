@@ -24,6 +24,7 @@ it sources its URL from the HRS URLs web service.
 Fixes:
 
 + Remove stray angle brace in Payroll Information UI.
++ Reflect error and empty earnings statements cases in Payroll Information UI.
 + Predicate checkbox about showing earnings amounts on there being earnings amounts to show.
 + Add hint about emplids to demonstrate earnings statements in QA.
 

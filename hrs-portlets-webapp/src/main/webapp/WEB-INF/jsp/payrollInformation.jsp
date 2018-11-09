@@ -92,7 +92,14 @@
       <div class="fl-pager">
 
 
-
+        <c:choose>
+        <c:when test="${earningsStatementsError}">
+        <p>Error loading your earnings statements. Try again later or contact the Help Desk.</p>
+        </c:when>
+        <c:when test="${empty earningsStatements}">
+        <p>You have no earnings statements.</p>
+        </c:when>
+        <c:otherwise>
         <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
           <table class="dl-table table" tabindex="0" aria-label="Earnings Statements detail table">
             <thead>
@@ -132,6 +139,8 @@
             <a href="${understandingEarningUrl}" target="_blank">Understanding Your Earnings Statement</a>
           </div>
       </c:if>
+
+      </c:otherwise>
 
       <div class="dl-link">
         <!-- show the self-service direct deposit link if authorized-->

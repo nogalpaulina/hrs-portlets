@@ -80,13 +80,15 @@ public class PayrollInformationController extends HrsControllerBase {
             logger.warn("Caught exception while getting PersonalInformation for " + emplId + " in payroll information portlet, procceding without it.", e);
             model.addAttribute("personalDataError", true);
         }
+
+        try {
+            model.addAttribute("earningsStatements",
+                this.earningsStatementDao.statementsForEmployee(emplId));
+        } catch (Exception e) {
+            logger.warn("Exception getting earnings statements for " + emplId, e);
+            model.addAttribute("earningsStatementsError", true);
+        }
         
         return "payrollInformation";
-    }
-
-    @ModelAttribute("earningsStatements")
-    public List<SimpleEarningsStatement> earningsStatements() {
-        final String emplId = PrimaryAttributeUtils.getPrimaryId();
-        return this.earningsStatementDao.statementsForEmployee(emplId);
     }
 }
