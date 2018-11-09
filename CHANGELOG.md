@@ -35,7 +35,7 @@ Fixes:
 Fix:
 
 + 5.8.1 `payrollInformation` JSP expected a model attribute `earningsStatements` but the controller
-  did not include that attribute in the mode. This fixes the controller to include the expected 
+  did not include that attribute in the mode. This fixes the controller to include the expected
   data.
 
 ### 5.8.0 Generate earnings statements table server-side rather than client-side
