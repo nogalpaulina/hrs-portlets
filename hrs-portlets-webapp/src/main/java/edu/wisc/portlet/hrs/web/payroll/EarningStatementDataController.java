@@ -59,7 +59,7 @@ public class EarningStatementDataController {
    */
   private EarningStatementDao earningStatementDao;
 
-  private SimpleEarningsStatementDao earningsStatementsDao;
+  private SimpleEarningsStatementDao earningsStatementDao;
 
     private Set<String> ignoredProxyHeaders;
     
@@ -74,8 +74,8 @@ public class EarningStatementDataController {
     }
 
     @Autowired
-    public void setEarningsStatementsDao(SimpleEarningsStatementDao simpleEarningsStatementDao) {
-      this.earningsStatementsDao = earningsStatementsDao;
+    public void setEarningsStatementDao(SimpleEarningsStatementDao simpleEarningsStatementDao) {
+      this.earningsStatementDao = simpleEarningsStatementDao;
     }
 
     /**
@@ -110,7 +110,7 @@ public class EarningStatementDataController {
       final String emplid = PrimaryAttributeUtils.getPrimaryId();
 
       final List<SimpleEarningsStatement> earningsStatements =
-          this.earningsStatementsDao.statementsForEmployee(emplid);
+          this.earningsStatementDao.statementsForEmployee(emplid);
 
       modelMap.addAttribute("report", earningsStatements);
 

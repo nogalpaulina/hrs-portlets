@@ -19,6 +19,15 @@ it sources its URL from the HRS URLs web service.
 
 ### (Unreleased)
 
+### 5.7.1 Fix EarningStatementDataController
+
+2018-11-09
+
+Fix:
+
++ The new resource URL introduced in 5.7.0 was broken because the JavaBean setter for injecting the
+  dependency on the new earnings statement DAO was broken. This fixes it.
+
 ### 5.7.0 JSON resource URL for new HRS-sourced earnings statements
 
 2018-11-09
