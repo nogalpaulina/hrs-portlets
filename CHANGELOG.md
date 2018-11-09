@@ -19,6 +19,12 @@ it sources its URL from the HRS URLs web service.
 
 ### (Unreleased)
 
+### 5.8.2 
+
+Fixes:
+
++ Remove stray angle brace in Payroll Information UI.
+
 ### 5.8.1 include `earningsStatements` in model for `payrollInformation.jsp`
 
 2018-11-09

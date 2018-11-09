@@ -95,7 +95,7 @@
           <table class="dl-table table" tabindex="0" aria-label="Earnings Statements detail table">
             <thead>
               <tr>
-                <th scope="col" class="flc-pager-sort-header dl-col-25p">Paid<</th>
+                <th scope="col" class="flc-pager-sort-header dl-col-25p">Paid</th>
                 <th scope="col" class="flc-pager-sort-header dl-col-50p">Earned</th>
                 <th scope="col" class="flc-pager-sort-header dl-col-25p">Amount</th>
               </tr>
