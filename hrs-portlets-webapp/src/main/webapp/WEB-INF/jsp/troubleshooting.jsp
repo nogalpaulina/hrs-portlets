@@ -35,6 +35,9 @@
     </fieldset>
   </form>
 
+  <p>Hint: in MyUW QA, these emplids may have earnings statements: 00582800, 00359298, 00040273,
+    00050575, 00040497.</p>
+
   <h2>Roles</h2>
   <c:if test="${not empty queriedEmplId}">
     <p>emlpId ${queriedEmplId} has these HRS Portlets (MyUW app) roles:</p>

@@ -24,6 +24,7 @@ it sources its URL from the HRS URLs web service.
 Fixes:
 
 + Remove stray angle brace in Payroll Information UI.
++ Add hint about emplids to demonstrate earnings statements in QA.
 
 ### 5.8.1 include `earningsStatements` in model for `payrollInformation.jsp`
 
