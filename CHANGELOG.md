@@ -19,7 +19,9 @@ it sources its URL from the HRS URLs web service.
 
 ### (Unreleased)
 
-### 5.8.2 
+### 5.8.2 Earnings Statements UI fixes
+
+2018-11-09
 
 Fixes:
 
