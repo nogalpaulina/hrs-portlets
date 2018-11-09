@@ -19,6 +19,9 @@
 
 package edu.wisc.portlet.hrs.web.payroll;
 
+import edu.wisc.hr.dao.ernstmt.SimpleEarningsStatementDao;
+import edu.wisc.hr.dm.ernstmt.SimpleEarningsStatement;
+import java.util.List;
 import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
 
@@ -42,10 +45,16 @@ import edu.wisc.portlet.hrs.web.HrsControllerBase;
 @RequestMapping("VIEW")
 public class PayrollInformationController extends HrsControllerBase {
     private ContactInfoDao contactInfoDao;
-    
+    private SimpleEarningsStatementDao earningsStatementDao;
+
     @Autowired
     public void setContactInfoDao(ContactInfoDao contactInfoDao) {
         this.contactInfoDao = contactInfoDao;
+    }
+
+    @Autowired
+    public void setEarningsStatementDao(SimpleEarningsStatementDao simpleEarningsStatementDao) {
+        this.earningsStatementDao = simpleEarningsStatementDao;
     }
     
     /**
@@ -73,5 +82,11 @@ public class PayrollInformationController extends HrsControllerBase {
         }
         
         return "payrollInformation";
+    }
+
+    @ModelAttribute("earningsStatements")
+    public List<SimpleEarningsStatement> earningsStatements() {
+        final String emplId = PrimaryAttributeUtils.getPrimaryId();
+        return this.earningsStatementDao.statementsForEmployee(emplId);
     }
 }

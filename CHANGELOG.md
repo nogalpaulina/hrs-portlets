@@ -19,7 +19,17 @@ it sources its URL from the HRS URLs web service.
 
 ### (Unreleased)
 
-### 5.8.0
+### 5.8.1 include `earningsStatements` in model for `payrollInformation.jsp`
+
+2018-11-09
+
+Fix:
+
++ 5.8.1 `payrollInformation` JSP expected a model attribute `earningsStatements` but the controller
+  did not include that attribute in the mode. This fixes the controller to include the expected 
+  data.
+
+### 5.8.0 Generate earnings statements table server-side rather than client-side
 
 2018-11-09
 
