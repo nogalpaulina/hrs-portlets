@@ -1,6 +1,9 @@
 package edu.wisc.portlet.hrs.web.troubleshoot;
 
+import edu.wisc.hr.dao.ernstmt.EarningStatementDao;
+import edu.wisc.hr.dao.ernstmt.SimpleEarningsStatementDao;
 import edu.wisc.hr.dao.roles.HrsRolesDao;
+import edu.wisc.hr.dm.ernstmt.SimpleEarningsStatement;
 import edu.wisc.portlet.hrs.web.HrsControllerBase;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,6 +24,18 @@ public class TroubleshootingController
 
   private HrsRolesDao rolesDao;
 
+  public SimpleEarningsStatementDao getEarningsStatementsDao() {
+    return earningsStatementsDao;
+  }
+
+  @Autowired
+  public void setEarningsStatementsDao(
+      SimpleEarningsStatementDao earningsStatementsDao) {
+    this.earningsStatementsDao = earningsStatementsDao;
+  }
+
+  private SimpleEarningsStatementDao earningsStatementsDao;
+
   public HrsRolesDao getRolesDao() {
     return rolesDao;
   }
@@ -31,7 +46,7 @@ public class TroubleshootingController
   }
 
   @RequestMapping
-  public String viewRoles(ModelMap modelMap, @RequestParam(required = false) String queriedEmplId) {
+  public String renderView(ModelMap modelMap, @RequestParam(required = false) String queriedEmplId) {
 
     if (null != queriedEmplId) {
       modelMap.put("queriedEmplId", queriedEmplId);
@@ -50,6 +65,16 @@ public class TroubleshootingController
       Collections.sort(sortedRawRoles);
 
       modelMap.put("rawRoles", sortedRawRoles);
+
+      List<SimpleEarningsStatement> earningsStatements = new ArrayList<SimpleEarningsStatement>();
+
+      try {
+        modelMap.put("earningsStatements",
+            earningsStatementsDao.statementsForEmployee(queriedEmplId));
+      } catch (Exception e) {
+        logger.warn("Failed to get earnings statements for emplid " + queriedEmplId, e);
+        modelMap.put("earningsStatementsError", e.getMessage());
+      }
 
     }
 

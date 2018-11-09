@@ -30,10 +30,11 @@
       <div>
         <label for="queriedEmplId">HR EmplID: </label><input type="text" name="queriedEmplId" />
       </div>
-      <input type="submit" value="Lookup roles for employee by emplId" />
+      <input type="submit" value="Lookup roles and earnings statements for employee by emplId" />
     </fieldset>
   </form>
 
+  <h2>Roles</h2>
   <c:if test="${not empty queriedEmplId}">
     <p>emlpId ${queriedEmplId} has these HRS Portlets (MyUW app) roles:</p>
       <ul>
@@ -90,6 +91,53 @@
       Documentation about the effects of HRS Portlet roles.
     </a>
   </p>
+
+  <c:if test="${not empty queriedEmplId}">
+    <h2>Earnings statements</h2>
+
+    <c:choose>
+      <c:when test="${empty earningsStatementsError}">
+
+        <c:choose>
+          <c:when test="${empty earningsStatements}">
+            <p>Found no earnings statements for emplid ${queriedEmplId}.</p>
+          </c:when>
+
+          <c:otherwise>
+            <table>
+              <tr>
+                <th>Check date</th>
+                <th>Earned</th>
+                <th>Amount</th>
+              </tr>
+
+              <c:forEach var="earningsStatement" items="${earningsStatements}">
+                <tr>
+                  <td>
+                    <a href="${earningsStatement.url}"
+                      target="_blank" rel="noopener noreferrer">
+                      ${earningsStatement.isoDateOfCheck}
+                    </a>
+                  </td>
+                  <td>${earningsStatement.earnedPeriodLabel}</td>
+                  <td>${earningsStatement.amountNetPay}</td>
+                </tr>
+               </c:forEach>
+
+            </table>
+
+          </c:otherwise>
+
+        </c:choose>
+
+      </c:when>
+
+      <c:otherwise>
+        <p>Error querying earnings statements: ${earningsStatementsError}.</p>
+      </c:otherwise>
+    </c:choose>
+
+  </c:if>
 
   <%@ include file="/WEB-INF/jsp/footer.jsp"%>
 
