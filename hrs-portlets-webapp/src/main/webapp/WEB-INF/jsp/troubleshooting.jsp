@@ -120,11 +120,11 @@
                   <td>
                     <a href="${earningsStatement.url}"
                       target="_blank" rel="noopener noreferrer">
-                      ${earningsStatement.isoDateOfCheck}
+                      ${earningsStatement.paid}
                     </a>
                   </td>
-                  <td>${earningsStatement.earnedPeriodLabel}</td>
-                  <td>${earningsStatement.amountNetPay}</td>
+                  <td>${earningsStatement.earned}</td>
+                  <td>${earningsStatement.amount}</td>
                 </tr>
                </c:forEach>
 

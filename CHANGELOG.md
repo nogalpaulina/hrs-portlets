@@ -19,6 +19,13 @@ it sources its URL from the HRS URLs web service.
 
 ### (Unreleased)
 
+### 5.8.5 fix troubleshooter
+
+2018-11-09
+
++ Fix troubleshooter.jsp to reflect changes to names of JavaBean properties on
+  SimpleEarningsStatement
+
 ### 5.8.4 fix JSP syntax error
 
 2018-11-09
