@@ -142,6 +142,7 @@
       </c:if>
 
       </c:otherwise>
+      </c:choose>
 
       <div class="dl-link">
         <!-- show the self-service direct deposit link if authorized-->

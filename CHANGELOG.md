@@ -19,11 +19,21 @@ it sources its URL from the HRS URLs web service.
 
 ### (Unreleased)
 
-### 5.8.3 Open PeopleSoft earnings statements using window.open
+### 5.8.4 fix JSP syntax error
+
+2018-11-09
 
 Fix:
 
-+ The PeopleSoft PDF code opens the PDF file in a new tab. So the PeopleSoft page has some 
++ Close a c:choose tag
+
+### 5.8.3 Open PeopleSoft earnings statements using window.open
+
+2018-11-09
+
+Fix:
+
++ The PeopleSoft PDF code opens the PDF file in a new tab. So the PeopleSoft page has some
   JavaScript on it that tries to close itself so that the user does not have 2 tabs open for each
   earnings statement link they click. However, that JavaScript is only able to close the tab if the
   tab was opened via JavaScript. So, open PeopleSoft earnings statement PDF links via
