@@ -80,12 +80,14 @@
             </c:otherwise>
           </c:choose>
         </div>
-        <div class="data-table-details">
-          <form action="#">
-            <label for="${n}dl-earnings-amount-toggle">Show earnings dollar amounts </label>
-            <input id="${n}dl-earnings-amount-toggle" name="dl-earnings-amount-toggle" type="checkbox"/>
-          </form>
-        </div>
+        <c:if test="${not empty earningsStatements}">
+          <div class="data-table-details">
+            <form action="#">
+              <label for="${n}dl-earnings-amount-toggle">Show earnings dollar amounts </label>
+              <input id="${n}dl-earnings-amount-toggle" name="dl-earnings-amount-toggle" type="checkbox"/>
+            </form>
+          </div>
+        </c:if>
       </div>
       <div class="fl-pager">
 
