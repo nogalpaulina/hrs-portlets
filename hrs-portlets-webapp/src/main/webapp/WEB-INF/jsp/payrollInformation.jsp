@@ -380,6 +380,7 @@
             updateAmmountVisibility(earningsToggle);
         });
 
+        <c:if test="${surplusEarningsStatements}">
         var updateShowAllEarningsStatements = function(checkbox) {
             var checked = checkbox.is(':checked');
             var surplusEarningsStatements = $("#${n}dl-payroll-information table.dl-table tr.earnings-statement-beyond-ten");
@@ -408,11 +409,13 @@
             return true;
         };
 
-        var showAllEarningsStatementsToggle =
-          $("#$dl-show-all-earnings-statements-toggle");
-        showAllEarningsStatementsToggle.change(function() {
-          updateShowAllEarningsStatements(showAllEarningsStatementsToggle);
-        });
+          var showAllEarningsStatementsToggle =
+            $("#$dl-show-all-earnings-statements-toggle");
+          showAllEarningsStatementsToggle.change(function() {
+            updateShowAllEarningsStatements(showAllEarningsStatementsToggle);
+          });
+        </c:if>
+
 
         var taxStatementUrl = dl.util.templateUrl("${irsStatementPdfUrl}");
         dl.pager.init("#${n}dl-tax-statements", {
