@@ -110,6 +110,7 @@
               </tr>
             </thead>
             <tbody>
+              <c:set var="surplusEarningsStatements" value="false" />
               <%-- always show the first up-to-10 statements --%>
               <c:forEach var="earningsStatement"
                 items="${earningsStatements}" end="9">
@@ -138,6 +139,7 @@
               <%-- initially hide any statements past 10 --%>
               <c:forEach var="earningsStatement"
               items="${earningsStatements}" begin="10">
+              <c:set var="surplusEarningsStatements" value="true" />
               <tr class="earnings-statement-beyond-ten" style="display:none">
                 <td headers="paid" class="dl-data-text">
                   <a href="javascript:window.open('${earningsStatement.url}');">
@@ -160,16 +162,19 @@
             </c:forEach>
             </tbody>
           </table>
-          <div>
-            <form action="#">
-              <label for="${n}dl-show-all-earnings-statements-toggle">
-                Show all ${fn:length(earningsStatements)} Earnings Statements</label>
-              <input type="checkbox"
-                id="${n}dl-show-all-earnings-statements-toggle"
-                name="dl-show-all-earnings-statements-toggle" />
-            </form>
+          <c:if test="${surplusEarningsStatements}">
+            <div>
+              <form action="#">
+                <label for="${n}dl-show-all-earnings-statements-toggle">
+                  Show all ${fn:length(earningsStatements)}
+                  Earnings Statements</label>
+                <input type="checkbox"
+                  id="${n}dl-show-all-earnings-statements-toggle"
+                  name="dl-show-all-earnings-statements-toggle" />
+              </form>
             </div>
         </div>
+        </c:if>
       </div>
       <c:if test="${not empty understandingEarningUrl}">
           <div class="dl-link">
