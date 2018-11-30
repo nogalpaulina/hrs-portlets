@@ -5,7 +5,17 @@
 The v6 major version was occasioned by introducing dependency on a new
 publication of Payroll Information as fname `earnings-statement-for-all`.
 
-### (Unreleased) (6.0.0?)
+### 6.0.1 fix earnings statements sort
+
+2018-11-30
+
++ Correct earnings statements sort to reverse chronological order rather than
+  chronological order, so that most recent appear by default in and at top of
+  table.
+
+### 6.0.0 Cypress earnings statements back in the table
+
+2018-11-30
 
 Breaking change in 6.0.0
 

@@ -20,6 +20,8 @@ public class RetrievedEarningsStatements {
       this.statements.addAll(statementsToAdd);
 
       Collections.sort(this.statements, new SimpleEarningsStatementDateComparator());
+      // keep the statements sorted in reverse chronological order
+      Collections.reverse(this.statements);
     }
   }
 
@@ -31,6 +33,10 @@ public class RetrievedEarningsStatements {
     return errors;
   }
 
+  /**
+   * Get the statements in reverse chronological order.
+   * @return
+   */
   public List<SimpleEarningsStatement> getStatements() {
     return statements;
   }
