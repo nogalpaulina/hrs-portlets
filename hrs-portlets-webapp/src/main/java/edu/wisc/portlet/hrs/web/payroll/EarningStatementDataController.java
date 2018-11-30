@@ -59,7 +59,7 @@ public class EarningStatementDataController {
    */
   private EarningStatementDao earningStatementDao;
 
-  private SimpleEarningsStatementDao earningsStatementDao;
+
 
     private Set<String> ignoredProxyHeaders;
     
@@ -71,11 +71,6 @@ public class EarningStatementDataController {
     @Autowired
     public void setEarningStatementDao(EarningStatementDao earningStatementDao) {
         this.earningStatementDao = earningStatementDao;
-    }
-
-    @Autowired
-    public void setEarningsStatementDao(SimpleEarningsStatementDao simpleEarningsStatementDao) {
-      this.earningsStatementDao = simpleEarningsStatementDao;
     }
 
     /**
@@ -96,25 +91,6 @@ public class EarningStatementDataController {
         modelMap.addAttribute("report", statements);
         
         return "reportAttrJsonView";
-    }
-
-    /**
-     * JSON representing the employee's earnings statements.
-     *
-     * @param modelMap
-     * @return "reportAttrJsonView" indicating the view to turn the modelMap into JSON
-     */
-    @ResourceMapping("earningsStatements")
-    public String earningsStatements(ModelMap modelMap) {
-
-      final String emplid = PrimaryAttributeUtils.getPrimaryId();
-
-      final List<SimpleEarningsStatement> earningsStatements =
-          this.earningsStatementDao.statementsForEmployee(emplid);
-
-      modelMap.addAttribute("report", earningsStatements);
-
-      return "reportAttrJsonView";
     }
 
     //Server

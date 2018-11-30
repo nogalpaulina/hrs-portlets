@@ -1,5 +1,44 @@
 # MyUW hrs-portlets change log
 
+## HRS Portlets 6 series
+
+The v6 major version was occasioned by introducing dependency on a new
+publication of Payroll Information as fname `earnings-statement-for-all`.
+
+### (Unreleased) (6.0.0?)
+
+Breaking change in 6.0.0
+
++ Introduces dependency on `earnings-statement-for-all` as a
+  works-for-both-Madison-and-System-employees `fname` for a Payroll Information
+  that can render Cypress earnings statement PDFs. This makes feasible the
+  converter from the old Cypress statement model to the new universal statement
+  model (which includes the URL of the statement as part of the domain model).
+
+Features in 5.9.0:
+
++ Include legacy Cypress earnings statements in new Payroll Information
+  earnings statements table.
++ Limit initial earnings statement table render to at most 10 earnings
+  statements. Add a toggle control, modeled on the existing toggle for showing
+  earnings amounts, to show the truncated table rows. ( [HRSPLT-399][],
+  [#161][], [#162][] )
++ Support the case where one or the other source of earnings statements (HRS,
+  Cypress) succeeds and the other source fails, both acknowledging the error and
+  listing those statements that MyUW did successfully retrieve.
+
+Fixes in 5.9.0:
+
++ Fix Time and Absence to correctly render in cases where it omits the Leave
+  Balances tab. Had been broken since 5.5.0. ( [HRSPLT-400][], [#163][] )
++ Fix Payroll Information earnings statements table to stop trying to open
+  earnings statements via `javascript:window.open({url})` and instead use a more
+  typical `<a href="{url}" target="_blank" rel="noopener noreferrer">`
+  ( [HRSPLT-398][], [#160][])
++ Fix URLs troubleshooter to sort the URLs alphabetically by URL key. This makes
+  the tool more usable for confidently checking whether a particular key is
+  present. ( [HRSPLT-401][], [#164][])
+
 ## HRS Portlets 5 series
 
 The HRS Portlets 5 major version was occasioned by the breaking change of
@@ -16,27 +55,6 @@ single tab within Payroll Information as of 5.2.) Support for
 `directDepositSelfServiceUrl` `portlet-preference` was *not* restored; the
 direct deposit button either uses its hard coded URL linking to the PDF form or
 it sources its URL from the HRS URLs web service.
-
-### (Unreleased) (5.9.0?)
-
-Features in 5.9.0:
-
-+ Limit initial earnings statement table render to at most 10 earnings
-  statements. Add a toggle control, modeled on the existing toggle for showing
-  earnings amounts, to show the truncated table rows. ( [HRSPLT-399][],
-  [#161][], [#162][] )
-
-Fixes in 5.9.0:
-
-+ Fix Time and Absence to correctly render in cases where it omits the Leave
-  Balances tab. Had been broken since 5.5.0. ( [HRSPLT-400][], [#163][] )
-+ Fix Payroll Information earnings statements table to stop trying to open
-  earnings statements via `javascript:window.open({url})` and instead use a more
-  typical `<a href="{url}" target="_blank" rel="noopener noreferrer">`
-  ( [HRSPLT-398][], [#160][])
-+ Fix URLs troubleshooter to sort the URLs alphabetically by URL key. This makes
-  the tool more usable for confidently checking whether a particular key is
-  present. ( [HRSPLT-401][], [#164][])
 
 ### 5.8.5 fix troubleshooter
 

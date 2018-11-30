@@ -19,8 +19,9 @@
 
 package edu.wisc.cypress.dao.ernstmt;
 
-
-
+import edu.wisc.hr.dao.ernstmt.SimpleEarningsStatementDao;
+import edu.wisc.hr.dm.ernstmt.SimpleEarningsStatement;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -44,13 +45,24 @@ import edu.wisc.hr.dm.ernstmt.EarningStatements;
  * @author Eric Dalquist
  */
 @Repository("restEarningStatementDao")
-public class RestEarningStatementDao implements EarningStatementDao {
+public class RestEarningStatementDao
+    implements EarningStatementDao, SimpleEarningsStatementDao {
 
   protected final Logger logger = LoggerFactory.getLogger(getClass());
 
   private ExtendedRestOperations restOperations;
   private String statementsUrl;
   private String statementUrl;
+
+  // TODO: rather than hard coding fname, somehow get the fname of the
+  // relevant Payroll Information fname
+  private CypressEarningStatementToSimpleEarningStatementConverter converter =
+      new CypressEarningStatementToSimpleEarningStatementConverter("earnings-statement-for-all");
+      // Depends upon a publication of Payroll Information as fname
+      // `earnings-statement-for-all` as the statically addressable server of
+      // Cypress earnings statement PDFs. i.e., a copy-and-paste of
+      // `earnings-statement` entity except with SUBSCRIBE granted to both
+      // Madison and System employees.
 
   @Autowired
   public void setRestTemplate(ExtendedRestOperations restOperations) {
@@ -111,5 +123,40 @@ public class RestEarningStatementDao implements EarningStatementDao {
     }
 
     return earningStatements;
+  }
+
+
+  @Override
+  public List<SimpleEarningsStatement> statementsForEmployee(String emplid) {
+
+    /*
+     * Converts from legacy list of Cypress-specific earning statements to
+     * modern list of SimpleEarningsStatement .
+     */
+
+    if (null == emplid) {
+      throw new NullPointerException(
+        "Cannot query statements for null emplid.");
+    }
+
+    final EarningStatements cypressSpecificEarningStatements =
+      this.getEarningStatements(emplid);
+
+    final List<EarningStatement> cypressSpecificEarningStatementsList =
+      cypressSpecificEarningStatements.getEarningStatements();
+
+    final List<SimpleEarningsStatement> simpleEarningsStatements =
+      new ArrayList<SimpleEarningsStatement>();
+
+    for (final EarningStatement cypressSpecificEarningStatement :
+        cypressSpecificEarningStatementsList) {
+
+      final SimpleEarningsStatement statement =
+          this.converter.convertToSimpleEarningsStatement(cypressSpecificEarningStatement);
+      simpleEarningsStatements.add(statement);
+
+    }
+
+    return simpleEarningsStatements;
   }
 }
