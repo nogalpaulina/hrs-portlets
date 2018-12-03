@@ -5,8 +5,17 @@
 The v6 major version was occasioned by introducing dependency on a new
 publication of Payroll Information as fname `earnings-statement-for-all`.
 
-### 6.0.2 fix show all earnings statements toggle
+### 6.0.2 fix show all toggle and predicate HRS earnings statements on URL
 
+2018-12-03
+
++ Only query for HRS earnings statements when the HRS URL "Earning Statement"
+  (sic) is set. This allows promoting a hrs-portlets version that supports HRS
+  earnings statements in advance of HRS supporting earnings statements, without
+  showing errors to employees (that is, differentiating the
+  HRS-earnings-statements-should-be-working-but-are-broken case from the
+  HRS-earnings-statements-are-not-yet-expected-to-be-working case). (
+  [HRSPLT-402][], [#167][] )
 + Fix reference to the show all earnings statements toggle ( [HRSPLT-399][],
   [#166][] )
 
@@ -813,6 +822,7 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [#163]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/163
 [#164]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/164
 [#166]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/166
+[#167]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/167
 
 [HRSPLT-346]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-346
 [HRSPLT-348]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-348
@@ -838,3 +848,4 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [HRSPLT-399]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-399
 [HRSPLT-400]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-400
 [HRSPLT-401]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-401
+[HRSPLT-402]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-402
