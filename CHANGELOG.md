@@ -5,6 +5,10 @@
 The v6 major version was occasioned by introducing dependency on a new
 publication of Payroll Information as fname `earnings-statement-for-all`.
 
+### 6.0.3 fix troubleshooter
+
++ Fix earnings statement service configuration in the Troubleshooter portlet.
+
 ### 6.0.2 fix show all toggle and predicate HRS earnings statements on URL
 
 2018-12-04
