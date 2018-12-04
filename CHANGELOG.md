@@ -7,7 +7,7 @@ publication of Payroll Information as fname `earnings-statement-for-all`.
 
 ### 6.0.2 fix show all toggle and predicate HRS earnings statements on URL
 
-2018-12-03
+2018-12-04
 
 + Only query for HRS earnings statements when the HRS URL "Earning Statement"
   (sic) is set. This allows promoting a hrs-portlets version that supports HRS
