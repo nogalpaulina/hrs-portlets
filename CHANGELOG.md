@@ -5,7 +5,13 @@
 The v6 major version was occasioned by introducing dependency on a new
 publication of Payroll Information as fname `earnings-statement-for-all`.
 
+### (Unreleased)
+
+(No changes so far.)
+
 ### 6.0.3 fix troubleshooter
+
+2018-12-06
 
 + Fix earnings statement service configuration in the Troubleshooter portlet.
 
