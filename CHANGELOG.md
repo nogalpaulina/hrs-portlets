@@ -11,8 +11,10 @@ publication of Payroll Information as fname `earnings-statement-for-all`.
 
 ### 6.0.4 fix tax statements tab
 
-+ Fix div matching bug that under some circumstances would break the tax
-  tax statements tab in Payroll Information ( [HRSPLT-404][], [#169][] )
+2018-12-07
+
++ Fix div matching bug that under some circumstances would break the "Tax
+  Statements" tab in Payroll Information ( [HRSPLT-404][], [#169][] )
 
 ### 6.0.3 fix troubleshooter
 
