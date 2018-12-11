@@ -65,7 +65,7 @@ Breaking change in 6.0.0
   converter from the old Cypress statement model to the new universal statement
   model (which includes the URL of the statement as part of the domain model).
 
-Features in 5.9.0:
+Features in 6.0.0:
 
 + Include legacy Cypress earnings statements in new Payroll Information
   earnings statements table.
@@ -77,7 +77,7 @@ Features in 5.9.0:
   Cypress) succeeds and the other source fails, both acknowledging the error and
   listing those statements that MyUW did successfully retrieve.
 
-Fixes in 5.9.0:
+Fixes in 6.0.0:
 
 + Fix Time and Absence to correctly render in cases where it omits the Leave
   Balances tab. Had been broken since 5.5.0. ( [HRSPLT-400][], [#163][] )
