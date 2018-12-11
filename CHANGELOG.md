@@ -468,6 +468,8 @@ changing the meaning of `ROLE_VIEW_ABSENCE_HISTORIES`.
 
 ### 3.0.0: split `ROLE_VIEW_ABSENCE_HISTORIES`
 
+2018-07-06
+
 #### Breaking changes in 3.0.0
 
 The `ROLE_VIEW_ABSENCE_HISTORIES` portlet role now *only*
