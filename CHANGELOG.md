@@ -444,6 +444,8 @@ changing the meaning of `ROLE_VIEW_ABSENCE_HISTORIES`.
 
 ### 3.1.0: targeted notifications and notices for PHIT
 
+2018-07-27
+
 #### New features in 3.1.0
 
 + In Time and Absence, a new optional `portlet-preference`
