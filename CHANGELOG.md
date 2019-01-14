@@ -7,6 +7,10 @@ publication of Payroll Information as fname `earnings-statement-for-all`.
 
 ### (Unreleased)
 
+(No changes yet).
+
+### 6.1.0 Payroll Information dynamic list-of-links
+
 + feat: add Payroll Information list-of-links resource URL (path: `listOfLinks`)
   that honors `ROLE_VIEW_DIRECT_DEPOSIT` in the same way as the Payroll
   Information portlet content honors that role (linking employee self-service
