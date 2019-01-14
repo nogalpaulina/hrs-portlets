@@ -14,7 +14,8 @@ publication of Payroll Information as fname `earnings-statement-for-all`.
   is set, otherwise linking the PDF form for adjusting direct deposit.) (
   [HRSPLT-369][], [#176][] )
 
-+ fix: clarify label of link to HRS-vended W-2s, that these are *2018* W-2s. ( [HRSPLT-411][], [#174][] )
++ fix: clarify label of link to HRS-vended W-2s, that these are *2018* W-2s. (
+  [HRSPLT-411][], [#174][] )
 + fix: clarify label of link to HRS-vended 1095-Cs, that these are *2018*
   1095-Cs. ( [HRSPLT-412][], [#175][] )
 + fix: log at DEBUG level when encountering error sending-and-receiving a SOAP
