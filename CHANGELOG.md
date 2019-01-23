@@ -9,6 +9,13 @@ publication of Payroll Information as fname `earnings-statement-for-all`.
 
 (No changes yet).
 
+### 6.2.0 Absence tab for all (not yet released)
+
++ feat: change `psAppContext.xml` role mapping config to grant MyUW HRS Portlets
+  role `ROLE_VIEW_ABSENCE_HISTORIES` to employees with HRS role
+  `UW_EMPLOYEE_ACTIVE`, to the effect that all employees will see the "Absence"
+  tab in "Time and Absence". ( [HRSPLT-415][], [#178][] )
+
 ### 6.1.0 Payroll Information dynamic list-of-links
 
 + feat: add Payroll Information list-of-links resource URL (path: `listOfLinks`)
@@ -880,6 +887,7 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [#174]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/174
 [#175]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/175
 [#176]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/176
+[#178]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/178
 
 [HRSPLT-346]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-346
 [HRSPLT-348]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-348
@@ -912,3 +920,4 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [HRSPLT-408]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-408
 [HRSPLT-411]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-411
 [HRSPLT-412]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-412
+[HRSPLT-415]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-415
