@@ -9,7 +9,9 @@ publication of Payroll Information as fname `earnings-statement-for-all`.
 
 (No changes yet).
 
-### 6.2.0 Absence tab for all (not yet released)
+### 6.2.0 Absence tab for all
+
+2019-01-29
 
 + feat: change `psAppContext.xml` role mapping config to grant MyUW HRS Portlets
   role `ROLE_VIEW_ABSENCE_HISTORIES` to employees with HRS role
