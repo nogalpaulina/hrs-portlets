@@ -82,6 +82,21 @@
         </div>
         <hrs:pagerNavBar position="bottom" />
       </div>
+
+      <sec:authorize ifNotGranted="ROLE_UW_EMPLOYEE_ACTIVE">
+        <div class="fl-widget hrs-notification-wrapper alert alert-info">
+          <div class="hrs-notification-content">Some links in this MyUW Benefit
+            Information app will not work for you because the Human Resources
+            System (HRS) does not assign you the active employee role. This
+            affects the 'View Benefits Summary Detail' and
+            'Update TSA Deductions' buttons on this tab. You may
+            <a href="https://kb.wisc.edu/helpdesk/"
+              target="_blank" rel="noopener noreferrer">
+              contact the Help Desk</a>
+            for assistance.</div>
+        </div>
+      </sec:authorize>
+
       <div class="container-fluid row">
         <%-- when URL available from portlet pref, use that --%>
         <%-- else use URL from URLs web service if available --%>
@@ -90,7 +105,7 @@
           <c:when test="${not empty prefs['benefitsSummaryUrl']
             && not empty prefs['benefitsSummaryUrl'][0]}">
             <div class='col-xs-4 col-xs-offset-2'>
-              <a href="${prefs['benefitsSummaryUrl'][0]}" 
+              <a href="${prefs['benefitsSummaryUrl'][0]}"
                 target="_blank" rel="noopener noreferer"
                 class="btn btn-default">
                   View Benefits Summary Detail
@@ -99,7 +114,7 @@
           </c:when>
           <c:when test="${not empty hrsUrls['Benefits Summary']}">
             <div class='col-xs-4 col-xs-offset-2'>
-              <a href="${hrsUrls['Benefits Summary']}" 
+              <a href="${hrsUrls['Benefits Summary']}"
                 target="_blank" rel="noopener noreferer"
                 class="btn btn-default">
                   View Benefits Summary Detail
@@ -163,6 +178,21 @@
         </div>
         <hrs:pagerNavBar position="bottom" />
       </div>
+
+      <sec:authorize ifNotGranted="ROLE_UW_EMPLOYEE_ACTIVE">
+        <div class="fl-widget hrs-notification-wrapper alert alert-info">
+          <div class="hrs-notification-content">Some links in this MyUW Benefit
+            Information app will not work for you because the Human Resources
+            System (HRS) does not assign you the active employee role. This
+            affects the 'View/Update Dependent Information' and
+            'View Dependent Coverage' buttons on this tab. You may
+            <a href="https://kb.wisc.edu/helpdesk/"
+              target="_blank" rel="noopener noreferrer">
+              contact the Help Desk</a>
+            for assistance.</div>
+        </div>
+      </sec:authorize>
+
       <div class="container-fluid row">
         <div class='col-xs-3 col-xs-offset-2'>
           <c:choose>
