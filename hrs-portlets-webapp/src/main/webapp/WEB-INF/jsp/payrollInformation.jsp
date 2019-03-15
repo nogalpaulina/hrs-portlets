@@ -31,7 +31,22 @@
       </div>
     </div>
 
+    <sec:authorize ifNotGranted="ROLE_UW_EMPLOYEE_ACTIVE">
+      <div class="fl-widget hrs-notification-wrapper alert alert-info">
+        <div class="hrs-notification-content">
+          <p>
+            Former employees do not have online access to their 2019 and forward
+            earning statements and 2018 and forward W-2s.
+            <a href="https://kb.wisc.edu/helpdesk/page.php?id=90392"
+              target="_blank" rel="noopener noreferrer">
+              Learn more about accessing statements</a>.
+          </p>
+        </div>
+      </div>
+    </sec:authorize>
+
     <hrs:notification/>
+
   </div>
 
   <div id="${n}dl-tabs"
