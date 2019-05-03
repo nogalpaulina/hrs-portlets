@@ -5,7 +5,7 @@
 The v6 major version was occasioned by introducing dependency on a new
 publication of Payroll Information as fname `earnings-statement-for-all`.
 
-### (Unreleased beyond 6.2.1)
+### 6.3.0 Increase help link affordance
 
 + feat: improve affordance of upper-right help hyperlinks. Implementation
   introduces a `helpLink` JSP tag.
