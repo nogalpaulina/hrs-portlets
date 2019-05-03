@@ -1,6 +1,6 @@
 <%@ include file="/WEB-INF/jsp/include.jsp"%>
 
-<%@ tag bodyContent="empty" isELIgnored="false" %>
+<%@ tag body-content="empty" isELIgnored="false" %>
 
 <%@ attribute name="appContext" required="false" %>
 
