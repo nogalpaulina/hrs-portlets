@@ -10,7 +10,7 @@ publication of Payroll Information as fname `earnings-statement-for-all`.
 2019-05-03
 
 + feat: improve affordance of upper-right help hyperlinks. Implementation
-  introduces a `helpLink` JSP tag.
+  introduces a `helpLink` JSP tag. ( [HRSPLT-405][] )
 
 ### 6.2.1 Mitigate former employee loss of HRS self-service access
 
@@ -951,6 +951,7 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [HRSPLT-402]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-402
 [HRSPLT-403]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-403
 [HRSPLT-404]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-404
+[HRSPLT-405]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-405
 [HRSPLT-408]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-408
 [HRSPLT-411]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-411
 [HRSPLT-412]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-412
