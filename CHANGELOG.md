@@ -7,6 +7,8 @@ publication of Payroll Information as fname `earnings-statement-for-all`.
 
 ### 6.3.0 Increase help link affordance
 
+2019-05-03
+
 + feat: improve affordance of upper-right help hyperlinks. Implementation
   introduces a `helpLink` JSP tag.
 
