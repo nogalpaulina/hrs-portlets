@@ -202,6 +202,13 @@ this hour limiting policy applies to them.)
   tab of the relevant Payroll Information app ("Tax Statements"), and the PDF
   form for updating payroll tax withholdings ("Update W4").
 
+### Performance
+
++ `performanceListOfLinks` : JSON suitable for driving a `list-of-links` widget
+  linking into HRS self-service performance management. Up to two links, each
+  predicated on an HRS role, and each linking a URL specified via the HRS URLs
+  DAO.
+
 ### Roles
 
 + `hasRole` : JSON suitable for driving a `switch` widget switching on whether the employee has a

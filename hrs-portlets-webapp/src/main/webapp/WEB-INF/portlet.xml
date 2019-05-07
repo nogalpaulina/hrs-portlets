@@ -263,6 +263,34 @@
     </portlet>
 
     <portlet>
+        <portlet-name>Performance</portlet-name>
+        <portlet-class>org.jasig.springframework.web.portlet.context.ContribDispatcherPortlet</portlet-class>
+        <init-param>
+            <name>contextConfigLocation</name>
+            <value>/WEB-INF/context/portlet/performance.xml</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+        </supports>
+        <portlet-info>
+            <title>Performance Links</title>
+            <short-title>Performance</short-title>
+        </portlet-info>
+        <portlet-preferences>
+            <preference>
+                <name>emplidUserAttributes</name>
+                <value>eduWisconsinHRSEmplID</value>
+                <value>eduWisconsinHRPersonID</value>
+                <value>wiscEduHRSEmplid</value>
+                <value>wisceduhrpersonid</value>
+                <value>legacywisceduhrpersonid</value>
+            </preference>
+        </portlet-preferences>
+    </portlet>
+
+    <portlet>
         <portlet-name>Roles</portlet-name>
         <portlet-class>org.jasig.springframework.web.portlet.context.ContribDispatcherPortlet</portlet-class>
         <init-param>
@@ -345,7 +373,7 @@
             </preference>
         </portlet-preferences>
     </portlet>
-    
+
     <user-attribute>
         <name>eduWisconsinHRSEmplID</name>
     </user-attribute>
@@ -382,7 +410,7 @@
     <user-attribute>
     	<name>wiscedupreferredfirstname</name>
     </user-attribute>
-    
+
     <filter>
         <filter-name>springSecurityPortletFilterChain</filter-name>
         <filter-class>org.jasig.springframework.web.portlet.filter.DelegatingPortletFilterProxy</filter-class>
@@ -391,7 +419,7 @@
         <lifecycle>RENDER_PHASE</lifecycle>
         <lifecycle>RESOURCE_PHASE</lifecycle>
     </filter>
-    
+
     <filter-mapping>
         <filter-name>springSecurityPortletFilterChain</filter-name>
         <portlet-name>*</portlet-name>

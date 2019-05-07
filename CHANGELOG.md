@@ -5,6 +5,13 @@
 The v6 major version was occasioned by introducing dependency on a new
 publication of Payroll Information as fname `earnings-statement-for-all`.
 
+### 6.4.0 Add Performance list-of-links
+
+2019-05-07
+
++ feat: add Performance Portlet vending `performanceListOfLinks` resource URL.
+  ( [HRSPLT-437][] )
+
 ### 6.3.0 Increase help link affordance
 
 2019-05-03
@@ -962,3 +969,4 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [HRSPLT-425]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-425
 [HRSPLT-426]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-426
 [HRSPLT-429]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-429
+[HRSPLT-437]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-437
