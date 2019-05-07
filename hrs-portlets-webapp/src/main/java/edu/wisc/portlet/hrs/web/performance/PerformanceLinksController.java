@@ -124,7 +124,6 @@ public class PerformanceLinksController
    */
   @RequestMapping
   public String defaultView(){
-
     return "oops";
   }
 
