@@ -1,8 +1,5 @@
 package edu.wisc.portlet.hrs.web.performance;
 
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Sets;
-import com.google.common.collect.UnmodifiableIterator;
 import edu.wisc.hr.dao.roles.HrsRolesDao;
 import edu.wisc.hr.dao.url.HrsUrlDao;
 import edu.wisc.portlet.hrs.web.HrsControllerBase;
@@ -10,11 +7,9 @@ import edu.wisc.portlet.hrs.web.listoflinks.Link;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
 import org.apache.commons.lang.StringUtils;
 import org.jasig.springframework.security.portlet.authentication.PrimaryAttributeUtils;
