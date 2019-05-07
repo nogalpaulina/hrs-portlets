@@ -78,12 +78,8 @@ public class PerformanceLinksController
 
     if (roles.contains(ROLE_LINK_SELF_PERFORMANCE)) {
       if (StringUtils.isNotBlank(selfPerformanceUrl)) {
-        final Link selfPerformance = new Link();
-        selfPerformance.setTitle("Employee");
-        selfPerformance.setIcon("assignment_ind");
-        selfPerformance.setHref(selfPerformanceUrl);
-        selfPerformance.setTarget("_blank");
-        linkList.add(selfPerformance);
+        linkList.add(
+            new Link("Employee", selfPerformanceUrl, "_blank", "assignment_ind"));
       } else {
         logger.warn(
           "HRS URL [" + HrsUrlDao.SELF_PERFORMANCE_KEY + "] expected" +
@@ -93,12 +89,8 @@ public class PerformanceLinksController
 
     if (roles.contains(ROLE_LINK_MANAGE_PERFORMANCE)) {
       if (StringUtils.isNotBlank(othersPerformanceUrl)) {
-        final Link othersPerformance = new Link();
-        othersPerformance.setTitle("Manage");
-        othersPerformance.setIcon("assignment_group");
-        othersPerformance.setHref(othersPerformanceUrl);
-        othersPerformance.setTarget("_blank");
-        linkList.add(othersPerformance);
+        linkList.add(
+            new Link("Manage", othersPerformanceUrl, "_blank", "assignment_group"));
       } else {
         logger.warn(
           "HRS URL [" + HrsUrlDao.OTHERS_PERFORMANCE_KEY + "] expected" +
