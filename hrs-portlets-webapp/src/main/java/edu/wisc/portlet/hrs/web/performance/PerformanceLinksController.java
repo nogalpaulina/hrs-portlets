@@ -43,7 +43,6 @@ public class PerformanceLinksController
     "ROLE_LINK_SELF_PERFORMANCE";
 
   private HrsRolesDao rolesDao;
-  private HrsUrlDao urlDao;
 
   public HrsRolesDao getRolesDao() {
     return rolesDao;
@@ -70,10 +69,10 @@ public class PerformanceLinksController
       Collections.unmodifiableSet(this.rolesDao.getHrsRoles(emplId));
 
     final String selfPerformanceUrl =
-      urlDao.getHrsUrls().get(HrsUrlDao.SELF_PERFORMANCE_KEY);
+      this.getHrsUrls().get(HrsUrlDao.SELF_PERFORMANCE_KEY);
 
     final String othersPerformanceUrl =
-      urlDao.getHrsUrls().get(HrsUrlDao.OTHERS_PERFORMANCE_KEY);
+      this.getHrsUrls().get(HrsUrlDao.OTHERS_PERFORMANCE_KEY);
 
     final List<Link> linkList = new ArrayList<Link>();
 
