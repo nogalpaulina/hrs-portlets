@@ -10,6 +10,8 @@ public class Link {
   private String target;
   private String icon;
 
+  public Link() {};
+
   public Link(String title, String href, String target, String icon) {
     this.title = title;
     this.href = href;
