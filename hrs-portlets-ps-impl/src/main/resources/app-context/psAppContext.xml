@@ -103,6 +103,20 @@
               messaging specifically to this role -->
           </set>
         </entry>
+        <entry key="UW_DYN_HR_EPERF_EMPLOYEE">
+          <set>
+            <value>ROLE_LINK_SELF_PERFORMANCE</value>
+            <!-- includes the about-self e-performance link in
+              system perforance list-of-links widget -->
+          </set>
+        </entry>
+        <entry key="UW_DYN_HR_EPERF_MANAGER">
+          <set>
+            <value>ROLE_LINK_MANAGE_PERFORMANCE</value>
+            <!-- includes the manage-others e-performance link in
+              system perforance list-of-links widget -->
+          </set>
+        </entry>
         <entry key="UW_DYN_PY_ADDL_PAY_APP">
             <set>
                 <value>ROLE_VIEW_HRS_APPROVALS_WIDGET</value>

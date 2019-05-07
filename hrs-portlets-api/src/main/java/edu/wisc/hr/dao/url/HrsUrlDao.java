@@ -59,4 +59,16 @@ public interface HrsUrlDao {
      * Fluid > Employee Self Service (Home Page) > Time
      */
     String SELF_SERIVCE_FLUID_TIME_KEY = "Fluid Time";
+
+    /**
+     * The name of the key the value of which is the deep link into HRS for
+     * managers to manage others performance.
+     */
+    public static String OTHERS_PERFORMANCE_KEY = "Manager ePerf";
+
+    /**
+     * The name of the key the value of which is the deep link into HRS for
+     * employees to manage their own performance.
+     */
+    public static String SELF_PERFORMANCE_KEY = "Employee ePerf";
 }
