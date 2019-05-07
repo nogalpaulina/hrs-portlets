@@ -10,6 +10,12 @@ public class Link {
   private String target;
   private String icon;
 
+  public Link(String title, String href, String target, String icon) {
+    this.title = title;
+    this.href = href;
+    this.target = target;
+    this.icon = icon;
+  }
 
   public String getTitle() {
     return title;
