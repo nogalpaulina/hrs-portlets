@@ -7,7 +7,7 @@ publication of Payroll Information as fname `earnings-statement-for-all`.
 
 ### 6.4.0 Add Performance list-of-links
 
-2019-05-07
+(Not yet released)
 
 + feat: add Performance Portlet vending `performanceListOfLinks` resource URL.
   ( [HRSPLT-437][] )
