@@ -5,6 +5,11 @@
 The v6 major version was occasioned by introducing dependency on a new
 publication of Payroll Information as fname `earnings-statement-for-all`.
 
+### 6.4.1 Tweak help-link style
+
++ fix: line up the launch icon at the end of the help link with the help link
+  label text ( [HRSPLT-449][] )
+
 ### 6.4.0 Add Performance list-of-links
 
 2019-05-28
@@ -970,3 +975,4 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [HRSPLT-426]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-426
 [HRSPLT-429]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-429
 [HRSPLT-437]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-437
+[HRSPLT-449]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-449
