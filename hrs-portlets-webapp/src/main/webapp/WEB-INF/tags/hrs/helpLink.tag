@@ -15,7 +15,8 @@
   <a
     id="help-link"
     href="${helpUrl}"
-    target="_blank" rel="noopener noreferrer">
+    target="_blank" rel="noopener noreferrer"
+    style="display: flex; align-items: center;justify-content: flex-end;">
     ${appContext} help and resources
     <!-- material.io launch icon-->
     <svg id="launch-icon" xmlns="http://www.w3.org/2000/svg"
