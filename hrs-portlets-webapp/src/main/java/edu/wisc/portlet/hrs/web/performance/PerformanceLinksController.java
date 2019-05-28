@@ -90,7 +90,7 @@ public class PerformanceLinksController
     if (roles.contains(ROLE_LINK_MANAGE_PERFORMANCE)) {
       if (StringUtils.isNotBlank(othersPerformanceUrl)) {
         linkList.add(
-            new Link("Manage", othersPerformanceUrl, "_blank", "assignment_group"));
+            new Link("Manager", othersPerformanceUrl, "_blank", "assignment_group"));
       } else {
         logger.warn(
           "HRS URL [" + HrsUrlDao.OTHERS_PERFORMANCE_KEY + "] expected" +
