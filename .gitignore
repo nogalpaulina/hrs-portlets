@@ -2,6 +2,7 @@
 /.project
 /.settings
 /target
+/.java-version
 /.springBeans
 .idea/
 *.iml
