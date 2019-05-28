@@ -7,6 +7,8 @@ publication of Payroll Information as fname `earnings-statement-for-all`.
 
 ### 6.4.1 Tweak help-link style
 
+2019-05-28
+
 + fix: line up the launch icon at the end of the help link with the help link
   label text ( [HRSPLT-449][] )
 
