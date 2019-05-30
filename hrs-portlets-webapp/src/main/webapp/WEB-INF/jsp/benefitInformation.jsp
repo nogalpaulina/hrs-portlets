@@ -27,13 +27,15 @@
     <sec:authorize ifAnyGranted="ROLE_VIEW_BENEFITS">
       <div class="dl-banner-link">
         You have a benefit enrollment opportunity.
-        <a target="_blank" href="${hrsUrls['Open Enrollment/Hire Event']}"><spring:message code="open.enrollment" text="Open Enrollment" /></a>
-        <c:if test="${isMadisonUser}">
+        <a target="_blank" href="${hrsUrls['Open Enrollment/Hire Event']}">>Enroll now</a>
+        <c:choose>
+          <c:when test="${isMadisonUser}">
             <a target="_blank" href="https://hr.wisc.edu/benefits/new-employee-benefits-enrollment/">Learn more</a>
-        </c:if>
-        <c:if test!="${isMadisonUser}">
+          </c:when>
+          <c:otherwise>
             <a target="_blank" href="https://www.wisconsin.edu/ohrwd/benefits/">Learn more</a> 
-          </c:if>
+          </c:otherwise>>
+        </c:choose>
       </div>
     </sec:authorize>
     <!-- <sec:authorize ifAnyGranted="ROLE_VIEW_MANAGED_ABSENCES"> -->
@@ -42,12 +44,14 @@
       <div class="dl-banner-link">
         You have a benefit enrollment opportunity.
         <a target="_blank" href="${hrsUrls['Open Enrollment/Hire Event']}">Enroll now.</a>. 
-        <c:if test="${isMadisonUser}">
+        <c:choose></c:choose>
+        <c:when test="${isMadisonUser}">
             <a target="_blank" href="https://hr.wisc.edu/benefits/annual-benefits-enrollment/">Learn more</a>
-        </c:if>
-        <c:if test!="${isMadisonUser}">
+        </c:when>
+        <c:otherwise>
             <a target="_blank" href="https://www.wisconsin.edu/ohrwd/benefits/">Learn more</a> 
-          </c:if>
+        </c:otherwise>
+        </c:choose>
       </div>
     </sec:authorize>
 
