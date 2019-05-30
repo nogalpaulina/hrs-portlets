@@ -29,10 +29,10 @@
         You have a benefit enrollment opportunity.
         <a target="_blank" href="${hrsUrls['Open Enrollment/Hire Event']}"><spring:message code="open.enrollment" text="Open Enrollment" /></a>
         <c:if test="${isMadisonUser}">
-            ${madisonNewLearnMore}
+            <a target="_blank" href="https://hr.wisc.edu/benefits/new-employee-benefits-enrollment/">Learn more</a>
         </c:if>
         <c:if test!="${isMadisonUser}">
-            ${systemLearnMore}
+            <a target="_blank" href="https://www.wisconsin.edu/ohrwd/benefits/">Learn more</a> 
           </c:if>
       </div>
     </sec:authorize>

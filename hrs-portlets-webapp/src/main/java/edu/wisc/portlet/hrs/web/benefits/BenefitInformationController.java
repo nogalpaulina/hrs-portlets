@@ -69,9 +69,6 @@ public class BenefitInformationController extends HrsControllerBase {
       model.addAttribute("isMadisonUser", isMadisonUser);
       final PortletPreferences preferences = request.getPreferences();
       model.addAttribute("learnMoreEBenefitGuide", preferences.getValue("ebenefitguidetext", null));
-      model.addAttribute("madisonNewLearnMore"), "https://hr.wisc.edu/benefits/new-employee-benefits-enrollment/";
-      model.addAttribute("systemLearnMore"), "https://www.wisconsin.edu/ohrwd/benefits/";
-      model.addAttribute("madisonAnnualLearnMore"), "https://hr.wisc.edu/benefits/annual-benefits-enrollment/";
 
       return "benefitInformation";
     }
