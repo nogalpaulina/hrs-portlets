@@ -8,7 +8,7 @@ benefit enrollment opportunities are available to an employee.
 
 ### 7.0.0 Enrollment opportunities via roles rather than enrollmentFlag
 
-RELEASE-DATE-GOES-HERE-NOT-YET-RELEASED
+2019-05-31
 
 + feat: reflect new HRS roles indicating enrollment opportunities, with
   tightened up UI messaging supported by contextual "Learn more" links.
