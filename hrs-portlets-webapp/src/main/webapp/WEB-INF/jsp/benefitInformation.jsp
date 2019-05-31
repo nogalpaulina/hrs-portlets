@@ -44,7 +44,7 @@
       <div class="dl-banner-link">
         You have a benefit enrollment opportunity.
         <a target="_blank" href="${hrsUrls['Open Enrollment/Hire Event']}">Enroll now.</a>. 
-        <c:choose></c:choose>
+        <c:choose>
         <c:when test="${isMadisonUser}">
             <a target="_blank" href="https://hr.wisc.edu/benefits/annual-benefits-enrollment/">Learn more</a>
         </c:when>
