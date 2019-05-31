@@ -33,7 +33,7 @@
             <a target="_blank" href="https://hr.wisc.edu/benefits/new-employee-benefits-enrollment/">Learn more</a>
           </c:when>
           <c:otherwise>
-            <a target="_blank" href="https://www.wisconsin.edu/ohrwd/benefits/">Learn more</a> 
+            <a target="_blank" href="https://www.wisconsin.edu/ohrwd/benefits/">Learn more</a>
           </c:otherwise>
         </c:choose>
       </div>
@@ -48,7 +48,7 @@
             <a target="_blank" href="https://hr.wisc.edu/benefits/annual-benefits-enrollment/">Learn more</a>
         </c:when>
         <c:otherwise>
-            <a target="_blank" href="https://www.wisconsin.edu/ohrwd/benefits/">Learn more</a> 
+            <a target="_blank" href="https://www.wisconsin.edu/ohrwd/benefits/">Learn more</a>
         </c:otherwise>
         </c:choose>
       </div>
