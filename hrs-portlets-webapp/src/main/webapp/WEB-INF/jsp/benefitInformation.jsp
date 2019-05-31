@@ -24,10 +24,10 @@
 
 <div id="${n}dl-benefit-summary" class="fl-widget portlet dl-benefit-summary hrs">
   <div class="dl-banner-links">
-    <sec:authorize ifAnyGranted="ROLE_VIEW_BENEFITS">
+    <sec:authorize ifAnyGranted="ROLE_VIEW_NEW_HIRE_BENEFITS">
       <div class="dl-banner-link">
         You have a benefit enrollment opportunity.
-        <a target="_blank" href="${hrsUrls['Open Enrollment/Hire Event']}">>Enroll now</a>
+        <a target="_blank" href="${hrsUrls['Open Enrollment/Hire Event']}">Enroll now</a>
         <c:choose>
           <c:when test="${isMadisonUser}">
             <a target="_blank" href="https://hr.wisc.edu/benefits/new-employee-benefits-enrollment/">Learn more</a>
@@ -38,12 +38,11 @@
         </c:choose>
       </div>
     </sec:authorize>
-    <!-- <sec:authorize ifAnyGranted="ROLE_VIEW_MANAGED_ABSENCES"> -->
 
     <sec:authorize ifAnyGranted="ROLE_VIEW_OPEN_ENROLL_BENEFITS">
       <div class="dl-banner-link">
         You have a benefit enrollment opportunity.
-        <a target="_blank" href="${hrsUrls['Open Enrollment/Hire Event']}">Enroll now.</a>. 
+        <a target="_blank" href="${hrsUrls['Open Enrollment/Hire Event']}">Enroll now</a>
         <c:choose>
         <c:when test="${isMadisonUser}">
             <a target="_blank" href="https://hr.wisc.edu/benefits/annual-benefits-enrollment/">Learn more</a>
