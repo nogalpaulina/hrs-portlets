@@ -34,7 +34,7 @@
           </c:when>
           <c:otherwise>
             <a target="_blank" href="https://www.wisconsin.edu/ohrwd/benefits/">Learn more</a> 
-          </c:otherwise>>
+          </c:otherwise>
         </c:choose>
       </div>
     </sec:authorize>
