@@ -13,6 +13,11 @@ RELEASE-DATE-GOES-HERE-NOT-YET-RELEASED
 + feat: reflect new HRS roles indicating enrollment opportunities, with
   tightened up UI messaging supported by contextual "Learn more" links.
   ( [HRSPLT-436][], [#194][] )
++ fix: removes bugged no-op code in Time and Absence. It was bugged in a few
+  ways. The controlling bug is that it was predicated on an HRS URL key that
+  MyUW is not receiving from HRS, and so was a no-op. This release removes the
+  bugged code so no one has to worry going forward about whether it is (wrongly)
+  displaying to employees. ( [#197][] )
 
 ## HRS Portlets 6 series
 
@@ -951,6 +956,7 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [#183]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/183
 [#185]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/185
 [#194]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/194
+[#197]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/197
 
 [HRSPLT-346]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-346
 [HRSPLT-348]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-348
