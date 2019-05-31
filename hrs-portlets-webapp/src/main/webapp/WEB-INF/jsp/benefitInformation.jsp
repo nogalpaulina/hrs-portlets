@@ -44,12 +44,12 @@
         You have a benefit enrollment opportunity.
         <a target="_blank" href="${hrsUrls['Open Enrollment/Hire Event']}">Enroll now</a>
         <c:choose>
-        <c:when test="${isMadisonUser}">
+          <c:when test="${isMadisonUser}">
             <a target="_blank" href="https://hr.wisc.edu/benefits/annual-benefits-enrollment/">Learn more</a>
-        </c:when>
-        <c:otherwise>
+          </c:when>
+          <c:otherwise>
             <a target="_blank" href="https://www.wisconsin.edu/ohrwd/benefits/">Learn more</a>
-        </c:otherwise>
+          </c:otherwise>
         </c:choose>
       </div>
     </sec:authorize>
