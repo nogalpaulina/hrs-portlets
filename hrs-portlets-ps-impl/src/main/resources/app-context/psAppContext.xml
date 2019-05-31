@@ -67,7 +67,7 @@
         <entry key="UW_DYN_BN_EBENEFITS">
           <set>
             <value>ROLE_VIEW_NEW_HIRE_BENEFITS</value>
-            <!-- effects 
+            <!-- effects
                Shows message for new benefit enrollment opportunity.
             -->
           </set>
@@ -76,7 +76,7 @@
         <entry key="UW_DYN_BN_OPEN_ENROLL">
           <set>
             <value>ROLE_VIEW_OPEN_ENROLL_BENEFITS</value>
-            <!-- effects 
+            <!-- effects
                Shows message for open enroll benefit enrollment opportunity.
             -->
           </set>

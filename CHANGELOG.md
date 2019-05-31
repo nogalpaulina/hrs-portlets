@@ -1,5 +1,19 @@
 # MyUW hrs-portlets change log
 
+## HRS Portlets 7 series
+
+The v7 major version was occasioned by the breaking change of no longer honoring
+`enrollmentFlag`, instead relying upon HRS roles to indicate whether and what
+benefit enrollment opportunities are available to an employee.
+
+### 7.0.0 Enrollment opportunities via roles rather than enrollmentFlag
+
+RELEASE-DATE-GOES-HERE-NOT-YET-RELEASED
+
++ feat: reflect new HRS roles indicating enrollment opportunities, with
+  tightened up UI messaging supported by contextual "Learn more" links.
+  ( [HRSPLT-436][], [#194][] )
+
 ## HRS Portlets 6 series
 
 The v6 major version was occasioned by introducing dependency on a new
@@ -936,6 +950,7 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [#182]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/182
 [#183]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/183
 [#185]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/185
+[#194]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/194
 
 [HRSPLT-346]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-346
 [HRSPLT-348]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-348
@@ -976,5 +991,6 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [HRSPLT-425]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-425
 [HRSPLT-426]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-426
 [HRSPLT-429]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-429
+[HRSPLT-436]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-436
 [HRSPLT-437]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-437
 [HRSPLT-449]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-449
