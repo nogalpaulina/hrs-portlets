@@ -50,15 +50,6 @@
 <div id="${n}dl-time-absence" class="fl-widget portlet dl-time-absence hrs">
   <div>
     <div class="dl-banner-links">
-      <c:if test="${not empty hrsUrls['Benefits Enrollment']}">
-        <div class="dl-banner-link">
-          You have a benefit enrollment opportunity. Please enroll online by clicking the
-          following link.
-          <a target="_blank" href="${hrsUrls['Benefits Enrollment']}">
-            Benefits Enrollment</a>
-        </div>
-      </c:if>
-
       <hrs:helpLink appContext="Time and Absence" />
     </div>
 
