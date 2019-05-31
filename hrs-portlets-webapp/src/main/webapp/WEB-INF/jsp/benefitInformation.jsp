@@ -24,27 +24,36 @@
 
 <div id="${n}dl-benefit-summary" class="fl-widget portlet dl-benefit-summary hrs">
   <div class="dl-banner-links">
-    <c:choose>
-    <c:when test="${enrollmentFlag == 'O'}">
+    <sec:authorize ifAnyGranted="ROLE_VIEW_NEW_HIRE_BENEFITS">
       <div class="dl-banner-link">
-        <spring:message code="benefit.summary.enrollment.O.message" text="You have a benefit enrollment opportunity. Please enroll online by clicking the following link: "/>
-        <a target="_blank" href="${hrsUrls['Open Enrollment/Hire Event']}"><spring:message code="open.enrollment" text="Open Enrollment" /></a>
-        <c:if test="${isMadisonUser}">
-          ${learnMoreEBenefitGuide}
-        </c:if>
+        You have a benefit enrollment opportunity.
+        <a target="_blank" href="${hrsUrls['Open Enrollment/Hire Event']}">Enroll now</a>
+        <c:choose>
+          <c:when test="${isMadisonUser}">
+            <a target="_blank" href="https://hr.wisc.edu/benefits/new-employee-benefits-enrollment/">Learn more</a>
+          </c:when>
+          <c:otherwise>
+            <a target="_blank" href="https://www.wisconsin.edu/ohrwd/benefits/">Learn more</a> 
+          </c:otherwise>>
+        </c:choose>
       </div>
-    </c:when>
-    <c:when test="${enrollmentFlag == 'H'}">
+    </sec:authorize>
+
+    <sec:authorize ifAnyGranted="ROLE_VIEW_OPEN_ENROLL_BENEFITS">
       <div class="dl-banner-link">
-        You have a benefit enrollment opportunity. Please enroll online by clicking the following link.
-        <a target="_blank" href="${hrsUrls['Open Enrollment/Hire Event']}">Benefits Enrollment</a>. A Benefit Enrollment
-        Deadlines worksheet is available in the Statements tab which details your enrollment deadlines by plan.
-        <c:if test="${isMadisonUser}">
-          ${learnMoreEBenefitGuide}
-        </c:if>
+        You have a benefit enrollment opportunity.
+        <a target="_blank" href="${hrsUrls['Open Enrollment/Hire Event']}">Enroll now</a>
+        <c:choose>
+        <c:when test="${isMadisonUser}">
+            <a target="_blank" href="https://hr.wisc.edu/benefits/annual-benefits-enrollment/">Learn more</a>
+        </c:when>
+        <c:otherwise>
+            <a target="_blank" href="https://www.wisconsin.edu/ohrwd/benefits/">Learn more</a> 
+        </c:otherwise>
+        </c:choose>
       </div>
-    </c:when>
-    </c:choose>
+    </sec:authorize>
+
 
     <hrs:helpLink appContext="Benefits" />
   </div>
