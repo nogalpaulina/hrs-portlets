@@ -24,7 +24,7 @@
 <portlet:defineObjects/>
 <spring:htmlEscape defaultHtmlEscape="true" />
 
-<div class="widget-body" layout="column" layout-align="center center">
+<div class="widget-body layout-align-center-center layout-column">
   <sec:authorize
     ifAnyGranted="ROLE_VIEW_NEW_HIRE_BENEFITS, ROLE_VIEW_OPEN_ENROLL_BENEFITS">
     <span class="tsc__title">You have
@@ -38,7 +38,7 @@
       </p>
     </div>
   </sec:authorize>
-  <div class="tsc__extra-buttons" layout="row" layout-align="center center">
+  <div class="tsc__extra-buttons layout-align-center-center layout-row">
     <c:choose>
       <c:when test="${isMadisonUser}">
         <a
@@ -62,19 +62,19 @@
   <c:when test="${isMadisonUser}">
     <%-- Bug: will launch the wrong Benefit Information for Madison users
          in context of my.wisconsin --%>
-    <launch-button
-      data-href="/web/exclusive/university-staff-benefits-statement"
-      data-target="_self"
-      data-button-text="Launch full app"
-      data-aria-label="Launch Benefit Information">
-    </launch-button>
+    <a
+      aria-label="Launch Benefit Information"
+      href="/web/exclusive/university-staff-benefits-statement"
+      class="launch-app-button">
+      Launch full app
+    </a>
   </c:when>
   <c:otherwise>
-    <launch-button
-      data-href="/web/exclusive/uw-system-university-staff-benefits-statement"
-      data-target="_self"
-      data-button-text="Launch full app"
-      data-aria-label="Launch Benefit Information">
-    </launch-button>
+    <a
+      aria-label="Launch Benefit Information"
+      href="/web/exclusive/uw-system-university-staff-benefits-statement"
+      class="launch-app-button">
+      Launch full app
+    </a>
   </c:otherwise>
 </c:choose>
