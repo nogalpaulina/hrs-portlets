@@ -13,6 +13,10 @@ DATE_TBD
 + feat: add `benefitInformationWidget` resource URL that provides markup
   suitable for use in new `remote-content` type widget
   ( [HRSPLT-434][], [#198][] )
++ fix: computes Madison-ness based on `wiscEduHRSEmplid` rather than on
+  `wiscEduSORName`. While looking for SORName worked in prod (but not in
+  non-prod), basing this on `wiscEduHRSEmplid` bases it on something closer to
+  the core of and otherwise depended upon by hrs-portlets.
 
 ### 7.0.0 Enrollment opportunities via roles rather than enrollmentFlag
 
