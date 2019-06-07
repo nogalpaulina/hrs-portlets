@@ -6,6 +6,13 @@ The v7 major version was occasioned by the breaking change of no longer honoring
 `enrollmentFlag`, instead relying upon HRS roles to indicate whether and what
 benefit enrollment opportunities are available to an employee.
 
+### 7.1.0 Generate Benefit Information widget server-side
+
+DATE_TBD
+
++ feat: add `benefitInformationWidget` resource URL that provides markup
+  suitable for use in new `remote-content` type widget
+
 ### 7.0.0 Enrollment opportunities via roles rather than enrollmentFlag
 
 2019-05-31

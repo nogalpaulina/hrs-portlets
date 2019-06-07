@@ -72,4 +72,14 @@ public class BenefitInformationController extends HrsControllerBase {
 
       return "benefitInformation";
     }
+
+    @ResourceMapping("benefitInformationWidget")
+    public String benefitInformationWidget(
+      ModelMap model, PortletRequest request) {
+
+      // same model as the portlet view JSP
+      viewBenefitInfo(model, request);
+
+      return "benefitInformationWidget";
+    }
 }
