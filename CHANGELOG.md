@@ -6,6 +6,14 @@ The v7 major version was occasioned by the breaking change of no longer honoring
 `enrollmentFlag`, instead relying upon HRS roles to indicate whether and what
 benefit enrollment opportunities are available to an employee.
 
+### 7.1.0 Generate Benefit Information widget server-side
+
+DATE_TBD
+
++ feat: add `benefitInformationWidget` resource URL that provides markup
+  suitable for use in new `remote-content` type widget
+  ( [HRSPLT-434][], [#198][] )
+
 ### 7.0.0 Enrollment opportunities via roles rather than enrollmentFlag
 
 2019-05-31
@@ -957,6 +965,7 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [#185]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/185
 [#194]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/194
 [#197]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/197
+[#198]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/198
 
 [HRSPLT-346]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-346
 [HRSPLT-348]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-348
@@ -997,6 +1006,7 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [HRSPLT-425]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-425
 [HRSPLT-426]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-426
 [HRSPLT-429]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-429
+[HRSPLT-434]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-434
 [HRSPLT-436]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-436
 [HRSPLT-437]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-437
 [HRSPLT-449]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-449
