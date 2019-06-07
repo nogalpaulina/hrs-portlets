@@ -8,7 +8,7 @@ benefit enrollment opportunities are available to an employee.
 
 ### 7.1.0 Generate Benefit Information widget server-side
 
-DATE_TBD
+2019-06-07
 
 + feat: add `benefitInformationWidget` resource URL that provides markup
   suitable for use in new `remote-content` type widget
