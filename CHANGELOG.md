@@ -6,6 +6,14 @@ The v7 major version was occasioned by the breaking change of no longer honoring
 `enrollmentFlag`, instead relying upon HRS roles to indicate whether and what
 benefit enrollment opportunities are available to an employee.
 
+### 7.1.1 Fix Benefit Information widget enroll link
+
+2019-06-17
+
++ fix: In `benefitInformationWidget`, inline the markup that `<md-button>` would
+  have generated, since AngularJS directive `<md-button>` does not work as
+  sourced in a `remote-content` type widget. ( [#200][] )
+
 ### 7.1.0 Generate Benefit Information widget server-side
 
 2019-06-07
@@ -970,6 +978,7 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [#194]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/194
 [#197]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/197
 [#198]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/198
+[#200]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/200
 
 [HRSPLT-346]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-346
 [HRSPLT-348]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-348
