@@ -33,8 +33,11 @@
 
     <div class="tsc__status">
       <p>
-        <md-button class="md-raised md-accent"
-          href="${hrsUrls['Open Enrollment/Hire Event']}">Enroll now</md-button>
+        <a
+          class="md-button md-accent md-raised md-ink-ripple"
+          href="${hrsUrls['Open Enrollment/Hire Event']}">
+          Enroll now
+        </a>
       </p>
     </div>
   </sec:authorize>
