@@ -42,22 +42,13 @@
     </div>
   </sec:authorize>
   <div class="tsc__extra-buttons layout-align-center-center layout-row">
-    <c:choose>
-      <c:when test="${isMadisonUser}">
-        <a
-          target="_blank" rel="noopener noreferrer"
-          href="https://hr.wisc.edu/benefits/annual-benefits-enrollment/">
-          Learn more
-        </a>
-      </c:when>
-      <c:otherwise>
-        <a
-          target="_blank" rel="noopener noreferrer"
-          href="https://www.wisconsin.edu/ohrwd/benefits/">
-          Learn more
-        </a>
-      </c:otherwise>
-    </c:choose>
+    <c:if test="${not empty learnMoreUrl}">
+      <a
+        target="_blank" rel="noopener noreferrer"
+        href="${learnMoreUrl}">
+        Learn more
+      </a>
+    </c:if>
   </div>
 </div>
 
