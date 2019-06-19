@@ -20,6 +20,7 @@
 package edu.wisc.portlet.hrs.web.benefits;
 
 import java.util.Map;
+import java.util.Set;
 
 import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
@@ -31,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.portlet.bind.annotation.ResourceMapping;
 
 import edu.wisc.hr.dao.bnsumm.BenefitSummaryDao;
+import edu.wisc.hr.dao.roles.HrsRolesDao;
 import edu.wisc.hr.dm.bnsumm.BenefitSummary;
 
 import org.apache.commons.lang.StringUtils;
@@ -45,10 +47,19 @@ import edu.wisc.portlet.hrs.web.HrsControllerBase;
 @RequestMapping("VIEW")
 public class BenefitInformationController extends HrsControllerBase {
     private BenefitSummaryDao benefitSummaryDao;
+    private HrsRolesDao hrsRolesDao;
+
+    private BenefitsLearnMoreLinkGenerator learnMoreLinker =
+      new BenefitsLearnMoreLinkGenerator();
 
     @Autowired
     public void setBenefitSummaryDao(BenefitSummaryDao benefitSummaryDao) {
         this.benefitSummaryDao = benefitSummaryDao;
+    }
+
+    @Autowired
+    public void setHrsRolesDao(HrsRolesDao hrsRolesDao) {
+        this.hrsRolesDao = hrsRolesDao;
     }
 
     @RequestMapping
@@ -70,6 +81,10 @@ public class BenefitInformationController extends HrsControllerBase {
       model.addAttribute("isMadisonUser", isMadisonUser);
       final PortletPreferences preferences = request.getPreferences();
       model.addAttribute("learnMoreEBenefitGuide", preferences.getValue("ebenefitguidetext", null));
+
+      Set<String> roles = hrsRolesDao.getHrsRoles(emplId);
+      model.addAttribute("learnMoreLink",
+        learnMoreLinker.learnMoreLinkFor(roles, isMadisonUser));
 
       return "benefitInformation";
     }
