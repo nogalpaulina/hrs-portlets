@@ -6,6 +6,19 @@ The v7 major version was occasioned by the breaking change of no longer honoring
 `enrollmentFlag`, instead relying upon HRS roles to indicate whether and what
 benefit enrollment opportunities are available to an employee.
 
+### 7.1.2 Fix Benefit Information widget learn more link
+
+(Forthcoming)
+
++ fix: In Benefit Information widget and app, use `aria-label` to mitigate the
+  screenreader usability issues of hyperlinks with bare "Learn more" labels.
+  `aria-label`ing the links enables users jumping to those hyperlinks in a
+  screen reader to more readily discover what topic they might learn more about
+  by following the link. (  [#202][] )
++ fix: In Benefit Information widget, for Madison employees, use the most
+  relevant of 3 URLs as the "Learn more" link rather than always using the URL
+  specifically about *annual* benefit enrollment. ( [#201][] )
+
 ### 7.1.1 Fix Benefit Information widget enroll link
 
 2019-06-17
@@ -979,6 +992,8 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [#197]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/197
 [#198]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/198
 [#200]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/200
+[#201]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/201
+[#202]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/202
 
 [HRSPLT-346]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-346
 [HRSPLT-348]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-348

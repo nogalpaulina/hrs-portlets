@@ -30,6 +30,7 @@
         <a target="_blank" href="${hrsUrls['Open Enrollment/Hire Event']}">Enroll now</a>
         <c:if test="${not empty learnMoreLink}">
           <a
+            aria-label="Learn more about benefit enrollment"
             href="${learnMoreLink}"
             target="_blank" rel="noopener noreferrer">
             Learn more
@@ -44,6 +45,7 @@
         <a target="_blank" href="${hrsUrls['Open Enrollment/Hire Event']}">Enroll now</a>
         <c:if test="${not empty learnMoreLink}">
           <a
+            aria-label="Learn more about annual benefit enrollment"
             href="${learnMoreLink}"
             target="_blank" rel="noopener noreferrer">
             Learn more
