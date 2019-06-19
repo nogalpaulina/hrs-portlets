@@ -44,6 +44,7 @@
   <div class="tsc__extra-buttons layout-align-center-center layout-row">
     <c:if test="${not empty learnMoreUrl}">
       <a
+        aria-label="Learn more about benefits"
         target="_blank" rel="noopener noreferrer"
         href="${learnMoreUrl}">
         Learn more
