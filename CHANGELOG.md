@@ -8,7 +8,7 @@ benefit enrollment opportunities are available to an employee.
 
 ### 7.1.2 Fix Benefit Information widget learn more link
 
-(Forthcoming)
+2019-06-19
 
 + fix: In Benefit Information widget and app, use `aria-label` to mitigate the
   screenreader usability issues of hyperlinks with bare "Learn more" labels.
