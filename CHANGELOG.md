@@ -15,6 +15,9 @@ benefit enrollment opportunities are available to an employee.
   `aria-label`ing the links enables users jumping to those hyperlinks in a
   screen reader to more readily discover what topic they might learn more about
   by following the link. (  [#202][] )
++ fix: In Benefit Information widget, for Madison employees, use the most
+  relevant of 3 URLs as the "Learn more" link rather than always using the URL
+  specifically about *annual* benefit enrollment. ( [#201][] )
 
 ### 7.1.1 Fix Benefit Information widget enroll link
 
