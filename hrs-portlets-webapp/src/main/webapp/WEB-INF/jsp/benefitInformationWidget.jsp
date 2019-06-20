@@ -42,11 +42,11 @@
     </div>
   </sec:authorize>
   <div class="tsc__extra-buttons layout-align-center-center layout-row">
-    <c:if test="${not empty learnMoreUrl}">
+    <c:if test="${not empty learnMoreLink}">
       <a
         aria-label="Learn more about benefits"
         target="_blank" rel="noopener noreferrer"
-        href="${learnMoreUrl}">
+        href="${learnMoreLink}">
         Learn more
       </a>
     </c:if>

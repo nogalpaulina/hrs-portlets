@@ -6,6 +6,13 @@ The v7 major version was occasioned by the breaking change of no longer honoring
 `enrollmentFlag`, instead relying upon HRS roles to indicate whether and what
 benefit enrollment opportunities are available to an employee.
 
+### 7.1.3 Really fix Benefit Information widget "Learn more" link
+
+2019-06-20
+
+Fixes a bug in 7.1.2 that referenced `learnMoreLink` by the wrong name and so
+did not include the learn more link in the widget.
+
 ### 7.1.2 Fix Benefit Information widget learn more link
 
 2019-06-20
