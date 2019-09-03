@@ -71,4 +71,6 @@ public interface HrsUrlDao {
      * employees to manage their own performance.
      */
     public static String SELF_PERFORMANCE_KEY = "Employee ePerf";
+
+    public static String TIME_ABSENCE_DASHBOARD_KEY = "Time/Absence Dashboard";
 }
