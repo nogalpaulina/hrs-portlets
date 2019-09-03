@@ -331,7 +331,6 @@
         <div>
           <div class="dl-link center">
             <a href="${hrsUrls['Payable time detail']}" target="_blank" class="btn btn-default">View Details</a>
-            <a href="${hrsUrls['Time Exceptions']}" target="_blank" class="btn btn-default">View Time Entry Exceptions</a>
             <a href="https://uwservice.wisc.edu/docs/forms/time-missed-punch.pdf" target="_blank" class="btn btn-default">Missed Punch Form</a>
           </div>
         </div>

@@ -6,6 +6,10 @@ The v7 major version was occasioned by the breaking change of no longer honoring
 `enrollmentFlag`, instead relying upon HRS roles to indicate whether and what
 benefit enrollment opportunities are available to an employee.
 
+### Next release: Putatively 7.1.4
+
++ Remove "View Time Entry Exceptions" link. [HRSPLT-453][]
+
 ### 7.1.3 Really fix Benefit Information widget "Learn more" link
 
 2019-06-20
@@ -1045,3 +1049,4 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [HRSPLT-436]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-436
 [HRSPLT-437]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-437
 [HRSPLT-449]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-449
+[HRSPLT-453]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-453
