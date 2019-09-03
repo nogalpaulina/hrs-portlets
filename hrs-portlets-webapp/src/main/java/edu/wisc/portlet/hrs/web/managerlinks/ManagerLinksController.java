@@ -61,7 +61,6 @@ public class ManagerLinksController
   }
 
   private HrsRolesDao rolesDao;
-  private HrsUrlDao urlDao;
 
   public HrsRolesDao getRolesDao() {
     return rolesDao;
