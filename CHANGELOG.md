@@ -10,7 +10,7 @@ benefit enrollment opportunities are available to an employee.
 
 + Prefer to source manager "Time/Absence Dashboard" URL from new HRS URLs
   service key `Time/Absence Dashboard`, falling back on now-deprecated portlet
-  preference for this URL.
+  preference for this URL. [HRSPLT-454][]
 + Remove "View Time Entry Exceptions" link. [HRSPLT-453][]
 
 #### Deprecated in 7.1.4
@@ -1059,3 +1059,4 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [HRSPLT-437]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-437
 [HRSPLT-449]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-449
 [HRSPLT-453]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-453
+[HRSPLT-454]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-454
