@@ -64,11 +64,14 @@ This is intended as a solution for
 + When not set, the label defaults to "Time/Absence Dashboard" (as defined in
   `ManagerLinksController.DEFAULT_DASHBOARD_LABEL`).
 
-#### `approvalsDashboardUrl` portlet preference (optional)
+#### `approvalsDashboardUrl` portlet preference (optional) (DEPRECATED)
 
-+ When set, Manager Time and Approval uses this URL as the href for a list-of-links link shown to
-  to employees with a particular role.
-+ When not set, this link is not shown.
++ Superseded by `Time/Absence Dashboard` URL from HRS URLs DAO. Configure that
+  instead; when both that and this portlet-preference are set the URL from the
+  HRS URLs DAO is controlling.
++ Manager Time and Approval uses this URL as the href for a list-of-links link
+  shown to employees with a particular role.
++ When not set (and not superseded via HRS URLs DAO), this link is not shown.
 
 ### Specific to Payroll Information
 

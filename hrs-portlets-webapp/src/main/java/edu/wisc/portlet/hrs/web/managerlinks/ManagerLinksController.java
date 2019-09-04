@@ -61,7 +61,6 @@ public class ManagerLinksController
   }
 
   private HrsRolesDao rolesDao;
-  private HrsUrlDao urlDao;
 
   public HrsRolesDao getRolesDao() {
     return rolesDao;
@@ -86,8 +85,7 @@ public class ManagerLinksController
     final Set<String> roles = Collections.unmodifiableSet(this.rolesDao.getHrsRoles(emplId));
 
     final PortletPreferences preferences = request.getPreferences();
-    final String approvalsDashboardUrl =
-        preferences.getValue("approvalsDashboardUrl", null);
+    final String approvalsDashboardUrl = approvalsDashboardUrl(preferences);
     final String approvalsDashboardLabel =
         preferences.getValue("approvalsDashboardLabel", DEFAULT_DASHBOARD_LABEL);
     final String approveAbsenceLabel =
@@ -130,8 +128,10 @@ public class ManagerLinksController
         approvalsDashboard.setTarget("_blank");
         linkList.add(approvalsDashboard);
       } else {
-        logger.error("Portlet preference [approvalsDashboardUrl] expected but not found "
-            + "and so could not be offered to " + emplId);
+        logger.error("Portlet preference [approvalsDashboardUrl] "
+          + "or HRS URLS DAO url " + HrsUrlDao.TIME_ABSENCE_DASHBOARD_KEY + " "
+          + "expected but not found "
+          + "and so could not be offered to " + emplId);
       }
     }
 
@@ -180,8 +180,9 @@ public class ManagerLinksController
     final String emplId = PrimaryAttributeUtils.getPrimaryId();
 
     final PortletPreferences preferences = request.getPreferences();
-    final String approvalsDashboardUrl =
-        preferences.getValue("approvalsDashboardUrl", null);
+
+    final String approvalsDashboardUrl = approvalsDashboardUrl(preferences);
+
     final String approvalsDashboardLabel =
         preferences.getValue("approvalsDashboardLabel", DEFAULT_DASHBOARD_LABEL);
     final String approveAbsenceLabel =
@@ -195,6 +196,28 @@ public class ManagerLinksController
     modelMap.put("approveTimeLabel", approveTimeLabel);
 
     return "managerLinks";
+  }
+
+  /**
+   * Returns the approvals dashboard URL, preferring that from the HRS URLs
+   * DAO, falling back on a Portlet Preference, and returning null if neither is
+   * available.
+   *
+   * @param preferences the PortletPreferences
+   * @return the preferred approvals dashboard URL, or null if not set
+   */
+  public String approvalsDashboardUrl(PortletPreferences preferences) {
+    String approvalsDashboardUrl =
+      this.getHrsUrls().get(HrsUrlDao.TIME_ABSENCE_DASHBOARD_KEY);
+
+    if (null == approvalsDashboardUrl) {
+      approvalsDashboardUrl =
+        preferences.getValue("approvalsDashboardUrl", null);
+      // this sourcing approvals dashboard URL from portlet-preference is
+      // DEPRECATED and will be removed in a future release.
+    }
+
+    return approvalsDashboardUrl;
   }
 
 }
