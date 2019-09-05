@@ -191,6 +191,16 @@ this hour limiting policy applies to them.)
 
 (Not a comprehensive listing.)
 
+### Benefit Information
+
++ `enrollmentRole` : JSON suitable for predicating a uPortal-home notification.
+  Looks like `enrollmentFlag`, but driven by HRS portlet role, not enrollment
+  flag.
+  + `ROLE_VIEW_NEW_HIRE_BENEFITS` yields `H`
+  + `ROLE_VIEW_OPEN_ENROLL_BENEFITS` yields `O`
+  + having neither role yields `Z`
+  + in that precedence order.
+
 ### Manager Links
 
 + `managerListOfLinks` : JSON suitable for driving a `list-of-links` widget representing links
