@@ -35,8 +35,8 @@ import edu.wisc.hr.dm.bnsumm.BenefitSummary;
 import org.jasig.springframework.security.portlet.authentication.PrimaryAttributeUtils;
 
 /**
- * 
- * 
+ *
+ *
  * @author Eric Dalquist
  */
 @Controller
@@ -52,7 +52,7 @@ public class BenefitSummaryDataController {
     @ResourceMapping("benefitSummary")
     public String getBenefitSummary(ModelMap modelMap) {
         final String emplid = PrimaryAttributeUtils.getPrimaryId();
-        
+
         final BenefitSummary benefitSummary = this.benefitSummaryDao.getBenefitSummary(emplid);
         modelMap.addAttribute("benefits", benefitSummary.getBenefits());
         modelMap.addAttribute("dependents", benefitSummary.getDependents());
@@ -65,20 +65,20 @@ public class BenefitSummaryDataController {
     @ResourceMapping("enrollmentFlag")
     public String getEnrollmentFlag(ModelMap modelMap) {
       final String emplid = PrimaryAttributeUtils.getPrimaryId();
-      
-      final BenefitSummary benefitSummary = 
+
+      final BenefitSummary benefitSummary =
         this.benefitSummaryDao.getBenefitSummary(emplid);
-      
+
       Map<String, String> enrollmentFlagMap = new HashMap<String, String>();
-      
+
       enrollmentFlagMap.put(
         "enrollmentFlag", benefitSummary.getEnrollmentFlag());
-      
+
       List<Map<String, String>> report = new ArrayList<Map<String, String>>();
       report.add(enrollmentFlagMap);
-      
+
       modelMap.addAttribute("report", report);
-      
+
       return "jsonView";
     }
     
