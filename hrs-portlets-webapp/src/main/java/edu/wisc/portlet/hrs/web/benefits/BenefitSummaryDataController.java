@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.portlet.bind.annotation.ResourceMapping;
 
 import edu.wisc.hr.dao.bnsumm.BenefitSummaryDao;
+import edu.wisc.hr.dao.roles.HrsRolesDao;
 import edu.wisc.hr.dm.bnsumm.BenefitSummary;
 import org.jasig.springframework.security.portlet.authentication.PrimaryAttributeUtils;
 
@@ -43,12 +45,18 @@ import org.jasig.springframework.security.portlet.authentication.PrimaryAttribut
 @RequestMapping("VIEW")
 public class BenefitSummaryDataController {
     private BenefitSummaryDao benefitSummaryDao;
+    private HrsRolesDao hrsRolesDao;
 
     @Autowired
     public void setBenefitSummaryDao(BenefitSummaryDao benefitSummaryDao) {
         this.benefitSummaryDao = benefitSummaryDao;
     }
-    
+
+    @Autowired
+    public void setHrsRolesDao(HrsRolesDao hrsRolesDao) {
+      this.hrsRolesDao = hrsRolesDao;
+    }
+
     @ResourceMapping("benefitSummary")
     public String getBenefitSummary(ModelMap modelMap) {
         final String emplid = PrimaryAttributeUtils.getPrimaryId();
@@ -61,7 +69,20 @@ public class BenefitSummaryDataController {
 
         return "jsonView";
     }
-    
+
+    /**
+     * Historically, an enrollmentFlag modeled whether the employee has a
+     * benefit enrollment opportunity, whether of a personal event-driven nature
+     * ("H", most often becase a new Hire), or the group annual benefit
+     * enrollment opportunity ("O" for Open enrollment).
+     *
+     * More recently we've switched to using roles to model employee benefit
+     * enrollment opportunities.
+     *
+     * @deprecated use enrollmentRole instead
+     * @param modelMap
+     * @return
+     */
     @ResourceMapping("enrollmentFlag")
     public String getEnrollmentFlag(ModelMap modelMap) {
       final String emplid = PrimaryAttributeUtils.getPrimaryId();
@@ -81,6 +102,52 @@ public class BenefitSummaryDataController {
 
       return "jsonView";
     }
-    
-    
+
+    /**
+     * Historically, an enrollmentFlag modeled whether the employee has a
+     * benefit enrollment opportunity, whether of a personal event-driven nature
+     * ("H", most often becase a new Hire), or the group annual benefit
+     * enrollment opportunity ("O" for Open enrollment).
+     *
+     * More recently we've switched to using roles to model employee benefit
+     * enrollment opportunities.
+     *
+     * This emulates the old enrollment flag data model, driving it by role.
+     *
+     * @param modelMap
+     * @return "jsonView" indicating what view Spring MVC should render. Does
+     *   NOT return the role; rather the role is added to the ModelMap as a side
+     *   effect.
+     */
+    @ResourceMapping("enrollmentRole")
+    public String enrollmentRole(ModelMap modelMap) {
+      final String emplid = PrimaryAttributeUtils.getPrimaryId();
+
+      final BenefitSummary benefitSummary =
+        this.benefitSummaryDao.getBenefitSummary(emplid);
+
+      Map<String, String> enrollmentFlagMap = new HashMap<String, String>();
+
+
+      String enrollmentFlagFromRole = "Z";
+
+      Set<String> roles = hrsRolesDao.getHrsRoles(emplid);
+
+      if (roles.contains("ROLE_VIEW_NEW_HIRE_BENEFITS")) {
+        enrollmentFlagFromRole = "H";
+      } else if (roles.contains("ROLE_VIEW_OPEN_ENROLL_BENEFITS")) {
+        enrollmentFlagFromRole = "O";
+      }
+
+      enrollmentFlagMap.put(
+        "enrollmentFlag", enrollmentFlagFromRole);
+
+      List<Map<String, String>> report = new ArrayList<Map<String, String>>();
+      report.add(enrollmentFlagMap);
+
+      modelMap.addAttribute("report", report);
+
+      return "jsonView";
+    }
+
 }
