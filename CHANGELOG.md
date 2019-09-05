@@ -6,14 +6,15 @@ The v7 major version was occasioned by the breaking change of no longer honoring
 `enrollmentFlag`, instead relying upon HRS roles to indicate whether and what
 benefit enrollment opportunities are available to an employee.
 
-### Next release: Putatively 7.1.4
+### Next release: Putatively 7.2.0
 
 + Prefer to source manager "Time/Absence Dashboard" URL from new HRS URLs
   service key `Time/Absence Dashboard`, falling back on now-deprecated portlet
   preference for this URL. [HRSPLT-454][]
 + Remove "View Time Entry Exceptions" link. [HRSPLT-453][]
++ Add `enrollmentRole` JSON controller ( [MUMMNG-4833][] [#205] )
 
-#### Deprecated in 7.1.4
+#### Deprecated in 7.2.0
 
 + Time and Absence portlet preference `approvalsDashboardUrl` is deprecated.
   Provision the time and absence approvals dashboard URL via new HRS URLs DAO
@@ -1014,6 +1015,7 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [#200]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/200
 [#201]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/201
 [#202]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/202
+[#205]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/205
 
 [HRSPLT-346]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-346
 [HRSPLT-348]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-348
@@ -1060,3 +1062,5 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [HRSPLT-449]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-449
 [HRSPLT-453]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-453
 [HRSPLT-454]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-454
+
+[MUMMNG-4833]: https://jira.doit.wisc.edu/jira/browse/MUMMNG-4833
