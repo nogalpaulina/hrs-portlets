@@ -6,7 +6,9 @@ The v7 major version was occasioned by the breaking change of no longer honoring
 `enrollmentFlag`, instead relying upon HRS roles to indicate whether and what
 benefit enrollment opportunities are available to an employee.
 
-### Next release: Putatively 7.2.0
+### 7.2.0
+
+2019-09-16
 
 + Foreshadow 2019 annual benefits enrollment in Benefit Information widget
 + Prefer to source manager "Time/Absence Dashboard" URL from new HRS URLs
