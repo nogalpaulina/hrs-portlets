@@ -19,12 +19,14 @@
 
 package edu.wisc.portlet.hrs.web.benefits;
 
+import edu.wisc.hr.service.benefits.AnnualBenefitEnrollmentDatesService;
 import java.util.Map;
 import java.util.Set;
 
 import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
 
+import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -51,6 +53,9 @@ public class BenefitInformationController extends HrsControllerBase {
 
     private BenefitsLearnMoreLinkGenerator learnMoreLinker =
       new BenefitsLearnMoreLinkGenerator();
+
+    private AnnualBenefitEnrollmentDatesService abeDates =
+        new AnnualBenefitEnrollmentDatesService();
 
     @Autowired
     public void setBenefitSummaryDao(BenefitSummaryDao benefitSummaryDao) {
@@ -93,9 +98,35 @@ public class BenefitInformationController extends HrsControllerBase {
     public String benefitInformationWidget(
       ModelMap model, PortletRequest request) {
 
+      final String emplId = PrimaryAttributeUtils.getPrimaryId();
+
       // same model as the portlet view JSP
       viewBenefitInfo(model, request);
 
+
+      Set<String> roles = hrsRolesDao.getHrsRoles(emplId);
+      LocalDate today = new LocalDate();
+
+      if (roles.contains("ROLE_VIEW_NEW_HIRE_BENEFITS")) {
+        return "benefitInformationWidgetPersonalEnrollmentEvent";
+
+      } else if (abeDates.foreshadowAnnualBenefitsEnrollment(today)) {
+        return "benefitInformationWidgetAnnualEnrollmentForeshadowing";
+
+      } else if (roles.contains("ROLE_VIEW_OPEN_ENROLL_BENEFITS")) {
+        if (abeDates.lastDayOfAnnualBenefitEnrollment(today)) {
+          return "benefitInformationWidgetAnnualEnrollmentLastDay";
+        }
+
+        model.addAttribute("abeDaysRemaining",
+            abeDates.daysRemainingInAnnualBenefitsEnrollment(today));
+        return "benefitInformationWidgetAnnualEnrollmentDuringCountdown";
+
+      } else if (abeDates.feedbackPeriod(today)) {
+        return "benefitInformationWidgetAnnualEnrollmentFeedback";
+      }
+
       return "benefitInformationWidget";
+
     }
 }
