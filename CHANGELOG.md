@@ -8,6 +8,7 @@ benefit enrollment opportunities are available to an employee.
 
 ### Next release: Putatively 7.2.0
 
++ Foreshadow 2019 annual benefits enrollment in Benefit Information widget
 + Prefer to source manager "Time/Absence Dashboard" URL from new HRS URLs
   service key `Time/Absence Dashboard`, falling back on now-deprecated portlet
   preference for this URL. [HRSPLT-454][]
