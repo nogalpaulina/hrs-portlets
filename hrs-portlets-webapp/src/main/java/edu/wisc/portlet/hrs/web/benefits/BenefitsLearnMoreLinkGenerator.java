@@ -30,7 +30,7 @@ public class BenefitsLearnMoreLinkGenerator {
       if (madisonness) {
         return "https://hr.wisc.edu/benefits/annual-benefits-enrollment/";
       } else {
-        return "https://www.wisconsin.edu/abe";
+        return "https://www.wisconsin.edu/abe/";
       }
     }
 
@@ -42,7 +42,7 @@ public class BenefitsLearnMoreLinkGenerator {
       if (madisonness) {
         return "https://hr.wisc.edu/benefits/annual-benefits-enrollment/";
       } else {
-        return "https://www.wisconsin.edu/abe";
+        return "https://www.wisconsin.edu/abe/";
       }
     }
 
