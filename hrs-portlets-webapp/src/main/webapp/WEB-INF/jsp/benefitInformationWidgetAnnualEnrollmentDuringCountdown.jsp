@@ -25,7 +25,26 @@
 <spring:htmlEscape defaultHtmlEscape="true" />
 
 <div class="widget-body layout-align-center-center layout-column">
-  <span>PLACEHOLDER CONTENT</span>
+  <span class="tsc__title">Annual Benefits Enrollment</span>
+  <div class="tsc__status">
+    <div layout="column" layout-align="center center">
+      <p>
+        <span class="tsc__days-left">${abeDaysRemaining}</span>
+        day<c:if test="${abeDaysRemaining > 1}">s</c:if> left
+      </p>
+      <p>
+        <a
+          class="md-button md-accent md-raised md-ink-ripple"
+          href="${hrsUrls['Open Enrollment/Hire Event']}"
+          target="_blank" rel="noreferrer noopener">
+          Enroll now
+        </a>
+      </p>
+    </div>
+  </div>
+  <div class="tsc__extra-buttons" layout="row" layout-align="center center">
+    <a href="${learnMoreLink}" target="_blank" rel="noreferrer noopener">Learn more</a>
+  </div>
 </div>
 
 <c:choose>

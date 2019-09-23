@@ -6,6 +6,14 @@ The v7 major version was occasioned by the breaking change of no longer honoring
 `enrollmentFlag`, instead relying upon HRS roles to indicate whether and what
 benefit enrollment opportunities are available to an employee.
 
+### 7.2.1
+
+2019-09-23
+
++ Implement the during-Annual-Benefits-Enrollment (ABE)
+  countdown-days-to-end-of-ABE widget.
++ Tweak last-day-of-ABE widget to open link to HRS self-service in new window.
+
 ### 7.2.0
 
 2019-09-16
