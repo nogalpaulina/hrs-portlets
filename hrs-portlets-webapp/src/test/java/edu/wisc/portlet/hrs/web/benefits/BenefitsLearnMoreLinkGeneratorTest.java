@@ -83,7 +83,7 @@ public class BenefitsLearnMoreLinkGeneratorTest {
     roles.add("ROLE_VIEW_OPEN_ENROLL_BENEFITS");
 
     assertEquals("https://www.wisconsin.edu/abe/",
-        generator.learnMoreLinkFor(roles, true));
+        generator.learnMoreLinkFor(roles, false));
   }
 
   @Test
