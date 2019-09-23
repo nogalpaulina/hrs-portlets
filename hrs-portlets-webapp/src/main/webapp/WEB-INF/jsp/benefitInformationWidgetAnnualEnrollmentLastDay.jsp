@@ -33,7 +33,8 @@
     <p>
       <a
         class="md-button md-accent md-raised md-ink-ripple"
-        href="${hrsUrls['Open Enrollment/Hire Event']}">
+        href="${hrsUrls['Open Enrollment/Hire Event']}"
+        target="_blank" rel="noopener noreferrer">
         Enroll now
       </a>
     </p>
