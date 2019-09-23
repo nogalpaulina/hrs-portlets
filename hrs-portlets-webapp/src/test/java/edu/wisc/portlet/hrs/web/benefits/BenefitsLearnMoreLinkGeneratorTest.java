@@ -48,7 +48,7 @@ public class BenefitsLearnMoreLinkGeneratorTest {
     LocalDate foreshadowingAbe2019 = new LocalDate("2019-09-25");
     DateTimeUtils.setCurrentMillisFixed(foreshadowingAbe2019.toDate().getTime());
 
-    assertEquals("https://hr.wisc.edu/benefits/annual-benefits-enrollment/",
+    assertEquals("https://www.wisconsin.edu/abe/",
         generator.learnMoreLinkFor(new HashSet<String>(), false));
 
   }
@@ -78,6 +78,15 @@ public class BenefitsLearnMoreLinkGeneratorTest {
   }
 
   @Test
+  public void testAnnualBenefitEnrollmentOpportunityNonMadisonUser() {
+    Set<String> roles = new HashSet<String>();
+    roles.add("ROLE_VIEW_OPEN_ENROLL_BENEFITS");
+
+    assertEquals("https://www.wisconsin.edu/abe/",
+        generator.learnMoreLinkFor(roles, true));
+  }
+
+  @Test
   public void testNewHireBenefitEnrollmentOpportunityMadisonUser() {
     Set<String> roles = new HashSet<String>();
     roles.add("ROLE_VIEW_NEW_HIRE_BENEFITS");
@@ -96,6 +105,17 @@ public class BenefitsLearnMoreLinkGeneratorTest {
     assertEquals(
       "https://hr.wisc.edu/benefits/new-employee-benefits-enrollment/",
       generator.learnMoreLinkFor(roles, true));
+  }
+
+  @Test
+  public void testNonMadisonNewHireLearnMorePreferredOverAnnualLearnMore() {
+    Set<String> roles = new HashSet<String>();
+    roles.add("ROLE_VIEW_NEW_HIRE_BENEFITS");
+    roles.add("ROLE_VIEW_OPEN_ENROLL_BENEFITS");
+
+    assertEquals(
+        "https://www.wisconsin.edu/ohrwd/benefits/",
+        generator.learnMoreLinkFor(roles, false));
   }
 
 }
