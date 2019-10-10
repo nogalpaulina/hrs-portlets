@@ -121,17 +121,27 @@
     </sec:authorize>
 
     <sec:authorize ifAnyGranted="ROLE_ENTER_EDIT_CANCEL_OWN_ABSENCES">
-      <c:if test="${not empty prefs['editCancelAbsenceUrl']
+      <c:choose>
+        <c:when test="${not empty hrsUrls['Time and Absence Edit/Cancel']}">
+          <div class="dl-link">
+            <a class="btn btn-primary"
+              href="${hrsUrls['Time and Absence Edit/Cancel']}"
+              target="_blank" rel="noopener noreferer">
+              Edit/Cancel Absence
+            </a>
+          </div>
+        </c:when>
+        <c:when test="${not empty prefs['editCancelAbsenceUrl']
         && not empty prefs['editCancelAbsenceUrl'][0]}">
-        <div class="dl-link">
-          <a class="btn btn-primary"
-            href="${prefs['editCancelAbsenceUrl'][0]}"
-            target="_blank" rel="noopener noreferer">
-            Edit/Cancel Absence
-          </a>
-        </div>
-      </c:if>
-
+          <div class="dl-link">
+            <a class="btn btn-primary"
+              href="${prefs['editCancelAbsenceUrl'][0]}"
+              target="_blank" rel="noopener noreferer">
+              Edit/Cancel Absence
+            </a>
+          </div>
+        </c:when>
+      </c:choose>
     </sec:authorize>
     <sec:authorize ifAnyGranted="ROLE_TIMESHEET_BUTTON">
       <div class="dl-link">

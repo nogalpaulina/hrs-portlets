@@ -6,6 +6,13 @@ The v7 major version was occasioned by the breaking change of no longer honoring
 `enrollmentFlag`, instead relying upon HRS roles to indicate whether and what
 benefit enrollment opportunities are available to an employee.
 
+### 7.2.2
+
+YYYY-MM-DD (Not yet released.)
+
++ Use `Time and Absence Edit/Cancel` HRS URL when set; continue to honor
+  `editCancelAbsenceUrl` portlet-preference when HRS URL not set.
+
 ### 7.2.1
 
 2019-09-23
