@@ -8,7 +8,17 @@ This list seeded from the URL keys actually received from HRS in production.
 See also the [HRS URLs troubleshooting app][],
 which lists the URL key-value pairs currently received from HRS.
 
-## `1095-C Consent`
+Note that all HRS URLS are available via
+
+`my.wisc.edu/HRSPortlets/go?urlKey={KEY}`
+
+and
+
+`my.wisconsin.edu/HRSPortlets/go?urlKey={KEY}`
+
+regardless of other usage.
+
+## `1095-C Consent` (optional)
 
 Iff this HRS URL is present, Payroll Information will include the
 "Consent to receive 1095-C electronically" link on the "Tax Statements" tab.
