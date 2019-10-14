@@ -27,7 +27,7 @@ Iff this HRS URL is present, Payroll Information will include the
 
 No effect.
 
-## `Approve Absence`
+## `Approve Absence` (required)
 
 This is the URL for the "Approve Absence" link in the Manager Time and Approval
 app and list-of-links widget.
@@ -53,7 +53,7 @@ When absent, the "Approve time" link disappears from the
 
 No effect.
 
-## `Benefits Summary`
+## `Benefits Summary` (required)
 
 This is the URL of the "View Benefits Summary Detail" link in
 Benefit Information, when not overridden by `benefitsSummaryUrl`
@@ -183,11 +183,11 @@ shows an employee-facing error message.
 When the viewing employee has `ROLE_ENTER_EDIT_CANCEL_OWN_ABSENCES`,
 is the URL of the "Enter Absence" link in "Time and Absence".
 
-## Team Time
+## `Team Time`
 
 No effect.
 
-## `Time and Absence Edit/Cancel`
+## `Time and Absence Edit/Cancel` (optional)
 
 When present and the viewing employee has `ROLE_ENTER_EDIT_CANCEL_OWN_ABSENCES`,
 is the URL of the "Edit/Cancel Absence" link in "Time and Absence".
@@ -200,12 +200,11 @@ the "Edit/Cancel Absence" link does not appear, regardless of employee role.
 
 This key is available as `HrsUrlDao.ABSENCE_EDIT_CANCEL`.
 
-
-## Time Exceptions
+## `Time Exceptions`
 
 No effect.
 
-## Time Management
+## `Time Management`
 
 Drives a link in the old Manager Time and Approval portlet, which is no longer
 used.
@@ -244,7 +243,7 @@ Payroll Information.
 When absent,
 the "Consent to receive W-2 electronically" button does not appear.
 
-## Web Clock
+## `Web Clock` (required)
 
 When the viewing employee has `ROLE_VIEW_WEB_CLOCK`,
 is the URL of the "Web Clock" link in Time and Absence.
