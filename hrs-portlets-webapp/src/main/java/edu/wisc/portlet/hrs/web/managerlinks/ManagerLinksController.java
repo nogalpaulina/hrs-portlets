@@ -163,19 +163,17 @@ public class ManagerLinksController
       }
     }
 
-    if (roles.contains("ROLE_VIEW_MANAGED_TIMES")) {
-      final String approveTimeUrl = getHrsUrls().get(HrsUrlDao.APPROVE_PAYABLE_TIME_KEY);
-      if (StringUtils.isNotBlank(approveTimeUrl)) {
-        final Link approveTime = new Link();
-        approveTime.setTitle(approveTimeLabel);
-        approveTime.setIcon("access_time");
-        approveTime.setHref(approveTimeUrl);
-        approveTime.setTarget("_blank");
-        linkList.add(approveTime);
-      } else {
-        logger.error("HRS URL [" + HrsUrlDao.APPROVE_PAYABLE_TIME_KEY + "] expected but not found "
-            + "and so could not be offered to emplid " + emplId);
-      }
+    final String approveTimeUrl = getHrsUrls().get(HrsUrlDao.APPROVE_PAYABLE_TIME_KEY);
+    if (StringUtils.isNotBlank(approveTimeUrl)
+      && roles.contains("ROLE_VIEW_MANAGED_TIMES")) {
+
+      final Link approveTime = new Link();
+      approveTime.setTitle(approveTimeLabel);
+      approveTime.setIcon("access_time");
+      approveTime.setHref(approveTimeUrl);
+      approveTime.setTarget("_blank");
+
+      linkList.add(approveTime);
     }
 
     final Map<String, Object[]> content = new HashMap<String, Object[]>();
