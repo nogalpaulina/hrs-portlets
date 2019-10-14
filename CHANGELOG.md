@@ -12,6 +12,11 @@ YYYY-MM-DD (Not yet released.)
 
 + Use `Time and Absence Edit/Cancel` HRS URL when set; continue to honor
   `editCancelAbsenceUrl` portlet-preference when HRS URL not set.
++ Predicate "Approve Time" link in "Manager Time and Approval" app on presence
+  of `Approve Payable time` (sic) HRS URL.
++ Remove logging as error case where `Approve Payable time` (sic) HRS URL is not
+  present, as removal of this HRS URL is expected in a forthcoming PeopleSoft
+  Update Manager update ("PUM").
 
 ### 7.2.1
 

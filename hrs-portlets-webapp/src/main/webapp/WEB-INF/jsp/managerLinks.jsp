@@ -53,6 +53,7 @@
       </li>
     </sec:authorize>
 
+    <c:if test="${not empty hrsUrls['Approve Payable time']}">
     <sec:authorize ifAnyGranted="ROLE_VIEW_MANAGED_TIMES">
       <li>
         <a href="${hrsUrls['Approve Payable time']}"
@@ -61,6 +62,7 @@
         </a>
       </li>
     </sec:authorize>
+    </c:if>
 
     <li>
       <a href="${helpUrl}"
