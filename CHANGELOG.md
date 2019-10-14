@@ -12,6 +12,10 @@ YYYY-MM-DD (Not yet released.)
 
 + Use `Time and Absence Edit/Cancel` HRS URL when set; continue to honor
   `editCancelAbsenceUrl` portlet-preference when HRS URL not set.
++ Differentiated default labels for approvals dashboard link in Manager Time and
+  Approval widget vs app, with the label in the app changing to append
+  " (Approve Time)".
++ deprecated `approvalsDashboardLabel` portlet preference
 
 ### 7.2.1
 

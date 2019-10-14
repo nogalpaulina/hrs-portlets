@@ -34,8 +34,21 @@ public class ManagerLinksController
 
   /**
    * Default user-facing label for the approvals dashboard link.
+   * @deprecated instead use the app-specific or widget-specific label.
    */
   public static String DEFAULT_DASHBOARD_LABEL = "Time/Absence Dashboard";
+
+  /**
+   * Default user-facing label for the approvals dashboard link,
+   * as surfaced in the Manager Time and Approval app.
+   */
+  public static String DEFAULT_DASHBOARD_LABEL_APP = "Time/Absence Dashboard (Approve Time)";
+
+    /**
+   * Default user-facing label for the approvals dashboard link,
+   * as surfaced in the Manager Time and Approval widget.
+   */
+  public static String DEFAULT_DASHBOARD_LABEL_WIDGET = "Time/Absence Dashboard";
 
   /**
    * A strict reading of the MyUW style guidance wrt list-of-links apps would have this sentence
@@ -87,7 +100,7 @@ public class ManagerLinksController
     final PortletPreferences preferences = request.getPreferences();
     final String approvalsDashboardUrl = approvalsDashboardUrl(preferences);
     final String approvalsDashboardLabel =
-        preferences.getValue("approvalsDashboardLabel", DEFAULT_DASHBOARD_LABEL);
+        preferences.getValue("approvalsDashboardLabel", DEFAULT_DASHBOARD_LABEL_WIDGET);
     final String approveAbsenceLabel =
         preferences.getValue("approveAbsenceLabel", DEFAULT_APPROVE_ABSENCE_LABEL);
     final String approveTimeLabel =
@@ -184,7 +197,7 @@ public class ManagerLinksController
     final String approvalsDashboardUrl = approvalsDashboardUrl(preferences);
 
     final String approvalsDashboardLabel =
-        preferences.getValue("approvalsDashboardLabel", DEFAULT_DASHBOARD_LABEL);
+        preferences.getValue("approvalsDashboardLabel", DEFAULT_DASHBOARD_LABEL_APP);
     final String approveAbsenceLabel =
         preferences.getValue("approveAbsenceLabel", DEFAULT_APPROVE_ABSENCE_LABEL);
     final String approveTimeLabel =
