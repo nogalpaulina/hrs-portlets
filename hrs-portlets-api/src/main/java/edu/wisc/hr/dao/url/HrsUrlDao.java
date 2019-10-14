@@ -73,4 +73,10 @@ public interface HrsUrlDao {
     public static String SELF_PERFORMANCE_KEY = "Employee ePerf";
 
     public static String TIME_ABSENCE_DASHBOARD_KEY = "Time/Absence Dashboard";
+
+    /**
+     * The name of the key the value of which is the deep link into HRS for
+     * employees to edit or cancel absence requests.
+     */
+    public static String ABSENCE_EDIT_CANCEL = "Time and Absence Edit/Cancel";
 }

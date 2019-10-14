@@ -108,8 +108,17 @@ technically the underlying portlet name is `ContactInfo`.
 
 #### `editCancelAbsenceUrl` portlet preference (optional)
 
-+ When set, adds a "Edit/Cancel Absence" link to this URL that shows to employees who see the nearby "Enter Absence" link.
-+ When not set, the "Edit/Cancel Absence" link does not appear.
++ Note that the "Edit/Cancel Absence" link is also gated on
+  `ROLE_ENTER_EDIT_CANCEL_OWN_ABSENCES`; employees lacking that role will not
+  see this link regardless of portlet preferences or HRS URLs.
++ When HRS URL with key `Time and Absence Edit/Cancel` is present, this
+  portlet-preference has no effect. Instead the "Edit/Cancel Absence" link
+  appears, linking to the URL that is the value of that key.
++ When HRS URL with key `Time and Absence Edit/Cancel` is absent but this
+  `editCancelAbsenceUrl` is present, shows the "Edit/Cancel Absence" link,
+  linking to the URL that is the value of this portlet preference.
++ When neither the HRS URL nor the portlet-preference is set, the
+  "Edit/Cancel Absence" link does not appear.
 
 #### `leaveReportingNotice` portlet preference (optional)
 
