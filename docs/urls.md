@@ -177,6 +177,20 @@ is the URL of the "Enter Absence" link in "Time and Absence".
 
 No effect.
 
+## `Time and Absence Edit/Cancel`
+
+When present and the viewing employee has `ROLE_ENTER_EDIT_CANCEL_OWN_ABSENCES`,
+is the URL of the "Edit/Cancel Absence" link in "Time and Absence".
+
+Falls back on `editCancelAbsenceUrl` portlet-preference if this HRS URL is
+absent.
+
+When neither this HRS URL nor the portlet-preference is present,
+the "Edit/Cancel Absence" link does not appear, regardless of employee role.
+
+This key is available as `HrsUrlDao.ABSENCE_EDIT_CANCEL`.
+
+
 ## Time Exceptions
 
 No effect.
