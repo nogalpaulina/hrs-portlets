@@ -58,11 +58,14 @@ This is intended as a solution for
 + When not set, the label defaults to "Approve Time" (as defined in
   `ManagerLinksController.DEFAULT_APPROVE_TIME_LABEL`).
 
-#### `approvalsDashboardLabel` portlet preference (optional)
+#### `approvalsDashboardLabel` portlet preference (optional) (DEPRECATED)
 
 + Sets the label for the approvals dashboard hyperlink.
-+ When not set, the label defaults to "Time/Absence Dashboard" (as defined in
-  `ManagerLinksController.DEFAULT_DASHBOARD_LABEL`).
++ When not set, the label defaults to "Time/Absence Dashboard"
+  in the Manager Time and Approval list-of-links widget
+  (as defined in `ManagerLinksController.DEFAULT_DASHBOARD_LABEL_WIDGET`)
+  and "Time/Absence Dashboard (Approve Time)" in the Manager Time and Approval
+  app (as defined in `ManagerLinksController.DEFAULT_DASHBOARD_LABEL_APP`).
 
 #### `approvalsDashboardUrl` portlet preference (optional) (DEPRECATED)
 

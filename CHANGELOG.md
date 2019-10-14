@@ -17,6 +17,10 @@ YYYY-MM-DD (Not yet released.)
 + Remove logging as error case where `Approve Payable time` (sic) HRS URL is not
   present, as removal of this HRS URL is expected in a forthcoming PeopleSoft
   Update Manager update ("PUM").
++ Differentiated default labels for approvals dashboard link in Manager Time and
+  Approval widget vs app, with the label in the app changing to append
+  " (Approve Time)".
++ deprecated `approvalsDashboardLabel` portlet preference
 
 ### 7.2.1
 
