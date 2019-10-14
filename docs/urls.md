@@ -25,7 +25,9 @@ Iff this HRS URL is present, Payroll Information will include the
 
 ## `Approvals`
 
-No effect.
+No effect in hrs-portlets itself.
+
+The "HRS Approvals" widget links to this URL via the `HRSPortlets/go?` service.
 
 ## `Approve Absence` (required)
 
@@ -59,6 +61,11 @@ This is the URL of the "View Benefits Summary Detail" link in
 Benefit Information, when not overridden by `benefitsSummaryUrl`
 portlet-preference.
 
+Both the Madison and System publications of
+"Benefit Information"
+reference this URL as their `benefitsSummaryUrl` portlet-preference value
+via the `HRSPortlets/go?` service.
+
 ## `Classic ESS Abs Bal` (optional)
 
 When present (and the viewing employee has `ROLE_LINK_TO_CLASSIC_ESS_ABS_BAL`),
@@ -89,12 +96,18 @@ Benefit Information.
 When absent, the "View/Update Dependent Information" link is not shown, but the
 "View Dependent Details" link might be shown instead.
 
-## `Direct Deposit` (optional)
+## `Direct Deposit`
 
 When present, and the viewing employee has `ROLE_VIEW_DIRECT_DEPOSIT`,
 is the URL of the "Update your Direct Deposit" link in Payroll Information.
 
 When absent, "Update your Direct Deposit" links the PDF form for this task.
+
+Payroll Information,
+both the Madison and System versisions,
+references this URL,
+via the `HRSPortlets/go?` service,
+as its `directDepositSelfServiceUrl` portlet-preference value.
 
 ## `Earning Statement` (sic) (optional)
 
@@ -168,7 +181,7 @@ When the viewing employee has `ROLE_VIEW_TIME_ENTRY_HISTORY`,
 is the URL of the "View Details" link on the "Time Entry" tab in the
 "Time and Absence" portlet.
 
-## `Personal Information` (optional)
+## `Personal Information`
 
 The `updateMyPersonalInfoUrl` portlet-preference overrides this URL.
 
@@ -177,6 +190,10 @@ is the URL of the "Update my personal information" link in Personal Information.
 
 When absent, and the `updateMyPersonalInfoUrl` portlet-preference is *not* set,
 shows an employee-facing error message.
+
+"Personal Information" (both Madison and System version) references this URL,
+as its `updateMyPersonalInfoUrl` portlet-preference,
+via the `HRSPortlets/go?` service.
 
 ## `Request Absence` (required)
 
