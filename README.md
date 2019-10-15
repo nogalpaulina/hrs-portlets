@@ -1,5 +1,7 @@
 # hrs-portlets README
 
+See also [`/docs/`](./docs/).
+
 ## Roles
 
 hrs-portlets maps roles reported from a SOAP web service from HRS to role names local to hrs-portlets. This is to normalize roles and make them look like roles one might expect to use with Spring Security.
