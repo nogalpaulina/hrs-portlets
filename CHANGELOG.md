@@ -8,7 +8,7 @@ benefit enrollment opportunities are available to an employee.
 
 ### 7.2.2
 
-YYYY-MM-DD (Not yet released.)
+2019-10-21
 
 + Use `Time and Absence Edit/Cancel` HRS URL when set; continue to honor
   `editCancelAbsenceUrl` portlet-preference when HRS URL not set.
