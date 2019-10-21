@@ -211,10 +211,10 @@
                 target="_blank" rel="noopener noreferer"
                 class="btn btn-default">View/Update Dependent Information</a>
             </c:when>
-            <%-- otherwise if the old read-only information URL is available,
+            <%-- otherwise if the old information URL is available,
               use it --%>
             <c:when test="${not empty hrsUrls['Dependent Information']}">
-                <a href="${hrsUrls['Dependent Information']}" target="_blank" class="btn btn-default">View Dependent Details</a>
+                <a href="${hrsUrls['Dependent Information']}" target="_blank" class="btn btn-default">View/Update Dependent Information</a>
             </c:when>
           </c:choose>
         </div>

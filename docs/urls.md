@@ -82,10 +82,12 @@ This is the URL of the "View Dependent Coverage" link in Benefit Information.
 This is an old HRS URL that was superseded by `Dependent/Beneficiary Info`.
 
 When present, and HRS URL `Dependent/Beneficiary Info` is *not* present,
-is the URL of the "View Dependent Details" link in Benefit Information.
+is the URL of the "View/Update Dependent Information" link
+in Benefit Information.
 
-When absent, the "View Dependent Details" link in Benefit Information is not
-shown.
+When absent, and HRS URL `Dependent/Beneficiary Info` is also absent,
+the "View/Update Dependent Information" link in Benefit Information
+is not shown.
 
 ## `Dependent/Beneficiary Info` (optional)
 
@@ -93,8 +95,10 @@ When present,
 is the URL of the "View/Update Dependent Information" link in
 Benefit Information.
 
-When absent, the "View/Update Dependent Information" link is not shown, but the
-"View Dependent Details" link might be shown instead.
+When absent,
+the "View/Update Dependent Information" link may still show,
+linking to `Dependent Information`,
+if that `Dependent Information` HRS URL is present.
 
 ## `Direct Deposit`
 

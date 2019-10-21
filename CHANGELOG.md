@@ -20,6 +20,10 @@ YYYY-MM-DD (Not yet released.)
 + Differentiated default labels for approvals dashboard link in Manager Time and
   Approval widget vs app, with the label in the app changing to append
   " (Approve Time)".
++ Always label the button "View/Update Dependent Information",
+  regardless of whether it is linking to
+  `Dependent/Beneficiary Info` or to
+  `Dependent Information`. ( [HRSPLT-459][])
 + deprecated `approvalsDashboardLabel` portlet preference
 
 ### 7.2.1
@@ -1089,5 +1093,6 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [HRSPLT-449]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-449
 [HRSPLT-453]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-453
 [HRSPLT-454]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-454
+[HRSPLT-459]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-459
 
 [MUMMNG-4833]: https://jira.doit.wisc.edu/jira/browse/MUMMNG-4833
