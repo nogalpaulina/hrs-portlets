@@ -25,7 +25,21 @@
 <spring:htmlEscape defaultHtmlEscape="true" />
 
 <div class="widget-body layout-align-center-center layout-column">
-  <span>PLACEHOLDER CONTENT</span>
+  <span class="tsc__title">Annual Benefits Enrollment</span>
+  <div class="tsc__status">
+    <div layout="column" layout-align="center center">
+      <p>
+        ended October 25.
+      </p>
+    </div>
+  </div>
+  <div class="tsc__extra-buttons" layout="row" layout-align="center center">
+    <a
+      href="http://uwsystemadmin.qualtrics.com/jfe/form/SV_cHJoy0MZRU9PsUt"
+      target="_blank" rel="noreferrer noopener">
+      Give feedback
+    </a>
+  </div>
 </div>
 
 <c:choose>
