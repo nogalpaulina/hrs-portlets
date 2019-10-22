@@ -6,6 +6,13 @@ The v7 major version was occasioned by the breaking change of no longer honoring
 `enrollmentFlag`, instead relying upon HRS roles to indicate whether and what
 benefit enrollment opportunities are available to an employee.
 
+### 7.2.3
+
+2019-10-21
+
++ Implement after-annual-benefits-enrollment-closes feedback mode for
+  Benefit Information Widget
+
 ### 7.2.2
 
 2019-10-21
