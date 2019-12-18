@@ -167,7 +167,10 @@
     </sec:authorize>
     <sec:authorize ifAnyGranted="ROLE_VIEW_WEB_CLOCK">
       <div class="dl-link">
-        <a href="${hrsUrls['Web Clock']}" target="_blank">Web Clock</a><br/>
+        <a  class="btn btn-primary"
+          href="${hrsUrls['Web Clock']}"
+          target="_blank" rel="noopener noreferer">
+          Web Clock</a><br/>
       </div>
     </sec:authorize>
   </div>
