@@ -6,6 +6,11 @@ The v7 major version was occasioned by the breaking change of no longer honoring
 `enrollmentFlag`, instead relying upon HRS roles to indicate whether and what
 benefit enrollment opportunities are available to an employee.
 
+### 7.2.4 (not yet released)
+
++ Style "Web Clock" link as a button for consistency with other
+  links-that-look-like-buttons in Time and Absence. ( [HRSPLT-460][] )
+
 ### 7.2.3
 
 2019-10-21
@@ -1101,5 +1106,6 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [HRSPLT-453]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-453
 [HRSPLT-454]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-454
 [HRSPLT-459]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-459
+[HRSPLT-460]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-460
 
 [MUMMNG-4833]: https://jira.doit.wisc.edu/jira/browse/MUMMNG-4833
