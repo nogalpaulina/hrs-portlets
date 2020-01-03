@@ -6,7 +6,9 @@ The v7 major version was occasioned by the breaking change of no longer honoring
 `enrollmentFlag`, instead relying upon HRS roles to indicate whether and what
 benefit enrollment opportunities are available to an employee.
 
-### 7.2.4 (not yet released)
+### 7.2.4
+
+2020-01-03
 
 + Style "Web Clock" link as a button for consistency with other
   links-that-look-like-buttons in Time and Absence. ( [HRSPLT-460][] )
