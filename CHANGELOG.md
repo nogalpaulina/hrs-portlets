@@ -6,6 +6,12 @@ The v7 major version was occasioned by the breaking change of no longer honoring
 `enrollmentFlag`, instead relying upon HRS roles to indicate whether and what
 benefit enrollment opportunities are available to an employee.
 
+### Next (presumably 7.2.5)
+
++ Update W-2 and 1095-C hyperlinks in Payroll Information to reflect that these
+  no longer will link specifically to 2018 documents.
+  ( [HRSPLT-461][], [#216][] )
+
 ### 7.2.4
 
 2020-01-03
@@ -1061,6 +1067,7 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [#201]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/201
 [#202]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/202
 [#205]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/205
+[#216]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/216
 
 [HRSPLT-346]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-346
 [HRSPLT-348]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-348
@@ -1109,5 +1116,6 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [HRSPLT-454]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-454
 [HRSPLT-459]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-459
 [HRSPLT-460]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-460
+[HRSPLT-461]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-461
 
 [MUMMNG-4833]: https://jira.doit.wisc.edu/jira/browse/MUMMNG-4833
