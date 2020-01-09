@@ -300,7 +300,17 @@
         </c:if>
       </div>
 
-      <div class="fl-pager">
+      <div>
+        <form action="#">
+          <label for="${n}dl-show-old-tax-statements-toggle">
+            Show 2017 and earlier tax statements</label>
+          <input type="checkbox"
+            id="${n}dl-show-old-tax-statements-toggle"
+            name="dl-show-old-tax-statements-toggle" />
+        </form>
+      </div>
+
+      <div class="fl-pager old-tax-statements" style="display:none">
         <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
           <table class="dl-table table" tabindex="0" aria-label="Tax Statement table">
             <thead>
@@ -457,6 +467,23 @@
         });
       </c:if>
 
+      var updateShowOldTaxStatements = function(checkbox) {
+        var checked = checkbox.is(':checked');
+
+        var oldTaxStatements = $("#old-tax-statements");
+
+        if (checked) {
+          oldTaxStatements.show();
+        } else {
+          oldTaxStatements.hide();
+        }
+      }
+
+      var showOldTaxStatementsToggle = $("#${n}dl-show-old-tax-statements-toggle");
+
+      showOldTaxStatementsToggle.change(function() {
+        updateShowOldTaxStatements(showOldTaxStatementsToggle);
+      });
 
       var taxStatementUrl = dl.util.templateUrl("${irsStatementPdfUrl}");
       dl.pager.init("#${n}dl-tax-statements", {

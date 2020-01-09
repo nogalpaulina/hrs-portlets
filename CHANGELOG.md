@@ -11,6 +11,10 @@ benefit enrollment opportunities are available to an employee.
 + Update W-2 and 1095-C hyperlinks in Payroll Information to reflect that these
   no longer will link specifically to 2018 documents.
   ( [HRSPLT-461][], [#216][] )
++ Hide old tax statements by default, with a checkbox for showing the old
+  statements. This is intended to help users focus on the more recent statements
+  that more likely address their current needs while continuing to make access
+  to old statements possible. ( [HRSPLT-463][], [#217][] )
 
 ### 7.2.4
 
@@ -1068,6 +1072,7 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [#202]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/202
 [#205]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/205
 [#216]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/216
+[#217]: https://github.com/UW-Madison-DoIT/hrs-portlets/pull/217
 
 [HRSPLT-346]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-346
 [HRSPLT-348]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-348
@@ -1117,5 +1122,6 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [HRSPLT-459]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-459
 [HRSPLT-460]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-460
 [HRSPLT-461]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-461
+[HRSPLT-463]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-463
 
 [MUMMNG-4833]: https://jira.doit.wisc.edu/jira/browse/MUMMNG-4833
