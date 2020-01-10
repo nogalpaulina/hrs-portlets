@@ -310,7 +310,7 @@
         </form>
       </div>
 
-      <div class="fl-pager old-tax-statements" style="display:none">
+      <div id="${n}old-tax-statements" class="fl-pager old-tax-statements" style="display:none">
         <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
           <table class="dl-table table" tabindex="0" aria-label="Tax Statement table">
             <thead>
@@ -470,7 +470,7 @@
       var updateShowOldTaxStatements = function(checkbox) {
         var checked = checkbox.is(':checked');
 
-        var oldTaxStatements = $("#old-tax-statements");
+        var oldTaxStatements = $("#${n}old-tax-statements");
 
         if (checked) {
           oldTaxStatements.show();
