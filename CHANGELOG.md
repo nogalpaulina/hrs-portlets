@@ -6,7 +6,9 @@ The v7 major version was occasioned by the breaking change of no longer honoring
 `enrollmentFlag`, instead relying upon HRS roles to indicate whether and what
 benefit enrollment opportunities are available to an employee.
 
-### Next (presumably 7.2.5)
+### 7.2.5
+
+2020-01-10
 
 + Update W-2 and 1095-C hyperlinks in Payroll Information to reflect that these
   no longer will link specifically to 2018 documents.
