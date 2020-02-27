@@ -136,6 +136,18 @@ not display.
 Absence of this URL when employees have `ROLE_LINK_SELF_PERFORMANCE` logs as an
 error.
 
+## `ESS W-4` (optional)
+
+When present,
+is the URL of the "Update W4" link
+in the Payroll Information list-of-links widget
+and
+is the URL of the "Update your W4" link
+in the Payroll Information portlet button on the Tax Statements tab.
+
+When absent, those same links display, linking instead to a hard coded URL to
+a PDF hosted on the Service Center website.
+
 ## `Fluid Garnishments` (optional)
 
 When present, and the viewing employee has `ROLE_VIEW_OWN_GARNISHMENTS`,

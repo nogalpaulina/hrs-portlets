@@ -62,11 +62,7 @@ public class PayrollListOfLinksController
     taxStatementsLink.setHref("/portal/p/" + fname + "?pP_requestedContent=Tax%20Statements");
     taxStatementsLink.setIcon("toll");
 
-    Link withholdingsLink = new Link();
-    withholdingsLink.setTitle("Update W4");
-    withholdingsLink.setHref(WITHHOLDINGS_PDF_URL);
-    withholdingsLink.setTarget("_blank");
-    withholdingsLink.setIcon("picture_as_pdf");
+    Link withholdingsLink = withholdingsLink();
 
     final List<Link> linkList = new ArrayList<Link>();
     linkList.add(earningsStatementsLink);
@@ -128,6 +124,29 @@ public class PayrollListOfLinksController
       directDepositLink.setIcon("picture_as_pdf");
     }
     return directDepositLink;
+  }
+
+  /**
+   * Returns the applicable W4 link, which is the HRS "ESS W-4" URL unless that
+   * URL is not configured, in which case falls back on hard-coded URL to PDF.
+   * @return best available W4 link
+   */
+  private Link withholdingsLink() {
+    Link withholdingsLink = new Link();
+    withholdingsLink.setTitle("Update W4");
+
+    Map<String, String> urls = this.getHrsUrls();
+    if (null == urls.get(HrsUrlDao.ESS_W_4)) {
+      withholdingsLink.setHref(WITHHOLDINGS_PDF_URL);
+      withholdingsLink.setIcon("picture_as_pdf");
+    } else {
+      withholdingsLink.setHref(urls.get(HrsUrlDao.ESS_W_4));
+      withholdingsLink.setIcon("library_add_check");
+    }
+
+    withholdingsLink.setTarget("_blank");
+
+    return withholdingsLink;
   }
 
   @Autowired
