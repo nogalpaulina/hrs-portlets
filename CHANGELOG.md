@@ -6,6 +6,12 @@ The v7 major version was occasioned by the breaking change of no longer honoring
 `enrollmentFlag`, instead relying upon HRS roles to indicate whether and what
 benefit enrollment opportunities are available to an employee.
 
+### 7.3.0
+
+(Not yet released.)
+
++ Uses new `ESS W-4` HRS URL when present. ( [HRSPLT-466][] )
+
 ### 7.2.5
 
 2020-01-10
@@ -1125,5 +1131,6 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [HRSPLT-460]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-460
 [HRSPLT-461]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-461
 [HRSPLT-463]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-463
+[HRSPLT-466]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-466
 
 [MUMMNG-4833]: https://jira.doit.wisc.edu/jira/browse/MUMMNG-4833

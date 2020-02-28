@@ -331,11 +331,22 @@
       </div>
 
       <div class="dl-link">
-        <a class="btn btn-default"
-          href="https://uwservice.wisc.edu/docs/forms/pay-employee-withholding.pdf"
-          target="_blank" rel="noopener noreferrer">
-          Update your W4
-        </a>
+        <c:choose>
+          <c:when test="${empty hrsUrls['ESS W-4']}">
+            <a class="btn btn-default"
+              href="https://uwservice.wisconsin.edu/docs/forms/pay-employee-withholding.pdf"
+              target="_blank" rel="noopener noreferrer">
+              Update your W4
+            </a>
+          </c:when>
+          <c:otherwise>
+            <a class="btn btn-default"
+              href="${hrsUrls['ESS W-4']}"
+              target="_blank" rel="noopener noreferrer">
+              Update your W4
+            </a>
+          </c:otherwise>
+        </c:choose>
         <a class="btn btn-default"
           href="https://uwservice.wisc.edu/docs/publications/tax-w2-explanation.pdf"
           target="_blank" rel="noopener noreferrer">W-2 Explanation</a>

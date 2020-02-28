@@ -79,4 +79,10 @@ public interface HrsUrlDao {
      * employees to edit or cancel absence requests.
      */
     public static String ABSENCE_EDIT_CANCEL = "Time and Absence Edit/Cancel";
+
+    /**
+     * The key the value of which is the deep link into HRS for employee
+     * self-service completion of W-4 form (configuring their tax withholdings.)
+     */
+    public static String ESS_W_4 = "ESS W-4";
 }
