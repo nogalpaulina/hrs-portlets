@@ -8,7 +8,7 @@ benefit enrollment opportunities are available to an employee.
 
 ### 7.3.0
 
-(Not yet released.)
+2020-03-02
 
 + Uses new `ESS W-4` HRS URL when present. ( [HRSPLT-466][] )
 
