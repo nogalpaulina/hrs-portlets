@@ -375,6 +375,9 @@
     </portlet>
 
     <user-attribute>
+      <name>eduWisconsinETFMemberID</name>
+    </user-attribute>
+    <user-attribute>
         <name>eduWisconsinHRSEmplID</name>
     </user-attribute>
     <user-attribute>
