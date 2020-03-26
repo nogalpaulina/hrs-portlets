@@ -30,8 +30,8 @@ public interface BenefitStatementDao {
     /**
      * Get the benefit statements for the specified emplid
      */
-    public BenefitStatements getBenefitStatements(String emplid);
+    public BenefitStatements getBenefitStatements(String emplid, String etfMemberId);
 
-    public void getBenefitStatement(String emplid, int year, String docId, String mode,
+    public void getBenefitStatement(String emplid, String etfMemberId, int year, String docId, String mode,
             ProxyResponse proxyResponse);
 }

@@ -66,26 +66,29 @@ public class RestBenefitStatementDao implements BenefitStatementDao {
 
     @Cacheable(cacheName="benefitStatement", exceptionCacheName="cypressUnknownExceptionCache")
     @Override
-    public BenefitStatements getBenefitStatements(String emplid) {
+    public BenefitStatements getBenefitStatements(String emplid, String etfMemberId) {
         final HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("HRID", emplid);
-        
-        final XmlBenefitStatements xmlBenefitStatements = 
+        httpHeaders.set("eduWisconsinETFMemberID", etfMemberId);
+
+
+        final XmlBenefitStatements xmlBenefitStatements =
                 this.restOperations.getForObject(this.statementsUrl, XmlBenefitStatements.class, httpHeaders, emplid);
 
         final BenefitStatements benefitStatements = mapBenefitStatements(xmlBenefitStatements);
 
-        logger.debug("Got statements [{}] for emplid [{}] (and updating portlet-local cache).",
-                benefitStatements, emplid);
+        logger.debug("Got statements [{}] for emplid [{}], etfMemberId [{}] (and updating portlet-local cache).",
+                benefitStatements, emplid, etfMemberId);
 
         return benefitStatements;
     }
-    
+
     @Override
-    public void getBenefitStatement(String emplid, int year, String docId, String mode, ProxyResponse proxyResponse) {
+    public void getBenefitStatement(String emplid, String etfMemberId, int year, String docId, String mode, ProxyResponse proxyResponse) {
         final HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("HRID", emplid);
-        
+        httpHeaders.set("eduWisconsinETFMemberID", etfMemberId);
+
         final String yearStr = Integer.toString(year);
         final String yearCode;
         if (yearStr.length() > 2) {

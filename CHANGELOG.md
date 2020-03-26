@@ -6,6 +6,13 @@ The v7 major version was occasioned by the breaking change of no longer honoring
 `enrollmentFlag`, instead relying upon HRS roles to indicate whether and what
 benefit enrollment opportunities are available to an employee.
 
+### 7.4.0
+
+Not yet released.
+
++ Include `eduWisconsinETFMemberID` header on benefit statement requests to
+  Cypress, with the user attribute of the same name as its value.
+
 ### 7.3.0
 
 2020-03-02
