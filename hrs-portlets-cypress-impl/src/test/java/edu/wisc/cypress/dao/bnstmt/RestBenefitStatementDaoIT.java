@@ -48,7 +48,7 @@ public class RestBenefitStatementDaoIT {
     public void testGetStatement() throws Exception {
         MockProxyResponse response = new MockProxyResponse();
         
-        client.getBenefitStatement("00282835", 2007, "6767981", "annual", response);
+        client.getBenefitStatement("00282835", "12", 2007, "6767981", "annual", response);
         
         final byte[] content = response.getContentAsByteArray();
         assertNotNull(content);
@@ -57,7 +57,7 @@ public class RestBenefitStatementDaoIT {
     
     @Test
     public void testGetStatements() throws Exception {
-        final BenefitStatements benefitStatements = client.getBenefitStatements("00282835");
+        final BenefitStatements benefitStatements = client.getBenefitStatements("00282835", "12");
         assertNotNull(benefitStatements);
         final List<BenefitStatement> statements = benefitStatements.getBenefitStatements();
         assertNotNull(statements);
@@ -66,7 +66,7 @@ public class RestBenefitStatementDaoIT {
     
     @Test
     public void testNoStatements() throws Exception {
-        final BenefitStatements benefitStatements = client.getBenefitStatements("00000000");
+        final BenefitStatements benefitStatements = client.getBenefitStatements("00000000", "0");
         assertNotNull(benefitStatements);
         final List<BenefitStatement> statements = benefitStatements.getBenefitStatements();
         assertNotNull(statements);
@@ -75,7 +75,7 @@ public class RestBenefitStatementDaoIT {
     
     @Test
     public void testBadEmplId() throws Exception {
-        final BenefitStatements benefitStatements = client.getBenefitStatements("");
+        final BenefitStatements benefitStatements = client.getBenefitStatements("", "");
         assertNotNull(benefitStatements);
         final List<BenefitStatement> statements = benefitStatements.getBenefitStatements();
         assertNotNull(statements);

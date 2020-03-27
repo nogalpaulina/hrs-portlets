@@ -22,9 +22,11 @@ package edu.wisc.portlet.hrs.web.benefits;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.Resource;
+import javax.portlet.PortletRequest;
 import javax.portlet.ResourceResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,9 +90,14 @@ public class BenefitStatementDataController {
     }
     
     @ResourceMapping("benefitStatements")
-    public String getBenefitStatements(ModelMap modelMap) {
+    public String getBenefitStatements(PortletRequest portletRequest, ModelMap modelMap) {
         final String emplid = PrimaryAttributeUtils.getPrimaryId();
-        final BenefitStatements benefitStatements = this.benefitStatementDao.getBenefitStatements(emplid);
+
+        Map<String, Object> userAttributeMap =
+          (Map<String, Object>) portletRequest.getAttribute(PortletRequest.USER_INFO);
+        String etfMemberId = (String) userAttributeMap.get("eduWisconsinETFMemberID");
+
+        final BenefitStatements benefitStatements = this.benefitStatementDao.getBenefitStatements(emplid, etfMemberId);
 
         final List<BenefitStatement> statements = benefitStatements.getBenefitStatements();
         sortStatements(statements);
@@ -101,14 +108,20 @@ public class BenefitStatementDataController {
 
     @ResourceMapping("benefits.pdf")
     public void getBenefitStatement(
+            PortletRequest portletRequest,
             @RequestParam("mode") String mode,
             @RequestParam("docId") String docId, 
             @RequestParam("year") int year,
             ResourceResponse response) {
 
         final String emplid = PrimaryAttributeUtils.getPrimaryId();
+
+        Map<String, Object> userAttributeMap =
+          (Map<String, Object>) portletRequest.getAttribute(PortletRequest.USER_INFO);
+        String etfMemberId = (String) userAttributeMap.get("eduWisconsinETFMemberID");
+
         HrsDownloadControllerUtils.setResponseHeaderForDownload(response, "benefits", "PDF");
-        this.benefitStatementDao.getBenefitStatement(emplid, year, docId, mode, new PortletResourceProxyResponse(response, ignoredProxyHeaders));
+        this.benefitStatementDao.getBenefitStatement(emplid, etfMemberId, year, docId, mode, new PortletResourceProxyResponse(response, ignoredProxyHeaders));
     }
     
     /**

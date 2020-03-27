@@ -99,6 +99,14 @@ public class HrsControllerBase {
         return PrimaryAttributeUtils.getPrimaryId();
     }
 
+    @ModelAttribute("eduWisconsinETFMemberID")
+    public final String eduWisconsinETFMemberIDFromPortletRequest(PortletRequest request) {
+      final Map<String, Object> userAttributeMap =
+        (Map<String, Object>) request.getAttribute(PortletRequest.USER_INFO);
+      final String etfMemberId = (String) userAttributeMap.get("eduWisconsinETFMemberID");
+      return etfMemberId;
+    }
+
     @ModelAttribute("requestedContent")
     public final String requestedContent(PortletRequest request) {
       return (request.getParameter("requestedContent"));
