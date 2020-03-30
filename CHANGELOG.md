@@ -8,7 +8,7 @@ benefit enrollment opportunities are available to an employee.
 
 ### 7.4.0
 
-Not yet released.
+2020-03-30
 
 + Include `eduWisconsinETFMemberID` header on benefit statement requests to
   Cypress, with the user attribute of the same name as its value.
