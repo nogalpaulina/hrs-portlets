@@ -142,6 +142,12 @@
                      ${prefs['notice'][0]}
                   </p>
                 </c:if>
+                <p class='edit-notice'>
+                  Your preferred name in HRS will have to be updated separately
+                  using the 'Update My Personal Information' link below.
+                  This will appear in employee self-service
+                  (e.g. your timesheet) only."
+                </p>
             </div>
         </c:when>
         <c:otherwise>
