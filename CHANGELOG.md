@@ -6,6 +6,14 @@ The v7 major version was occasioned by the breaking change of no longer honoring
 `enrollmentFlag`, instead relying upon HRS roles to indicate whether and what
 benefit enrollment opportunities are available to an employee.
 
+### 7.4.1
+
+2020-04-10
+
++ Add user-facing text to Personal Information acknowledging that Madison
+  employees have to take additional step to adjust local-to-HRS preferred name
+  in addition to configuration Madison campus preferred name. ( [HRSPLT-467][] )
+
 ### 7.4.0
 
 2020-03-30
@@ -1139,5 +1147,6 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [HRSPLT-461]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-461
 [HRSPLT-463]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-463
 [HRSPLT-466]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-466
+[HRSPLT-467]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-467
 
 [MUMMNG-4833]: https://jira.doit.wisc.edu/jira/browse/MUMMNG-4833
