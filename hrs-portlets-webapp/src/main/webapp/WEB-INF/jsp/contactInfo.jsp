@@ -363,7 +363,7 @@
         <br/>
         <div>
           <p class="padded-paragraph">
-            <spring:message code="bottomNotePart1" text="Please note that you can update Home Address, Phone, Release Information, Emergency Contacts, Marital Status, Coordination of Benefits, Disability Status, Veteran Status, and Ethnic Group in HRS."/>
+            Please note that you can update Home Address, Phone, Release Information, Emergency Contacts, Marital Status, Coordination of Benefits, Disability Status, Veteran Status, and Ethnic Group in HRS.
           </p>
           <p>
             <strong>
