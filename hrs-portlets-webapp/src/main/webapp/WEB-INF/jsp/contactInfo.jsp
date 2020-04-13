@@ -245,7 +245,10 @@
             </strong>
             <p style="padding-left: 2cm;">
               <strong>
-                Addresses (Home &amp; Mail); Contact Details (Phone &amp; Email); Emergency Contacts; Release Home Information; Marital Status; Coordination of Benefits; Medicare Information; Ethnic Groups; Veteran Status; Disability.
+                Addresses (Home &amp; Mail); Contact Details (Phone &amp; Email);
+                Emergency Contacts; Release Home Information; Marital Status;
+                Coordination of Benefits; Medicare Information; Ethnic Groups;
+                Veteran Status; Disability.
               </strong>
             </p>
           </p>
