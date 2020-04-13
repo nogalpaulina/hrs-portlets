@@ -227,21 +227,13 @@
 
   <sec:authorize ifAnyGranted="ROLE_UW_EMPLOYEE_ACTIVE">
   <c:choose>
-    <c:when test="${not empty prefs['updateMyPersonalInfoUrl']
-      && not empty prefs['updateMyPersonalInfoUrl'][0]}">
-
-      <!-- configured with HRS self-service personal information update
-       URL via portlet-preference. Use HRS PUM 22 content. -->
-
-       <!-- federal reporting statuses deliberately removed in PUM22 mode,
-            in favor of that data just being down inside
-            linked HRS self-service UI. -->
+    <c:when test="${not empty hrsUrls['Personal Information']">
 
       <div class="dl-contact-info-update">
         <div>
           <p>
             <strong>
-            <a href="${prefs['updateMyPersonalInfoUrl'][0]}"
+            <a href="${hrsUrls['Personal Information']}"
               target="_blank" rel="noopener noreferer">
               Update My Personal Information
             </a>
@@ -280,118 +272,8 @@
         </div>
       </div>
     </c:when>
-    <c:when test="${not empty hrsUrls['Personal Information']}">
-
-      <!-- Not configured with a self-service personal information update URL
-      via portlet preference, but have a URL fom HRS URLs web service.
-      Legacy mode. -->
-
-      <div class="federal-reporting-statuses">
-        <!-- federal reporting statuses only show in legacy mode. -->
-        <c:if test="${not empty hrsUrls['Disability Status']}">
-          <div>
-            <span>
-              <strong>
-                <spring:message
-                  code="label.disability.status"
-                  text="Disability Status"/>
-              </strong>
-            </span>
-            <span>(
-              <a
-                aria-label="view or update Disability Status"
-                href="${hrsUrls['Disability Status']}"
-                target="_blank"
-                rel="noopener noreferer">
-                  <spring:message code="label.status.link" text="view/update"/>
-              </a>
-            )</span>
-          </div>
-        </c:if>
-
-        <c:if test="${not empty hrsUrls['Veteran Status']}">
-          <div>
-            <span>
-              <strong>
-                <spring:message
-                  code="label.veteran.status"
-                  text="Veteran Status"/>
-              </strong>
-            </span>
-            <span>(
-              <a
-                aria-label="view or update Veteran Status"
-                href="${hrsUrls['Veteran Status']}"
-                target="_blank">
-                  <spring:message
-                    code="label.status.link"
-                    text="view/update"/>
-              </a>
-            )</span>
-          </div>
-        </c:if>
-
-        <c:if test="${not empty hrsUrls['Ethnic Groups']}">
-          <div>
-            <span>
-              <strong>
-                <spring:message
-                  code="label.ethnic.groups"
-                  text="Ethnic Groups"/>
-              </strong>
-            </span>
-            <span>(
-              <a
-                aria-label="view or update Ethnic Groups"
-                href="${hrsUrls['Ethnic Groups']}"
-                target="_blank"
-                rel="noopener noreferer">
-                  <spring:message code="label.status.link" text="view/update"/>
-              </a>
-            )</span>
-          </div>
-        </c:if>
-      </div>
-
-      <div class="dl-contact-info-update">
-        <a
-          href="${hrsUrls['Personal Information']}"
-          target="_blank"
-          rel="noopener noreferer">
-            <spring:message code="updateInfoLink"/>
-        </a>
-        <br/>
-        <div>
-          <p class="padded-paragraph">
-            Please note that you can update Home Address, Phone, Release Information, Emergency Contacts, Marital Status, Coordination of Benefits, Disability Status, Veteran Status, and Ethnic Group in HRS.
-          </p>
-          <p>
-            <strong>
-              <spring:message code="updateBusinessOfficeAddressInstructionsPart1"
-                text="To update your Business/Office Address, please contact "/>
-              <c:choose>
-                <c:when test="${not empty humanResourceOfficeContactUrl}">
-                  <a href="${humanResourceOfficeContactUrl}"
-                   target="_blank"
-                   rel="noopener noreferer">
-                    <spring:message code="updateBusinessOfficeAddressInstructionsPart2"
-                     text="your human resources office"/>
-                  </a>.
-                </c:when>
-                <c:otherwise>
-                  <spring:message code="updateBusinessOfficeAddressInstructionsPart2"
-                   text="your human resources office"/>.
-                </c:otherwise>
-              </c:choose>
-            </strong>
-          </p>
-        </div>
-      </div>
-    </c:when>
-
     <c:otherwise>
-      <!-- in case where cannot source HRS self-service UI URL from
-        portlet preference nor from HRS URLs web service,
+      <!-- in case where cannot source HRS self-service UI URL from HRS URLs,
         show error. -->
       <p>Error: this application is not configured with a link to
         HRS self service personal information UI.</p>

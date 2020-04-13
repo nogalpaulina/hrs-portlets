@@ -1,5 +1,19 @@
 # MyUW hrs-portlets change log
 
+## HRS Portlets 8 series
+
+The v8 major version was occasioned by the breaking change of the `updateMyPersonalInfoUrl`
+portlet-preference no longer having any effect, and thereby no longer supporting unused-since-2017
+before-PUM22-mode presentation of the Personal Information portlet.
+
+### 8.0.0
+
++ Personal Information no longer supports unused pre-PUM-22 mode.
++ `updateMyPersonalInfoUrl` portlet-preference no longer has any effect.
+  Instead, Personal Information now links to the HRS URL named
+  `Personal Information` rather than indulging in a layer of indirection via
+  that portlet-preference.
+
 ## HRS Portlets 7 series
 
 The v7 major version was occasioned by the breaking change of no longer honoring
