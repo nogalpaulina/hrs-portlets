@@ -104,11 +104,6 @@ technically the underlying portlet name is `ContactInfo`.
 + When set, Personal Information shows the value of this preference as a user-facing message in the context of editing preferred name. This is intended as a spot for documentation nuancing what edits are and are not permitted.
 + When not set, this message does not appear.
 
-#### `updateMyPersonalInfoUrl` portlet preference (optional)
-
-+ When set, uses its value as the href for the link to HRS self-service management of personal information.
-+ When set, turns on "PUM22 mode", which tweaks the display a bit. The deep links specific to self-service updating of ethnicity, disability, and veteran status reporting disappear (in favor of the linked UI being the omnibus UI for updating all personal information).
-
 ### Specific to Time and Absence
 
 #### `editCancelAbsenceUrl` portlet preference (optional)

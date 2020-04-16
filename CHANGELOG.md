@@ -1,5 +1,21 @@
 # MyUW hrs-portlets change log
 
+## HRS Portlets 8 series
+
+The v8 major version was occasioned by the breaking change of the `updateMyPersonalInfoUrl`
+portlet-preference no longer having any effect, and thereby no longer supporting unused-since-2017
+before-PUM22-mode presentation of the Personal Information portlet.
+
+### 8.0.0
+
++ Adds "Preferred Name" to the employee-facing text description of what an
+  employee can adjust in HRS self-service. ( [HRSPLT-468][] )
++ Personal Information no longer supports unused pre-PUM-22 mode.
++ `updateMyPersonalInfoUrl` portlet-preference no longer has any effect.
+  Instead, Personal Information now links to the HRS URL named
+  `Personal Information` rather than indulging in a layer of indirection via
+  that portlet-preference.
+
 ## HRS Portlets 7 series
 
 The v7 major version was occasioned by the breaking change of no longer honoring
@@ -1148,5 +1164,6 @@ This and many more earlier releases exist as [releases in the GitHub repo][].
 [HRSPLT-463]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-463
 [HRSPLT-466]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-466
 [HRSPLT-467]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-467
+[HRSPLT-468]: https://jira.doit.wisc.edu/jira/browse/HRSPLT-468
 
 [MUMMNG-4833]: https://jira.doit.wisc.edu/jira/browse/MUMMNG-4833

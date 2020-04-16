@@ -199,17 +199,9 @@ is the URL of the "View Details" link on the "Time Entry" tab in the
 
 ## `Personal Information`
 
-The `updateMyPersonalInfoUrl` portlet-preference overrides this URL.
+Is the URL of the "Update my personal information" link in Personal Information.
 
-When present, and the `updateMyPersonalInfoUrl` portlet-preference is *not* set,
-is the URL of the "Update my personal information" link in Personal Information.
-
-When absent, and the `updateMyPersonalInfoUrl` portlet-preference is *not* set,
-shows an employee-facing error message.
-
-"Personal Information" (both Madison and System version) references this URL,
-as its `updateMyPersonalInfoUrl` portlet-preference,
-via the `HRSPortlets/go?` service.
+When absent, Personal Information shows an employee-facing error message.
 
 ## `Request Absence` (required)
 
