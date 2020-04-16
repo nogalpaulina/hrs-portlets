@@ -227,7 +227,7 @@
 
   <sec:authorize ifAnyGranted="ROLE_UW_EMPLOYEE_ACTIVE">
   <c:choose>
-    <c:when test="${not empty hrsUrls['Personal Information']">
+    <c:when test="${not empty hrsUrls['Personal Information']}">
 
       <div class="dl-contact-info-update">
         <div>
