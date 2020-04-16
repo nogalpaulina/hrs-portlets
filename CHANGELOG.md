@@ -8,6 +8,8 @@ before-PUM22-mode presentation of the Personal Information portlet.
 
 ### 8.0.0
 
+2020-04-16
+
 + Adds "Preferred Name" to the employee-facing text description of what an
   employee can adjust in HRS self-service. ( [HRSPLT-468][] )
 + Personal Information no longer supports unused pre-PUM-22 mode.
