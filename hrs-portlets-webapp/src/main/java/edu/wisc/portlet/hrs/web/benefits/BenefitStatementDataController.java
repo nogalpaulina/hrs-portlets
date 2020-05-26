@@ -19,8 +19,10 @@
 
 package edu.wisc.portlet.hrs.web.benefits;
 
+import edu.wisc.hr.dm.benstmt.BenefitStatementIssuedComparator;
+import edu.wisc.hr.dm.benstmt.BenefitStatementNameComparator;
+import edu.wisc.hr.dm.benstmt.BenefitStatementYearComparator;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -42,12 +44,8 @@ import edu.wisc.hr.dao.benstmt.BenefitStatementDao;
 import edu.wisc.hr.dm.benstmt.BenefitStatement;
 import edu.wisc.hr.dm.benstmt.BenefitStatements;
 import edu.wisc.portlet.hrs.util.HrsDownloadControllerUtils;
-import java.text.DateFormat;
-import java.text.ParseException;
 
 import org.jasig.springframework.security.portlet.authentication.PrimaryAttributeUtils;
-
-import java.util.Date;
 
 /**
  * 
@@ -123,74 +121,5 @@ public class BenefitStatementDataController {
         HrsDownloadControllerUtils.setResponseHeaderForDownload(response, "benefits", "PDF");
         this.benefitStatementDao.getBenefitStatement(emplid, etfMemberId, year, docId, mode, new PortletResourceProxyResponse(response, ignoredProxyHeaders));
     }
-    
-    /**
-     * Compares the Issued date in the name field.
-     * Dates must be in the medium format format, eg "Jan 1, 2018"
-     */
-    private static class BenefitStatementIssuedComparator implements Comparator<BenefitStatement> {
-      private static final int GREATER_THAN = 1;
-      private static final int LESS_THAN = -1;
-      private static final int NOT_FOUND = -1;
-      private static final String KEYWORD = "Issued ";
-      private final DateFormat dateFormatter;
 
-      public BenefitStatementIssuedComparator() {
-        dateFormatter = DateFormat.getDateInstance(DateFormat.MEDIUM);
-        dateFormatter.setLenient(false);
-      }
-      
-      private Date getIssuedDate(String name) {
-        Date result = null;
-        
-        int issuedStart = name.indexOf(KEYWORD);
-        if (issuedStart > NOT_FOUND) {
-          String dateString = name.substring(issuedStart + KEYWORD.length());
-          try {
-            result = dateFormatter.parse(dateString);
-          } catch (ParseException e) {
-            // swallow
-          }
-        }
-        
-        return result;
-      }
-      
-      @Override
-      public int compare(BenefitStatement o1, BenefitStatement o2) {
-        int result = 0;
-
-        Date leftDate = getIssuedDate(o1.getName());
-        Date rightDate = getIssuedDate(o2.getName());
-        if (null != leftDate && null != rightDate) {
-          result = leftDate.compareTo(rightDate);
-        } else if (null != leftDate) {
-          result = GREATER_THAN;
-        } else if (null != rightDate) {
-          result = LESS_THAN;
-        }
-        
-        return result;
-      }
-    }
-    
-    private static class BenefitStatementYearComparator implements Comparator<BenefitStatement> {
-
-		@Override
-		public int compare(BenefitStatement o1, BenefitStatement o2) {
-			return o1.getYear().compareTo(o2.getYear());
-		}
-    	
-    }
-    
-    private static class BenefitStatementNameComparator implements Comparator<BenefitStatement> {
-
-		@Override
-		public int compare(BenefitStatement o1, BenefitStatement o2) {
-			String o1Type = o1.getName().substring(0,o1.getName().indexOf(" "));
-			String o2Type = o2.getName().substring(0,o2.getName().indexOf(" "));
-			return o1Type.compareTo(o2Type);
-		}
-    	
-    }
 }
