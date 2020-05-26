@@ -1,4 +1,4 @@
-package edu.wisc.hr.dm.statement.predicate;
+package edu.wisc.hr.dm.benstmt;
 
 import com.google.common.base.Predicate;
 import edu.wisc.hr.dm.statement.NameYearUrl;
@@ -8,10 +8,10 @@ import edu.wisc.hr.dm.statement.NameYearUrl;
  * statement of benefits.
  */
 public class EtfAnnualStatementOfBenefitsPredicate
-  implements Predicate<NameYearUrl> {
+  implements Predicate<BenefitStatement> {
 
   @Override
-  public boolean apply(NameYearUrl input) {
+  public boolean apply(BenefitStatement input) {
     String name = input.getName();
     return (name != null && name.contains("ETF Annual Statement of Benefits"));
   }
