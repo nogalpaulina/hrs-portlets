@@ -145,11 +145,11 @@ public class BenefitInformationController extends HrsControllerBase {
 
         Function<BenefitStatement, NameYearUrl> transformFunction =  new StatementToBeanFunction(fname);
 
-        Lists.transform(etfStatements, transformFunction);
-        Lists.transform(enrollmentStatements, transformFunction);
+        List<NameYearUrl> eftStatementsAsNameYearUrlBeans = Lists.transform(etfStatements, transformFunction);
+        List<NameYearUrl> enrollmentStatementsAsNameYearUrlBeans = Lists.transform(enrollmentStatements, transformFunction);
 
-        model.addAttribute("etfStatements", etfStatements);
-        model.addAttribute("enrollmentStatements", enrollmentStatements);
+        model.addAttribute("etfStatements", eftStatementsAsNameYearUrlBeans);
+        model.addAttribute("enrollmentStatements", enrollmentStatementsAsNameYearUrlBeans);
 
       } catch (Exception e) {
         logger.warn("Error loading or transforming benefit statements.", e);
