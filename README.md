@@ -44,6 +44,15 @@ This is intended as a solution for
 + When not set, Benefit Information uses the URL from the HRS URLs SOAP web service as the href of the "View Benefits Summary Detail" link.
 + If the URL is available from neither source, Benefit Information drops this link from the UI.
 
+#### `fname` portlet preference (required)
+
++ When set, Benefit Information uses this value as its own `fname`
+  in generating URLs to access statements
++ When not set, Benefit Information is
+  unable to link to ETS WRS Statements of Benefit
+  and Benefit Enrollment Confirmation Statements
+  and shows an error message in place of listing these statements
+
 ### Specific to ManagerLinks
 
 (Published as "Manager Time and Approval" in MyUW.)

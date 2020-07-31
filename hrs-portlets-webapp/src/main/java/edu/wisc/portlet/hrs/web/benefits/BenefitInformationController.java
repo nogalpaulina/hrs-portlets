@@ -19,7 +19,22 @@
 
 package edu.wisc.portlet.hrs.web.benefits;
 
+import com.google.common.base.Function;
+import com.google.common.collect.Collections2;
+import com.google.common.collect.Lists;
+import edu.wisc.hr.dao.benstmt.BenefitStatementDao;
+import edu.wisc.hr.dm.benstmt.BenefitStatement;
+import edu.wisc.hr.dm.benstmt.BenefitStatementIssuedComparator;
+import edu.wisc.hr.dm.benstmt.BenefitStatementYearComparator;
+import edu.wisc.hr.dm.benstmt.BenefitStatements;
+import edu.wisc.hr.dm.benstmt.BenefitEnrollmentConfirmationPredicate;
+import edu.wisc.hr.dm.benstmt.EtfAnnualStatementOfBenefitsPredicate;
+import edu.wisc.hr.dm.statement.NameYearUrl;
 import edu.wisc.hr.service.benefits.AnnualBenefitEnrollmentDatesService;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -49,6 +64,7 @@ import edu.wisc.portlet.hrs.web.HrsControllerBase;
 @RequestMapping("VIEW")
 public class BenefitInformationController extends HrsControllerBase {
     private BenefitSummaryDao benefitSummaryDao;
+  private BenefitStatementDao benefitStatementDao;
     private HrsRolesDao hrsRolesDao;
 
     private BenefitsLearnMoreLinkGenerator learnMoreLinker =
@@ -62,6 +78,11 @@ public class BenefitInformationController extends HrsControllerBase {
         this.benefitSummaryDao = benefitSummaryDao;
     }
 
+  @Autowired
+  public void setBenefitStatementDao(BenefitStatementDao benefitStatementDao) {
+    this.benefitStatementDao = benefitStatementDao;
+  }
+
     @Autowired
     public void setHrsRolesDao(HrsRolesDao hrsRolesDao) {
         this.hrsRolesDao = hrsRolesDao;
@@ -72,6 +93,7 @@ public class BenefitInformationController extends HrsControllerBase {
       @SuppressWarnings("unchecked")
       Map<String, String> userInfo = (Map <String, String>) request.getAttribute(PortletRequest.USER_INFO);
       final String emplId = PrimaryAttributeUtils.getPrimaryId();
+      final String etfMemberId = (String) userInfo.get("eduWisconsinETFMemberID");
 
       final String[] tabArray = request.getParameterMap().get("tab");
       String tab = "";
@@ -87,9 +109,52 @@ public class BenefitInformationController extends HrsControllerBase {
       final PortletPreferences preferences = request.getPreferences();
       model.addAttribute("learnMoreEBenefitGuide", preferences.getValue("ebenefitguidetext", null));
 
+      String fname = preferences.getValue("fname", null);
+      if (fname == null) {
+        logger.error("Missing portlet-preference 'fname', required to generate URLs to benefit statements.");
+        model.addAttribute("statementError", true);
+        return "benefitInformation";
+      }
+
       Set<String> roles = hrsRolesDao.getHrsRoles(emplId);
       model.addAttribute("learnMoreLink",
         learnMoreLinker.learnMoreLinkFor(roles, isMadisonUser));
+
+      try {
+        final BenefitStatements benefitStatements = this.benefitStatementDao.getBenefitStatements(emplId, etfMemberId);
+
+        // split benefit statements between types of statements
+
+        List<BenefitStatement> etfStatements =
+          new ArrayList<BenefitStatement>(
+            Collections2.filter(benefitStatements.getBenefitStatements(),
+              new EtfAnnualStatementOfBenefitsPredicate()));
+
+        List<BenefitStatement> enrollmentStatements =
+          new ArrayList<BenefitStatement>(
+            Collections2.filter(benefitStatements.getBenefitStatements(),
+              new BenefitEnrollmentConfirmationPredicate()));
+
+        // sort the lists
+
+        Collections.sort(etfStatements, new BenefitStatementYearComparator());
+
+        Collections.sort(enrollmentStatements, new BenefitStatementIssuedComparator());
+
+        // transform to lists of reasonable JavaBeans suitable for rendering in the JSP
+
+        Function<BenefitStatement, NameYearUrl> transformFunction =  new StatementToBeanFunction(fname);
+
+        Lists.transform(etfStatements, transformFunction);
+        Lists.transform(enrollmentStatements, transformFunction);
+
+        model.addAttribute("etfStatements", etfStatements);
+        model.addAttribute("enrollmentStatements", enrollmentStatements);
+
+      } catch (Exception e) {
+        logger.warn("Error loading or transforming benefit statements.", e);
+        model.addAttribute("statementError", true);
+      }
 
       return "benefitInformation";
     }
@@ -128,5 +193,20 @@ public class BenefitInformationController extends HrsControllerBase {
 
       return "benefitInformationWidget";
 
+    }
+
+
+    private class StatementToBeanFunction implements Function<BenefitStatement, NameYearUrl> {
+
+      private BenefitStatementToNameYearUrlConverter converter;
+
+      public StatementToBeanFunction(String fname) {
+        this.converter = new BenefitStatementToNameYearUrlConverter(fname);
+      }
+
+      @Override
+      public NameYearUrl apply(BenefitStatement input) {
+        return converter.convert(input);
+      }
     }
 }
