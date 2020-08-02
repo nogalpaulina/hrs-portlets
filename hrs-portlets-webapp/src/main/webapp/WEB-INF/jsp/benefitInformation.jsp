@@ -63,7 +63,11 @@
   <div id="${n}dl-tabs" class="dl-tabs ui-tabs ui-widget ui-widget-content ui-corner-all inner-nav-container">
     <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all inner-nav">
       <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#${n}dl-benefits">Summary</a></li>
-      <li class="ui-state-default ui-corner-top"><a href="#${n}dl-benefit-statements">Statements</a></li>
+
+      <li class="ui-state-default ui-corner-top"><a href="#${n}dl-benefit_enrollment_confirmation_statements">Benefit Enrollment Confirmation Statements</a></li>
+
+      <li class="ui-state-default ui-corner-top"><a href="#${n}dl-etf_wrs_statements_of_benefits">ETF WRS Statements of Benefits</a></li>
+
       <li class="ui-state-default ui-corner-top"><a href="#${n}dl-dependents">Dependents</a></li>
     </ul>
     <div id="${n}dl-benefits" class="dl-benefits ui-tabs-panel ui-widget-content ui-corner-bottom">
@@ -135,35 +139,107 @@
         </div>
       </div>
     </div>
-    <div id="${n}dl-benefit-statements" class="dl-benefit-statements ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
-      <div class="fl-pager">
-        <hrs:pagerNavBar position="top" showSummary="${true}" />
-        <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
-          <table class="dl-table table" tabindex="0" aria-label="Benefit Information Statement table">
-            <thead>
-              <tr rsf:id="header:">
-                <th scope="col" class="flc-pager-sort-header dl-col-5p" rsf:id="year"><a href="javascript:;">Year</a></th>
-                <th scope="col" class="flc-pager-sort-header" rsf:id="name"><a href="javascript:;">Statement</a></th>
-              </tr>
-            </thead>
-            <tbody>
-                <tr rsf:id="row:" class="dl-clickable">
-                  <td headers="year" class="dl-data-text"><a href="#" target="_blank" rsf:id="year"></td>
-                  <td headers="name" class="dl-data-text"><a href="#" target="_blank" rsf:id="name"></td>
-                </tr>
-            </tbody>
-          </table>
-        </div>
-        <hrs:pagerNavBar position="bottom" />
-        <div class="${n}-dl-benefit-statement-links dl-benefit-statement-links">
-            <div class="container-fluid row">
-                <div class='col-xs-6'>
-                    <a href="https://uwservice.wisc.edu/help/wrs-benefits-statement.php" target="_blank" class="btn btn-default">ETF Annual Statement of Benefits: Enclosures and Explanation</a>
-                </div>
+
+    <div id="${n}dl-benefit_enrollment_confirmation_statements" class="dl-benefit_enrollment_confirmation_statements ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
+      <c:choose>
+
+        <c:when test="${statementError}">
+          <p>Sorry! MyUW was unable to load or display your benefit enrollment confirmation statements.
+            Contact the Help Desk as needed.</p>
+        </c:when>
+
+        <c:when test="${empty enrollmentStatements}">
+          <p>You have no benefit enrollment confirmation statements.</p>
+        </c:when>
+
+        <c:otherwise>
+
+          <div class="fl-pager">
+            <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
+              <table class="dl-table table" tabindex="0" aria-label="Benefit Enrollment Confirmation Statement table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="flc-pager-sort-header dl-col-5p">Year</th>
+                    <th scope="col" class="flc-pager-sort-header">Statement</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <c:forEach items="${enrollmentStatements}" var="enrollmentStatement">
+                    <tr>
+                      <td class="dl-data-text">
+                        <a href="${enrollmentStatement.url}" title="${enrollmentStatement.name}"
+                          target="_blank" rel="noopener noreferrer">
+                          ${enrollmentStatement.year}
+                        </a>
+                      </td>
+                      <td class="dl-data-text">
+                        <a href="${enrollmentStatement.url}"
+                          target="_blank" rel="noopener noreferrer">
+                          ${enrollmentStatement.name}
+                        </a>
+                      </td>
+                    </tr>
+                  </c:forEach>
+                </tbody>
+              </table>
             </div>
-        </div>
-      </div>
+          </div>
+
+        </c:otherwise>
+      </c:choose>
     </div>
+
+    <div id="${n}dl-etf_wrs_statements_of_benefits" class="dl-etf_wrs_statements_of_benefits ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
+      <c:choose>
+
+        <c:when test="${statementError}">
+          <p>Sorry! MyUW was unable to load or display your WRS Statements of Benefits.
+            Contact the Help Desk as needed.</p>
+        </c:when>
+
+        <c:when test="${empty etfStatements}">
+          <p>You have no WRS Statements of Benefits.</p>
+        </c:when>
+
+        <c:otherwise>
+          <div class="fl-pager">
+            <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
+              <table class="dl-table table" tabindex="0"
+                aria-label="ETF WRS Statements of Benefits table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="flc-pager-sort-header dl-col-5p">Year</th>
+                    <th scope="col" class="flc-pager-sort-header">Statement</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <c:forEach var="etfStatement" items="${etfStatements}">
+                    <tr class="dl-clickable">
+                      <td class="dl-data-text">
+                        <a href="${etfStatement.url}" target="_blank" title="${etfStatement.name}">
+                          ${etfStatement.year}</a>
+                      </td>
+                      <td class="dl-data-text">
+                        <a href="${etfStatement.url}" target="_blank">${etfStatement.name}</a>
+                      </td>
+                    </tr>
+                  </c:forEach>
+                </tbody>
+              </table>
+            </div>
+            <div class="${n}-dl-benefit-statement-links dl-benefit-statement-links">
+              <div class="container-fluid row">
+                <div class='col-xs-6'>
+                  <a href="https://uwservice.wisc.edu/help/wrs-benefits-statement.php" target="_blank" class="btn btn-default">
+                    ETF Annual Statement of Benefits: Enclosures and Explanation</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </c:otherwise>
+      </c:choose>
+    </div>
+
     <div id="${n}dl-dependents" class="dl-dependents ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
       <%-- coverage-header removed as of commit 96f7dd6 --%>
       <div class="fl-pager">
@@ -264,30 +340,6 @@
               url: "${benefitSummaryUrl}",
               dataKey: "dependents",
               dataLoadErrorMsg: "${genericErrorMessage}"
-          }
-        });
-
-        var benefitStatementUrl = dl.util.templateUrl("${benefitsPdfUrl}");
-        dl.pager.init("#${n}dl-benefit-statements", {
-          model: {
-              /* sortKey: "name",
-              sortDir: 1 */
-          },
-          columnDefs: [
-              dl.pager.linkColDef("year", benefitStatementUrl, {sortable: true}),
-              dl.pager.linkColDef("name", benefitStatementUrl, {sortable: true})
-          ],
-          dataList: {
-              url: "${benefitStatementsUrl}",
-              dataKey: "report",
-              dataLoadErrorMsg: "${genericErrorMessage}",
-              dataLoadCallback: function (data) {
-                  if (data == undefined || data.length == 0) {
-                      //Hide the ${n}-dl-benefit-statement-links
-                      $('.${n}-dl-benefit-statement-links').hide();
-
-                  }
-              }
           }
         });
 

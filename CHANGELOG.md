@@ -6,6 +6,16 @@ The v8 major version was occasioned by the breaking change of the `updateMyPerso
 portlet-preference no longer having any effect, and thereby no longer supporting unused-since-2017
 before-PUM22-mode presentation of the Personal Information portlet.
 
+### Next
+
++ Separates Benefit Enrollment Confirmation Statements
+  and ETF Statements of Benefit into separate tabs.
++ Switches from Fluid Infusion JavaScript-enhanced paged table
+  to plain old HTML tables generated server-side for these statements
++ BREAKING CHANGE: *requires* that Benefit Information portlet-definitions
+  declare a portlet-preference `fname` with their own `fname` as value.
+  This is so that the Benefit Information portlet can use its own fname in generating URLs.
+
 ### 8.0.0
 
 2020-04-16
