@@ -138,8 +138,10 @@ public class BenefitInformationController extends HrsControllerBase {
         // sort the lists
 
         Collections.sort(etfStatements, new BenefitStatementYearComparator());
+        Collections.reverse(etfStatements);
 
         Collections.sort(enrollmentStatements, new BenefitStatementIssuedComparator());
+        Collections.reverse(enrollmentStatements);
 
         // transform to lists of reasonable JavaBeans suitable for rendering in the JSP
 
