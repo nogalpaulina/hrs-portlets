@@ -343,30 +343,6 @@
           }
         });
 
-        var benefitStatementUrl = dl.util.templateUrl("${benefitsPdfUrl}");
-        dl.pager.init("#${n}dl-benefit-statements", {
-          model: {
-              /* sortKey: "name",
-              sortDir: 1 */
-          },
-          columnDefs: [
-              dl.pager.linkColDef("year", benefitStatementUrl, {sortable: true}),
-              dl.pager.linkColDef("name", benefitStatementUrl, {sortable: true})
-          ],
-          dataList: {
-              url: "${benefitStatementsUrl}",
-              dataKey: "report",
-              dataLoadErrorMsg: "${genericErrorMessage}",
-              dataLoadCallback: function (data) {
-                  if (data == undefined || data.length == 0) {
-                      //Hide the ${n}-dl-benefit-statement-links
-                      $('.${n}-dl-benefit-statement-links').hide();
-
-                  }
-              }
-          }
-        });
-
         var opt = 0;
 
         if("statements" === "${tab}") {
