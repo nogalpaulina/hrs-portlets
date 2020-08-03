@@ -1,12 +1,13 @@
 # MyUW hrs-portlets change log
 
-## HRS Portlets 8 series
+## HRS Portlets 9 series
 
-The v8 major version was occasioned by the breaking change of the `updateMyPersonalInfoUrl`
-portlet-preference no longer having any effect, and thereby no longer supporting unused-since-2017
-before-PUM22-mode presentation of the Personal Information portlet.
+The v9 major version was occasioned by the breaking change of the
+new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
-### Next
+### 9.0.0
+
+2020-08-02
 
 + Separates Benefit Enrollment Confirmation Statements
   and ETF Statements of Benefit into separate tabs.
@@ -14,7 +15,13 @@ before-PUM22-mode presentation of the Personal Information portlet.
   to plain old HTML tables generated server-side for these statements
 + BREAKING CHANGE: *requires* that Benefit Information portlet-definitions
   declare a portlet-preference `fname` with their own `fname` as value.
-  This is so that the Benefit Information portlet can use its own fname in generating URLs.
+  This is so that the Benefit Information portlet can use its own fname in generating resource URLs linking to those statements.
+
+## HRS Portlets 8 series
+
+The v8 major version was occasioned by the breaking change of the `updateMyPersonalInfoUrl`
+portlet-preference no longer having any effect, and thereby no longer supporting unused-since-2017
+before-PUM22-mode presentation of the Personal Information portlet.
 
 ### 8.0.0
 
