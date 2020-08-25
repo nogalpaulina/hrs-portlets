@@ -12,31 +12,31 @@ public class AnnualBenefitEnrollmentDatesServiceTest {
   @Test
   public void testForeshadowing() {
     // foreshadowing does not begin prematurely
-    assertFalse(service.foreshadowAnnualBenefitsEnrollment(new LocalDate("2019-09-17")));
+    assertFalse(service.foreshadowAnnualBenefitsEnrollment(new LocalDate("2020-09-15")));
 
-    // foreshadowing begins Wednesday Sept 18
-    assertTrue(service.foreshadowAnnualBenefitsEnrollment(new LocalDate("2019-09-18")));
+    // foreshadowing begins Wednesday Sept 16
+    assertTrue(service.foreshadowAnnualBenefitsEnrollment(new LocalDate("2020-09-16")));
 
     // and continues
-    assertTrue(service.foreshadowAnnualBenefitsEnrollment(new LocalDate("2019-09-22")));
+    assertTrue(service.foreshadowAnnualBenefitsEnrollment(new LocalDate("2020-09-22")));
 
     // through the day before benefit enrollment begins
-    assertTrue(service.foreshadowAnnualBenefitsEnrollment(new LocalDate("2019-09-29")));
+    assertTrue(service.foreshadowAnnualBenefitsEnrollment(new LocalDate("2020-09-27")));
 
     // and stops once benefit enrollment begins
-    assertFalse(service.foreshadowAnnualBenefitsEnrollment(new LocalDate("2019-09-30")));
+    assertFalse(service.foreshadowAnnualBenefitsEnrollment(new LocalDate("2020-09-28")));
   }
 
   @Test
   public void testDuringAnnualBenefitsEnrollment() {
     // annual benefits enrollment does not begin prematurely
-    assertFalse(service.duringAnnualBenefitsEnrollment(new LocalDate("2019-09-29")));
+    assertFalse(service.duringAnnualBenefitsEnrollment(new LocalDate("2020-09-27")));
 
     // but does begin punctually
-    assertTrue(service.duringAnnualBenefitsEnrollment(new LocalDate("2019-09-30")));
+    assertTrue(service.duringAnnualBenefitsEnrollment(new LocalDate("2020-09-28")));
 
     // and continues
-    assertTrue(service.duringAnnualBenefitsEnrollment(new LocalDate("2019-10-05")));
+    assertTrue(service.duringAnnualBenefitsEnrollment(new LocalDate("2020-10-05")));
 
     // through the last date of annual benefits enrollment
     assertTrue(service.duringAnnualBenefitsEnrollment(new LocalDate("2019-10-25")));

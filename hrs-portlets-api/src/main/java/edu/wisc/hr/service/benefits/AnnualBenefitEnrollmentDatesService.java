@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 public class AnnualBenefitEnrollmentDatesService {
 
   public static LocalDate firstDayOfAnnualBenefitsEnrollmentForeshadowing =
-      new LocalDate("2019-09-18");
+      new LocalDate("2020-09-16");
   public static LocalDate firstDayOfAnnualBenefitsEnrollment =
-      new LocalDate("2019-09-30");
+      new LocalDate("2020-09-28");
   public static LocalDate lastDayOfAnnualBenefitsEnrollment =
       new LocalDate("2019-10-25");
   public static LocalDate lastDayOfAnnualBenefitsEnrollmentFeedback =
