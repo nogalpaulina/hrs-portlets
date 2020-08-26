@@ -39,31 +39,31 @@ public class AnnualBenefitEnrollmentDatesServiceTest {
     assertTrue(service.duringAnnualBenefitsEnrollment(new LocalDate("2020-10-05")));
 
     // through the last date of annual benefits enrollment
-    assertTrue(service.duringAnnualBenefitsEnrollment(new LocalDate("2019-10-25")));
+    assertTrue(service.duringAnnualBenefitsEnrollment(new LocalDate("2019-10-23")));
 
     // but not beyond annual benefits enrollment
-    assertFalse(service.duringAnnualBenefitsEnrollment(new LocalDate("2019-10-26")));
+    assertFalse(service.duringAnnualBenefitsEnrollment(new LocalDate("2019-10-24")));
   }
 
   @Test
   public void testLastDayAnnualBenefitsEnrollment() {
     // the day before the last day is not the last day
-    assertFalse(service.lastDayOfAnnualBenefitEnrollment(new LocalDate("2019-10-24")));
+    assertFalse(service.lastDayOfAnnualBenefitEnrollment(new LocalDate("2020-10-22")));
 
     // the last day is the last day
-    assertTrue(service.lastDayOfAnnualBenefitEnrollment(new LocalDate("2019-10-25")));
+    assertTrue(service.lastDayOfAnnualBenefitEnrollment(new LocalDate("2020-10-23")));
 
     // the day after the last day is not the last day
-    assertFalse(service.lastDayOfAnnualBenefitEnrollment(new LocalDate("2019-10-26")));
+    assertFalse(service.lastDayOfAnnualBenefitEnrollment(new LocalDate("2020-10-24")));
   }
 
   @Test
   public void testFeedbackPeriod() {
     // the last day of benefit enrollment is not the feedback period
-    assertFalse(service.feedbackPeriod(new LocalDate("2019-10-25")));
+    assertFalse(service.feedbackPeriod(new LocalDate("2020-10-23")));
 
     // but the day after benefit enrollment is within the feedback period
-    assertTrue(service.feedbackPeriod(new LocalDate("2019-10-26")));
+    assertTrue(service.feedbackPeriod(new LocalDate("2020-10-24")));
 
     // and the feedback period continues
     assertTrue(service.feedbackPeriod(new LocalDate("2019-11-12")));
@@ -78,19 +78,19 @@ public class AnnualBenefitEnrollmentDatesServiceTest {
   @Test
   public void testCountdown() {
     // before ABE, returns -1
-    assertEquals(-1, service.daysRemainingInAnnualBenefitsEnrollment(new LocalDate("2019-09-29")));
+    assertEquals(-1, service.daysRemainingInAnnualBenefitsEnrollment(new LocalDate("2020-09-20")));
 
     // on the antepenultimate day of ABE, there are 2 more days remaining
-    assertEquals(2, service.daysRemainingInAnnualBenefitsEnrollment(new LocalDate("2019-10-23")));
+    assertEquals(2, service.daysRemainingInAnnualBenefitsEnrollment(new LocalDate("2019-10-21")));
 
     // on the penultimate day of ABE, there is 1 more day remaining
-    assertEquals(1, service.daysRemainingInAnnualBenefitsEnrollment(new LocalDate("2019-10-24")));
+    assertEquals(1, service.daysRemainingInAnnualBenefitsEnrollment(new LocalDate("2019-10-22")));
 
     // on the last day of ABE, there are 0 more days remaining
-    assertEquals(0, service.daysRemainingInAnnualBenefitsEnrollment(new LocalDate("2019-10-25")));
+    assertEquals(0, service.daysRemainingInAnnualBenefitsEnrollment(new LocalDate("2019-10-23")));
 
     // after ABE, returns -1
-    assertEquals(-1, service.daysRemainingInAnnualBenefitsEnrollment(new LocalDate("2019-10-26")));
+    assertEquals(-1, service.daysRemainingInAnnualBenefitsEnrollment(new LocalDate("2019-10-24")));
   }
 
 }
