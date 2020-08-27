@@ -1,6 +1,9 @@
 # Benefit Information widget
 
-The Benefit Information Portlet includes a resource URL implementing the Benefit Information widget as a remote-content type widget.
+The Benefit Information Portlet includes
+a resource URL
+implementing the Benefit Information widget
+as a remote-content type widget.
 
 This widget supports Annual Benefits Enrollment.
 
