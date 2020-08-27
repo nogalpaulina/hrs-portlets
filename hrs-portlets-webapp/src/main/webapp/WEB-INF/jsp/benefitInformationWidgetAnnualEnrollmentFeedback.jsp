@@ -29,13 +29,13 @@
   <div class="tsc__status">
     <div layout="column" layout-align="center center">
       <p>
-        ended October 25.
+        ended October 23.
       </p>
     </div>
   </div>
   <div class="tsc__extra-buttons" layout="row" layout-align="center center">
     <a
-      href="http://uwsystemadmin.qualtrics.com/jfe/form/SV_cHJoy0MZRU9PsUt"
+      href="http://uwsystemadmin.qualtrics.com/jfe/form/SV_3V1YJvK5yb0qfZz"
       target="_blank" rel="noreferrer noopener">
       Give feedback
     </a>
