@@ -57,6 +57,11 @@ see the `benefitInformationWidgetPersonalEnrollmentEvent`
 
 ![Screenshot of Annual Benefits Enrollment widget stating a benefit enrollment opportunity with Enroll now button and Learn more link](./benefit-information-widget-personal-enrollment-event.png)
 
+The "Learn more" link is to
+
++ the [UW-Madison new employee benefits enrollment page][], for Madison users
++ the [University of Wisconsin System employee benefits page][], for non-Madison users.
+
 ## Foreshadowing Annual Benefits Enrollment
 
 If the `AnnualBenefitEnrollmentDatesService` believes that it is currently the
@@ -66,6 +71,11 @@ the `benefitInformationWidgetAnnualEnrollmentForeshadowing`
 [view][benefitInformationWidgetAnnualEnrollmentForeshadowing JSP].
 
 ![Screenshot of Annual Benefits Enrollment widget stating benefit enrollment begins September 30 Learn more link](./benefit-information-widget-abe-foreshadowing.png)
+
+The "Learn more" link is to
+
++ the [UW-Madison annual benefits enrollment page][], for Madison users
++ the [University of Wisconsin System annual benefits enrollment page][], for non-Madison users
 
 ## Last day of Annual Benefits Enrollment for eligible users
 
@@ -82,6 +92,11 @@ opportunity.**
 
 ![Screenshot of Annual Benefits Enrollment widget stating annual benefit enrollment ends today with Enroll now button and learn more link](./benefit-info-widget-abe-last-day.png)
 
+The "Learn more" link is to
+
++ the [UW-Madison annual benefits enrollment page][], for Madison users
++ the [University of Wisconsin System annual benefits enrollment page][], for non-Madison users
+
 ## During ABE for eligible people
 
 If the viewing user has the role `ROLE_VIEW_OPEN_ENROLL_BENEFITS`
@@ -96,6 +111,11 @@ typically overnight, after exercising their annual benefit enrollment
 opportunity.**
 
 ![Screenshot of Annual Benefits Enrollment widget stating 12 days left in annual benefit enrollment with Enroll now button and learn more link](./benefit-info-widget-abe-12-days-left.png)
+
+The "Learn more" link is to
+
++ the [UW-Madison annual benefits enrollment page][], for Madison users
++ the [University of Wisconsin System annual benefits enrollment page][], for non-Madison users
 
 ## Feedback period after annual benefits enrollment
 
@@ -115,13 +135,26 @@ the `benefitInformationWidget`
 
 ![Screenshot of Annual Benefits Enrollment widget offering a Learn more link](./benefit-info-widget-default.png)
 
+The "Learn more" link is to
+
++ the [UW-Madison benefits page][], for Madison users
++ the [University of Wisconsin System employee benefits page][], for non-Madison users
+
 [AnnualBenefitEnrollmentDatesService]: https://github.com/UW-Madison-DoIT/hrs-portlets/blob/uw-master/hrs-portlets-api/src/main/java/edu/wisc/hr/service/benefits/AnnualBenefitEnrollmentDatesService.java
 [BenefitsLearnMoreLinkGenerator]: https://github.com/UW-Madison-DoIT/hrs-portlets/blob/uw-master/hrs-portlets-webapp/src/main/java/edu/wisc/portlet/hrs/web/benefits/BenefitsLearnMoreLinkGenerator.java
 [BenefitInformationController benefitInformationWidget method]: https://github.com/UW-Madison-DoIT/hrs-portlets/blob/uw-master/hrs-portlets-webapp/src/main/java/edu/wisc/portlet/hrs/web/benefits/BenefitInformationController.java#L165
 
 [benefitInformationWidgetPersonalEnrollmentEvent JSP]: https://github.com/UW-Madison-DoIT/hrs-portlets/blob/uw-master/hrs-portlets-webapp/src/main/webapp/WEB-INF/jsp/benefitInformationWidgetPersonalEnrollmentEvent.jsp
+[UW-Madison new employee benefits enrollment page]: https://hr.wisc.edu/benefits/new-employee-benefits-enrollment/
+[University of Wisconsin System employee benefits page]: https://www.wisconsin.edu/ohrwd/benefits/
+
 [benefitInformationWidgetAnnualEnrollmentForeshadowing JSP]: https://github.com/UW-Madison-DoIT/hrs-portlets/blob/uw-master/hrs-portlets-webapp/src/main/webapp/WEB-INF/jsp/benefitInformationWidgetAnnualEnrollmentForeshadowing.jsp
+[UW-Madison annual benefits enrollment page]: https://hr.wisc.edu/benefits/annual-benefits-enrollment/
+[University of Wisconsin System annual benefits enrollment page]: https://www.wisconsin.edu/abe/
+
 [benefitInformationWidgetAnnualEnrollmentLastDay JSP]: https://github.com/UW-Madison-DoIT/hrs-portlets/blob/uw-master/hrs-portlets-webapp/src/main/webapp/WEB-INF/jsp/benefitInformationWidgetAnnualEnrollmentLastDay.jsp
 [benefitInformationWidgetAnnualEnrollmentDuringCountdown JSP]: https://github.com/UW-Madison-DoIT/hrs-portlets/blob/uw-master/hrs-portlets-webapp/src/main/webapp/WEB-INF/jsp/benefitInformationWidgetAnnualEnrollmentDuringCountdown.jsp
 [benefitInformationWidgetAnnualEnrollmentFeedback JSP]: https://github.com/UW-Madison-DoIT/hrs-portlets/blob/uw-master/hrs-portlets-webapp/src/main/webapp/WEB-INF/jsp/benefitInformationWidgetAnnualEnrollmentFeedback.jsp
+
 [benefitInformationWidget JSP]: https://github.com/UW-Madison-DoIT/hrs-portlets/blob/uw-master/hrs-portlets-webapp/src/main/webapp/WEB-INF/jsp/benefitInformationWidget.jsp
+[UW-Madison benefits page]: http://benefits.wisc.edu/
