@@ -69,10 +69,10 @@ public class AnnualBenefitEnrollmentDatesServiceTest {
     assertTrue(service.feedbackPeriod(new LocalDate("2020-11-12")));
 
     // through its last day
-    assertTrue(service.feedbackPeriod(new LocalDate("2019-11-28")));
+    assertTrue(service.feedbackPeriod(new LocalDate("2020-11-27")));
 
     // but not after its last day
-    assertFalse(service.feedbackPeriod(new LocalDate("2019-12-01")));
+    assertFalse(service.feedbackPeriod(new LocalDate("2019-11-28")));
   }
 
   @Test
