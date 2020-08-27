@@ -4,12 +4,42 @@ The Benefit Information Portlet includes a resource URL implementing the Benefit
 
 This widget supports Annual Benefits Enrollment.
 
+## Architecture
+
+The Benefit Information widget participates in a Model View Controller
+architecture. The controller relies upon services and repositories.
+
+### Services
+
 The `AnnualBenefitEnrollmentDatesService` (sic)
 [encodes the dates for Annual Benefits Enrollment][AnnualBenefitEnrollmentDatesService]
 and provides a handy API for understanding the meaning of these dates.
 
+The `BenefitsLearnMoreLinkGenerator` service
+[determines the best URL for the learn more link ][BenefitsLearnMoreLinkGenerator]
+depending upon
+
++ the viewing user's roles,
++ whether the user is a Madison user, and
++ answers from the `AnnualBenefitEnrollmentDatesService`.
+
+### Repositories
+
+Data Access Objects (sic) model access to HRS data and
+are implemented as a light caching layer on top of
+PeopleSoft HRS SOAP web services.
+
+### Controller
+
 The `BenefitInformationController` [implements the logic for the widget][BenefitInformationController benefitInformationWidget method].
+The controller relies upon the `AnnualBenefitEnrollmentDatesService`
+to understand how the current moment relates to the annual benefits enrollment
+event lifecycle.
+The controller also relies upon the `BenefitsLearnMoreLinkGeneratator` to
+determine the appropriate learn more hyperlink for the viewing user.
 The controller dispatches to a view, passing along a model it builds up.
+
+### Views
 
 JSPs implement the views for this widget.
 
@@ -86,6 +116,7 @@ the `benefitInformationWidget`
 ![Screenshot of Annual Benefits Enrollment widget offering a Learn more link](./benefit-info-widget-default.png)
 
 [AnnualBenefitEnrollmentDatesService]: https://github.com/UW-Madison-DoIT/hrs-portlets/blob/uw-master/hrs-portlets-api/src/main/java/edu/wisc/hr/service/benefits/AnnualBenefitEnrollmentDatesService.java
+[BenefitsLearnMoreLinkGenerator]: https://github.com/UW-Madison-DoIT/hrs-portlets/blob/uw-master/hrs-portlets-webapp/src/main/java/edu/wisc/portlet/hrs/web/benefits/BenefitsLearnMoreLinkGenerator.java
 [BenefitInformationController benefitInformationWidget method]: https://github.com/UW-Madison-DoIT/hrs-portlets/blob/uw-master/hrs-portlets-webapp/src/main/java/edu/wisc/portlet/hrs/web/benefits/BenefitInformationController.java#L165
 
 [benefitInformationWidgetPersonalEnrollmentEvent JSP]: https://github.com/UW-Madison-DoIT/hrs-portlets/blob/uw-master/hrs-portlets-webapp/src/main/webapp/WEB-INF/jsp/benefitInformationWidgetPersonalEnrollmentEvent.jsp
