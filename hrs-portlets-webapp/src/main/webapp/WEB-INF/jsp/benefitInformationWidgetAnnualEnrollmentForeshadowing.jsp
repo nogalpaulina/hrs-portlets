@@ -27,7 +27,7 @@
 <div class="widget-body layout-align-center-center layout-column">
   <span class="tsc__title">Annual Benefits Enrollment</span>
   <div class="tsc__status">
-    <p>begins September 30.</p>
+    <p>begins September 28.</p>
   </div>
 
   <div class="tsc__extra-buttons layout-align-center-center layout-row">
