@@ -38,11 +38,13 @@ public class AnnualBenefitEnrollmentDatesServiceTest {
     // and continues
     assertTrue(service.duringAnnualBenefitsEnrollment(new LocalDate("2020-10-05")));
 
-    // through the last date of annual benefits enrollment
-    assertTrue(service.duringAnnualBenefitsEnrollment(new LocalDate("2019-10-23")));
+    assertTrue(
+      "ABE dates service should consider last date of ABE to be during ABE.",
+      service.duringAnnualBenefitsEnrollment(new LocalDate("2020-10-23")));
 
-    // but not beyond annual benefits enrollment
-    assertFalse(service.duringAnnualBenefitsEnrollment(new LocalDate("2019-10-24")));
+    assertFalse(
+      "ABE dates service should consider the day after ABE ends to NOT be during ABE",
+      service.duringAnnualBenefitsEnrollment(new LocalDate("2020-10-24")));
   }
 
   @Test
@@ -77,20 +79,33 @@ public class AnnualBenefitEnrollmentDatesServiceTest {
 
   @Test
   public void testCountdown() {
-    // before ABE, returns -1
-    assertEquals(-1, service.daysRemainingInAnnualBenefitsEnrollment(new LocalDate("2020-09-20")));
+    assertEquals(
+      "before ABE, daysRemaining...() returns -1",
+      -1, service.daysRemainingInAnnualBenefitsEnrollment(
+        new LocalDate("2020-09-20")));
 
-    // on the antepenultimate day of ABE, there are 2 more days remaining
-    assertEquals(2, service.daysRemainingInAnnualBenefitsEnrollment(new LocalDate("2019-10-21")));
+    assertEquals(
+      "On the antepenultimate day of ABE, there are 2 more days remaining.",
+      2,
+      service.daysRemainingInAnnualBenefitsEnrollment(
+        new LocalDate("2020-10-21")));
 
-    // on the penultimate day of ABE, there is 1 more day remaining
-    assertEquals(1, service.daysRemainingInAnnualBenefitsEnrollment(new LocalDate("2019-10-22")));
+    assertEquals(
+      "On the penultimate day of ABE, there is 1 more day remaining.",
+      1,
+      service.daysRemainingInAnnualBenefitsEnrollment(
+        new LocalDate("2020-10-22")));
 
-    // on the last day of ABE, there are 0 more days remaining
-    assertEquals(0, service.daysRemainingInAnnualBenefitsEnrollment(new LocalDate("2019-10-23")));
+    assertEquals(
+      "On the last day of ABE, there are 0 more days remaining.",
+      0,
+      service.daysRemainingInAnnualBenefitsEnrollment(
+        new LocalDate("2020-10-23")));
 
-    // after ABE, returns -1
-    assertEquals(-1, service.daysRemainingInAnnualBenefitsEnrollment(new LocalDate("2019-10-24")));
+    assertEquals(
+      "After ABE, daysRemaining...() returns -1.",
+      -1,
+      service.daysRemainingInAnnualBenefitsEnrollment(new LocalDate("2020-10-24")));
   }
 
 }
