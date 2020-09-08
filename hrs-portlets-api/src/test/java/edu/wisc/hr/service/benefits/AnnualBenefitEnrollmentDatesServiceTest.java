@@ -88,24 +88,24 @@ public class AnnualBenefitEnrollmentDatesServiceTest {
       "On the antepenultimate day of ABE, there are 2 more days remaining.",
       2,
       service.daysRemainingInAnnualBenefitsEnrollment(
-        new LocalDate("2019-10-21")));
+        new LocalDate("2020-10-21")));
 
     assertEquals(
       "On the penultimate day of ABE, there is 1 more day remaining.",
       1,
       service.daysRemainingInAnnualBenefitsEnrollment(
-        new LocalDate("2019-10-22")));
+        new LocalDate("2020-10-22")));
 
     assertEquals(
       "On the last day of ABE, there are 0 more days remaining.",
       0,
       service.daysRemainingInAnnualBenefitsEnrollment(
-        new LocalDate("2019-10-23")));
+        new LocalDate("2020-10-23")));
 
     assertEquals(
       "After ABE, daysRemaining...() returns -1.",
       -1,
-      service.daysRemainingInAnnualBenefitsEnrollment(new LocalDate("2019-10-24")));
+      service.daysRemainingInAnnualBenefitsEnrollment(new LocalDate("2020-10-24")));
   }
 
 }
