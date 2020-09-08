@@ -38,8 +38,9 @@ public class AnnualBenefitEnrollmentDatesServiceTest {
     // and continues
     assertTrue(service.duringAnnualBenefitsEnrollment(new LocalDate("2020-10-05")));
 
-    // through the last date of annual benefits enrollment
-    assertTrue(service.duringAnnualBenefitsEnrollment(new LocalDate("2019-10-23")));
+    assertTrue(
+      "ABE dates service should consider last date of ABE to be during ABE.",
+      service.duringAnnualBenefitsEnrollment(new LocalDate("2019-10-23")));
 
     // but not beyond annual benefits enrollment
     assertFalse(service.duringAnnualBenefitsEnrollment(new LocalDate("2019-10-24")));
