@@ -1,5 +1,7 @@
 package edu.wisc.portlet.hrs.web.benefits;
 
+import edu.wisc.hr.service.benefits.AnnualBenefitEnrollmentDatesServiceTest;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -45,8 +47,8 @@ public class BenefitsLearnMoreLinkGeneratorTest {
   @Test
   public void testRolelessNonMadisonUserAbeForeshadowing() {
 
-    LocalDate foreshadowingAbe2019 = new LocalDate("2019-09-25");
-    DateTimeUtils.setCurrentMillisFixed(foreshadowingAbe2019.toDate().getTime());
+    DateTimeUtils.setCurrentMillisFixed(
+      AnnualBenefitEnrollmentDatesServiceTest.DATE_DURING_ABE_FORESHADOWING.toDate().getTime());
 
     assertEquals("https://www.wisconsin.edu/abe/",
         generator.learnMoreLinkFor(new HashSet<String>(), false));
@@ -56,9 +58,8 @@ public class BenefitsLearnMoreLinkGeneratorTest {
   @Test
   public void testRolelessMadisonUserAbeForeshadowing() {
 
-    LocalDate foreshadowingAbe2019 = new LocalDate("2019-09-25");
-
-    DateTimeUtils.setCurrentMillisFixed(foreshadowingAbe2019.toDate().getTime());
+    DateTimeUtils.setCurrentMillisFixed(
+      AnnualBenefitEnrollmentDatesServiceTest.DATE_DURING_ABE_FORESHADOWING.toDate().getTime());
 
     assertEquals("https://hr.wisc.edu/benefits/annual-benefits-enrollment/",
         generator.learnMoreLinkFor(new HashSet<String>(), true));

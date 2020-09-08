@@ -9,6 +9,9 @@ public class AnnualBenefitEnrollmentDatesServiceTest {
 
   private AnnualBenefitEnrollmentDatesService service = new AnnualBenefitEnrollmentDatesService();
 
+  public static final LocalDate DATE_DURING_ABE_FORESHADOWING =
+    new LocalDate("2020-09-22");
+
   @Test
   public void testForeshadowing() {
     // foreshadowing does not begin prematurely
@@ -18,7 +21,7 @@ public class AnnualBenefitEnrollmentDatesServiceTest {
     assertTrue(service.foreshadowAnnualBenefitsEnrollment(new LocalDate("2020-09-16")));
 
     // and continues
-    assertTrue(service.foreshadowAnnualBenefitsEnrollment(new LocalDate("2020-09-22")));
+    assertTrue(service.foreshadowAnnualBenefitsEnrollment(DATE_DURING_ABE_FORESHADOWING));
 
     // through the day before benefit enrollment begins
     assertTrue(service.foreshadowAnnualBenefitsEnrollment(new LocalDate("2020-09-27")));
