@@ -12,6 +12,11 @@ public class AnnualBenefitEnrollmentDatesService {
 
   public static LocalDate firstDayOfAnnualBenefitsEnrollmentForeshadowing =
       new LocalDate("2020-09-16");
+  /**
+   * Date during the ABE foreshadowing period, used in test cases.
+   */
+  public static final LocalDate DATE_DURING_ABE_FORESHADOWING =
+      new LocalDate("2020-09-22");
   public static LocalDate firstDayOfAnnualBenefitsEnrollment =
       new LocalDate("2020-09-28");
   public static LocalDate lastDayOfAnnualBenefitsEnrollment =
