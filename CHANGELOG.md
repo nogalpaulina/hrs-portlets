@@ -5,6 +5,13 @@
 The v9 major version was occasioned by the breaking change of the
 new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
+### 9.0.1
+
+2020-09-09
+
++ Configures for Annual Benefits Enrollment period in 2020,
+  enrolling in 2021 benefits.
+
 ### 9.0.0
 
 2020-08-02
