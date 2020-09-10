@@ -7,7 +7,7 @@ new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
 ### 9.0.1
 
-2020-09-09
+2020-09-10
 
 + Configures for Annual Benefits Enrollment period in 2020,
   enrolling in 2021 benefits.
