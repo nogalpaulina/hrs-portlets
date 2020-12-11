@@ -143,7 +143,7 @@
                   </p>
                 </c:if>
                 <p class='edit-notice'>
-                  Your preferred name in HRS will have to be updated separately
+                  Update your preferred name in HRS
                   using the 'Update My Personal Information' link below.
                   This will appear in employee self-service
                   (e.g. your timesheet) only.

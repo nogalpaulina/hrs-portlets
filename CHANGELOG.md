@@ -1,5 +1,13 @@
 # MyUW hrs-portlets change log
 
+### Next (presumably, 10.0.0)
+
+(Date)
+
++ Copy edit for active voice and brevity:
+  uses "Update your preferred name in HRS using the 'Update My Personal Information' link below."
+  instead of "Your preferred name in HRS will haver to be updated separately using the 'Update My Personal Information' link below."
+
 ## HRS Portlets 9 series
 
 The v9 major version was occasioned by the breaking change of the
