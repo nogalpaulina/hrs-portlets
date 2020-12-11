@@ -1,9 +1,14 @@
 # MyUW hrs-portlets change log
 
+## HRS Portlets 10 series
+
+The v10 major version was occasioned by the breaking change of no longer offering direct editing of preferred name in the Personal Information portlet, instead hyperlinking to the  Preferred Name portlet for this UI. This reduces the number of copies of that edit UI to maintain.
+
 ### Next (presumably, 10.0.0)
 
 (Date)
 
++ Links to the Preferred Name portlet for preferred name editing, rather than duplicating that UI inline in Personal Information.
 + Copy edit for active voice and brevity:
   uses "Update your preferred name in HRS using the 'Update My Personal Information' link below."
   instead of "Your preferred name in HRS will haver to be updated separately using the 'Update My Personal Information' link below."

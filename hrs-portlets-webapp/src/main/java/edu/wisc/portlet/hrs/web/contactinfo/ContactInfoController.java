@@ -22,10 +22,6 @@ package edu.wisc.portlet.hrs.web.contactinfo;
 import java.util.Arrays;
 import java.util.Map;
 
-import javax.portlet.ActionRequest;
-import javax.portlet.ActionResponse;
-import javax.portlet.PortletMode;
-import javax.portlet.PortletModeException;
 import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
 import javax.portlet.ResourceRequest;
@@ -35,12 +31,9 @@ import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.ValidationUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.portlet.bind.annotation.ActionMapping;
 import org.springframework.web.portlet.bind.annotation.RenderMapping;
 import org.springframework.web.portlet.bind.annotation.ResourceMapping;
 import org.springframework.web.portlet.handler.PortletRequestMethodNotSupportedException;
@@ -50,8 +43,6 @@ import edu.wisc.hr.dao.person.ContactInfoDao;
 import edu.wisc.hr.dm.bnsemail.PreferredEmail;
 import edu.wisc.hr.dm.person.PersonInformation;
 import edu.wisc.hr.dm.prefname.PreferredName;
-import edu.wisc.hr.dm.prefname.PreferredNameExtended;
-import edu.wisc.hr.dm.prefname.PreferredNameValidator;
 import edu.wisc.hr.service.PreferredNameService;
 
 import org.jasig.springframework.security.portlet.authentication.PrimaryAttributeUtils;
@@ -209,36 +200,6 @@ public class ContactInfoController extends HrsControllerBase {
         
         return this.getBusinessEmailAddress(modelMap);
     }
-    
-    @ActionMapping(params="action=savePreferredName")
-	public void submitEdit(ActionRequest request, ActionResponse response, PreferredName preferredName, BindingResult bindingResult) throws PortletModeException {
-      
-        @SuppressWarnings("unchecked")
-        Map<String, String> userInfo = (Map <String, String>) request.getAttribute(PortletRequest.USER_INFO);
-      
-        PreferredNameExtended pne = new PreferredNameExtended(preferredName, userInfo.get("sn"));
-		//validation
-		ValidationUtils.invokeValidator(new PreferredNameValidator(), pne, bindingResult);
-		if(!bindingResult.hasErrors()) {
-			//submit changes to DAO
-			preferredName.setPvi(getPvi(request));
-			
-			preferredNameService.setPreferredName(preferredName.getPvi(), preferredName);
-			//redirect to view page on success
-			response.setPortletMode(PortletMode.VIEW);
-		} else {
-			//fail back to edit mode with flag set
-			response.setRenderParameter("therewasanerror", "true");
-			response.setPortletMode(PortletMode.VIEW);
-		}
-	}
-    
-    @ActionMapping(params="action=deletePreferredName") 
-	public void submitDelete(ActionRequest request, ActionResponse response) throws PortletModeException {
-		final String pvi = getPvi(request);
-		preferredNameService.deletePreferredName(pvi);
-		response.setPortletMode(PortletMode.VIEW);
-	}
     
     protected String getBusinessEmailAddress( ModelMap modelMap) {
         

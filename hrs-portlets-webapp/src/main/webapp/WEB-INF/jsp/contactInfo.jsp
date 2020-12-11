@@ -22,16 +22,6 @@
 <%@ include file="/WEB-INF/jsp/include.jsp"%>
 <%@ include file="/WEB-INF/jsp/header.jsp"%>
 
-<portlet:actionURL portletMode="VIEW" var="savePreferredNameURL">
-  <portlet:param name="action" value="savePreferredName" />
-</portlet:actionURL>
-
-<portlet:actionURL portletMode="VIEW" var="deletePreferredNameURL">
-  <portlet:param name="action" value="deletePreferredName" />
-</portlet:actionURL>
-
-<spring:message code="savePreferredName" var="savePreferredName" text="Save"/>
-
 <div id="${n}dl-contact-info" class="dl-contact-info hrs">
   <div class="dl-banner-links">
     <hrs:helpLink appContext="Personal Information" />
@@ -77,71 +67,12 @@
                       <span>${preferredName}</span>
                     </c:if>
                           &nbsp;<span class="uportal-channel-table-caption">${pendingStatus }</span>
-                          &nbsp;<a aria-label="change preferred name" href="#" onclick="dl_v1.displayEdit(true);"><spring:message code="edit"/></a>
-                          &nbsp;<a aria-label="delete preferred name" href="${deletePreferredNameURL}" onclick="return confirm('Are you sure you want to delete your preferred name?');"><spring:message code="delete"/></a>
+                          &nbsp;<a aria-label="Add, edit, or delete your preferred name" href="/portal/p/preferred-name">Edit</a>
                   </span>
               </div>
-              <div class='edit-area'>
-              <form action="${savePreferredNameURL}" method="post">
-                <spring:nestedPath path="preferredName">
-                      <div class="contact-info-pref-name-edit ${n}edit" style="display: none;">
-                          <span aria-label="preferred name update form" tabindex="0" class="uportal-channel-strong">
-                              <spring:message code="label.preferred.name"/>:
-                          </span>
-                          <div class='${n}edit-error pref-name-edit-error' style="display: none; padding: .5em;">
-                              <span><form:errors path="firstName" cssClass="error"/>
-                                  &nbsp;<form:errors path="middleName" cssClass="error"/>
-                                  &nbsp;<form:errors path="lastName" cssClass="error"/>
-                            </span>
-                          </div>
-                          <div class='pref-name-edit'>
-                              <div class='names'>
-                                  <div class="edit-name">
-                                  <span class='label'>First</span>
-                                  <br/>
-                                  <span>
-                                      <form:input aria-label="edit first name box" path="firstName" class="uportal-input-text ${n}first-name" maxlength="30" />
-                                  </span>
-                                  </div>
-                                  <div class="edit-name">
-                                  <span class='label'>Middle</span>
-                                  <br/>
-                                  <span>
-                                      <form:input aria-label="edit middle name box" path="middleName" class="uportal-input-text ${n}middle-name" maxlength="30" />
-                                  </span>
-                                  </div>
-                                <div class="edit-name">
-                                <span class='label'>Last*</span>
-                                <br/>
-                                <span>
-                                  <form:input aria-label="edit last name box" path="lastName" class="uportal-input-text ${n}last-name" maxlength="30" />
-                                </span>
-                                </div>
-                              </div>
-                              <div class='info-text'>
-                                *<spring:message code='error.lastNameWeirdLogicError'/>
-                              </div>
-                              <div class="edit-buttons">
-                                  <span>
-                                      <input class="uportal-button fancy-button btn btn-primary" value="${savePreferredName}" type="submit">
-                                  </span>
-                                  <span>
-                                      <a href="#" onclick='dl_v1.displayEdit(false);' class="uportal-button fancy-cancel btn btn-default"><spring:message code="button.cancel" text="Cancel"/></a>
-                                  </span>
 
-                              </div>
 
-                          </div>
-                      </div>
-                  </spring:nestedPath>
-            </form>
-            </div>
             <div class='edit-notice'>
-                <c:if test="${!empty prefs['notice'][0]}">
-                  <p class="prefNotice">
-                     ${prefs['notice'][0]}
-                  </p>
-                </c:if>
                 <p class='edit-notice'>
                   Update your preferred name in HRS
                   using the 'Update My Personal Information' link below.
@@ -454,35 +385,4 @@
 })(dl_v1.jQuery);
 </rs:compressJs>
 </script>
-<script type="text/javascript">
-(function($) {
-   $(document).ready(function() {
-      $(".${n}edit").hide();
-      $(".${n}edit-error").hide();
-
-      dl_v1.displayEdit = function (enable) {
-    	  if(enable) {
-    		  $(".${n}view").hide();
-    		  $(".${n}edit").show();
-    	  } else {
-    		  $(".${n}edit").hide();
-    		  $(".${n}edit-error").hide();
-    		  $(".${n}view").show();
-
-    	  }
-      }
-   });
-})(dl_v1.jQuery);
-</script>
-
-<c:if test="${!empty therewasanerror }">
-<script type="text/javascript">
-(function($) {
-   $(document).ready(function() {
-	   dl_v1.displayEdit(true);
-	   $(".${n}edit-error").show();
-   });
-})(dl_v1.jQuery);
-</script>
-</c:if>
 </c:if>
