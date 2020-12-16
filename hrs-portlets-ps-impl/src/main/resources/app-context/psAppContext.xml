@@ -49,11 +49,15 @@
                 In Personal Information
                   Shows hyperlink to HRS self-service personal information
                     editing, and explananda.
+                In Payroll Information
+                  The "View W-2 Forms" button will link into HRS self-service.
                 When this role is NOT present
                   Shows messages in Payroll Information, Personal Information,
                     and in Benefit Information mitigating the degraded
                     experience of hyperlinks into HRS self-service that will not
                     actually work for the presumably former employee.
+                  In Payroll Information, the "View W-2 Forms" button will link
+                    to a KB article rather than into HRS self-service.
               -->
             <value>ROLE_VIEW_ABSENCE_HISTORIES</value>
                 <!-- effects
