@@ -8,6 +8,14 @@ The v10 major version was occasioned by the breaking change of no longer offerin
 
 (Date)
 
++ In Payroll Information,
+  for users without the HRS role `UW_EMPLOYEE_ACTIVE`,
+  replaces the "View W-2 forms" button
+  with a button that links to [KB article](https://kb.wisc.edu/helpdesk/page.php?id=90392)
+  explaining how to request documents.
+  Users without the `UW_EMPLOYEE_ACTIVE` role
+  cannot use the regular version of that button
+  because such users lack access to HRS employee self-service.
 + Links to the Preferred Name portlet for preferred name editing, rather than duplicating that UI inline in Personal Information.
 + Copy edit for active voice and brevity:
   uses "Update your preferred name in HRS using the 'Update My Personal Information' link below."
