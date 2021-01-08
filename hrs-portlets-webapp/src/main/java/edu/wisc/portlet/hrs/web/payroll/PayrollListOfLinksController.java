@@ -65,10 +65,23 @@ public class PayrollListOfLinksController
     Link withholdingsLink = withholdingsLink();
 
     final List<Link> linkList = new ArrayList<Link>();
-    linkList.add(earningsStatementsLink);
-    linkList.add(directDepositLink);
-    linkList.add(taxStatementsLink);
-    linkList.add(withholdingsLink);
+
+    if (null != earningsStatementsLink) {
+      linkList.add(earningsStatementsLink);
+    }
+
+    if (null != directDepositLink) {
+      linkList.add(directDepositLink);
+    }
+
+    if (null != taxStatementsLink) {
+      linkList.add(taxStatementsLink);
+    }
+
+    if (null != withholdingsLink) {
+      linkList.add(withholdingsLink);
+    }
+
 
     final Map<String, Object[]> content = new HashMap<String, Object[]>();
     content.put("links", linkList.toArray());
