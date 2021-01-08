@@ -105,9 +105,25 @@ public class PayrollListOfLinksController
 
   private Link earningsStatementsLink(String fname) {
 
+    final String emplId = PrimaryAttributeUtils.getPrimaryId();
+    Set<String> roles = this.hrsRolesDao.getHrsRoles(emplId);
+
+    // if the employee is not UW_EMPLOYEE_ACTIVE,
+    // drop the direct deposit link
+    if (! roles.contains("ROLE_UW_EMPLOYEE_ACTIVE")) {
+      return null;
+    }
+
     Link earningsStatementsLink = new Link();
     earningsStatementsLink.setTitle("Earnings Statements");
-    earningsStatementsLink.setHref("/web/exclusive/" + fname);
+
+    if (roles.contains("ROLE_UW_EMPLOYEE_ACTIVE")) {
+      earningsStatementsLink.setHref("/web/exclusive/" + fname);
+    } else {
+      earningsStatementsLink.setHref("https://kb.wisc.edu/helpdesk/6856");
+      earningsStatementsLink.setTarget("_blank");
+    }
+
     earningsStatementsLink.setIcon("attach_money");
 
     return earningsStatementsLink;
@@ -115,9 +131,19 @@ public class PayrollListOfLinksController
 
   private Link taxStatementsLink(String fname) {
 
+    final String emplId = PrimaryAttributeUtils.getPrimaryId();
+    Set<String> roles = this.hrsRolesDao.getHrsRoles(emplId);
+
     Link taxStatementsLink = new Link();
     taxStatementsLink.setTitle("Tax Statements");
-    taxStatementsLink.setHref("/portal/p/" + fname + "?pP_requestedContent=Tax%20Statements");
+
+    if (roles.contains("ROLE_UW_EMPLOYEE_ACTIVE")) {
+      taxStatementsLink.setHref("/portal/p/" + fname + "?pP_requestedContent=Tax%20Statements");
+    } else {
+      taxStatementsLink.setHref("https://kb.wisc.edu/helpdesk/6856");
+      taxStatementsLink.setTarget("_blank");
+    }
+
     taxStatementsLink.setIcon("toll");
 
     return taxStatementsLink;
