@@ -50,11 +50,11 @@ public class PayrollListOfLinksController
 
     String fname = fname(request);
 
-    Link earningsStatementsLink = earningsStatementsLink(request);
+    Link earningsStatementsLink = earningsStatementsLink(fname);
 
     Link directDepositLink = directDepositLink();
 
-    Link taxStatementsLink = taxStatementsLink(request);
+    Link taxStatementsLink = taxStatementsLink(fname);
 
     Link withholdingsLink = withholdingsLink();
 
@@ -103,9 +103,7 @@ public class PayrollListOfLinksController
   }
 
 
-  private Link earningsStatementsLink(PortletRequest request) {
-
-    String fname = fname(request);
+  private Link earningsStatementsLink(String fname) {
 
     Link earningsStatementsLink = new Link();
     earningsStatementsLink.setTitle("Earnings Statements");
@@ -115,9 +113,7 @@ public class PayrollListOfLinksController
     return earningsStatementsLink;
   }
 
-  private Link taxStatementsLink(PortletRequest request) {
-
-    String fname = fname(request);
+  private Link taxStatementsLink(String fname) {
 
     Link taxStatementsLink = new Link();
     taxStatementsLink.setTitle("Tax Statements");
