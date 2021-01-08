@@ -54,10 +54,7 @@ public class PayrollListOfLinksController
 
     Link directDepositLink = directDepositLink();
 
-    Link taxStatementsLink = new Link();
-    taxStatementsLink.setTitle("Tax Statements");
-    taxStatementsLink.setHref("/portal/p/" + fname + "?pP_requestedContent=Tax%20Statements");
-    taxStatementsLink.setIcon("toll");
+    Link taxStatementsLink = taxStatementsLink(request);
 
     Link withholdingsLink = withholdingsLink();
 
@@ -116,6 +113,18 @@ public class PayrollListOfLinksController
     earningsStatementsLink.setIcon("attach_money");
 
     return earningsStatementsLink;
+  }
+
+  private Link taxStatementsLink(PortletRequest request) {
+
+    String fname = fname(request);
+
+    Link taxStatementsLink = new Link();
+    taxStatementsLink.setTitle("Tax Statements");
+    taxStatementsLink.setHref("/portal/p/" + fname + "?pP_requestedContent=Tax%20Statements");
+    taxStatementsLink.setIcon("toll");
+
+    return taxStatementsLink;
   }
 
   /**
