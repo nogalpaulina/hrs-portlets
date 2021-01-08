@@ -113,9 +113,19 @@ public class PayrollListOfLinksController
    * honoring the self-service direct deposit role iff HRS has provided that HRS self-service URL,
    * otherwise using the static PDF URL.
    *
-   * @return Direct Deposit link appropriate for the viewing user
+   * @return Direct Deposit link appropriate for the viewing user, or null if no link
    */
   private Link directDepositLink() {
+
+    final String emplId = PrimaryAttributeUtils.getPrimaryId();
+    Set<String> roles = this.hrsRolesDao.getHrsRoles(emplId);
+
+    // if the employee is not UW_EMPLOYEE_ACTIVE,
+    // drop the direct deposit link
+    if (! roles.contains("ROLE_UW_EMPLOYEE_ACTIVE")) {
+      return null;
+    }
+
     Link directDepositLink = new Link();
     directDepositLink.setTitle("Update Direct Deposit");
     directDepositLink.setTarget("_blank");
@@ -124,8 +134,6 @@ public class PayrollListOfLinksController
     // and the self-service direct deposit URL is set
     // then use this HRS self-service URL, otherwise use the URL to the PDF
 
-    final String emplId = PrimaryAttributeUtils.getPrimaryId();
-    Set<String> roles = this.hrsRolesDao.getHrsRoles(emplId);
     Map<String, String> urls = this.getHrsUrls();
 
     if (roles.contains(ROLE_SELF_SERVICE_DIRECT_DEPOSIT) &&
@@ -142,9 +150,19 @@ public class PayrollListOfLinksController
   /**
    * Returns the applicable W4 link, which is the HRS "ESS W-4" URL unless that
    * URL is not configured, in which case falls back on hard-coded URL to PDF.
-   * @return best available W4 link
+   * @return best available W4 link, or null if no link
    */
   private Link withholdingsLink() {
+
+    final String emplId = PrimaryAttributeUtils.getPrimaryId();
+    Set<String> roles = this.hrsRolesDao.getHrsRoles(emplId);
+
+    // if the employee is not UW_EMPLOYEE_ACTIVE,
+    // drop the withholdings link
+    if (! roles.contains("ROLE_UW_EMPLOYEE_ACTIVE")) {
+      return null;
+    }
+
     Link withholdingsLink = new Link();
     withholdingsLink.setTitle("Update W4");
 
