@@ -50,10 +50,7 @@ public class PayrollListOfLinksController
 
     String fname = fname(request);
 
-    Link earningsStatementsLink = new Link();
-    earningsStatementsLink.setTitle("Earnings Statements");
-    earningsStatementsLink.setHref("/web/exclusive/" + fname);
-    earningsStatementsLink.setIcon("attach_money");
+    Link earningsStatementsLink = earningsStatementsLink(request);
 
     Link directDepositLink = directDepositLink();
 
@@ -106,6 +103,19 @@ public class PayrollListOfLinksController
       fname = SYSTEM_FNAME;
     }
     return fname;
+  }
+
+
+  private Link earningsStatementsLink(PortletRequest request) {
+
+    String fname = fname(request);
+
+    Link earningsStatementsLink = new Link();
+    earningsStatementsLink.setTitle("Earnings Statements");
+    earningsStatementsLink.setHref("/web/exclusive/" + fname);
+    earningsStatementsLink.setIcon("attach_money");
+
+    return earningsStatementsLink;
   }
 
   /**
