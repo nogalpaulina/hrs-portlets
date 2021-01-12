@@ -4,9 +4,15 @@
 
 The v10 major version was occasioned by the breaking change of no longer offering direct editing of preferred name in the Personal Information portlet, instead hyperlinking to the  Preferred Name portlet for this UI. This reduces the number of copies of that edit UI to maintain.
 
-### Next (presumably, 10.0.0)
+## HRS Portlets 9 series
 
-(Date)
+The v9 major version was occasioned by the breaking change of the
+new, required `fname` `portlet-preference` in Benefit Information Portlet.
+
+
+### 9.1.0
+
+2021-01-12
 
 + In Payroll Information,
   for users without the HRS role `UW_EMPLOYEE_ACTIVE`,
@@ -16,15 +22,11 @@ The v10 major version was occasioned by the breaking change of no longer offerin
   Users without the `UW_EMPLOYEE_ACTIVE` role
   cannot use the regular version of that button
   because such users lack access to HRS employee self-service.
-+ Links to the Preferred Name portlet for preferred name editing, rather than duplicating that UI inline in Personal Information.
++ Links to the Preferred Name portlet for preferred name editing,
+  rather than duplicating that UI inline in Personal Information.
 + Copy edit for active voice and brevity:
   uses "Update your preferred name in HRS using the 'Update My Personal Information' link below."
   instead of "Your preferred name in HRS will haver to be updated separately using the 'Update My Personal Information' link below."
-
-## HRS Portlets 9 series
-
-The v9 major version was occasioned by the breaking change of the
-new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
 ### 9.0.1
 
