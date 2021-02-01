@@ -1,9 +1,5 @@
 # MyUW hrs-portlets change log
 
-## HRS Portlets 10 series
-
-The v10 major version was occasioned by the breaking change of no longer offering direct editing of preferred name in the Personal Information portlet, instead hyperlinking to the  Preferred Name portlet for this UI. This reduces the number of copies of that edit UI to maintain.
-
 ## HRS Portlets 9 series
 
 The v9 major version was occasioned by the breaking change of the
