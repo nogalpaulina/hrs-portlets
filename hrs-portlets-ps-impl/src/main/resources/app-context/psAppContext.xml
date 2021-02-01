@@ -41,7 +41,6 @@
     <!-- maps an HRS side role name to a portlet side role name -->
     <util:map id="hrsRolesMapping">
 
-        <!-- map a role everyone has so there's always a positive test case -->
         <entry key="UW_EMPLOYEE_ACTIVE">
           <set>
             <value>ROLE_UW_EMPLOYEE_ACTIVE</value>
@@ -58,6 +57,10 @@
                     actually work for the presumably former employee.
                   In Payroll Information, the "View W-2 Forms" button will link
                     to a KB article rather than into HRS self-service.
+                  In the Payroll Information list-of-links widget,
+                    suppresses the direct deposit and withholdings links and
+                    changes the tax and earnings statements links to link to a
+                    KB article.
               -->
             <value>ROLE_VIEW_ABSENCE_HISTORIES</value>
                 <!-- effects

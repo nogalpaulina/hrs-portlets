@@ -50,25 +50,32 @@ public class PayrollListOfLinksController
 
     String fname = fname(request);
 
-    Link earningsStatementsLink = new Link();
-    earningsStatementsLink.setTitle("Earnings Statements");
-    earningsStatementsLink.setHref("/web/exclusive/" + fname);
-    earningsStatementsLink.setIcon("attach_money");
+    Link earningsStatementsLink = earningsStatementsLink(fname);
 
     Link directDepositLink = directDepositLink();
 
-    Link taxStatementsLink = new Link();
-    taxStatementsLink.setTitle("Tax Statements");
-    taxStatementsLink.setHref("/portal/p/" + fname + "?pP_requestedContent=Tax%20Statements");
-    taxStatementsLink.setIcon("toll");
+    Link taxStatementsLink = taxStatementsLink(fname);
 
     Link withholdingsLink = withholdingsLink();
 
     final List<Link> linkList = new ArrayList<Link>();
-    linkList.add(earningsStatementsLink);
-    linkList.add(directDepositLink);
-    linkList.add(taxStatementsLink);
-    linkList.add(withholdingsLink);
+
+    if (null != earningsStatementsLink) {
+      linkList.add(earningsStatementsLink);
+    }
+
+    if (null != directDepositLink) {
+      linkList.add(directDepositLink);
+    }
+
+    if (null != taxStatementsLink) {
+      linkList.add(taxStatementsLink);
+    }
+
+    if (null != withholdingsLink) {
+      linkList.add(withholdingsLink);
+    }
+
 
     final Map<String, Object[]> content = new HashMap<String, Object[]>();
     content.put("links", linkList.toArray());
@@ -95,14 +102,71 @@ public class PayrollListOfLinksController
     return fname;
   }
 
+
+  private Link earningsStatementsLink(String fname) {
+
+    final String emplId = PrimaryAttributeUtils.getPrimaryId();
+    Set<String> roles = this.hrsRolesDao.getHrsRoles(emplId);
+
+    // if the employee is not UW_EMPLOYEE_ACTIVE,
+    // drop the direct deposit link
+    if (! roles.contains("ROLE_UW_EMPLOYEE_ACTIVE")) {
+      return null;
+    }
+
+    Link earningsStatementsLink = new Link();
+    earningsStatementsLink.setTitle("Earnings Statements");
+
+    if (roles.contains("ROLE_UW_EMPLOYEE_ACTIVE")) {
+      earningsStatementsLink.setHref("/web/exclusive/" + fname);
+    } else {
+      earningsStatementsLink.setHref("https://kb.wisc.edu/helpdesk/6856");
+      earningsStatementsLink.setTarget("_blank");
+    }
+
+    earningsStatementsLink.setIcon("attach_money");
+
+    return earningsStatementsLink;
+  }
+
+  private Link taxStatementsLink(String fname) {
+
+    final String emplId = PrimaryAttributeUtils.getPrimaryId();
+    Set<String> roles = this.hrsRolesDao.getHrsRoles(emplId);
+
+    Link taxStatementsLink = new Link();
+    taxStatementsLink.setTitle("Tax Statements");
+
+    if (roles.contains("ROLE_UW_EMPLOYEE_ACTIVE")) {
+      taxStatementsLink.setHref("/portal/p/" + fname + "?pP_requestedContent=Tax%20Statements");
+    } else {
+      taxStatementsLink.setHref("https://kb.wisc.edu/helpdesk/6856");
+      taxStatementsLink.setTarget("_blank");
+    }
+
+    taxStatementsLink.setIcon("toll");
+
+    return taxStatementsLink;
+  }
+
   /**
    * Returns the correct Direct Deposit link for this user,
    * honoring the self-service direct deposit role iff HRS has provided that HRS self-service URL,
    * otherwise using the static PDF URL.
    *
-   * @return Direct Deposit link appropriate for the viewing user
+   * @return Direct Deposit link appropriate for the viewing user, or null if no link
    */
   private Link directDepositLink() {
+
+    final String emplId = PrimaryAttributeUtils.getPrimaryId();
+    Set<String> roles = this.hrsRolesDao.getHrsRoles(emplId);
+
+    // if the employee is not UW_EMPLOYEE_ACTIVE,
+    // drop the direct deposit link
+    if (! roles.contains("ROLE_UW_EMPLOYEE_ACTIVE")) {
+      return null;
+    }
+
     Link directDepositLink = new Link();
     directDepositLink.setTitle("Update Direct Deposit");
     directDepositLink.setTarget("_blank");
@@ -111,8 +175,6 @@ public class PayrollListOfLinksController
     // and the self-service direct deposit URL is set
     // then use this HRS self-service URL, otherwise use the URL to the PDF
 
-    final String emplId = PrimaryAttributeUtils.getPrimaryId();
-    Set<String> roles = this.hrsRolesDao.getHrsRoles(emplId);
     Map<String, String> urls = this.getHrsUrls();
 
     if (roles.contains(ROLE_SELF_SERVICE_DIRECT_DEPOSIT) &&
@@ -129,9 +191,19 @@ public class PayrollListOfLinksController
   /**
    * Returns the applicable W4 link, which is the HRS "ESS W-4" URL unless that
    * URL is not configured, in which case falls back on hard-coded URL to PDF.
-   * @return best available W4 link
+   * @return best available W4 link, or null if no link
    */
   private Link withholdingsLink() {
+
+    final String emplId = PrimaryAttributeUtils.getPrimaryId();
+    Set<String> roles = this.hrsRolesDao.getHrsRoles(emplId);
+
+    // if the employee is not UW_EMPLOYEE_ACTIVE,
+    // drop the withholdings link
+    if (! roles.contains("ROLE_UW_EMPLOYEE_ACTIVE")) {
+      return null;
+    }
+
     Link withholdingsLink = new Link();
     withholdingsLink.setTitle("Update W4");
 

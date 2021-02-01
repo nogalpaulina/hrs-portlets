@@ -1,17 +1,17 @@
 # MyUW hrs-portlets change log
 
-## HRS Portlets 10 series
-
-The v10 major version was occasioned by the breaking change of no longer offering direct editing of preferred name in the Personal Information portlet, instead hyperlinking to the  Preferred Name portlet for this UI. This reduces the number of copies of that edit UI to maintain.
-
 ## HRS Portlets 9 series
 
 The v9 major version was occasioned by the breaking change of the
 new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
-### Next (9.1.1?)
+### Next
 
-(No changes yet.)
++ In Payroll Information list-of-links widget,
+  for users without the HRS role `UW_EMPLOYEE_ACTIVE`,
+  omits the direct deposit and withholdings links and
+  changes the earnings statements and tax statements links
+  to link to a KB article rather than into the Portlet or into HRS self-service.
 
 ### 9.1.0
 
