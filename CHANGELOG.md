@@ -7,6 +7,12 @@ new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
 ### Next
 
+(No changes yet)
+
+### 9.1.1
+
+2021-02-01
+
 + In Payroll Information list-of-links widget,
   for users without the HRS role `UW_EMPLOYEE_ACTIVE`,
   omits the direct deposit and withholdings links and
