@@ -108,12 +108,6 @@ public class PayrollListOfLinksController
     final String emplId = PrimaryAttributeUtils.getPrimaryId();
     Set<String> roles = this.hrsRolesDao.getHrsRoles(emplId);
 
-    // if the employee is not UW_EMPLOYEE_ACTIVE,
-    // drop the direct deposit link
-    if (! roles.contains("ROLE_UW_EMPLOYEE_ACTIVE")) {
-      return null;
-    }
-
     Link earningsStatementsLink = new Link();
     earningsStatementsLink.setTitle("Earnings Statements");
 

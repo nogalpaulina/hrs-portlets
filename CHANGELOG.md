@@ -7,7 +7,16 @@ new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
 ### Next
 
-(No changes yet)
+(No changes yet.)
+
+### 9.1.2
+
+2021-02-15
+
++ fix: in Payroll Information list-of-links widget,
+  for users without the `UW_EMPLOYEE_ACTIVE` HRS role,
+  include the earnings statements link as a link to KB doc
+  instead of omitting the link entirely.
 
 ### 9.1.1
 
