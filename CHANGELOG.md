@@ -11,7 +11,7 @@ new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
 ### 9.1.2
 
-2021-02-15
+2021-02-16
 
 + fix: in Payroll Information list-of-links widget,
   for users without the `UW_EMPLOYEE_ACTIVE` HRS role,
