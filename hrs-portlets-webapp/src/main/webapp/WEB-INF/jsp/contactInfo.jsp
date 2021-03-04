@@ -176,8 +176,10 @@
             </strong>
             <p style="padding-left: 2cm;">
               <strong>
-                Addresses (Home &amp; Mail); Contact Details (Phone &amp; Email);
-                Preferred Name; Emergency Contacts; Release Home Information;
+                <sec:authorize ifAllGranted="ROLE_VIEW_DIRECT_DEPOSIT">
+                  Addresses (Home &amp; Mail); Contact Details (Phone &amp; Email);</sec:authorize>
+                Preferred Name; Emergency Contacts;
+                <sec:authorize ifAllGranted="ROLE_VIEW_DIRECT_DEPOSIT">Release Home Information;</sec:authorize>
                 Marital Status; Coordination of Benefits; Medicare Information;
                 Ethnic Groups; Veteran Status; Disability.
               </strong>
@@ -185,20 +187,21 @@
           </p>
           <p>
             <strong>
-              <spring:message code="updateBusinessOfficeAddressInstructionsPart1"
-                text="To update your Business/Office Address, please contact"/>
+              To update your Business/Office Address,
+              <sec:authorize ifNotGranted="ROLE_VIEW_DIRECT_DEPOSIT">
+                Addresses (Home &amp; Mail), Contact Details (Phone &amp; Email), and Release Home Information,
+              </sec:authorize>
+              please contact
               <c:choose>
                 <c:when test="${not empty humanResourceOfficeContactUrl}">
                   <a href="${humanResourceOfficeContactUrl}"
                    target="_blank"
                    rel="noopener noreferer">
-                    <spring:message code="updateBusinessOfficeAddressInstructionsPart2"
-                     text="your human resources office"/>
+                    your human resources office
                   </a>.
                 </c:when>
                 <c:otherwise>
-                  <spring:message code="updateBusinessOfficeAddressInstructionsPart2"
-                   text="your human resources office"/>.
+                  your human resources office
                 </c:otherwise>
               </c:choose>
             </strong>
