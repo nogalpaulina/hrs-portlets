@@ -5,9 +5,15 @@
 The v9 major version was occasioned by the breaking change of the
 new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
-### Next
+### 9.2.0
 
-(No changes yet.)
++ In Personal Information,
+  employees lacking the HRS role `UW_DYN_PY_DIRDEP_SS`
+  see descriptive text accurately reflecting
+  the smaller set of things they can adjust on a self-service basis
+  and the larger set of things they will need to contact their HR office to update.
+  (By policy, users lacking multifactor authentication are ineligible for self-service contact updating).
+
 
 ### 9.1.2
 
