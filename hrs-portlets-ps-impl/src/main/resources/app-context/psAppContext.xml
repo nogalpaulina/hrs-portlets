@@ -161,6 +161,17 @@
                   to the URL providing by the HRS URLs service for linking into
                   self-service Direct Deposit editing, rather than linking to
                   the static PDF form.
+                In Contact Information
+                  Changes the text describing what the employee can update in
+                  HRS on a self-service basis and what the employee would need
+                  to contact their local HR office to update. Employees with
+                  ROLE_VIEW_DIRECT_DEPOSIT are using Multi-Factor Authentication
+                  and so by policy are allowed to update their contact
+                  information on a self-service basis. Employees without
+                  ROLE_VIEW_DIRECT_DEPOSIT are not using MFA and so by policy
+                  are not allowed to update thier contact information on a
+                  self-service basis. The descriptive text changes either way to
+                  reflect.
               -->
           </set>
         </entry>
