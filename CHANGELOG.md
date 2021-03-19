@@ -7,13 +7,18 @@ new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
 ### 9.2.0
 
+2021-03-19
+
 + In Personal Information,
   employees lacking the HRS role `UW_DYN_PY_DIRDEP_SS`
   see descriptive text accurately reflecting
   the smaller set of things they can adjust on a self-service basis
   and the larger set of things they will need to contact their HR office to update.
   (By policy, users lacking multifactor authentication are ineligible for self-service contact updating).
-
+  Employees with the role will continue to
+  see descriptive text accurately reflecting
+  the larger set of things they can adjust on a self-service basis
+  and the smaller set of things they will need to contact their HR office to update.
 
 ### 9.1.2
 
