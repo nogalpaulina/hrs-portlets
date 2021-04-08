@@ -9,6 +9,11 @@ new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
 Putatively 9.2.1, thefore currently building 9.2.1-SNAPSHOT.
 
++ In Benefit Information,
+  now supports portlet request parameter `requestedContent`,
+  as in Payroll Information. Values "ETF WRS Statements of Benefits" and
+  "Benefit Enrollment Confirmation Statements" select the tabs of those names.
+
 ### 9.2.0
 
 2021-03-19
