@@ -62,13 +62,43 @@
 
   <div id="${n}dl-tabs" class="dl-tabs ui-tabs ui-widget ui-widget-content ui-corner-all inner-nav-container">
     <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all inner-nav">
-      <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#${n}dl-benefits">Summary</a></li>
 
-      <li class="ui-state-default ui-corner-top"><a href="#${n}dl-benefit_enrollment_confirmation_statements">Benefit Enrollment Confirmation Statements</a></li>
+    <%--
+      set initial tab selection based on optional portlet request param
+    --%>
+    <c:choose>
+      <c:when test="${requestedContent eq 'ETF WRS Statements of Benefits'}">
+        <%-- Reflect deep link to ETF WRS SoB tab --%>
+        <li class="ui-state-default ui-corner-top"><a href="#${n}dl-benefits">Summary</a></li>
 
-      <li class="ui-state-default ui-corner-top"><a href="#${n}dl-etf_wrs_statements_of_benefits">ETF WRS Statements of Benefits</a></li>
+        <li class="ui-state-default ui-corner-top"><a href="#${n}dl-benefit_enrollment_confirmation_statements">Benefit Enrollment Confirmation Statements</a></li>
 
-      <li class="ui-state-default ui-corner-top"><a href="#${n}dl-dependents">Dependents</a></li>
+        <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#${n}dl-etf_wrs_statements_of_benefits">ETF WRS Statements of Benefits</a></li>
+
+        <li class="ui-state-default ui-corner-top"><a href="#${n}dl-dependents">Dependents</a></li>
+      </c:when>
+      <c:when test="${requestedContent eq 'Benefit Enrollment Confirmation Statements'}">
+        <%-- Reflect deep link to Benefit Enrollment Confirmation Statements tab --%>
+        <li class="ui-state-default ui-corner-top"><a href="#${n}dl-benefits">Summary</a></li>
+
+        <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#${n}dl-benefit_enrollment_confirmation_statements">Benefit Enrollment Confirmation Statements</a></li>
+
+        <li class="ui-state-default ui-corner-top"><a href="#${n}dl-etf_wrs_statements_of_benefits">ETF WRS Statements of Benefits</a></li>
+
+        <li class="ui-state-default ui-corner-top"><a href="#${n}dl-dependents">Dependents</a></li>
+      </c:when>
+      <c:otherwise>
+        <%-- default to Summary as default tab. --%>
+        <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#${n}dl-benefits">Summary</a></li>
+
+        <li class="ui-state-default ui-corner-top"><a href="#${n}dl-benefit_enrollment_confirmation_statements">Benefit Enrollment Confirmation Statements</a></li>
+
+        <li class="ui-state-default ui-corner-top"><a href="#${n}dl-etf_wrs_statements_of_benefits">ETF WRS Statements of Benefits</a></li>
+
+        <li class="ui-state-default ui-corner-top"><a href="#${n}dl-dependents">Dependents</a></li>
+      </c:otherwise>
+    </c:choose>
+
     </ul>
     <div id="${n}dl-benefits" class="dl-benefits ui-tabs-panel ui-widget-content ui-corner-bottom">
       <div class="coverage-header">

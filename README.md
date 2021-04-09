@@ -264,15 +264,20 @@ peppering implementation details of HRS deep links into content.
 
 ## Deep linking to content within Portlets
 
-The `Payroll Information` portlet supports an optional `requestedContent`
+The `Benefit Information` portlet supports an optional `requestedContent`
 *Portlet* request parameter (so, in practice, `pP_requestedContent` as uPortal
 *HTTP* request parameter) specifying which content within the portlet (tab) to
-initially select. The parameter value `Tax Statements` selects, well, tax
-statements. Omitting it or any other value accepts the default behavior of
-initially selecting the "Earnings Statements" tab.
+initially select. The parameter values `ETF WRS Statements of Benefits` and
+`Benefit Enrollment Confirmation Statements` select the corresponding tab.
+Omitting the parameter or setting it to any other value accepts the default
+behavior of initially selecting the "Summary" tab.
 
-If this goes well it will be feasible to extend this feature to other HRS
-Portlets as the need arises.
+The `Payroll Information` portlet supports that same optional parameter.
+In Payroll Information, the parameter value `Tax Statements` selects the tax
+statements tab. Omitting the paramter or setting it to any other value accepts
+the default behavior of initially selecting the "Earnings Statements" tab.
+
+It is feasible to extend this feature to other HRS Portlets as the need arises.
 
 ## Local Setup Instructions
 
