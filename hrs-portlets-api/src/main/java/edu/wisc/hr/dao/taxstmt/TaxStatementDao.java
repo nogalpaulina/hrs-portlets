@@ -21,7 +21,7 @@ package edu.wisc.hr.dao.taxstmt;
 
 import org.jasig.springframework.web.client.ExtendedRestOperations.ProxyResponse;
 
-import edu.wisc.hr.dm.taxstmt.TaxStatements;
+import edu.wisc.hr.service.taxstmt.TaxStatements;
 
 /**
  * @author Eric Dalquist

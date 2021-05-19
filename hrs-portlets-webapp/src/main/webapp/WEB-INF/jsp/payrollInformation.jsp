@@ -276,29 +276,12 @@
     <div id="${n}dl-tax-statements" class="dl-tax-statements ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
 
       <div class="dl-payroll-links">
-        <sec:authorize ifAnyGranted="ROLE_UW_EMPLOYEE_ACTIVE">
-          <c:if test="${not empty hrsUrls['View W-2']}">
-            <a class="btn btn-primary"
-              href="${hrsUrls['View W-2']}"
-              target="_blank" rel="noopener noreferrer">View W-2 forms</a>
-          </c:if>
-        </sec:authorize>
-        <sec:authorize ifNotGranted="ROLE_UW_EMPLOYEE_ACTIVE">
-          <a class="btn btn-primary"
-              href="https://kb.wisc.edu/helpdesk/page.php?id=90392"
-              target="_blank" rel="noopener noreferrer">View W-2 forms</a>
-        </sec:authorize>
 
         <c:if test="${not empty hrsUrls['W-2 Consent']}">
           <a class="btn btn-default"
             href="${hrsUrls['W-2 Consent']}"
             target="_blank" rel="noopener noreferrer">
             Consent to receive W-2 electronically</a>
-        </c:if>
-        <c:if test="${not empty hrsUrls['View 1095-C']}">
-          <a class="btn btn-primary"
-            href="${hrsUrls['View 1095-C']}"
-            target="_blank" rel="noopener noreferrer">View 1095-C forms</a>
         </c:if>
         <c:if test="${not empty hrsUrls['1095-C Consent']}">
           <a class="btn btn-default"
@@ -308,34 +291,62 @@
         </c:if>
       </div>
 
-      <div>
-        <form action="#">
-          <label for="${n}dl-show-old-tax-statements-toggle">
-            Show 2017 and earlier tax statements</label>
-          <input type="checkbox"
-            id="${n}dl-show-old-tax-statements-toggle"
-            name="dl-show-old-tax-statements-toggle" />
-        </form>
-      </div>
 
-      <div id="${n}old-tax-statements" class="fl-pager old-tax-statements" style="display:none">
+
+      <div id="${n}old-tax-statements" class="fl-pager old-tax-statements">
         <div class="fl-container-flex dl-pager-table-data fl-pager-data table-responsive">
           <table class="dl-table table" tabindex="0" aria-label="Tax Statement table">
             <thead>
-              <tr rsf:id="header:">
-                <th scope="col" class="flc-pager-sort-header dl-col-5p" rsf:id="year"><a href="javascript:;">Year</a></th>
-                <th scope="col" class="flc-pager-sort-header" rsf:id="name"><a href="javascript:;">Statement</a></th>
+              <tr>
+                <th scope="col" class="flc-pager-sort-header dl-col-5p">Year</th>
+                <th scope="col" class="flc-pager-sort-header">Statement</th>
               </tr>
             </thead>
             <tbody>
-              <tr rsf:id="row:" class="dl-clickable">
-                <td headers="year" class="hrs-data-text dl-col-5p"><a href="#" target="_blank" rsf:id="year"></a></td>
-                <td headers="name" class="dl-data-text"><a href="#" target="_blank" rsf:id="name"></a></td>
+              <tr class="dl-clickable">
+                <td class="hrs-data-text dl-col-5p">2018 and later</td>
+
+                <sec:authorize ifAnyGranted="ROLE_UW_EMPLOYEE_ACTIVE">
+                  <c:if test="${not empty hrsUrls['View W-2']}">
+                    <td class="dl-data-text"><a href="${hrsUrls['View W-2']}" target="_blank">W-2 forms</a></td>
+                  </c:if>
+                  <c:if test="${empty hrsUrls['View W-2']}">
+                    <td class="dl-data-text">Error: HRS URL `View W-2` not defined.</td>
+                  </c:if>
+                </sec:authorize>
+                <sec:authorize ifNotGranted="ROLE_UW_EMPLOYEE_ACTIVE">
+                  <td class="dl-data-text"><a href="https://kb.wisc.edu/helpdesk/page.php?id=90392" target="_blank">W-2 forms</a></td>
+                </sec:authorize>
               </tr>
+
+              <tr class="dl-clickable">
+                <sec:authorize ifAnyGranted="ROLE_UW_EMPLOYEE_ACTIVE">
+                  <c:if test="${not empty hrsUrls['View 1095-C']}">
+                    <td class="hrs-data-text dl-col-5p"><a href="${hrsUrls['View 1095-C']}" target="_blank">2018 and later</a></td>
+                    <td class="dl-data-text"><a href="${hrsUrls['View 1095-C']}" target="_blank">1095-C forms</a></td>
+                  </c:if>
+                  <c:if test="${empty hrsUrls['View 1095-C']}">
+                    <td class="hrs-data-text dl-col-5p">2018 and later</td>
+                    <td class="dl-data-text">Error: HRS URL `View 1095-C` not defined.</td>
+                  </c:if>
+                </sec:authorize>
+                <sec:authorize ifNotGranted="ROLE_UW_EMPLOYEE_ACTIVE">
+                  <td class="hrs-data-text dl-col-5p"><a href="https://kb.wisc.edu/helpdesk/page.php?id=90392" target="_blank">2018 and later</a></td>
+                  <td class="dl-data-text"><a href="https://kb.wisc.edu/helpdesk/page.php?id=90392" target="_blank">1095-C forms</a></td>
+                </sec:authorize>
+              </tr>
+
+              <c:forEach var="taxStatement" items="${taxStatements}">
+              <tr class="dl-clickable">
+                <td class="hrs-data-text dl-col-5p"><a href="${taxStatement.url}" target="_blank">${taxStatement.year}</a></td>
+                <td class="dl-data-text"><a href="${taxStatement.url}" target="_blank">${taxStatement.name}</a></td>
+              </c:forEach>
+
+
+
             </tbody>
           </table>
         </div>
-        <hrs:pagerNavBar position="bottom" />
       </div>
 
       <div class="dl-link">
@@ -393,13 +404,6 @@
   <%@ include file="/WEB-INF/jsp/footer.jsp"%>
 
 </div>
-
-
-
-<portlet:resourceURL var="taxStatementsUrl" id="taxStatements" escapeXml="false"/>
-<portlet:resourceURL var="irsStatementPdfUrl" id="irs_statement.pdf" escapeXml="false">
-  <portlet:param name="docId" value="TMPLT_*.docId_TMPLT"/>
-</portlet:resourceURL>
 
 
 <script type="text/javascript" language="javascript">
@@ -485,47 +489,6 @@
           updateShowAllEarningsStatements(showAllEarningsStatementsToggle);
         });
       </c:if>
-
-      var updateShowOldTaxStatements = function(checkbox) {
-        var checked = checkbox.is(':checked');
-
-        var oldTaxStatements = $("#${n}old-tax-statements");
-
-        if (checked) {
-          oldTaxStatements.show();
-        } else {
-          oldTaxStatements.hide();
-        }
-      }
-
-      var showOldTaxStatementsToggle = $("#${n}dl-show-old-tax-statements-toggle");
-
-      showOldTaxStatementsToggle.change(function() {
-        updateShowOldTaxStatements(showOldTaxStatementsToggle);
-      });
-
-      var taxStatementUrl = dl.util.templateUrl("${irsStatementPdfUrl}");
-      dl.pager.init("#${n}dl-tax-statements", {
-        model: {
-          sortKey: "year",
-          sortDir: -1
-        },
-        summary: {
-          type: "fluid.pager.summary",
-          options: {
-            message: "%first-%last of %total statements"
-          }
-        },
-        columnDefs: [
-          dl.pager.linkColDef("year", taxStatementUrl, {sortable: true}),
-          dl.pager.linkColDef("name", taxStatementUrl, {sortable: false})
-        ],
-        dataList: {
-          url: "${taxStatementsUrl}",
-          dataKey: "report",
-          dataLoadErrorMsg: "${genericErrorMessage}"
-        }
-      });
 
       dl.tabs("#${n}dl-tabs");
 

@@ -7,8 +7,10 @@ new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
 ## Next
 
-Putatively 9.2.1, thefore currently building 9.2.1-SNAPSHOT.
+Putatively 9.3.0, therefore currently building 9.3.0-SNAPSHOT.
 
++ In Payroll Information, tax statements tab now shows all tax statements,
+  prepending rows linking into HRS self-service for 2018-and-later statements.
 + In Benefit Information,
   now supports portlet request parameter `requestedContent`,
   as in Payroll Information. Values "ETF WRS Statements of Benefits" and

@@ -21,8 +21,12 @@ package edu.wisc.cypress.dao.taxstmt;
 
 
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
+import edu.wisc.hr.dm.statement.NameYearUrl;
+import edu.wisc.hr.service.taxstmt.TaxStatementService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,13 +48,16 @@ import edu.wisc.hr.dm.taxstmt.TaxStatements;
  * @author Eric Dalquist
  */
 @Repository("restTaxStatementDao")
-public class RestTaxStatementDao implements TaxStatementDao {
+public class RestTaxStatementDao implements TaxStatementDao, TaxStatementService {
     protected final Logger logger = LoggerFactory.getLogger(getClass());
-    
+
     private ExtendedRestOperations restOperations;
     private String statementsUrl;
     private String statementUrl;
-    
+
+    private TaxStatementToNameYearUrlConverter taxStatementToNameYearUrlConverter =
+      new TaxStatementToNameYearUrlConverter();
+
     @Autowired
     public void setRestTemplate(ExtendedRestOperations restOperations) {
         this.restOperations = restOperations;
@@ -62,7 +69,7 @@ public class RestTaxStatementDao implements TaxStatementDao {
     public void setStatementUrl(String statementUrl) {
         this.statementUrl = statementUrl;
     }
-    
+
     @Cacheable(cacheName="taxStatement", exceptionCacheName="cypressUnknownExceptionCache")
     @Override
     public TaxStatements getTaxStatements(String emplid) {
@@ -71,31 +78,51 @@ public class RestTaxStatementDao implements TaxStatementDao {
         final XmlTaxStatements xmlTaxStatements = this.restOperations.getForObject(this.statementsUrl, XmlTaxStatements.class, httpHeaders, emplid);
         return mapTaxStatements(xmlTaxStatements);
     }
-    
+
     @Override
     public void getTaxStatement(String emplid, String docId, ProxyResponse proxyResponse) {
         final HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("HRID", emplid);
         this.restOperations.proxyRequest(proxyResponse, this.statementUrl, HttpMethod.GET, httpHeaders, docId);
     }
-    
+
     protected TaxStatements mapTaxStatements(XmlTaxStatements xmlTaxStatements) {
         final List<XmlTaxStatement> xmlTaxStatementList = xmlTaxStatements.getTaxStatements();
-        
+
         final TaxStatements earningStatements = new TaxStatements();
         final List<TaxStatement> taxStatementsList = earningStatements.getTaxStatements();
-        
+
         for (final XmlTaxStatement input : xmlTaxStatementList) {
             final TaxStatement taxStatement = new TaxStatement();
-            
+
             taxStatement.setDocId(input.getDocId());
             taxStatement.setFullTitle(input.getFullTitle());
             taxStatement.setName(input.getName());
             taxStatement.setYear(input.getYear());
-            
+
             taxStatementsList.add(taxStatement);
         }
 
         return earningStatements;
     }
+
+  @Override
+  public List<NameYearUrl> statementsForEmplid(String emplid) {
+      TaxStatements taxStatements = getTaxStatements(emplid);
+      final List<TaxStatement> taxStatementsList = taxStatements.getTaxStatements();
+
+      List<NameYearUrl> simpleStatementsList = new ArrayList<NameYearUrl>();
+
+      for (TaxStatement taxStatement : taxStatementsList) {
+        NameYearUrl simpleStatement = this.taxStatementToNameYearUrlConverter.convertToNameYearUrl(taxStatement);
+        simpleStatementsList.add(simpleStatement);
+      }
+
+
+      Collections.sort(simpleStatementsList); // sort to chronological order
+      Collections.reverse(simpleStatementsList); // except we want reverse chronological order
+
+    return simpleStatementsList;
+  }
+
 }
