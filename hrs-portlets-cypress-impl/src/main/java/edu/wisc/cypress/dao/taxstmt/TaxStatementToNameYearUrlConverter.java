@@ -1,7 +1,7 @@
 package edu.wisc.cypress.dao.taxstmt;
 
 import edu.wisc.hr.dm.statement.NameYearUrl;
-import edu.wisc.hr.service.taxstmt.TaxStatement;
+import edu.wisc.hr.dm.taxstmt.TaxStatement;
 
 /**
  * Converts from Cypress TaxStatement to NameYearUrl
