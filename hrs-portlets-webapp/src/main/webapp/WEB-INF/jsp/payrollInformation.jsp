@@ -304,17 +304,20 @@
             </thead>
             <tbody>
               <tr class="dl-clickable">
-                <td class="hrs-data-text dl-col-5p">2018 and later</td>
+
 
                 <sec:authorize ifAnyGranted="ROLE_UW_EMPLOYEE_ACTIVE">
                   <c:if test="${not empty hrsUrls['View W-2']}">
+                    <td class="hrs-data-text dl-col-5p"><a href="${hrsUrls['View W-2']}" target="_blank">2018 and later</a></td>
                     <td class="dl-data-text"><a href="${hrsUrls['View W-2']}" target="_blank">W-2 forms</a></td>
                   </c:if>
                   <c:if test="${empty hrsUrls['View W-2']}">
+                    <td class="hrs-data-text dl-col-5p">2018 and later</td>
                     <td class="dl-data-text">Error: HRS URL `View W-2` not defined.</td>
                   </c:if>
                 </sec:authorize>
                 <sec:authorize ifNotGranted="ROLE_UW_EMPLOYEE_ACTIVE">
+                  <td class="hrs-data-text dl-col-5p"><a href="https://kb.wisc.edu/helpdesk/page.php?id=90392" target="_blank">2018 and later</a></td>
                   <td class="dl-data-text"><a href="https://kb.wisc.edu/helpdesk/page.php?id=90392" target="_blank">W-2 forms</a></td>
                 </sec:authorize>
               </tr>
