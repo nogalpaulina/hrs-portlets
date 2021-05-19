@@ -298,7 +298,7 @@
           <table class="dl-table table" tabindex="0" aria-label="Tax Statement table">
             <thead>
               <tr>
-                <th scope="col" class="flc-pager-sort-header dl-col-5p">Year</th>
+                <th scope="col" class="flc-pager-sort-header dl-col-25p">Year</th>
                 <th scope="col" class="flc-pager-sort-header">Statement</th>
               </tr>
             </thead>
@@ -308,16 +308,16 @@
 
                 <sec:authorize ifAnyGranted="ROLE_UW_EMPLOYEE_ACTIVE">
                   <c:if test="${not empty hrsUrls['View W-2']}">
-                    <td class="hrs-data-text dl-col-5p"><a href="${hrsUrls['View W-2']}" target="_blank">2018 and later</a></td>
+                    <td class="hrs-data-text"><a href="${hrsUrls['View W-2']}" target="_blank">2018 and later</a></td>
                     <td class="dl-data-text"><a href="${hrsUrls['View W-2']}" target="_blank">W-2 forms</a></td>
                   </c:if>
                   <c:if test="${empty hrsUrls['View W-2']}">
-                    <td class="hrs-data-text dl-col-5p">2018 and later</td>
+                    <td class="hrs-data-text">2018 and later</td>
                     <td class="dl-data-text">Error: HRS URL `View W-2` not defined.</td>
                   </c:if>
                 </sec:authorize>
                 <sec:authorize ifNotGranted="ROLE_UW_EMPLOYEE_ACTIVE">
-                  <td class="hrs-data-text dl-col-5p"><a href="https://kb.wisc.edu/helpdesk/page.php?id=90392" target="_blank">2018 and later</a></td>
+                  <td class="hrs-data-text"><a href="https://kb.wisc.edu/helpdesk/page.php?id=90392" target="_blank">2018 and later</a></td>
                   <td class="dl-data-text"><a href="https://kb.wisc.edu/helpdesk/page.php?id=90392" target="_blank">W-2 forms</a></td>
                 </sec:authorize>
               </tr>
@@ -325,23 +325,23 @@
               <tr class="dl-clickable">
                 <sec:authorize ifAnyGranted="ROLE_UW_EMPLOYEE_ACTIVE">
                   <c:if test="${not empty hrsUrls['View 1095-C']}">
-                    <td class="hrs-data-text dl-col-5p"><a href="${hrsUrls['View 1095-C']}" target="_blank">2018 and later</a></td>
+                    <td class="hrs-data-text"><a href="${hrsUrls['View 1095-C']}" target="_blank">2018 and later</a></td>
                     <td class="dl-data-text"><a href="${hrsUrls['View 1095-C']}" target="_blank">1095-C forms</a></td>
                   </c:if>
                   <c:if test="${empty hrsUrls['View 1095-C']}">
-                    <td class="hrs-data-text dl-col-5p">2018 and later</td>
+                    <td class="hrs-data-text">2018 and later</td>
                     <td class="dl-data-text">Error: HRS URL `View 1095-C` not defined.</td>
                   </c:if>
                 </sec:authorize>
                 <sec:authorize ifNotGranted="ROLE_UW_EMPLOYEE_ACTIVE">
-                  <td class="hrs-data-text dl-col-5p"><a href="https://kb.wisc.edu/helpdesk/page.php?id=90392" target="_blank">2018 and later</a></td>
+                  <td class="hrs-data-text"><a href="https://kb.wisc.edu/helpdesk/page.php?id=90392" target="_blank">2018 and later</a></td>
                   <td class="dl-data-text"><a href="https://kb.wisc.edu/helpdesk/page.php?id=90392" target="_blank">1095-C forms</a></td>
                 </sec:authorize>
               </tr>
 
               <c:forEach var="taxStatement" items="${taxStatements}">
               <tr class="dl-clickable">
-                <td class="hrs-data-text dl-col-5p"><a href="${taxStatement.url}" target="_blank">${taxStatement.year}</a></td>
+                <td class="hrs-data-text"><a href="${taxStatement.url}" target="_blank">${taxStatement.year}</a></td>
                 <td class="dl-data-text"><a href="${taxStatement.url}" target="_blank">${taxStatement.name}</a></td>
               </c:forEach>
 
