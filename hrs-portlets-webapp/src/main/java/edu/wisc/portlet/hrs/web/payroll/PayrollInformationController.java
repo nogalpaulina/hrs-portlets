@@ -27,6 +27,7 @@ import java.util.List;
 import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
 
+import edu.wisc.hr.service.taxstmt.TaxStatementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -48,6 +49,7 @@ import edu.wisc.portlet.hrs.web.HrsControllerBase;
 public class PayrollInformationController extends HrsControllerBase {
     private ContactInfoDao contactInfoDao;
     private EarningsStatementService earningsStatementService;
+    private TaxStatementService taxStatementService;
 
     @Autowired
     public void setContactInfoDao(ContactInfoDao contactInfoDao) {
@@ -58,7 +60,12 @@ public class PayrollInformationController extends HrsControllerBase {
     public void setEarningsStatementService(EarningsStatementService service) {
         this.earningsStatementService = service;
     }
-    
+
+    @Autowired
+    public void setTaxStatementService(TaxStatementService service) {
+      this.taxStatementService = service;
+    }
+
     /**
      * Gets the URL to a page describing your earnings statement
      * @param request the request
@@ -88,7 +95,10 @@ public class PayrollInformationController extends HrsControllerBase {
 
         model.addAttribute("earningsStatements", statements.getStatements());
         model.addAttribute("earningsStatementsError", statements.isErrored());
-        
+
+        model.addAttribute("taxStatements",
+          taxStatementService.statementsForEmplid(emplId));
+
         return "payrollInformation";
     }
 }

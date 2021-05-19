@@ -1,9 +1,12 @@
 package edu.wisc.hr.dm.statement;
 
+import org.apache.commons.lang.builder.CompareToBuilder;
+
 /**
  * Simple JavaBean. It's got a String name, an int year, and a String URL.
  */
-public class NameYearUrl {
+public class NameYearUrl
+  implements Comparable<NameYearUrl> {
 
   private String name;
   private int year;
@@ -34,4 +37,8 @@ public class NameYearUrl {
   }
 
 
+  @Override
+  public int compareTo(NameYearUrl o) {
+    return new CompareToBuilder().append(this.year, o.year).append(this.name, o.name).toComparison();
+  }
 }
