@@ -19,7 +19,7 @@ public class TaxStatementToNameYearUrlConverter {
     NameYearUrl convertedStatement = new NameYearUrl();
 
     convertedStatement.setName(taxStatement.getName());
-    convertedStatement.setYear(taxStatement.getYear());
+    convertedStatement.setYear(taxStatement.getYear().intValue());
 
     String statementUrl = "/portal/p/" + payrollInformationPortletFName +
       "/exclusive/irs_statement.pdf.resource.uP?pP_docId=" +
