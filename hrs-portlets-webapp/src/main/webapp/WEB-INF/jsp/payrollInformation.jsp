@@ -303,7 +303,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="dl-clickable">
+              <tr>
 
 
                 <sec:authorize ifAnyGranted="ROLE_UW_EMPLOYEE_ACTIVE">
@@ -322,7 +322,7 @@
                 </sec:authorize>
               </tr>
 
-              <tr class="dl-clickable">
+              <tr>
                 <sec:authorize ifAnyGranted="ROLE_UW_EMPLOYEE_ACTIVE">
                   <c:if test="${not empty hrsUrls['View 1095-C']}">
                     <td class="hrs-data-text"><a href="${hrsUrls['View 1095-C']}" target="_blank">2018 and later</a></td>
