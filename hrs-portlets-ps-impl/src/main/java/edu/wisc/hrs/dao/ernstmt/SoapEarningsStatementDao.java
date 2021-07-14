@@ -107,7 +107,8 @@ public class SoapEarningsStatementDao
       final String baseUrl = this.hrsUrlDao.getHrsUrls().get(HrsUrlDao.EARNINGS_STATEMENT_KEY);
       final PAYCHECKNBRTypeShape soapPaycheckNumber = soapEarningsStatement.getPAYCHECKNBR();
       final int paycheckNumber = soapPaycheckNumber.getValue();
-      simpleEarningsStatement.setUrl(baseUrl + "?paycheck_nbr=" + paycheckNumber);
+
+      simpleEarningsStatement.setUrl(earningsStatementUrl(baseUrl, paycheckNumber));
 
       simpleEarningsStatements.add(simpleEarningsStatement);
 
@@ -115,6 +116,21 @@ public class SoapEarningsStatementDao
 
     return simpleEarningsStatements;
 
+  }
+
+  /**
+   * Given the base URL into HRS self-service for accessing earnings statement and the paycheck number,
+   * returns the composed URL linking into HRS self-service to access that specific earnings statement.
+   * @param baseUrl
+   * @param paycheckNumber
+   * @return
+   */
+  private String earningsStatementUrl(String baseUrl, int paycheckNumber) {
+    if (baseUrl.contains("?")) {
+      return baseUrl + "&paycheck_nbr=" + paycheckNumber;
+    } else {
+      return baseUrl + "?paycheck_nbr=" + paycheckNumber;
+    }
   }
 
 }
