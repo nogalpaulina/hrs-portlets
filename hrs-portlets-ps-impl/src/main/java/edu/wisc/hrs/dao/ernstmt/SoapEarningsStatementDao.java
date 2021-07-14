@@ -129,7 +129,7 @@ public class SoapEarningsStatementDao
     if (baseUrl.contains("?")) {
       return baseUrl + "&paycheck_nbr=" + paycheckNumber;
     } else {
-      return baseUrl + "?paycheck_nbr" + paycheckNumber;
+      return baseUrl + "?paycheck_nbr=" + paycheckNumber;
     }
   }
 
