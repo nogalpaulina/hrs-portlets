@@ -9,6 +9,9 @@ new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
 Putatively 9.3.0, therefore currently building 9.3.0-SNAPSHOT.
 
++ In Payroll Information, appending the `paycheck_nbr` parameter
+  to the URL linking into HRS self-service to access an earnings statement
+  now correctly uses `&` to delimit the parameter when the URL already contains a `?`.
 + In Payroll Information, tax statements tab now shows all tax statements,
   prepending rows linking into HRS self-service for 2018-and-later statements.
 + In Benefit Information,

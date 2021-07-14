@@ -107,7 +107,12 @@ public class SoapEarningsStatementDao
       final String baseUrl = this.hrsUrlDao.getHrsUrls().get(HrsUrlDao.EARNINGS_STATEMENT_KEY);
       final PAYCHECKNBRTypeShape soapPaycheckNumber = soapEarningsStatement.getPAYCHECKNBR();
       final int paycheckNumber = soapPaycheckNumber.getValue();
-      simpleEarningsStatement.setUrl(baseUrl + "?paycheck_nbr=" + paycheckNumber);
+
+      if (baseUrl.contains("?")) {
+        simpleEarningsStatement.setUrl(baseUrl + "&paycheck_nbr=" + paycheckNumber);
+      } else {
+        simpleEarningsStatement.setUrl(baseUrl + "?paycheck_nbr=" + paycheckNumber);
+      }
 
       simpleEarningsStatements.add(simpleEarningsStatement);
 
