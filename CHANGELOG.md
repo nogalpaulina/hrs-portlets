@@ -9,6 +9,7 @@ new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
 Putatively 9.3.0, therefore currently building 9.3.0-SNAPSHOT.
 
++ Removed earnings statement display from troubleshooter portlet.
 + In Payroll Information, appending the `paycheck_nbr` parameter
   to the URL linking into HRS self-service to access an earnings statement
   now correctly uses `&` to delimit the parameter when the URL already contains a `?`.

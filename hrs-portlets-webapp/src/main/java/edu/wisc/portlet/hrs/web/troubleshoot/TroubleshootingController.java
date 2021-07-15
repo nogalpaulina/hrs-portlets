@@ -26,14 +26,6 @@ public class TroubleshootingController
 
   private HrsRolesDao rolesDao;
 
-  private EarningsStatementService earningsStatementService;
-
-  @Autowired
-  public void setEarningsStatementService(
-      EarningsStatementService earningsStatementService) {
-    this.earningsStatementService = earningsStatementService;
-  }
-
   public HrsRolesDao getRolesDao() {
     return rolesDao;
   }
@@ -67,26 +59,11 @@ public class TroubleshootingController
       Collections.sort(sortedRawRoles);
 
       modelMap.put("rawRoles", sortedRawRoles);
-
-      List<SimpleEarningsStatement> earningsStatements = new ArrayList<SimpleEarningsStatement>();
-
-      RetrievedEarningsStatements retrievedEarningsStatements =
-          this.earningsStatementService.statementsForEmplid(queriedEmplId);
-
-      modelMap.put("earningsStatements",
-          retrievedEarningsStatements.getStatements());
-
-      if (retrievedEarningsStatements.isErrored()) {
-        Exception firstError = retrievedEarningsStatements.getErrors().get(0);
-        modelMap.put("earningsStatementsError", firstError.getMessage());
-      }
-
-
     }
 
     final Map<String, Set<String>> hrsRoleMappings =
         this.rolesDao.getHrsRoleMappings();
-    
+
     final List<HrsRoleMappingRule> rules =
         new ArrayList<HrsRoleMappingRule>();
 

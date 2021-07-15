@@ -31,12 +31,9 @@
       <div>
         <label for="queriedEmplId">HR EmplID: </label><input type="text" name="queriedEmplId" />
       </div>
-      <input type="submit" value="Lookup roles and earnings statements for employee by emplId" />
+      <input type="submit" value="Lookup roles for employee by emplId" />
     </fieldset>
   </form>
-
-  <p>Hint: in MyUW QA, these emplids may have earnings statements: 00582800, 00359298, 00040273,
-    00050575, 00040497.</p>
 
   <h2>Roles</h2>
   <c:if test="${not empty queriedEmplId}">
@@ -95,51 +92,6 @@
       Documentation about the effects of HRS Portlet roles.
     </a>
   </p>
-
-  <c:if test="${not empty queriedEmplId}">
-    <h2>Earnings statements</h2>
-
-    <c:choose>
-      <c:when test="${empty earningsStatementsError}">
-
-        <c:choose>
-          <c:when test="${empty earningsStatements}">
-            <p>Found no earnings statements for emplid ${queriedEmplId}.</p>
-          </c:when>
-
-          <c:otherwise>
-            <table>
-              <tr>
-                <th>Check date</th>
-                <th>Earned</th>
-                <th>Amount</th>
-              </tr>
-
-              <c:forEach var="earningsStatement" items="${earningsStatements}">
-                <tr>
-                  <td>
-                    <a href="${earningsStatement.url}"
-                      target="_blank" rel="noopener noreferrer">
-                      ${earningsStatement.paid}
-                    </a>
-                  </td>
-                  <td>${earningsStatement.earned}</td>
-                  <td>${earningsStatement.amount}</td>
-                </tr>
-               </c:forEach>
-
-            </table>
-
-          </c:otherwise>
-
-        </c:choose>
-
-      </c:when>
-
-      <c:otherwise>
-        <p>Error querying earnings statements: ${earningsStatementsError}.</p>
-      </c:otherwise>
-    </c:choose>
 
   </c:if>
 
