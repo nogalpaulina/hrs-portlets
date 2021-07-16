@@ -19,6 +19,7 @@ Putatively 9.3.0, therefore currently building 9.3.0-SNAPSHOT.
   now supports portlet request parameter `requestedContent`,
   as in Payroll Information. Values "ETF WRS Statements of Benefits" and
   "Benefit Enrollment Confirmation Statements" select the tabs of those names.
++ Re-labels button to "Update 403(b) Deductions" in Benefit Information.
 
 ### 9.2.0
 

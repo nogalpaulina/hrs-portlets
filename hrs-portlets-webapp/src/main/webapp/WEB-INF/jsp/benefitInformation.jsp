@@ -165,7 +165,7 @@
           </c:when>
         </c:choose>
         <div class='col-xs-3'>
-            <a href="${hrsUrls['Update TSA Deductions']}" target="_blank" class="btn btn-default">Update TSA Deductions</a>
+            <a href="${hrsUrls['Update TSA Deductions']}" target="_blank" class="btn btn-default">Update 403(b) Deductions</a>
         </div>
       </div>
     </div>
