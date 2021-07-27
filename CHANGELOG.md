@@ -7,7 +7,11 @@ new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
 ## Next
 
-Putatively 9.3.0, therefore currently building 9.3.0-SNAPSHOT.
+Now building 9.3.1-SNAPSHOT.
+
+## 9.3.0
+
+2021-07-27
 
 + Removed earnings statement display from troubleshooter portlet.
 + In Payroll Information, appending the `paycheck_nbr` parameter
