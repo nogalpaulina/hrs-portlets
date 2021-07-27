@@ -14,6 +14,7 @@ Now building 9.3.1-SNAPSHOT.
 2021-07-27
 
 + Fixed compilation error in troubleshooter JSP
++ Fixed label to labelled form field reference in troubleshooter JSP
 
 ## 9.3.0
 
