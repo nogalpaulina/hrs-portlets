@@ -29,7 +29,7 @@
     <fieldset>
       <legend>Queries using this tool are audit logged.</legend>
       <div>
-        <label for="queriedEmplId">HR EmplID: </label><input type="text" name="queriedEmplId" />
+        <label for="queriedEmplId">HR EmplID: </label><input type="text" name="queriedEmplId" id="queriedEmplId" />
       </div>
       <input type="submit" value="Lookup roles for employee by emplId" />
     </fieldset>
@@ -92,8 +92,6 @@
       Documentation about the effects of HRS Portlet roles.
     </a>
   </p>
-
-  </c:if>
 
   <%@ include file="/WEB-INF/jsp/footer.jsp"%>
 

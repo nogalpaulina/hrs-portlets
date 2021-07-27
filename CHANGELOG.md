@@ -9,6 +9,12 @@ new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
 Now building 9.3.1-SNAPSHOT.
 
+## 9.3.1
+
+2021-07-27
+
++ Fixed compilation error in troubleshooter JSP
+
 ## 9.3.0
 
 2021-07-27
