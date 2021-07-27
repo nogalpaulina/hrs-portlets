@@ -7,7 +7,7 @@ new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
 ## Next
 
-Now building 9.3.1-SNAPSHOT.
+Now building 9.3.2-SNAPSHOT.
 
 ## 9.3.1
 
