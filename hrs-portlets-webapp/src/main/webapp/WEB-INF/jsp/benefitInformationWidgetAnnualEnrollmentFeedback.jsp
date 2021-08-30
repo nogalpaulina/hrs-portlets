@@ -40,6 +40,16 @@
       Give feedback
     </a>
   </div>
+  <div class="tsc__extra-buttons layout-align-center-center layout-row">
+    <c:if test="${not empty learnMoreLink}">
+      <a
+        aria-label="Learn more about benefits"
+        target="_blank" rel="noopener noreferrer"
+        href="${learnMoreLink}">
+        Learn more
+      </a>
+    </c:if>
+  </div>
 </div>
 
 <c:choose>
