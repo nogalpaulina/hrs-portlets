@@ -11,18 +11,18 @@ import org.springframework.stereotype.Service;
 public class AnnualBenefitEnrollmentDatesService {
 
   public static LocalDate firstDayOfAnnualBenefitsEnrollmentForeshadowing =
-      new LocalDate("2020-09-16");
+      new LocalDate("2021-09-19");
   /**
    * Date during the ABE foreshadowing period, used in test cases.
    */
   public static final LocalDate DATE_DURING_ABE_FORESHADOWING =
-      new LocalDate("2020-09-22");
+      new LocalDate("2021-09-22");
   public static LocalDate firstDayOfAnnualBenefitsEnrollment =
-      new LocalDate("2020-09-28");
+      new LocalDate("2021-09-27");
   public static LocalDate lastDayOfAnnualBenefitsEnrollment =
-      new LocalDate("2020-10-23");
+      new LocalDate("2021-10-22");
   public static LocalDate lastDayOfAnnualBenefitsEnrollmentFeedback =
-      new LocalDate("2020-11-27");
+      new LocalDate("2021-11-27");
 
   /**
    * True iff on the given date should show the messages foreshadowing Annual Benefits Enrollment;
