@@ -30,7 +30,7 @@
     <div layout="column" layout-align="center center">
       <p>
         <span class="tsc__days-left">${abeDaysRemaining}</span>
-        day<c:if test="${abeDaysRemaining > 1}">s</c:if> left
+        day<c:if test="${abeDaysRemaining > 1}">s</c:if> left to enroll
       </p>
       <p>
         <a
