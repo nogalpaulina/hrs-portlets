@@ -34,11 +34,23 @@ public class BenefitsLearnMoreLinkGenerator {
       }
     }
 
-    // otherwise, during ABE foreshadowing,
+    // During ABE foreshadowing,
     // everyone gets the annual benefits enrollment preview learn more link
     // because MyUW cannot tell whether the foreshadowing is relevant to the employee
 
     if (datesService.foreshadowAnnualBenefitsEnrollment(new LocalDate())) {
+      if (madisonness) {
+        return "https://hr.wisc.edu/benefits/annual-benefits-enrollment/";
+      } else {
+        return "https://www.wisconsin.edu/abe/";
+      }
+    }
+
+    // During ABE feedback period,
+    // everyone (who lacks a new hire enrollment opportunity) gets the annual benefits enrollment learn more link
+    // because MyUW cannot tell whether rearview mirror of annual benefits enrollment is relevant to the employee
+
+    if (datesService.feedbackPeriod(new LocalDate())) {
       if (madisonness) {
         return "https://hr.wisc.edu/benefits/annual-benefits-enrollment/";
       } else {

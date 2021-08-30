@@ -9,6 +9,8 @@ new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
 Now building 9.3.2-SNAPSHOT.
 
++ Use ABE-specific Learn more links during the after-ABE feedback period.
+
 ## 9.3.1
 
 2021-07-27

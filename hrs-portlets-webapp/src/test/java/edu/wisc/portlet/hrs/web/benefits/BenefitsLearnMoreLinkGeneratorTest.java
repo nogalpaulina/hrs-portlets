@@ -88,6 +88,50 @@ public class BenefitsLearnMoreLinkGeneratorTest {
   }
 
   @Test
+  public void duringFeedbackPeriodMadisonEmployeesGetMadisonAbeLearnMoreLink() {
+    Set<String> roles = new HashSet<String>();
+
+    LocalDate lastDateOfAnnualBenefitsEnrollment = AnnualBenefitEnrollmentDatesService.lastDayOfAnnualBenefitsEnrollment;
+    LocalDate duringFeedbackPeriod = lastDateOfAnnualBenefitsEnrollment.plusDays(2);
+    DateTimeUtils.setCurrentMillisFixed(duringFeedbackPeriod.toDate().getTime());
+
+    assertEquals(
+      "During the feedback period, Madison employees should get the Madison-specific annual benefits enrollment link",
+      "https://hr.wisc.edu/benefits/annual-benefits-enrollment/",
+      generator.learnMoreLinkFor(roles, true));
+  }
+
+  @Test
+  public void duringFeedbackPeriodNonMadisonEmployeesGetWisconsinAbeLearnMoreLink() {
+    Set<String> roles = new HashSet<String>();
+
+    LocalDate lastDateOfAnnualBenefitsEnrollment = AnnualBenefitEnrollmentDatesService.lastDayOfAnnualBenefitsEnrollment;
+    LocalDate duringFeedbackPeriod = lastDateOfAnnualBenefitsEnrollment.plusDays(2);
+    DateTimeUtils.setCurrentMillisFixed(duringFeedbackPeriod.toDate().getTime());
+
+    assertEquals(
+      "During the feedback period, non-Madison employees should get the learn more link to the wisconsin.edu ABE page.",
+      "https://www.wisconsin.edu/abe/",
+      generator.learnMoreLinkFor(roles, false));
+  }
+
+  @Test
+  public void learningAboutNewHireTakesPrecedenceOverLearningAboutAbeDuringFeedbackForMadisonEmployee() {
+    Set<String> roles = new HashSet<String>();
+    roles.add("ROLE_VIEW_NEW_HIRE_BENEFITS");
+
+    LocalDate lastDateOfAnnualBenefitsEnrollment = AnnualBenefitEnrollmentDatesService.lastDayOfAnnualBenefitsEnrollment;
+    LocalDate duringFeedbackPeriod = lastDateOfAnnualBenefitsEnrollment.plusDays(2);
+    DateTimeUtils.setCurrentMillisFixed(duringFeedbackPeriod.toDate().getTime());
+
+    assertEquals(
+      "During the feedback period, Madison employees with a new hire enrollment opportunity should get the new hire link (not the ABE link).",
+      "https://hr.wisc.edu/benefits/new-employee-benefits-enrollment/",
+      generator.learnMoreLinkFor(roles, true));
+
+  }
+
+  @Test
   public void testNewHireBenefitEnrollmentOpportunityMadisonUser() {
     Set<String> roles = new HashSet<String>();
     roles.add("ROLE_VIEW_NEW_HIRE_BENEFITS");
