@@ -29,7 +29,7 @@
   <div class="tsc__status">
     <div layout="column" layout-align="center center">
       <p>
-        ended October 23.
+        ended October 22.
       </p>
     </div>
   </div>
