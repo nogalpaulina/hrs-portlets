@@ -13,11 +13,11 @@ public class AnnualBenefitEnrollmentDatesServiceTest {
   public void testForeshadowing() {
     assertFalse(
       "Foreshadowing Annual Benefits Enrollment should not begin prematurely.",
-      service.foreshadowAnnualBenefitsEnrollment(new LocalDate("2021-09-18")));
+      service.foreshadowAnnualBenefitsEnrollment(new LocalDate("2021-09-15")));
 
     assertTrue(
-      "Foreshadowing Annual Benefits Enrollment should begin on September 19, 2021.",
-      service.foreshadowAnnualBenefitsEnrollment(new LocalDate("2021-09-19")));
+      "Foreshadowing Annual Benefits Enrollment should begin on September 16, 2021.",
+      service.foreshadowAnnualBenefitsEnrollment(new LocalDate("2021-09-16")));
 
     assertTrue(
       "Foreshadowing Annual Benefits Enrollment should continue during the foreshadowing period.",

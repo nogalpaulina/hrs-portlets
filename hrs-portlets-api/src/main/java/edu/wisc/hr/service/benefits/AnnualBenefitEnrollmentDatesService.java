@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class AnnualBenefitEnrollmentDatesService {
 
   public static LocalDate firstDayOfAnnualBenefitsEnrollmentForeshadowing =
-      new LocalDate("2021-09-19");
+      new LocalDate("2021-09-16");
   /**
    * Date during the ABE foreshadowing period, used in test cases.
    */
