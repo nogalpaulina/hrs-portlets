@@ -22,7 +22,7 @@ public class AnnualBenefitEnrollmentDatesService {
   public static LocalDate lastDayOfAnnualBenefitsEnrollment =
       new LocalDate("2021-10-22");
   public static LocalDate lastDayOfAnnualBenefitsEnrollmentFeedback =
-      new LocalDate("2021-11-27");
+      new LocalDate("2021-11-26");
 
   /**
    * True iff on the given date should show the messages foreshadowing Annual Benefits Enrollment;

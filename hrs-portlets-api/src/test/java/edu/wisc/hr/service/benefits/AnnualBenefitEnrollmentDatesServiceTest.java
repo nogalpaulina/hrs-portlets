@@ -83,13 +83,13 @@ public class AnnualBenefitEnrollmentDatesServiceTest {
       "November 12, 2021, should be considered within the feedback period.",
       service.feedbackPeriod(new LocalDate("2021-11-12")));
 
-    assertTrue("The last day of feedback should be considered within the feedback period.",
-      service.feedbackPeriod(new LocalDate("2021-11-27")));
+    assertTrue("The last day of feedback (November 26, 2021) should be considered within the feedback period.",
+      service.feedbackPeriod(new LocalDate("2021-11-26")));
 
     // but not after its last day
     assertFalse(
       "The day after the last day of the feedback period should not be considered within the feedback period.",
-      service.feedbackPeriod(new LocalDate("2021-11-28")));
+      service.feedbackPeriod(new LocalDate("2021-11-27")));
   }
 
   @Test
