@@ -7,7 +7,7 @@ new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
 ## Next
 
-Now building 9.3.2-SNAPSHOT.
+Now building 9.4.0-SNAPSHOT.
 
 + Configured dates for enroll-in-2021 for-benefits-in-2022 annual benefits enrollment (ABE).
 + ABE template changes to reduce brevity,
