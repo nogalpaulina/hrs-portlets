@@ -25,11 +25,11 @@
 <spring:htmlEscape defaultHtmlEscape="true" />
 
 <div class="widget-body layout-align-center-center layout-column">
-  <span class="tsc__title">Annual Benefits Enrollment</span>
+  <span class="tsc__title">2022 Annual Benefits Enrollment</span>
   <div class="tsc__status">
     <div layout="column" layout-align="center center">
       <p>
-        ended October 23.
+        ended October 22.
       </p>
     </div>
   </div>
@@ -39,6 +39,16 @@
       target="_blank" rel="noreferrer noopener">
       Give feedback
     </a>
+  </div>
+  <div class="tsc__extra-buttons layout-align-center-center layout-row">
+    <c:if test="${not empty learnMoreLink}">
+      <a
+        aria-label="Learn more about benefits"
+        target="_blank" rel="noopener noreferrer"
+        href="${learnMoreLink}">
+        Learn more
+      </a>
+    </c:if>
   </div>
 </div>
 

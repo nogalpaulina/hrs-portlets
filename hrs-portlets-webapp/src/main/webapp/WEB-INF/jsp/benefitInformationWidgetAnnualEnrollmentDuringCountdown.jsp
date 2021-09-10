@@ -25,12 +25,12 @@
 <spring:htmlEscape defaultHtmlEscape="true" />
 
 <div class="widget-body layout-align-center-center layout-column">
-  <span class="tsc__title">Annual Benefits Enrollment</span>
+  <span class="tsc__title">2022 Annual Benefits Enrollment</span>
   <div class="tsc__status">
     <div layout="column" layout-align="center center">
       <p>
         <span class="tsc__days-left">${abeDaysRemaining}</span>
-        day<c:if test="${abeDaysRemaining > 1}">s</c:if> left
+        day<c:if test="${abeDaysRemaining > 1}">s</c:if> left to enroll
       </p>
       <p>
         <a

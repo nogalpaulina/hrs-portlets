@@ -25,7 +25,7 @@
 <spring:htmlEscape defaultHtmlEscape="true" />
 
 <div class="widget-body layout-align-center-center layout-column">
-  <span class="tsc__title">Annual Benefits Enrollment</span>
+  <span class="tsc__title">2022 Annual Benefits Enrollment</span>
   <div layout="column" layout-align="center center">
     <p>
       <span class="tsc__last-day">ends today!</span>
