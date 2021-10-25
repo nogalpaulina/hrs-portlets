@@ -9,6 +9,13 @@ new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
 Now building 9.4.1-SNAPSHOT.
 
+## 9.4.1
+
+2021-10-25
+
++ Fix the link to the post-annual-benefits-enrollment feedback survey to use
+  the correct URL.
+
 ## 9.4.0
 
 2021-09-10
