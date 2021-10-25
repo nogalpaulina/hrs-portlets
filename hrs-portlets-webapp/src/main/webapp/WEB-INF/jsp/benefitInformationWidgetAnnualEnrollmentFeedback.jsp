@@ -35,7 +35,7 @@
   </div>
   <div class="tsc__extra-buttons" layout="row" layout-align="center center">
     <a
-      href="http://uwsystemadmin.qualtrics.com/jfe/form/SV_3V1YJvK5yb0qfZz"
+      href="https://go.wisc.edu/23de4r"
       target="_blank" rel="noreferrer noopener">
       Give feedback
     </a>
