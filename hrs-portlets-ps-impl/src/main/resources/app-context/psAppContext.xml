@@ -41,8 +41,12 @@
     <!-- maps an HRS side role name to a portlet side role name -->
     <util:map id="hrsRolesMapping">
 
+        <!-- keys are HRS roles -->
         <entry key="UW_EMPLOYEE_ACTIVE">
           <set>
+            <!-- values are hrs-portlets roles.
+              The first time each role appears it is supported with documentation of its effects.
+            -->
             <value>ROLE_UW_EMPLOYEE_ACTIVE</value>
               <!-- effects
                 In Personal Information
@@ -68,6 +72,21 @@
                     Allows rendering absenceHistories.json
                     Show the Absence tab
                 -->
+            <value>ROLE_VIEW_DIRECT_DEPOSIT</value>
+              <!-- effects
+                In Payroll Information
+                  Changes the href of the Update your Direct Deposit link
+                  to the URL provided by the HRS URLs service for linking into
+                  self-service Direct Deposit editing, rather than linking to
+                  the static PDF form.
+                In Contact Information
+                  Changes the text describing what the employee can update in
+                  HRS on a self-service basis and what the employee would need
+                  to contact their local HR office to update. Employees with
+                  ROLE_VIEW_DIRECT_DEPOSIT may update their contact
+                  information on a self-service basis.
+                  The descriptive text changes either way to reflect.
+              -->
           </set>
         </entry>
 
@@ -155,24 +174,6 @@
         <entry key="UW_DYN_PY_DIRDEP_SS">
           <set>
               <value>ROLE_VIEW_DIRECT_DEPOSIT</value>
-              <!-- effects
-                In Payroll Information
-                  Changes the href of the Update your Direct Deposit link
-                  to the URL providing by the HRS URLs service for linking into
-                  self-service Direct Deposit editing, rather than linking to
-                  the static PDF form.
-                In Contact Information
-                  Changes the text describing what the employee can update in
-                  HRS on a self-service basis and what the employee would need
-                  to contact their local HR office to update. Employees with
-                  ROLE_VIEW_DIRECT_DEPOSIT are using Multi-Factor Authentication
-                  and so by policy are allowed to update their contact
-                  information on a self-service basis. Employees without
-                  ROLE_VIEW_DIRECT_DEPOSIT are not using MFA and so by policy
-                  are not allowed to update thier contact information on a
-                  self-service basis. The descriptive text changes either way to
-                  reflect.
-              -->
           </set>
         </entry>
         <entry key="UW_DYN_PY_ESS_GARNISH">
