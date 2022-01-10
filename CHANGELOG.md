@@ -5,6 +5,10 @@
 The v9 major version was occasioned by the breaking change of the
 new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
+## Next
+
+Now building 9.6.0-SNAPSHOT.
+
 ## 9.5.0
 
 2022-01-10
