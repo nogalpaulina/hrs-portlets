@@ -5,9 +5,9 @@
 The v9 major version was occasioned by the breaking change of the
 new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
-## Next
+## 9.5.0
 
-Now building 9.5.0-SNAPSHOT.
+2022-01-10
 
 + Grant hrs-portlets role `ROLE_VIEW_DIRECT_DEPOSIT` to users with HRS role `UW_EMPLOYEE_ACTIVE`.
 
