@@ -7,7 +7,7 @@ new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
 ## Next
 
-Now building 9.4.2-SNAPSHOT.
+Now building 9.5.0-SNAPSHOT.
 
 + Grant hrs-portlets role `ROLE_VIEW_DIRECT_DEPOSIT` to users with HRS role `UW_EMPLOYEE_ACTIVE`.
 
