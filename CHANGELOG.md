@@ -5,9 +5,9 @@
 The v9 major version was occasioned by the breaking change of the
 new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
-## Next
+## 9.6.0
 
-Now building 9.6.0-SNAPSHOT.
+2022-01-21
 
 + In Personal Information, remove some text about "preferred name" feature within HRS.
   This HRS feature does not in practice do anything,
