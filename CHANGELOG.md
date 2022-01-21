@@ -9,6 +9,10 @@ new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
 Now building 9.6.0-SNAPSHOT.
 
++ In Personal Information, remove text about "preferred name" feature within HRS.
+  This HRS feature does not in practice do anything,
+  so drawing employee attention drawn to this feature does not best serve employees.
+
 ## 9.5.0
 
 2022-01-10

@@ -71,15 +71,6 @@
                   </span>
               </div>
 
-
-            <div class='edit-notice'>
-                <p class='edit-notice'>
-                  Update your preferred name in HRS
-                  using the 'Update My Personal Information' link below.
-                  This will appear in employee self-service
-                  (e.g. your timesheet) only.
-                </p>
-            </div>
         </c:when>
         <c:otherwise>
         <div class="contact-info-official-name">
@@ -178,7 +169,7 @@
               <strong>
                 <sec:authorize ifAllGranted="ROLE_VIEW_DIRECT_DEPOSIT">
                   Addresses (Home &amp; Mail); Contact Details (Phone &amp; Email);</sec:authorize>
-                Preferred Name; Emergency Contacts;
+                Emergency Contacts;
                 <sec:authorize ifAllGranted="ROLE_VIEW_DIRECT_DEPOSIT">Release Home Information;</sec:authorize>
                 Marital Status; Coordination of Benefits; Medicare Information;
                 Ethnic Groups; Veteran Status; Disability.
