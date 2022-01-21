@@ -169,7 +169,7 @@
               <strong>
                 <sec:authorize ifAllGranted="ROLE_VIEW_DIRECT_DEPOSIT">
                   Addresses (Home &amp; Mail); Contact Details (Phone &amp; Email);</sec:authorize>
-                Emergency Contacts;
+                Preferred Name; Emergency Contacts;
                 <sec:authorize ifAllGranted="ROLE_VIEW_DIRECT_DEPOSIT">Release Home Information;</sec:authorize>
                 Marital Status; Coordination of Benefits; Medicare Information;
                 Ethnic Groups; Veteran Status; Disability.
