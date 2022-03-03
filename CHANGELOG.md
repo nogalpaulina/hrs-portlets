@@ -9,6 +9,11 @@ new, required `fname` `portlet-preference` in Benefit Information Portlet.
 
 Now building 9.7.0-SNAPSHOT.
 
++ In Payroll Information, adds "Pay and Benefits Deduction Schedule" hyperlink,
+  linking to the
+  [payroll schedule PDF](https://uwservice.wisconsin.edu/docs/publications/pay-bw-calendar.pdf)
+  via go.wisc URL <https://go.wisc.edu/7o144a>.
+
 ## 9.6.0
 
 2022-01-21
