@@ -217,6 +217,10 @@
                   Understanding Your Earnings Statement</a>
               </div>
             </c:if>
+            <div class="dl-link">
+              <a href="https://go.wisc.edu/7o144a" target="_blank">
+                Pay and Benefits Deduction Schedule</a>
+            </div>
           </c:when>
 
           <c:when test="${empty earningsStatements && !earningsStatementsError}">
