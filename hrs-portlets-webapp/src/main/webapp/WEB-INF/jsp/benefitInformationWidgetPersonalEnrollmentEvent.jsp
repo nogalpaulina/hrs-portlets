@@ -43,7 +43,7 @@
         aria-label="Learn more about benefits"
         target="_blank" rel="noopener noreferrer"
         href="${learnMoreLink}">
-        Learn more
+        Learn more about Employee Benefits at UW System
       </a>
     </c:if>
   </div>

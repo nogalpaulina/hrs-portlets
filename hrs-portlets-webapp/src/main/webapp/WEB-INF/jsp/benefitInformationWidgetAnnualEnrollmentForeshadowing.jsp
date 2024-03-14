@@ -36,7 +36,7 @@
         aria-label="Learn more about benefits"
         target="_blank" rel="noopener noreferrer"
         href="${learnMoreLink}">
-        Learn more
+        UW-Madison benefits resources
       </a>
     </c:if>
   </div>

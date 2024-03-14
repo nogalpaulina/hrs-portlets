@@ -33,7 +33,7 @@
             aria-label="Learn more about benefit enrollment"
             href="${learnMoreLink}"
             target="_blank" rel="noopener noreferrer">
-            Learn more
+            UW-Madison benefits resources
           </a>
         </c:if>
       </div>
@@ -48,7 +48,7 @@
             aria-label="Learn more about annual benefit enrollment"
             href="${learnMoreLink}"
             target="_blank" rel="noopener noreferrer">
-            Learn more
+            Learn more about Employee Benefits at UW System
           </a>
         </c:if>
       </div>

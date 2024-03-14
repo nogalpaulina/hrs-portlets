@@ -43,7 +43,7 @@
     </div>
   </div>
   <div class="tsc__extra-buttons" layout="row" layout-align="center center">
-    <a href="${learnMoreLink}" target="_blank" rel="noreferrer noopener">Learn more</a>
+    <a href="${learnMoreLink}" target="_blank" rel="noreferrer noopener">UW-Madison benefits resources</a>
   </div>
 </div>
 
