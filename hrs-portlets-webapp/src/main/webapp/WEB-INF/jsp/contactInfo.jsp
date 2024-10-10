@@ -117,7 +117,7 @@
     <!-- TODO switch to spring-sec role check? -->
     <span class="email-address">${fn:escapeXml(contactInformation.email)}</span>
     <c:if test="${showBusinessEmail and not empty preferredEmail.name}">
-      <a aria-label="Link to change Campus Business Email" href="javascript:;" class="change-business-email"> Change</a>
+      <a aria-label="Link to change Campus Business Email in Profile. Opens in new browser tab." target="_blank" "https://profile.wisc.edu/contact-information" class="change-business-email"> Edit Campus Business Email in Profile</a>
       <span class="email-error"></span>
     </c:if>
   </div>
